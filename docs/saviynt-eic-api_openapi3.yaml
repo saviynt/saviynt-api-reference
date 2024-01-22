@@ -1,0 +1,386 @@
+openapi: 3.1.0
+x-stoplight:
+  id: uyxb46mfjt7dp
+info:
+  title: Saviynt EIC API
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /fetchControlList:
+    post:
+      summary: Fetch List of Analytics
+      operationId: fetchControlList
+      tags:
+        - Analytics
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchControlListRequest'
+      description: ''
+  /fetchControlDetails:
+    post:
+      summary: Fetch Analytics Details
+      operationId: post-fetchControlDetails
+      tags:
+        - Analytics
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/fetchControlDetails'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FetchControlDetailsRequest'
+      description: This web service API is used to fetch the details of analytics controls.
+  /runAnalyticsControls:
+    post:
+      summary: Run Analytics Controls
+      operationId: post-runAnalyticsControls
+      tags:
+        - Analytics
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RunAnalyticsControlsRequest'
+  /fetchRuntimeControlsData:
+    post:
+      summary: ''
+      operationId: post-fetchRuntimeControlsData
+      tags:
+        - Analytics
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchRuntimeControlsDataRequest'
+  /fetchRuntimeControlsDataV2:
+    post:
+      summary: Fetch Runtime Controls Data V2
+      operationId: fetchRuntimeControlsDataV2
+      tags:
+        - Analytics
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchRuntimeControlsDataV2Request'
+        description: ''
+  /fetchControlAttributes:
+    post:
+      summary: Fetch Control Attributes
+      operationId: post-fetchControlAttributes
+      responses:
+        '200':
+          description: OK
+      description: This API is used for fetching the details of dynamic attributes associated with an analytics control. This can be used for both Elasticsearch and Database analytics.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchControlAttributesRequest'
+  /fetchControlListES:
+    get:
+      summary: Fetch List of Analytics ES
+      tags: []
+      responses: {}
+      operationId: fetchControlListES
+      description: |-
+        This method fetches a list of Analytic Controls in Elastic.
+
+        Note: Security is based on owner, delegate, `ROLE_ADMIN`, SAV_ROLE's analytics ES category.
+  /fetchControlDetailsES:
+    get:
+      summary: Fetch Analytics Details ES
+      tags: []
+      responses: {}
+      operationId: fetchControlDetailsES
+      description: 'This web service API is used to fetch the details of analytics controls ES, includes the Offset value in the response.'
+components:
+  schemas:
+    FetchControlListRequest:
+      title: FetchControlListRequest
+      x-stoplight:
+        id: j1hfpwqxneu11
+      type: object
+      properties:
+        application:
+          type: string
+          x-stoplight:
+            id: x5lnjaqwxhaas
+        category:
+          type: string
+          x-stoplight:
+            id: bui0yfkd4lwoy
+        max:
+          type: string
+          x-stoplight:
+            id: 8s25cgick27fu
+        offset:
+          type: string
+          x-stoplight:
+            id: h433q0x239tr5
+    FetchControlDetailsRequest:
+      title: FetchControlDetails
+      x-stoplight:
+        id: 6ns86hzu7sdd8
+      type: object
+      properties:
+        controlId:
+          type: string
+          x-stoplight:
+            id: 3v79rbtw8qy9d
+        max:
+          type: string
+          x-stoplight:
+            id: de4luh6fct1in
+        offset:
+          type: string
+          x-stoplight:
+            id: 64sybht5vrikh
+      required:
+        - controlId
+    RunAnalyticsControlsRequest:
+      title: RunAnalyticsControlsRequest
+      x-stoplight:
+        id: 87y2dc3seajgq
+      type: object
+      properties:
+        jobgroup:
+          type: string
+          x-stoplight:
+            id: ggoezmz8mhpkd
+        jobname:
+          type: string
+          x-stoplight:
+            id: md536xji95s6k
+        analyticsCategories:
+          type: string
+          x-stoplight:
+            id: b642yifl4s6hx
+        analyticsApplications:
+          type: string
+          x-stoplight:
+            id: 240z30vkn6tn6
+        analyticssubcategories:
+          type: string
+          x-stoplight:
+            id: oh3210dy6zx9e
+      required:
+        - jobgroup
+        - jobname
+        - analyticsCategories
+    FetchRuntimeControlsDataRequest:
+      title: FetchRuntimeControlsDataRequest
+      x-stoplight:
+        id: 5h540av4auguz
+      type: object
+      properties:
+        analyticsid:
+          type: string
+          x-stoplight:
+            id: 6ek1ln8a242yd
+        analyticsname:
+          type: string
+          x-stoplight:
+            id: mlzv7ri3mtb21
+        attributes:
+          type: object
+          x-stoplight:
+            id: 4h6byvz7roccx
+        max:
+          type: string
+          x-stoplight:
+            id: 2nyv0eifbq4vv
+        offset:
+          type: string
+          x-stoplight:
+            id: ivw7lngvlka5q
+        loggedinuser:
+          type: string
+          x-stoplight:
+            id: cz04q6509vxtx
+    FetchRuntimeControlsDataV2Request:
+      title: FetchRuntimeControlsDataV2
+      x-stoplight:
+        id: y72ldde5mw2fm
+      type: object
+      properties:
+        requestor:
+          type: string
+          x-stoplight:
+            id: 8lwakmt6icwf0
+        analyticsname:
+          type: string
+          x-stoplight:
+            id: bcoap517ja2dr
+        analyticsid:
+          type: string
+          x-stoplight:
+            id: oamryaepvpj6y
+        attributes:
+          type: object
+          x-stoplight:
+            id: qh4y4bhhckmjs
+        max:
+          type: string
+          x-stoplight:
+            id: x1fpaihq38wtb
+        offset:
+          type: string
+          x-stoplight:
+            id: lcbkfr9j2lz5b
+    FetchControlDetails:
+      type: object
+      x-stoplight:
+        id: a50fa54b24a85
+      properties:
+        controlId:
+          type: string
+          x-stoplight:
+            id: pgn92lys1h0gg
+        max:
+          type: string
+          x-stoplight:
+            id: 7710f15k99r60
+        offset:
+          type: string
+          x-stoplight:
+            id: vju76g9l3tsdq
+      required:
+        - controlId
+    FetchControlAttributesRequest:
+      title: FetchControlAttributesRequest
+      x-stoplight:
+        id: iasaxhi5b6ra5
+      type: object
+      properties:
+        analyticstype:
+          type: string
+          x-stoplight:
+            id: c25fj8an0lke0
+          enum:
+            - ES
+            - DB
+        analyticsname:
+          type: string
+          x-stoplight:
+            id: c25fj8an0lke0
+        id:
+          type: string
+          x-stoplight:
+            id: ccnguyxlr43nw
+        offset:
+          type: string
+          x-stoplight:
+            id: j1hx738kzy1wi
+        max:
+          type: string
+          x-stoplight:
+            id: t60xlmb2ol31w
+      required:
+        - analyticstype
+    FetchControlListESRequest:
+      title: FetchControlListESRequest
+      x-stoplight:
+        id: 4v4l1ot4gs6d6
+      type: object
+      properties:
+        searchcriteria:
+          type: object
+          x-stoplight:
+            id: jho2qeky09dhk
+        max:
+          type: string
+          x-stoplight:
+            id: php9l8jxfof0g
+        offset:
+          type: string
+          x-stoplight:
+            id: 9zgeixhd67bvm
+        loggedinuser:
+          type: string
+          x-stoplight:
+            id: 39ob3f81hljdd
+    FetchControlDetailsESRequest:
+      title: FetchControlDetailsESRequest
+      x-stoplight:
+        id: zqd9n7c2j9wmz
+      type: object
+      properties:
+        analyticsid:
+          type: string
+          x-stoplight:
+            id: gj6tpn741fxy4
+        analyticsname:
+          type: string
+          x-stoplight:
+            id: bgt8wkxt18njk
+        loggedinuser:
+          type: string
+          x-stoplight:
+            id: 0fwrz82mscim0
+        max:
+          type: string
+          x-stoplight:
+            id: klh70gnv0kas0
+        offset:
+          type: string
+          x-stoplight:
+            id: hipjrsgtmj42n
+        filtercriteria:
+          type: object
+          x-stoplight:
+            id: hgjn2kzypzve2
+  requestBodies:
+    FetchRuntimeControlsDataV2:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              requestor:
+                type: string
+                x-stoplight:
+                  id: um9gl00s9jvvy
+              analyticsname:
+                type: string
+                x-stoplight:
+                  id: djw23wcc7iy96
+              analyticsid:
+                type: string
+                x-stoplight:
+                  id: 84vrlbdh9c50n
+              max:
+                type: string
+                x-stoplight:
+                  id: 6q1hw851mmn7f
+              offset:
+                type: string
+                x-stoplight:
+                  id: zr4fypdldd8nu
+              attributes:
+                type: object
+                x-stoplight:
+                  id: 7zyhivot226pw
