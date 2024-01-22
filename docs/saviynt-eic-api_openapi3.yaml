@@ -25,7 +25,7 @@ paths:
   /fetchControlDetails:
     post:
       summary: Fetch Analytics Details
-      operationId: post-fetchControlDetails
+      operationId: fetchControlDetails
       tags:
         - Analytics
       responses:
@@ -47,7 +47,7 @@ paths:
   /runAnalyticsControls:
     post:
       summary: Run Analytics Controls
-      operationId: post-runAnalyticsControls
+      operationId: runAnalyticsControls
       tags:
         - Analytics
       responses:
@@ -61,7 +61,7 @@ paths:
   /fetchRuntimeControlsData:
     post:
       summary: ''
-      operationId: post-fetchRuntimeControlsData
+      operationId: fetchRuntimeControlsData
       tags:
         - Analytics
       responses:
@@ -90,7 +90,9 @@ paths:
   /fetchControlAttributes:
     post:
       summary: Fetch Control Attributes
-      operationId: post-fetchControlAttributes
+      operationId: fetchControlAttributes
+      tags:
+        - Analytics
       responses:
         '200':
           description: OK
@@ -101,9 +103,10 @@ paths:
             schema:
               $ref: '#/components/schemas/FetchControlAttributesRequest'
   /fetchControlListES:
-    get:
+    post:
       summary: Fetch List of Analytics ES
-      tags: []
+      tags:
+        - Analytics
       responses: {}
       operationId: fetchControlListES
       description: |-
@@ -111,9 +114,10 @@ paths:
 
         Note: Security is based on owner, delegate, `ROLE_ADMIN`, SAV_ROLE's analytics ES category.
   /fetchControlDetailsES:
-    get:
+    post:
       summary: Fetch Analytics Details ES
-      tags: []
+      tags:
+        - Analytics
       responses: {}
       operationId: fetchControlDetailsES
       description: 'This web service API is used to fetch the details of analytics controls ES, includes the Offset value in the response.'
