@@ -60,7 +60,7 @@ paths:
               $ref: '#/components/schemas/RunAnalyticsControlsRequest'
   /fetchRuntimeControlsData:
     post:
-      summary: ''
+      summary: Fetch Runtime Controls Data
       operationId: fetchRuntimeControlsData
       tags:
         - Analytics
