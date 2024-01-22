@@ -2,7 +2,7 @@ openapi: 3.1.0
 x-stoplight:
   id: uyxb46mfjt7dp
 info:
-  title: Saviynt Enterprise Identity CLoud (EIC) API
+  title: Saviynt Enterprise Identity Cloud (EIC) API
   version: '5.0'
 servers:
   - url: 'https://example.saviyntcloud.com'
