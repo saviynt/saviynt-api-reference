@@ -2,10 +2,10 @@ openapi: 3.1.0
 x-stoplight:
   id: uyxb46mfjt7dp
 info:
-  title: Saviynt EIC API
-  version: '1.0'
+  title: Saviynt Enterprise Identity CLoud (EIC) API
+  version: '5.0'
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://example.saviyntcloud.com'
 paths:
   /fetchControlList:
     post:
