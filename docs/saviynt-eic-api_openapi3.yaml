@@ -16,6 +16,10 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FetchControlListResponse'
       requestBody:
         content:
           application/json:
@@ -433,50 +437,4 @@ components:
           type: object
           x-stoplight:
             id: hgjn2kzypzve2
-    fetchControlDetails:
-      type: object
-      additionalProperties: false
-      properties:
-        controlId:
-          type: string
-          x-stoplight:
-            id: 9gvtdquvzokmt
-        max:
-          type: string
-          x-stoplight:
-            id: qr1m8i9y1ueyl
-        offset:
-          type: string
-          x-stoplight:
-            id: yh16kiuxmxzdg
-  requestBodies:
-    FetchRuntimeControlsDataV2:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              requestor:
-                type: string
-                x-stoplight:
-                  id: um9gl00s9jvvy
-              analyticsname:
-                type: string
-                x-stoplight:
-                  id: djw23wcc7iy96
-              analyticsid:
-                type: string
-                x-stoplight:
-                  id: 84vrlbdh9c50n
-              max:
-                type: string
-                x-stoplight:
-                  id: 6q1hw851mmn7f
-              offset:
-                type: string
-                x-stoplight:
-                  id: zr4fypdldd8nu
-              attributes:
-                type: object
-                x-stoplight:
-                  id: 7zyhivot226pw
+  requestBodies: {}
