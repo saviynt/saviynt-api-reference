@@ -5,7 +5,7 @@ info:
   title: Saviynt Enterprise Identity Cloud (EIC) API
   version: '5.0'
 servers:
-  - url: 'https://example.saviyntcloud.com'
+  - url: 'https://example.saviyntcloud.com/ECM/api/v5'
 paths:
   /fetchControlList:
     post:
@@ -33,13 +33,6 @@ paths:
           description: OK
       requestBody:
         content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/fetchControlDetails'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/FetchControlDetailsRequest'
@@ -145,6 +138,108 @@ components:
           type: string
           x-stoplight:
             id: h433q0x239tr5
+    FetchControlListResponse:
+      title: FetchControlListResponse
+      x-stoplight:
+        id: af3dfar44m893
+      type: object
+      examples:
+        - msg: Success
+          controls:
+            - analyticsId: 45
+              application: System1
+              analyticsName: Test 1
+              controlid: null
+              category: Certification
+              description: ''
+              lastRun: '05-01-2017 21:10:03'
+              risk: High
+              recommendations: ''
+              conflictCount: 14
+          errorCode: '0'
+      properties:
+        msg:
+          type: string
+          x-stoplight:
+            id: 54jexjooivov4
+        controls:
+          type: array
+          x-stoplight:
+            id: t7tnixg5vn1v3
+          items:
+            $ref: '#/components/schemas/FetchControlListControl'
+            x-stoplight:
+              id: i0b8qfwrmpdex
+        displayCount:
+          type: integer
+          x-stoplight:
+            id: p0e0watz2bk3i
+        errorCode:
+          type: string
+          x-stoplight:
+            id: ltcnqu8587hha
+        totalCount:
+          type: integer
+          x-stoplight:
+            id: m2v9vy8tcmofe
+      description: ''
+    FetchControlListControl:
+      title: FetchControlListControl
+      x-stoplight:
+        id: wxutwinsvzwaf
+      type: object
+      properties:
+        analyticsId:
+          type: integer
+          x-stoplight:
+            id: 5rjbguo1klhuk
+        application:
+          type: string
+          x-stoplight:
+            id: rp5qq6id2qoo0
+        analyticsName:
+          type: string
+          x-stoplight:
+            id: lo70rd8867eu2
+        controlid:
+          type: string
+          x-stoplight:
+            id: 3ktb3qmfwcoa6
+        category:
+          type: string
+          x-stoplight:
+            id: t21cmpzznft8j
+        description:
+          type: string
+          x-stoplight:
+            id: zxc4f5ii3j9hx
+        lastRun:
+          type: string
+          x-stoplight:
+            id: k0f5pe0k11i3t
+        Risk:
+          type: string
+          x-stoplight:
+            id: jfu3ehuhksfgu
+        recommendations:
+          type: string
+          x-stoplight:
+            id: pa52dmzf12ahy
+        conflictCount:
+          type: integer
+          x-stoplight:
+            id: i1zgqqs00de3d
+      examples:
+        - analyticsId: 0
+          application: string
+          analyticsName: string
+          controlid: string
+          category: string
+          description: string
+          lastRun: string
+          Risk: string
+          recommendations: string
+          conflictCount: 0
     FetchControlDetailsRequest:
       title: FetchControlDetails
       x-stoplight:
@@ -255,25 +350,6 @@ components:
           type: string
           x-stoplight:
             id: lcbkfr9j2lz5b
-    FetchControlDetails:
-      type: object
-      x-stoplight:
-        id: a50fa54b24a85
-      properties:
-        controlId:
-          type: string
-          x-stoplight:
-            id: pgn92lys1h0gg
-        max:
-          type: string
-          x-stoplight:
-            id: 7710f15k99r60
-        offset:
-          type: string
-          x-stoplight:
-            id: vju76g9l3tsdq
-      required:
-        - controlId
     FetchControlAttributesRequest:
       title: FetchControlAttributesRequest
       x-stoplight:
@@ -357,6 +433,22 @@ components:
           type: object
           x-stoplight:
             id: hgjn2kzypzve2
+    fetchControlDetails:
+      type: object
+      additionalProperties: false
+      properties:
+        controlId:
+          type: string
+          x-stoplight:
+            id: 9gvtdquvzokmt
+        max:
+          type: string
+          x-stoplight:
+            id: qr1m8i9y1ueyl
+        offset:
+          type: string
+          x-stoplight:
+            id: yh16kiuxmxzdg
   requestBodies:
     FetchRuntimeControlsDataV2:
       content:
