@@ -4,9 +4,12 @@ x-stoplight:
 info:
   title: Saviynt Enterprise Identity Cloud (EIC) API
   summary: This Collection provides the details of the supported methods for the Saviynt Enterprise Identity Cloud (EIC). 
-  version: '5.0'
+  version: '5.0.0'
 servers:
-  - url: 'https://example.saviyntcloud.com/ECM/api/v5'
+  - url: 'https://{tenant}.saviyntcloud.com/ECM/api/v5' 
+    variables:
+      tenant:
+        description: 'tenant'
 paths:
   /fetchControlList:
     post:
