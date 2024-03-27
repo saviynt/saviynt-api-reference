@@ -28380,6 +28380,8 @@ paths:
                 example: 1; mode=block
           content:
             application/json:
+              schema:
+                type: object
       security:
         - bearerAuth: []
     parameters:
