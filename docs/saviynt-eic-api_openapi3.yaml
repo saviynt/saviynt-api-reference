@@ -13,6 +13,7 @@ servers:
     variables:
       tenant:
         description: 'tenant'
+        default: 'example'
 paths:
   /api/login:
     post:
