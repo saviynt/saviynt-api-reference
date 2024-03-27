@@ -12100,7 +12100,6 @@ paths:
   /getEntitlementValuesForEndpoint:
     post:
       tags:
-        - 2.0 Identity Administration
         - Entitlements
       summary: Get Entitlement Values For Endpoint
       description: "This method returns a `List` of \"EntitlementValues\" for a specific endpoint in SSM. \r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nMandatory params:\r\n`endpoint`\r\n\r\nOptional params:\r\n`entitlementType`, `max`, `offset`,\r\n`entownerwithrank` - if \"true\", returns the list of owners with owner rank for every entitlementValue\r\n`returnentitlementmap`(true/false,default:false) - If true, entitlementmap details will be returned"
@@ -18090,7 +18089,6 @@ paths:
   /getListofPrivileges:
     post:
       tags:
-        - 2.0 Identity Administration
         - Entitlements
       summary: Get List of Privileges for Entitlement Type
       description: "This API gives the list of privileges for an entitlement type.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`endpoint`\r\n\r\nOptional params:\r\n`max`, `offset`, `entitlementType`"
@@ -21694,7 +21692,6 @@ paths:
   /getEntitlementTypes:
     get:
       tags:
-        - 2.0 Identity Administration
         - Endpoints
       summary: Get List of Entitlement Types
       description: |-
@@ -21906,7 +21903,6 @@ paths:
   /createDynamicAttribute:
     post:
       tags:
-        - 2.0 Identity Administration
         - Endpoints
       summary: Create Dynamic Attribute
       description: >-
