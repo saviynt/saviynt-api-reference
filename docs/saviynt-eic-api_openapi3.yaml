@@ -28383,6 +28383,27 @@ paths:
               schema:
                 type: object
                 properties:
+                  attributeDefaultValue:
+                    type: string
+                    example: '''Enter Account ID here'''
+                  attributeKey:
+                    type: number
+                    example: 145
+                  attributeLabel:
+                    type: string
+                    example: AWS Accounts
+                  attributeName:
+                    type: string
+                    example: AWS Accounts
+                  attributeValue:
+                    type: string
+                    example: ''
+                  format:
+                    type: string
+                    example: String
+                  orderIndex:
+                    nullable: true
+                    example: null
       security:
         - bearerAuth: []
     parameters:
