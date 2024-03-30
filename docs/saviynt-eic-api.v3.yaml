@@ -59949,6 +59949,41 @@ tags:
   - name: Transport
   - name: Provisioning Policies
 x-tagGroups:
+  - name: general
+    tags:
+      - Authentication
+      - Users
+      - Accounts
+      - Entitlements and Privileges
+      - Privileges
+      - Roles
+      - Endpoints
+      - Security Systems
+      - Connections
+      - User Groups
+      - Organization
+      - Connections
+      - SAV Roles
+      - Dataset
+      - Analytics
+      - Access Request
+      - Bulk Update
+      - Request Approval
+      - Tasks
+      - Delegated Administration
+      - Attestations
+      - Campaigns
+      - User Manager Campaigns
+      - Entitlement Owner Campaigns
+      - Application Owner Campaigns
+      - Segregation of Duties
+      - Password Management
+      - Common Utilities
+      - Job Management
+      - Dashboard
+      - Access Recommendations
+      - Transport
+      - Provisioning Policies
   - name: Request Collection
     tags:
       - Access Request
