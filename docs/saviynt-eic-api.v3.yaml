@@ -59935,7 +59935,7 @@ tags:
   - name: Access Request
   - name: Request Approval
   - name: Tasks
-  - name: Delegated Administration
+  - name: User Delegation
   - name: Attestations
   - name: Campaigns
   - name: User Manager Campaigns
