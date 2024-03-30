@@ -60011,3 +60011,8 @@ x-tagGroups:
 x-ignoredHeaderParameters:
   - Accept
   - User-Agent
+  - Cache-Control
+  - Content-Length
+  - Server
+  - X-Frame-Options
+  
