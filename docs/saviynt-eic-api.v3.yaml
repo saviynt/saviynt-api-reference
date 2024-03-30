@@ -21432,7 +21432,7 @@ paths:
   /createEntitlementType:
     post:
       tags:
-        - Endpoints
+        - Entitlement Types
       summary: Create Entitlement Type
       description: |-
         This API creates Entitlement Type in SSM.
@@ -21532,7 +21532,7 @@ paths:
   /updateEntitlementType:
     put:
       tags:
-        - Endpoints
+        - Entitlement Types
       summary: Update Entitlement Type
       description: "This API updates Entitlement Type in SSM.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nMandatory params:\r\n\t`entitlementname`,\r\n\t`endpointname`,\r\n\t\r\nOptional params:\r\n\t`entitlementdescription`,\r\n\t`workflow`,\r\n\t`customproperty<N>`,\r\n\t`availableQueryServiceAccount`,\r\n\t`selectedQueryServiceAccount`, \r\n\t`arsRequestableEntitlementQuery`, \r\n\t`arsSelectedEntitlementQuery` , \r\n\t`createTaskAction` - it can be one value or list of values. The values can be [\"noAction\",\"removeTaskForExistingEntitlements\", \"enableRollback\"],\r\n\t`requestDatesConfJson` , \r\n\t`startDateInRevokeRequest` , \r\n\t`startEndDateInRequest` ,\r\n\t`allowRemoveAllEntitlementInRequest` , \r\n\t`orderindex` , \r\n\t`requiredinrequest` ,\r\n\t`hiearchyrequired` , \r\n\t`requestoption`\r\n\t\r\n\t\r\n`requestoption` param values can be - \r\nSHOW_BUT_NOTREUESTABLESINGLE/ \r\nSHOW_BUT_NOTREUESTABLEMULTIPLE/ \r\nNONE/ \r\nSINGLE/ \r\nMULTIPLE/ \r\nTABLE/ \r\nFREEFORMTEXT/ \r\nTABLENOREMOVE/ \r\nRADIOBUTN/ \r\nCHECKBOXN/ \r\nREADONLYTABLE/ \r\nNONE_BUT_CREATETASK"
       operationId: updateEntitlementType
@@ -21689,7 +21689,7 @@ paths:
   /getEntitlementTypes:
     get:
       tags:
-        - Endpoints
+        - Entitlement Types
       summary: Get List of Entitlement Types
       description: |-
         This API returns list of Entitlement Types in SSM.
@@ -21900,7 +21900,7 @@ paths:
   /createDynamicAttribute:
     post:
       tags:
-        - Endpoints
+        - Dynamic Attributes
       summary: Create Dynamic Attribute
       description: >-
         This API creates dynamic attributes in EIC.
@@ -22166,7 +22166,7 @@ paths:
   /updateDynamicAttribute:
     put:
       tags:
-        - Endpoints
+       - Dynamic Attributes
       summary: Update Dynamic Attribute
       description: >-
         This API updates dynamic attributes in SSM.
@@ -22419,7 +22419,7 @@ paths:
   /fetchDynamicAttribute:
     get:
       tags:
-        - Endpoints
+        - Dynamic Attributes
       summary: Fetch Dynamic Attributes
       description: >-
         This API fetches the dynamic attributes in SSM.
@@ -22717,7 +22717,7 @@ paths:
   /deleteDynamicAttribute:
     delete:
       tags:
-        - Endpoints
+        - Dynamic Attributes
       summary: Delete Dynamic Attribute
       description: |-
         This API deletes dynamic attributes in SSM.
@@ -22844,7 +22844,7 @@ paths:
   /deleteEntitlementType:
     delete:
       tags:
-        - Endpoints
+        - Entitlement Types
       summary: Delete Entitlement Types
       description: >-
         This API deletes entitlement types in SSM.
@@ -59925,9 +59925,10 @@ tags:
   - name: Security Systems
   - name: Endpoints
   - name: Connections
+  - name: Entitlement Types
+  - name: Dynamic Attributes
   - name: Organization
   - name: Connections
-  - name: Dataset
   - name: Analytics
   - name: Access Recommendations
   - name: Dashboard
@@ -59946,6 +59947,7 @@ tags:
   - name: Job Management
   - name: Transport
   - name: Provisioning Policies
+  - name: Dataset
 x-tagGroups:
   - name: Identity Collection
     tags:
@@ -59971,9 +59973,11 @@ x-tagGroups:
       - Tasks
   - name: Applications Collection
     tags:
-      - Endpoints
       - Security Systems
+      - Endpoints
       - Connections
+      - Entitlement Types
+      - Dynamic Attributes
   - name: Campaigns Collection
     tags:
       - Attestations
