@@ -59921,16 +59921,17 @@ tags:
   - name: Entitlements
   - name: Privileges
   - name: Roles
-  - name: Endpoints
-  - name: Security Systems
-  - name: Connections
   - name: User Groups
+  - name: Security Systems
+  - name: Endpoints
+  - name: Connections
   - name: Organization
   - name: Connections
   - name: Dataset
   - name: Analytics
+  - name: Access Recommendations
+  - name: Dashboard
   - name: Access Request
-  - name: Bulk Update
   - name: Request Approval
   - name: Tasks
   - name: Delegated Administration
@@ -59943,12 +59944,10 @@ tags:
   - name: Password Management
   - name: Common Utilities
   - name: Job Management
-  - name: Dashboard
-  - name: Access Recommendations
   - name: Transport
   - name: Provisioning Policies
 x-tagGroups:
-  - name: General Collection
+  - name: Identity Collection
     tags:
       - Authentication
       - Users
@@ -59958,10 +59957,10 @@ x-tagGroups:
       - Roles
       - User Groups
       - Organization
-      - Tasks
+  - name: Policies
+      - Provisioning Policies
       - Segregation of Duties
       - Password Management
-      - Provisioning Policies
   - name: Request Collection
     tags:
       - Access Request
@@ -59969,6 +59968,7 @@ x-tagGroups:
       - Role Request
       - Request History
       - Request Approval
+      - Tasks
   - name: Applications Collection
     tags:
       - Endpoints
