@@ -5030,7 +5030,7 @@ paths:
   /createPrivilege:
     put:
       tags:
-        - Entitlements and Privileges
+        - Privileges
       summary: Create Privilege
       description: >-
         This API updates an endpoint in EIC.
@@ -5260,7 +5260,7 @@ paths:
   /updatePrivilege:
     put:
       tags:
-        - Entitlements and Privileges
+        - Privileges
       summary: Update Privilege
       description: >-
         This API updates an endpoint in EIC.  
@@ -5410,7 +5410,7 @@ paths:
   /deletePrivilege:
     put:
       tags:
-        - Entitlements and Privileges
+        - Privileges
       summary: Delete Privilege
       description: |-
         https://yourdomain.saviyntcloud.com/ECM/v5/deletePrivilege  
@@ -5449,7 +5449,7 @@ paths:
   /getEntitlements:
     post:
       tags:
-        - Entitlements and Privileges
+        - Entitlements
       summary: Get Entitlements
       description: "This API can be used to get the list of all the entitlements.\r\n\r\nThis API call can be used to get the list and details of all the entitlements the user has access to. \r\n\r\nThis API will return only the entitlement attributes which are not null or not empty.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nOptional params:\r\n`username`,\r\n`entitlementtype`,\r\n`endpoint`,\r\n`requestedObject` -\"users\",\"userscount\",\r\n`max`,\r\n`offset`,\r\n`entitlementResponseFields`,\r\n`userResponseFields`,\r\n`userfiltercriteria`,\r\n`accountname`,\r\n`entownerwithrank` - if \"true\", returns the list of owners with owner rank for every entitlementValue,\r\n`returnentitlementmap`(true/false,default:false) - If true, entitlementmap details will be returned,\r\n`exactmatch` - Default is true. If given as false, it will search based on similar matches,\r\n\r\n`entitlementfiltercriteria`,\r\n\r\nOR \r\n\r\n`entQuery` - query to support only entitlement_values parameters. Sample - \"ent.description  = 'Desc' or ent.displayname like '%display%'\".\r\n\r\n***Note*** - Either pass param entitlementfiltercriteria (with or without exactmatch) OR entQuery. Both cannot be passed simultaneously."
       operationId: getEntitlements
@@ -11640,7 +11640,7 @@ paths:
   /getChildEntitlements:
     get:
       tags:
-        - Entitlements and Privileges
+        - Entitlements
       summary: Get Child Entitlements
       description: >-
         This API can be used to get the list of all child entitlements.
@@ -11923,7 +11923,7 @@ paths:
   /createUpdateEntitlement:
     post:
       tags:
-        - Entitlements and Privileges
+        - Entitlements
       summary: Create/Update Entitlement
       description: "This method creates a new \"entitlementvalue\" for an \"endpoint\" in SSM. All the input parameters it requires are attributes with which the new account record would get created.\r\n\r\nEnsure: The `Authorization` header variable must be set to `Bearer` followed by `Token`.\r\n\r\nMandatory params:\r\n\r\n`endpoint`,\r\n`entitlementtype`,\r\n`entitlement_value`\r\n\r\nOptional params:\r\n\r\n`attributes` for Entitlement_values,\r\n\r\n`entitlementowner<N>` - N is the rank, `entitlementowner` modifies entitlementowner with rank 1, `entitlementowner3` - modifies entitlementowner with rank 3,\r\n\r\n`entitlementID`,`newentitlement_value` - used to update the entitlement if multiple entitlements with same entitlement_value are present under the same entitlementtype and endpoint\r\n\r\n`entitlementcasecheck`(can be true or false, default : false) - If true, entitlement value search will be case sensitive during create or update.\r\n\r\n`entitlement_valuekey`\r\n\r\n`updatedentitlement_value` - new value for entitlement_value\r\n\r\n`entitlementmap` - \r\n1. `entitlementvalue`\r\n2. `entitlementtype`\r\n3. `endpoint`\r\n4. `requestfilter`\r\n5. `excludeentitlement`\r\n6. `adddependenttask`\r\n7. `removedependententtask`\r\n8. `updateType`(ADD/REMOVE, default : ADD)"
       operationId: createUpdateEntitlement
@@ -12097,7 +12097,7 @@ paths:
   /getEntitlementValuesForEndpoint:
     post:
       tags:
-        - Entitlements and Privileges
+        - Entitlements
       summary: Get Entitlement Values For Endpoint
       description: "This method returns a `List` of \"EntitlementValues\" for a specific endpoint in SSM. \r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nMandatory params:\r\n`endpoint`\r\n\r\nOptional params:\r\n`entitlementType`, `max`, `offset`,\r\n`entownerwithrank` - if \"true\", returns the list of owners with owner rank for every entitlementValue\r\n`returnentitlementmap`(true/false,default:false) - If true, entitlementmap details will be returned"
       operationId: getEntitlementValuesForEndpoint
@@ -18086,7 +18086,7 @@ paths:
   /getListofPrivileges:
     post:
       tags:
-        - Entitlements and Privileges
+        - Privileges
       summary: Get List of Privileges for Entitlement Type
       description: "This API gives the list of privileges for an entitlement type.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`endpoint`\r\n\r\nOptional params:\r\n`max`, `offset`, `entitlementType`"
       operationId: getListOfPrivilegesForEntitlementType
@@ -18466,7 +18466,7 @@ paths:
   /removeEntitlementsFromRole:
     post:
       tags:
-        - Entitlements and Privileges
+        - Roles
       summary: Remove Entitlement From Role
       description: >-
         This API removes entitlement from role.
@@ -59918,7 +59918,7 @@ tags:
   - name: Authentication
   - name: Users
   - name: Accounts
-  - name: Entitlements and Privileges
+  - name: Entitlements
   - name: Privileges
   - name: Roles
   - name: Endpoints
@@ -59954,7 +59954,7 @@ x-tagGroups:
       - Authentication
       - Users
       - Accounts
-      - Entitlements and Privileges
+      - Entitlements
       - Privileges
       - Roles
       - User Groups
