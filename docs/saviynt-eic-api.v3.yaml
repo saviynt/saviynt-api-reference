@@ -59927,7 +59927,6 @@ tags:
   - name: User Groups
   - name: Organization
   - name: Connections
-  - name: SAV Roles
   - name: Dataset
   - name: Analytics
   - name: Access Request
@@ -59959,8 +59958,6 @@ x-tagGroups:
       - Roles
       - User Groups
       - Organization
-      - SAV Roles
-      - Dataset
       - Tasks
       - Segregation of Duties
       - Password Management
@@ -59991,10 +59988,11 @@ x-tagGroups:
       - Access Recommendations
   - name: Admin Collection
     tags:
+      - User Delegation
       - Job Management
       - Transport
+      - Dataset
       - Common Utilities
-      - User Delegation
 x-ignoredHeaderParameters:
   - Accept
   - User-Agent
