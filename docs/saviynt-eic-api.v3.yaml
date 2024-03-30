@@ -59969,9 +59969,6 @@ x-tagGroups:
       - Delegated Administration
       - Segregation of Duties
       - Password Management
-      - Common Utilities
-      - Job Management
-      - Transport
       - Provisioning Policies
   - name: Request Collection
     tags:
@@ -59997,6 +59994,11 @@ x-tagGroups:
       - Analytics
       - Dashboard
       - Access Recommendations
+  - name: Utilities Collection
+    tags:
+      - Job Management
+      - Transport
+      - Common Utilities
 x-ignoredHeaderParameters:
   - Accept
   - User-Agent
