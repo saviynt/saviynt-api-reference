@@ -156,6 +156,7 @@
             });
         } else {
             showModal(error.message || "An unknown error occurred.");
+            console.error(error);
         }
     }
   });
