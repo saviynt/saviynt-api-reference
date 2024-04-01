@@ -57,6 +57,24 @@
     <select id="api-selector">
         <!-- Options will be dynamically added -->
     </select>
+    <select id="sdk-language-selector">
+      <option value="csharp">C#</option>
+      <option value="go">Go</option>
+      <option value="groovy">Groovy</option>
+      <option value="html">HTML</option>
+      <option value="java">Java</option>
+      <option value="javascript">JavaScript</option>
+      <option value="kotlin">Kotlin</option>
+      <option value="openapi">OpenAPI</option>
+      <option value="openapi-yaml">OpenAPI YAML</option>
+      <option value="php">PHP</option>
+      <option value="powershell">PowerShell</option>
+      <option value="python">Python</option>
+      <option value="ruby">Ruby</option>
+      <option value="rust">Rust</option>
+      <option value="swift5">Swift 5</option>
+      <option value="typescript">TypeScript</option>
+  </select>
 </header>
 
 <div id="redoc-container"></div>
@@ -100,6 +118,37 @@
         var apiUrl = apis[this.value].url;
         initRedoc(apiUrl);
     });
+
+    document.getElementById('sdk-language-selector').addEventListener('change', function() {
+    var apiSelector = document.getElementById('api-selector');
+    var selectedApiUrl = apis[apiSelector.value].url;
+    var selectedLanguage = this.value;
+
+
+    // Example API call to OpenAPI Generator API (Adjust according to your actual API)
+    fetch('https://api.openapi-generator.tech/api/gen/clients/javascript', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            // Include any necessary headers
+        },
+        body: JSON.stringify({
+            specURL: selectedApiUrl,
+            language: selectedLanguage,
+            // Add any additional parameters required by the API
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Assuming 'data' contains a property 'downloadUrl' with the URL to download the generated SDK
+        window.location.href = data.downloadUrl; // Redirect user to download URL
+        // Alternatively, you could present the URL to the user to manually click
+    })
+    .catch(error => {
+        console.error('Error generating SDK:', error);
+    });
+});
+
 </script>
 </body>
 </html>
