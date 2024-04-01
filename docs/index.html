@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Redoc </title>
+    <title>Redoc</title>
     <!-- needed for adaptive design -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
 
-    <!--
-    Redoc doesn't change outer page styles
-    -->
     <style>
       body {
         margin: 0;
         padding: 0;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      nav ul li {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-bottom: 1px solid #ddd;
+      }
+      nav ul li:hover {
+        background-color: #e0e0e0;
       }
     </style>
   </head>
   <body>
     <nav>
       <ul id="links_container">
+        <!-- Links will be dynamically added here -->
       </ul>
     </nav>
 
-    <redoc scroll-y-offset="body > nav"></redoc>
+    <div id="redoc-container"></div>
 
-    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"> </script>
-
+    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
     <script>
-      // list of APIS
       var apis = [
         {
           name: 'Saviynt',
@@ -44,17 +53,22 @@
         }
       ];
 
-      // initially render first API
-      Redoc.init(apis[0].url, {
-        "expandResponses": "200,400"
-      }, document.getElementById('data-link'));
+      function initRedoc(apiUrl) {
+        Redoc.init(apiUrl, {
+          scrollYOffset: 'body > nav',
+          expandResponses: "200,400"
+        }, document.getElementById('redoc-container'));
+      }
+
+      // Initially render the first API
+      initRedoc(apis[0].url);
 
       function onClick() {
         var url = this.getAttribute('data-link');
-        Redoc.init(url);
+        initRedoc(url);
       }
 
-      // dynamically building navigation items
+      // Dynamically building navigation items
       var $list = document.getElementById('links_container');
       apis.forEach(function(api) {
         var $listitem = document.createElement('li');
