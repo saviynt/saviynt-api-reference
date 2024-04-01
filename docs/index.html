@@ -128,7 +128,7 @@
         initRedoc(apiUrl);
     });
 
-    document.getElementById('sdk-language-selector').addEventListener('change', function() {
+    document.getElementById('sdk-language-selector').addEventListener('change', async function() {
     var apiSelector = document.getElementById('api-selector');
     var selectedApiUrl = apis[apiSelector.value].url;
     var selectedLanguage = this.value;
