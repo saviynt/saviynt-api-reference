@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Redoc</title>
     <!-- needed for adaptive design -->
     <meta charset="utf-8"/>
@@ -8,71 +8,98 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
 
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      nav ul {
-        list-style-type: none;
-        padding: 0;
-      }
-      nav ul li {
-        cursor: pointer;
-        padding: 10px;
-        background-color: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-      }
-      nav ul li:hover {
-        background-color: #e0e0e0;
-      }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Montserrat, sans-serif;
+        }
+        header {
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background-color: #ddd; /* Placeholder color */
+            border-radius: 20px;
+            /* Add more styling as needed */
+        }
+        select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ddd;
+        }
+        nav ul li:hover {
+            background-color: #e0e0e0;
+        }
     </style>
-  </head>
-  <body>
-    <nav>
-      <ul id="links_container">
-        <!-- Links will be dynamically added here -->
-      </ul>
-    </nav>
+</head>
+<body>
+<header>
+    <div class="logo-placeholder">
+        <!-- Icon placeholder or <img> tag for actual icon -->
+    </div>
+    <select id="api-selector">
+        <!-- Options will be dynamically added -->
+    </select>
+</header>
 
-    <div id="redoc-container"></div>
+<div id="redoc-container"></div>
 
-    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
-    <script>
-      var apis = [
+<script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+<script>
+    var apis = [
         {
-          name: 'Saviynt',
-          url: 'https://saviynt.github.io/saviynt-api-reference/saviynt-eic-api-5.0.yaml'
+            name: 'Saviynt',
+            url: 'https://saviynt.github.io/saviynt-api-reference/saviynt-eic-api-5.0.yaml'
         },
         {
-          name: 'Instagram',
-          url: 'https://api.apis.guru/v2/specs/instagram.com/1.0.0/swagger.yaml'
+            name: 'Instagram',
+            url: 'https://api.apis.guru/v2/specs/instagram.com/1.0.0/swagger.yaml'
+        },
+        {
+            name: 'Google Calendar',
+            url: 'https://api.apis.guru/v2/specs/googleapis.com/calendar/v3/swagger.yaml'
         }
-      ];
+    ];
 
-      function initRedoc(apiUrl) {
+    function initRedoc(apiUrl) {
         Redoc.init(apiUrl, {
-          scrollYOffset: 'body > nav',
-          expandResponses: "200,400"
+            scrollYOffset: 'header',
+            expandResponses: "200,400"
         }, document.getElementById('redoc-container'));
-      }
+    }
 
-      // Initially render the first API
-      initRedoc(apis[0].url);
+    // Initially render the first API
+    initRedoc(apis[0].url);
 
-      function onClick() {
-        var url = this.getAttribute('data-link');
-        initRedoc(url);
-      }
+    // Populate the API selector dropdown
+    var selector = document.getElementById('api-selector');
+    apis.forEach(function(api, index) {
+        var option = new Option(api.name, index);
+        selector.add(option);
+    });
 
-      // Dynamically building navigation items
-      var $list = document.getElementById('links_container');
-      apis.forEach(function(api) {
-        var $listitem = document.createElement('li');
-        $listitem.setAttribute('data-link', api.url);
-        $listitem.innerText = api.name;
-        $listitem.addEventListener('click', onClick);
-        $list.appendChild($listitem);
-      });
-    </script>
-  </body>
+    // Handle selection change
+    selector.addEventListener('change', function() {
+        var apiUrl = apis[this.value].url;
+        initRedoc(apiUrl);
+    });
+</script>
+</body>
 </html>
