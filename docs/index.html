@@ -126,7 +126,10 @@
 
     // Example API call to OpenAPI Generator API (Adjust according to your actual API)
     try {
-        let response = fetch('https://api.openapi-generator.tech/api/gen/clients/${selectedLanguage}', {
+      let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+      let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${selectedLanguage}`;
+
+        let response = fetch(proxyUrl + targetUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -144,11 +147,15 @@
         let data = await response.json();
         window.location.href = data.downloadUrl; // Redirect user to download URL
     } catch (error) {
-        error.json().then(err => {
-            showModal(err.message || "An error occurred");
-        }).catch(() => {
-            showModal("An error occurred and could not parse error details.");
-        });
+      if (error instanceof Response) {
+            error.json().then(err => {
+                showModal(err.message || "An error occurred during SDK generation.");
+            }).catch(() => {
+                showModal("An error occurred and could not parse error details.");
+            });
+        } else {
+            showModal(error.message || "An unknown error occurred.");
+        }
     }
   });
 
