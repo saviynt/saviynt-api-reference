@@ -146,8 +146,7 @@
         }
 
         let data = await response.json();
-        showModal(data);
-        // window.location.href = data.downloadUrl; // Redirect user to download URL
+        window.location.href = data.downloadUrl; // Redirect user to download URL
     } catch (error) {
       if (error instanceof Response) {
             error.json().then(err => {
@@ -156,7 +155,7 @@
                 showModal("An error occurred and could not parse error details.");
             });
         } else {
-            showModal(error.message || "An unknown error occurred.");
+            showModal(error || "An unknown error occurred.");
             console.error(error);
         }
     }
