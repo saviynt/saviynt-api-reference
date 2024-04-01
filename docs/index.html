@@ -20,5 +20,12 @@
   <body>
     <redoc spec-url='./saviynt-eic-api-5.0.yaml'></redoc>
     <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"> </script>
+    <div id="redoc-container"></div>
+
+    <script>
+      Redoc.init('https://saviynt.github.io/saviynt-api-reference/saviynt-eic-api-5.0.yaml', {
+        "expandResponses": "200,400"
+      }, document.getElementById('redoc-container'))
+    </script>
   </body>
 </html>
