@@ -79,6 +79,15 @@
 
 <div id="redoc-container"></div>
 
+<!-- Modal for error messages -->
+<div id="errorModal" style="display:none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4); padding-top: 60px;">
+  <div style="background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%;">
+      <span id="closeModal" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+      <p id="errorMessage" style="text-align: center;"></p>
+  </div>
+</div>
+
+
 <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
 <script>
     var apis = [
@@ -126,7 +135,8 @@
 
 
     // Example API call to OpenAPI Generator API (Adjust according to your actual API)
-    fetch('https://api.openapi-generator.tech/api/gen/clients/javascript', {
+    try {
+        let response = fetch('https://api.openapi-generator.tech/api/gen/clients/javascript', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -137,17 +147,30 @@
             language: selectedLanguage,
             // Add any additional parameters required by the API
         })
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Assuming 'data' contains a property 'downloadUrl' with the URL to download the generated SDK
+       });
+       if (!response.ok) {
+            throw response;
+        }
+
+        let data = await response.json();
         window.location.href = data.downloadUrl; // Redirect user to download URL
-        // Alternatively, you could present the URL to the user to manually click
-    })
-    .catch(error => {
-        console.error('Error generating SDK:', error);
-    });
-});
+    } catch (error) {
+        error.json().then(err => {
+            showModal(err.message || "An error occurred");
+        }).catch(() => {
+            showModal("An error occurred and could not parse error details.");
+        });
+    }
+  });
+
+  function showModal(message) {
+    document.getElementById('errorMessage').innerText = message;
+    document.getElementById('errorModal').style.display = "block";
+  }
+
+  document.getElementById('closeModal').onclick = function() {
+    document.getElementById('errorModal').style.display = "none";
+  };
 
 </script>
 </body>
