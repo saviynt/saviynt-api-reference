@@ -5,6 +5,8 @@ info:
     This Collection provides the details of the supported methods for the
     Saviynt Enterprise Identity Cloud (EIC)
   version: 5.0.0
+  x-logo:
+    url: https://saviynt.com/wp-content/uploads/2019/04/Saviynt_logo_Navy.svg
 externalDocs:
   description: Find out more about Saviynt 
   url: https://docs.saviyntcloud.com/
