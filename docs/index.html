@@ -158,7 +158,7 @@
       let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${selectedLanguage}`;
       let downloadUrl ='https://api.openapi-generator.tech/api/gen/download/';
 
-        let response = await fetch(targetUrl, {
+        let response = await fetch(proxyUrl + targetUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
