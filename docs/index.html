@@ -170,6 +170,7 @@
         }),
         redirect: 'manual' // This prevents the fetch from automatically following redirects
        });
+       
 
        if (!response.ok) {
             throw response;
@@ -179,7 +180,7 @@
         // showModal(JSON.stringify(data));
         const message = `Your SDK is ready! <a href="${downloadUrl + data.code}">Click here to download</a>.`;  
         showModal(message);
-        window.location.href = data.link; // Redirect user to download URL
+        // window.location.href = data.link; // Redirect user to download URL
     } catch (error) {
       if (error instanceof Response) {
             error.json().then(err => {
