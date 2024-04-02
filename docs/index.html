@@ -153,6 +153,8 @@
 
         let data = await response.json();
         // showModal(JSON.stringify(data));
+        const message = `Your SDK is ready! <a href="${data.link}" target="_blank">Click here to download</a>.`;
+        showModal(message);
         window.location.href = data.link; // Redirect user to download URL
     } catch (error) {
       if (error instanceof Response) {
