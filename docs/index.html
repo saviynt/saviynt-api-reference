@@ -153,7 +153,7 @@
 
         let data = await response.json();
         // showModal(JSON.stringify(data));
-        const message = `Your SDK is ready! <a href="${data.link}" target="_blank">Click here to download</a>.`;
+        const message = `Your SDK is ready! <a href="${data.link}" target="_blank">Click here to download</a>.`;  
         showModal(message);
         window.location.href = data.link; // Redirect user to download URL
     } catch (error) {
@@ -171,7 +171,7 @@
   });
 
   function showModal(message) {
-    document.getElementById('errorMessage').innerText = message;
+    document.getElementById('errorMessage').innerHTML = htmlContent;
     document.getElementById('errorModal').style.display = "block";
   }
 
