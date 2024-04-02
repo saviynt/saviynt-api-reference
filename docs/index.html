@@ -168,6 +168,7 @@
           openAPIUrl: selectedApiUrl,
             // Add any additional parameters required by the API
         })
+        redirect: 'manual' // This prevents the fetch from automatically following redirects
        });
 
        if (!response.ok) {
