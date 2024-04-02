@@ -134,7 +134,7 @@
       let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
       let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${selectedLanguage}`;
 
-        let response = fetch(proxyUrl + targetUrl, {
+        let response = await fetch(proxyUrl + targetUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -145,9 +145,10 @@
             // Add any additional parameters required by the API
         })
        });
+
        if (!response.ok) {
             throw response;
-        }
+       }
 
         let data = await response.json();
         window.location.href = data.downloadUrl; // Redirect user to download URL
