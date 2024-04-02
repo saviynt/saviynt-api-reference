@@ -152,6 +152,7 @@
        }
 
         let data = await response.json();
+        showModal(data);
         window.location.href = data.downloadUrl; // Redirect user to download URL
     } catch (error) {
       if (error instanceof Response) {
