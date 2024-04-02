@@ -135,7 +135,7 @@
       let proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
       let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${selectedLanguage}`;
 
-        let response = await fetch(proxyUrl + targetUrl, {
+        let response = await fetch(targetUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
