@@ -45,6 +45,23 @@
         nav ul li:hover {
             background-color: #e0e0e0;
         }
+        .spinner {
+              border: 4px solid rgba(0, 0, 0, 0.1);
+              width: 36px;
+              height: 36px;
+              border-radius: 50%;
+              border-left-color: #09f;
+              animation: spin 1s infinite linear;
+        }
+
+        @keyframes spin {
+              0% {
+                  transform: rotate(0deg);
+              }
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
     </style>
 </head>
 <body>
@@ -75,6 +92,10 @@
 <div id="redoc-container"></div>
 
 <!-- Modal for error messages -->
+<div id="loadingIndicator" style="display: none;">
+  <div class="spinner"></div>
+</div>
+
 <div id="errorModal" style="display:none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4); padding-top: 60px;">
   <div style="background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%;">
       <span id="closeModal" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
@@ -128,7 +149,8 @@
     var apiSelector = document.getElementById('api-selector');
     var selectedApiUrl = apis[apiSelector.value].url;
     var selectedLanguage = this.value;
-
+    // Show loading indicator
+    document.getElementById('loadingIndicator').style.display = 'block';
 
     // Example API call to OpenAPI Generator API (Adjust according to your actual API)
     try {
@@ -167,6 +189,9 @@
             showModal(error || "An unknown error occurred.");
             console.error(error);
         }
+    }finally {
+        // Hide loading indicator
+        document.getElementById('loadingIndicator').style.display = 'none';
     }
   });
 
