@@ -156,6 +156,7 @@
     try {
       let proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
       let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${selectedLanguage}`;
+      let downloadUrl ='https://api.openapi-generator.tech/api/gen/download/';
 
         let response = await fetch(targetUrl, {
         method: 'POST',
@@ -175,7 +176,7 @@
 
         let data = await response.json();
         // showModal(JSON.stringify(data));
-        const message = `Your SDK is ready! <a href="${data.link}" target="_blank">Click here to download</a>.`;  
+        const message = `Your SDK is ready! <a href="${downloadUrl + data.code}" target="_blank">Click here to download</a>.`;  
         showModal(message);
         window.location.href = data.link; // Redirect user to download URL
     } catch (error) {
