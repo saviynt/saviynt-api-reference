@@ -145,31 +145,24 @@
             initRedoc(apiUrl);
         });
 
-        var apiSelector = document.getElementById('api-selector');
-        var selectedApiUrl = apis[apiSelector.value].url;
-        var selectedLanguage = this.value;
+
 
         document.getElementById('sdk-language-selector').addEventListener('change', async function() {
-        // var apiSelector = document.getElementById('api-selector');
-        // var selectedApiUrl = apis[apiSelector.value].url;
-        // var selectedLanguage = this.value;
-        // Show loading indicator
-        document.getElementById('loadingIndicator').style.display = 'block';
+            var apiSelector = document.getElementById('api-selector');
+            var selectedApiUrl = apis[apiSelector.value].url;
+            var selectedLanguage = this.value;
+            // Show loading indicator
+            document.getElementById('loadingIndicator').style.display = 'block';
 
-        // Example API call to OpenAPI Generator API (Adjust according to your actual API)
-        try {
+            // Example API call to OpenAPI Generator API (Adjust according to your actual API)
+            try {
 
-            const formData = new FormData();
-            formData.append('options', fs.createReadStream(optionsPath), {
-                type: 'application/yaml'
-            });
-            formData.append('openAPIUrl', openAPIUrl);
+                const optionsFile = fs.readFileSync(".\client-sdk-generator-config.json", 'utf8');
+                const options = JSON.parse(optionsFile);
 
-            
-            // let proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
-            let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${language}`;
-            let downloadUrl ='https://api.openapi-generator.tech/api/gen/download/';
-            let Options 
+                // let proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
+                let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${language}`;
+                let downloadUrl ='https://api.openapi-generator.tech/api/gen/download/';
 
                 let response = await fetch(targetUrl, {
                 method: 'POST',
@@ -179,6 +172,7 @@
                 },
                 body: JSON.stringify({
                 openAPIUrl: openAPIUrl,
+                options: options
                     // Add any additional parameters required by the API
                 }),
                 redirect: 'manual' // This prevents the fetch from automatically following redirects

@@ -1,0 +1,7 @@
+{
+  "modelPackage": "com.example.api.model",
+  "apiPackage": "com.example.api",
+  "tagNameToModelPackage": {
+    "Users": "com.example.api.model.users"
+  }
+}
