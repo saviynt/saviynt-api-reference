@@ -157,8 +157,8 @@
             // Example API call to OpenAPI Generator API (Adjust according to your actual API)
             try {
 
-                const optionsFile = fs.readFileSync(".\client-sdk-generator-config.json", 'utf8');
-                const options = JSON.parse(optionsFile);
+                const optionsResponse= await fetch("https://saviynt.github.io/saviynt-api-reference/client-sdk-generator-config.json");
+                const options = await optionsResponse.json();
 
                 // let proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
                 let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${language}`;
