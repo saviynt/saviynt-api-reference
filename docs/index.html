@@ -161,7 +161,7 @@
                 const options = await optionsResponse.json();
 
                 // let proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
-                let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${language}`;
+                let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${selectedLanguage}`;
                 let downloadUrl ='https://api.openapi-generator.tech/api/gen/download/';
 
                 let response = await fetch(targetUrl, {
@@ -171,7 +171,7 @@
                     // Include any necessary headers
                 },
                 body: JSON.stringify({
-                openAPIUrl: openAPIUrl,
+                openAPIUrl: selectedApiUrl,
                 options: options
                     // Add any additional parameters required by the API
                 }),
