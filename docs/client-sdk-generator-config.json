@@ -1,5 +1,7 @@
 {
   "modelPackage": "com.example.api.model",
   "apiPackage": "com.example.api",
+  "models": "Users",
+  "apis": "Users",
   "useTags": true
 }
