@@ -145,28 +145,29 @@
             initRedoc(apiUrl);
         });
 
-        document.getElementById('sdk-language-selector').addEventListener('change', generateSDK());
-
-    function showModal(message) {
-        document.getElementById('errorMessage').innerHTML = message;
-        document.getElementById('errorModal').style.display = "block";
-    }
-
-    document.getElementById('closeModal').onclick = function() {
-        document.getElementById('errorModal').style.display = "none";
-    };
-
-    async function generateSDK(language, openAPIUrl) {
         var apiSelector = document.getElementById('api-selector');
         var selectedApiUrl = apis[apiSelector.value].url;
         var selectedLanguage = this.value;
+
+        document.getElementById('sdk-language-selector').addEventListener('change', async function() {
+        // var apiSelector = document.getElementById('api-selector');
+        // var selectedApiUrl = apis[apiSelector.value].url;
+        // var selectedLanguage = this.value;
         // Show loading indicator
         document.getElementById('loadingIndicator').style.display = 'block';
 
         // Example API call to OpenAPI Generator API (Adjust according to your actual API)
         try {
+
+            const formData = new FormData();
+            formData.append('options', fs.createReadStream(optionsPath), {
+                type: 'application/yaml'
+            });
+            formData.append('openAPIUrl', openAPIUrl);
+
+            
             // let proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
-            let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${selectedLanguage}`;
+            let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${language}`;
             let downloadUrl ='https://api.openapi-generator.tech/api/gen/download/';
             let Options 
 
@@ -177,7 +178,7 @@
                     // Include any necessary headers
                 },
                 body: JSON.stringify({
-                openAPIUrl: selectedApiUrl,
+                openAPIUrl: openAPIUrl,
                     // Add any additional parameters required by the API
                 }),
                 redirect: 'manual' // This prevents the fetch from automatically following redirects
@@ -208,33 +209,18 @@
             // Hide loading indicator
             document.getElementById('loadingIndicator').style.display = 'none';
         }
-    }
-
-    async function generateSDK(language, openAPIUrl, optionsPath) {
-    const formData = new FormData();
-    formData.append('options', fs.createReadStream(optionsPath), {
-        type: 'application/yaml'
     });
-    formData.append('openAPIUrl', openAPIUrl);
 
-    try {
-        const response = await fetch(`https://api.openapi-generator.tech/api/gen/clients/${language}`, {
-        method: 'POST',
-        body: formData
-        });
-
-        if (!response.ok) {
-        throw new Error('Network response was not ok.');
-        }
-
-        const data = await response.json();
-        console.log('Download link:', data.downloadUrl);
-        return data.downloadUrl;
-    } catch (error) {
-        console.error('Failed to generate SDK:', error);
-        throw error;
+    function showModal(message) {
+        document.getElementById('errorMessage').innerHTML = message;
+        document.getElementById('errorModal').style.display = "block";
     }
-}
+
+    document.getElementById('closeModal').onclick = function() {
+        document.getElementById('errorModal').style.display = "none";
+    };
+
+
 </script>
 </body>
 </html>
