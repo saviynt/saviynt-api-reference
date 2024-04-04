@@ -1,5 +1,5 @@
 {
   "modelPackage": "com.example.api.model",
   "apiPackage": "com.example.api",
-  "apis": "Authentication:Users:Accounts"
+  "useTags": true
 }
