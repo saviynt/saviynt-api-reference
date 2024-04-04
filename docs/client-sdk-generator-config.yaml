@@ -1,0 +1,7 @@
+# config.yaml
+modelPackage: com.example.api.model
+apiPackage: com.example.api
+# Tag-based package names
+tagNameToModelPackage:
+  Users: com.example.api.model.users
+  Groups: com.example.api.model.groups

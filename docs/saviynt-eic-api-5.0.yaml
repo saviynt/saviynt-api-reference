@@ -1,14 +1,23 @@
 openapi: 3.0.3
 info:
-  title: Saviynt Enterprise Identity Cloud API Reference 
+  title: Saviynt Enterprise Identity Cloud (EIC) API Reference 
+  summary: Saviynt EIC REST API Documentation
   description: >-
     This Collection provides the details of the supported methods for the
     Saviynt Enterprise Identity Cloud (EIC)
+  termsOfService: https://saviynt.com/terms/
+  contact:
+    name: API Support
+    url: https://www.saviynt.com/support
+    email: support@saviynt.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: 5.0.0
   x-logo:
     url: https://saviynt.com/wp-content/uploads/2019/04/Saviynt_logo_Navy.svg
 externalDocs:
-  description: Find out more about Saviynt 
+  description: Documentation
   url: https://docs.saviyntcloud.com/
 servers:
   - url: 'https://{tenant}.saviyntcloud.com/ECM/api/v5'
@@ -59916,8 +59925,42 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+tags:
+  - name: Authentication
+  - name: Users
+  - name: Accounts
+  - name: Entitlements
+  - name: Privileges
+  - name: Roles
+  - name: User Groups
+  - name: Security Systems
+  - name: Endpoints
+  - name: Connections
+  - name: Entitlement Types
+  - name: Dynamic Attributes
+  - name: Organization
+  - name: Connections
+  - name: Analytics
+  - name: Access Recommendations
+  - name: Dashboard
+  - name: Access Request
+  - name: Request Approval
+  - name: Tasks
+  - name: User Delegation
+  - name: Attestations
+  - name: Campaigns
+  - name: User Manager Campaigns
+  - name: Entitlement Owner Campaigns
+  - name: Application Owner Campaigns
+  - name: Segregation of Duties
+  - name: Password Management
+  - name: Common Utilities
+  - name: Job Management
+  - name: Transport
+  - name: Provisioning Policies
+  - name: Dataset
 x-tagGroups:
-  - name: Identity Collection
+  - name: Identity Repository
     tags:
       - Authentication
       - Users
