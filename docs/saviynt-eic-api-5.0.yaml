@@ -27,6 +27,8 @@ servers:
         default: 'example'
 paths:
   /api/login:
+    servers:
+    - url: 'https://{tenant}.saviyntcloud.com/ECM'
     post:
       tags:
         - Authentication
@@ -133,6 +135,8 @@ paths:
       security:
         - bearerAuth: []
   /oauth/access_token:
+    servers:
+    - url: 'https://{tenant}.saviyntcloud.com/ECM'
     post:
       tags:
         - Authentication

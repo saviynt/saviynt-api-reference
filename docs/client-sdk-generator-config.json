@@ -1,6 +1,50 @@
 {
-  "modelPackage": "com.example.api.model",
-  "apiPackage": "com.example.api",
-  "apis": "Users",
-  "useTags": true
+	"modelPackage": "com.example.api.model",
+	"apiPackage": "com.example.api",
+	"useTags": true,
+	"Transform": "AWS::Serverless-2016-10-31",
+	"Resources": {
+		"Api": {
+			"Type": "AWS::Serverless::Api",
+			"Properties": {
+				"Name": {
+					"Fn::Sub": [
+						"${ResourceName} From Stack ${AWS::StackName}",
+						{
+							"ResourceName": "Api"
+						}
+					]
+				},
+				"StageName": "Prod",
+				"DefinitionBody": {
+					"openapi": "3.0",
+					"info": {},
+					"paths": {
+						"/": {
+							"get": {
+								"responses": {}
+							}
+						}
+					}
+				},
+				"EndpointConfiguration": "REGIONAL",
+				"TracingEnabled": true
+			}
+		},
+		"UserPool": {
+			"Type": "AWS::Cognito::UserPool",
+			"Properties": {
+				"AdminCreateUserConfig": {
+					"AllowAdminCreateUserOnly": false
+				},
+				"AliasAttributes": [
+					"email",
+					"preferred_username"
+				],
+				"UserPoolName": {
+					"Fn::Sub": "${AWS::StackName}-UserPool"
+				}
+			}
+		}
+	}
 }
