@@ -1518,7 +1518,7 @@ paths:
                       Create Date:
                         type: string
                         example: 03/28/2018T07:00:00+0000
-                      Custom Property 1:
+                      customproperty1:
                         type: string
                         example: IP
                       Department Name:
@@ -1938,7 +1938,7 @@ paths:
                     UserDetails:
                       Company Name: Information Technology International
                       Create Date: 03/28/2018T07:00:00+0000
-                      Custom Property 1: IP
+                      customproperty1: IP
                       Department Name: IAM
                       Job Function: A dummy name for a Skill Pool Group
                       Last Name: Doe
@@ -2176,9 +2176,11 @@ paths:
                           type: string
                           example: AWS
                         entdescription:
+                          type: string
                           nullable: true
                           example: null
                         entdisplayname:
+                          type: string
                           nullable: true
                           example: null
                         entitlementType:
@@ -6515,8 +6517,8 @@ paths:
                       type: object
                       properties:
                         entitlement_valuekey:
-                          type: number
-                          example: 1
+                          type: string
+                          example: '1'
                         entitlementID:
                           type: string
                           example: entitlementID
@@ -12271,6 +12273,7 @@ paths:
                       type: object
                       properties:
                         actionString:
+                          type: string
                           nullable: true
                           example: null
                         attribute:
@@ -12286,15 +12289,18 @@ paths:
                           type: string
                           example: ''
                         attributegroup:
+                          type: string
                           nullable: true
                           example: null
                         childaction:
+                          type: string
                           nullable: true
                           example: null
                         defaultvalue:
                           type: string
                           example: 'true'
                         descriptionascsv:
+                          type: string
                           nullable: true
                           example: null
                         editable:
@@ -12310,6 +12316,7 @@ paths:
                               type: string
                               example: Access
                         entitlements_column:
+                          type: number
                           nullable: true
                           example: null
                         hideoncreate:
@@ -12326,9 +12333,11 @@ paths:
                           type: string
                           example: '0'
                         parentattribute:
+                          type: string
                           nullable: true
                           example: null
                         regex:
+                          type: string
                           nullable: true
                           example: null
                         requestablerequired:
@@ -12338,6 +12347,7 @@ paths:
                           type: boolean
                           example: true
                         sqlquery:
+                          type: string
                           nullable: true
                           example: null
                         updatedate:
@@ -13336,66 +13346,66 @@ paths:
                 Get Role Details:
                   value:
                     Roledetails:
-                      - Custom Property 1: ''
-                        Custom Property 10: ''
-                        Custom Property 11: ''
-                        Custom Property 12: ''
-                        Custom Property 13: ''
-                        Custom Property 14: ''
-                        Custom Property 15: ''
-                        Custom Property 16: ''
-                        Custom Property 17: ''
-                        Custom Property 18: ''
-                        Custom Property 19: ''
-                        Custom Property 2: ''
-                        Custom Property 20: ''
-                        Custom Property 21: ''
-                        Custom Property 22: ''
-                        Custom Property 23: ''
-                        Custom Property 24: ''
-                        Custom Property 25: ''
-                        Custom Property 26: ''
-                        Custom Property 27: ''
-                        Custom Property 28: ''
-                        Custom Property 29: ''
-                        Custom Property 3: ''
-                        Custom Property 30: ''
-                        Custom Property 31: ''
-                        Custom Property 32: ''
-                        Custom Property 33: ''
-                        Custom Property 34: ''
-                        Custom Property 35: ''
-                        Custom Property 36: ''
-                        Custom Property 37: ''
-                        Custom Property 38: ''
-                        Custom Property 39: ''
-                        Custom Property 4: ''
-                        Custom Property 40: ''
-                        Custom Property 41: ''
-                        Custom Property 42: ''
-                        Custom Property 43: ''
-                        Custom Property 44: ''
-                        Custom Property 45: ''
-                        Custom Property 46: ''
-                        Custom Property 47: ''
-                        Custom Property 48: ''
-                        Custom Property 49: ''
-                        Custom Property 5: ''
-                        Custom Property 50: ''
-                        Custom Property 51: ''
-                        Custom Property 52: ''
-                        Custom Property 53: ''
-                        Custom Property 54: ''
-                        Custom Property 55: ''
-                        Custom Property 56: ''
-                        Custom Property 57: ''
-                        Custom Property 58: ''
-                        Custom Property 59: ''
-                        Custom Property 6: ''
-                        Custom Property 60: ''
-                        Custom Property 7: ''
-                        Custom Property 8: ''
-                        Custom Property 9: ''
+                      - customproperty1: ''
+                        customproperty10: ''
+                        customproperty11: ''
+                        customproperty12: ''
+                        customproperty13: ''
+                        customproperty14: ''
+                        customproperty15: ''
+                        customproperty16: ''
+                        customproperty17: ''
+                        customproperty18: ''
+                        customproperty19: ''
+                        customproperty2: ''
+                        customproperty20: ''
+                        customproperty21: ''
+                        customproperty22: ''
+                        customproperty23: ''
+                        customproperty24: ''
+                        customproperty25: ''
+                        customproperty26: ''
+                        customproperty27: ''
+                        customproperty28: ''
+                        customproperty29: ''
+                        customproperty3: ''
+                        customproperty30: ''
+                        customproperty31: ''
+                        customproperty32: ''
+                        customproperty33: ''
+                        customproperty34: ''
+                        customproperty35: ''
+                        customproperty36: ''
+                        customproperty37: ''
+                        customproperty38: ''
+                        customproperty39: ''
+                        customproperty4: ''
+                        customproperty40: ''
+                        customproperty41: ''
+                        customproperty42: ''
+                        customproperty43: ''
+                        customproperty44: ''
+                        customproperty45: ''
+                        customproperty46: ''
+                        customproperty47: ''
+                        customproperty48: ''
+                        customproperty49: ''
+                        customproperty5: ''
+                        customproperty50: ''
+                        customproperty51: ''
+                        customproperty52: ''
+                        customproperty53: ''
+                        customproperty54: ''
+                        customproperty55: ''
+                        customproperty56: ''
+                        customproperty57: ''
+                        customproperty58: ''
+                        customproperty59: ''
+                        customproperty6: ''
+                        customproperty60: ''
+                        customproperty7: ''
+                        customproperty8: ''
+                        customproperty9: ''
                         UserDetails:
                           - User Details Not Found
                         confidentiality: ''
@@ -20110,6 +20120,7 @@ paths:
                         type: string
                         example: ''
                       CHANGEPASSJSON:
+                        type: string
                         nullable: true
                         example: null
                       COMBINEDCREATEREQUEST:
@@ -21025,6 +21036,7 @@ paths:
                           type: number
                           example: 14
                         controlid:
+                          type: number
                           nullable: true
                           example: null
                         description:
@@ -22138,6 +22150,7 @@ paths:
                           type: string
                           example: String
                         orderIndex:
+                          type: number
                           nullable: true
                           example: null
                     example:
@@ -22327,6 +22340,7 @@ paths:
                     type: string
                     example: String
                   orderIndex:
+                    type: number
                     nullable: true
                     example: null
       security:
@@ -25152,6 +25166,9 @@ paths:
                 requestor:
                   type: string
                   example: lmcneil
+                updateapprover:
+                  type: string
+                  example: approvername
             examples:
               Add Approver to existing Request:
                 value:
@@ -25783,6 +25800,7 @@ paths:
                             State: Rejected (Saviynt AdminUser(admin))
                             endpointname: ''
                       comments:
+                        type: string
                         nullable: true
                         example: null
                       dynamicattributes:
@@ -26520,6 +26538,7 @@ paths:
                                     type: string
                                     example: REJECTED
                                   approvaltype:
+                                    type: string
                                     nullable: true
                                     example: null
                                   assignee:
@@ -26588,6 +26607,7 @@ paths:
                                     type: string
                                     example: ProjectManager
                                   roleDescription:
+                                    type: string
                                     nullable: true
                                     example: null
                                   roleDisplayName:
@@ -26603,6 +26623,7 @@ paths:
                                     type: string
                                     example: '0'
                                   taskid:
+                                    type: number
                                     nullable: true
                                     example: null
                                   taskkey:
@@ -26727,6 +26748,7 @@ paths:
                                     type: string
                                     example: REJECTED
                                   approvaltype:
+                                    type: string
                                     nullable: true
                                     example: null
                                   assignee:
@@ -26795,6 +26817,7 @@ paths:
                                     type: string
                                     example: ProjectManager
                                   roleDescription:
+                                    type: string
                                     nullable: true
                                     example: null
                                   roleDisplayName:
@@ -26810,6 +26833,7 @@ paths:
                                     type: string
                                     example: '0'
                                   taskid:
+                                    type: number
                                     nullable: true
                                     example: null
                                   taskkey:
@@ -27585,6 +27609,7 @@ paths:
                                         UTC -Edward Employee(edwardemployee)]
                                         sdfsdf</span>
                                     entTypeDescription:
+                                      type: string
                                       nullable: true
                                       example: null
                                     entTypeDisplayName:
@@ -27759,6 +27784,7 @@ paths:
                                         UTC -Edward Employee(edwardemployee)]
                                         sdfsdf</span>
                                     entTypeDescription:
+                                      type: string
                                       nullable: true
                                       example: null
                                     entTypeDisplayName:
@@ -34953,6 +34979,7 @@ paths:
                                       type: string
                                       example: NORESPONSE
                                     comment:
+                                      type: string
                                       nullable: true
                                       example: null
                                     consulted:
@@ -35016,6 +35043,7 @@ paths:
                                 type: string
                                 example: APPROVED
                               comment:
+                                type: string
                                 nullable: true
                                 example: null
                               consulted:
@@ -40210,6 +40238,7 @@ paths:
                                 - 4351775###890###4359855###4359855###Accountant
                                 - 4351755###890###4359855###4359855###Accountant
                             MC:
+                              type: string
                               nullable: true
                               example: null
                             RISKS:
