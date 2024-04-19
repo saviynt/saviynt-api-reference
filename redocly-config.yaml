@@ -1,0 +1,45 @@
+apiDefinitions:
+  main: path/to/your/main/openapi.yaml
+
+lint:
+  extends: recommended
+
+referenceDocs:
+  splits:
+    ./docs/api-specs/5.0/users: 'tag=Users'
+    ./docs/api-specs/5.0/authentication: 'tag=Authentication'
+    ./docs/api-specs/5.0/accounts: 'tag=Accounts'
+    ./docs/api-specs/5.0/access: 'tag=Access'
+    ./docs/api-specs/5.0/user-groups: 'tag=User Groups'
+    ./docs/api-specs/5.0/organization: 'tag=Organization'
+    ./docs/api-specs/5.0/roles: 'tag=Roles'
+    ./docs/api-specs/5.0/role-membership: 'tag=Role Membership'
+    ./docs/api-specs/5.0/provisioning-policies: 'tag=Provisioning Policies'
+    ./docs/api-specs/5.0/sod: 'tag=Segregation of Duties'
+    ./docs/api-specs/5.0/password-management: 'tag=Password Management'
+    ./docs/api-specs/5.0/request/access: 'tag=Access Request'
+    ./docs/api-specs/5.0/request/user: 'tag=User Request'
+    ./docs/api-specs/5.0/request/role: 'tag=Role Request'
+    ./docs/api-specs/5.0/request/histort: 'tag=Request History'
+    ./docs/api-specs/5.0/request/approval: 'tag=Request Approval'
+    ./docs/api-specs/5.0/request/tasks: 'tag=Tasks'
+    ./docs/api-specs/5.0/security-systems: 'tag=Security Systems'
+    ./docs/api-specs/5.0/endpoints: 'tag=endpoints'
+    ./docs/api-specs/5.0/connections: 'tag=Connections'
+    ./docs/api-specs/5.0/entitlement-types: 'tag=Entitlement Types'
+    ./docs/api-specs/5.0/entitlements: 'tag=Entitlements'
+    ./docs/api-specs/5.0/privileges: 'tag=Privileges'
+    ./docs/api-specs/5.0/dynamic-attributes: 'tag=Dynamic Attributes'
+    ./docs/api-specs/5.0/campaigns/attestations: 'tag=Attestations'
+    ./docs/api-specs/5.0/campaigns: 'tag=Campaigns'
+    ./docs/api-specs/5.0/campaigns/user-manager: 'tag=User Manager Campaigns'
+    ./docs/api-specs/5.0/campaigns/entitlement-owner: 'tag=Entitlement Owner Campaigns'
+    ./docs/api-specs/5.0/campaigns/application-owner: 'tag=Application Owner Campaigns'
+    ./docs/api-specs/5.0/analytics: 'tag=Analytics'
+    ./docs/api-specs/5.0/dashboard: 'tag=Dashboard'
+    ./docs/api-specs/5.0/access-recommendations: 'tag=Access Recommendations'
+    ./docs/api-specs/5.0/administration/dynamic-attributes: 'tag=User Delegation'
+    ./docs/api-specs/5.0/administration/job-management: 'tag=Job Management'
+    ./docs/api-specs/5.0/administration/dataset: 'tag=Dataset'
+    ./docs/api-specs/5.0/administration/transport: 'tag=transport'
+    ./docs/api-specs/5.0/administration/utilities: 'tag=Common Utilities'

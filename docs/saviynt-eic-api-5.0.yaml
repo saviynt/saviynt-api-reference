@@ -35634,7 +35634,6 @@ paths:
               schema:
                 type: string
                 example: nosniff
-
           content:
             application/json:
               schema:
@@ -35773,7 +35772,6 @@ paths:
               schema:
                 type: string
                 example: nosniff
-
           content:
             application/json:
               schema:
