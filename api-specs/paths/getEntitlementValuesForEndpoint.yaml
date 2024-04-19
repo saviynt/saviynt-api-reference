@@ -1,0 +1,420 @@
+post:
+  tags:
+    - Entitlements
+  summary: Get Entitlement Values For Endpoint
+  description: "This method returns a `List` of \"EntitlementValues\" for a specific endpoint in SSM. \r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nMandatory params:\r\n`endpoint`\r\n\r\nOptional params:\r\n`entitlementType`, `max`, `offset`,\r\n`entownerwithrank` - if \"true\", returns the list of owners with owner rank for every entitlementValue\r\n`returnentitlementmap`(true/false,default:false) - If true, entitlementmap details will be returned"
+  operationId: getEntitlementValuesForEndpoint
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            endpoint:
+              type: string
+              example: Workday
+            entitlementType:
+              type: string
+              example: Security-Groups
+            entownerwithrank:
+              type: string
+              example: 'true'
+        examples:
+          Get Entitlement Values For Endpoint:
+            value:
+              endpoint: Workday
+              entitlementType: Security-Groups
+              entownerwithrank: 'true'
+  responses:
+    '200':
+      description: >-
+        Get Entitlement Values For Endpoint / Get Entitlement Values For
+        Endpoint 2
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 21 Jul 2020 18:33:49 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=8a56ec8d-a73d-4fd4-b58d-7cb6d0034075; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              Entitlementdetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    entitlement_valuekey:
+                      type: string
+                      example: '1'
+                    entitlementID:
+                      type: string
+                      example: entitlementID
+                    access:
+                      type: string
+                      example: Select
+                    confidentiality:
+                      type: string
+                      example: '0'
+                    customproperty1:
+                      type: string
+                      example: test
+                    customproperty20:
+                      type: string
+                      example: cp20
+                    customproperty3:
+                      type: string
+                      example: cp3
+                    customproperty8:
+                      type: string
+                      example: cp8
+                    description:
+                      type: string
+                      example: ''
+                    displayname:
+                      type: string
+                      example: Display Name One
+                    endpoint:
+                      type: string
+                      example: System1
+                    entitlementOwner:
+                      anyOf:
+                        - type: array
+                          items:
+                            type: string
+                            example: dbailey
+                          example:
+                            - dbailey
+                            - crichards
+                        - type: string
+                          example: dbailey
+                    entitlementType:
+                      type: string
+                      example: Access
+                    entitlement_glossary:
+                      type: string
+                      example: ''
+                    entitlement_value:
+                      type: string
+                      example: TestEnt1
+                    module:
+                      type: string
+                      example: Select
+                    priviliged:
+                      type: string
+                      example: '0'
+                    requestForm:
+                      type: string
+                      example: Request Form Table
+                    risk:
+                      type: string
+                      example: '0'
+                    soxcritical:
+                      type: string
+                      example: '0'
+                    status:
+                      type: string
+                      example: '1'
+                    syscritical:
+                      type: string
+                      example: '0'
+                    updatedate:
+                      type: string
+                      example: 04/08/2017
+                    updateuser:
+                      type: string
+                      example: '1'
+                example:
+                  - access: Select
+                    confidentiality: '0'
+                    customproperty1: test
+                    description: ''
+                    displayname: Display Name One
+                    endpoint: System1
+                    entitlementOwner:
+                      - dbailey
+                      - crichards
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: TestEnt1
+                    module: Select
+                    priviliged: '0'
+                    requestForm: Request Form Table
+                    risk: '0'
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/08/2017
+                    updateuser: '1'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement14
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+              entitlementsCount:
+                type: number
+                example: 16
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+              statusCode:
+                type: number
+                example: 200
+              totalEntitlementCount:
+                type: number
+                example: 16
+          examples:
+            Get Entitlement Values For Endpoint:
+              value:
+                Entitlementdetails:
+                  - access: Select
+                    confidentiality: '0'
+                    customproperty1: test
+                    description: ''
+                    displayname: Display Name One
+                    endpoint: System1
+                    entitlementOwner:
+                      - dbailey
+                      - crichards
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: TestEnt1
+                    module: Select
+                    priviliged: '0'
+                    requestForm: Request Form Table
+                    risk: '0'
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/08/2017
+                    updateuser: '1'
+                  - customproperty1: test
+                    description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner:
+                      - glogan
+                      - smarquez
+                      - lkrause
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: TestEnt2
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                  - access: Select
+                    confidentiality: '0'
+                    customproperty1: test
+                    description: ''
+                    displayname: Display Name Two
+                    endpoint: System1
+                    entitlementOwner:
+                      - bharell
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement3
+                    module: Select
+                    priviliged: '0'
+                    requestForm: Request Form Table
+                    risk: '0'
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 03/24/2017
+                    updateuser: '1'
+                  - customproperty1: ap1
+                    customproperty20: cp20
+                    customproperty3: cp3
+                    customproperty8: cp8
+                    description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement4
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/27/2018
+                    updateuser: '191327'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement5
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement6
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement7
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement8
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement9
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement10
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement11
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement12
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement13
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement14
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement15
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement16
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    syscritical: '0'
+                entitlementsCount: 16
+                errorCode: '0'
+                msg: Successful
+                totalEntitlementCount: 16

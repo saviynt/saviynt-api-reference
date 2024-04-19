@@ -1,0 +1,138 @@
+post:
+  tags:
+    - Accounts
+  summary: Update Account
+  description: >-
+    This method updates a particular "account" record in Saviynt, based on the
+    account name.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:   `securitysystem`,   `endpoint`,   `name` - account name
+
+    Optional params:   `customproperty<1 to 30>`,   `status`,   `description`
+
+    `accountowner`
+
+    - `type`: Specify user or usergroup as the owner type. This is a mandatory
+    parameter. - `value`: Specify usergroup name or username. This is a
+    mandatory parameter. - `rank`: Specify the rank of the owner. You can
+    specify values from 1 to 5, 26, or 27. Specify 26 for a primary certifier
+    and 27 for any secondary certifier. This is an optional parameter, and the
+    default value is 1. - `action`: Specify add or remove. This is a mandatory
+    parameter.
+
+
+    `description`,   `displayname`,   `comments`,   `accountid`,  
+    `customproperty<1-56>`,   `passwordchangestatus`,   `privileged`,  
+    `usergroup`,
+
+    `updateuser` - username of user who is updating the account,   `status` -
+    Manually Suspended/Manually Provisioned/SUSPENDED FROM IMPORT
+    SERVICE/1/2/3/4, default: 1   `accounttype` - The account type that is
+    imported from the third-party application (for example, Service Account,
+    Shared Account, FIREFIGHTERID, and so on). default: null  
+    `incorrectlogons`,   `orphan` - true/false,   `validfrom` - MM-dd-yyyy,  
+    `validthrough` - MM-dd-yyyy,   `lastlogondate` - MM-dd-yyyy,  
+    `passwordlockdate`\- MM-dd-yyyy,   `lastpasswordchange` - MM-dd-yyyy
+  operationId: updateAccount
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accountowner:
+              type: array
+              items:
+                type: object
+                properties:
+                  action:
+                    type: string
+                    example: remove
+                  rank:
+                    type: string
+                    example: '1'
+                  type:
+                    type: string
+                    example: user
+                  value:
+                    type: string
+                    example: dbailey
+              example:
+                - action: remove
+                  rank: '1'
+                  type: user
+                  value: dbailey
+                - action: add
+                  rank: '1'
+                  type: user
+                  value: acook
+            customproperty1:
+              type: string
+              example: cp1
+            description:
+              type: string
+              example: desc
+            endpoint:
+              type: string
+              example: System1
+            name:
+              type: string
+              example: johnWS
+            securitysystem:
+              type: string
+              example: System1
+            status:
+              type: string
+              example: '1'
+        examples:
+          Update Account:
+            value:
+              accountowner:
+                - action: remove
+                  rank: '1'
+                  type: user
+                  value: dbailey
+                - action: add
+                  rank: '1'
+                  type: user
+                  value: acook
+              customproperty1: cp1
+              description: desc
+              endpoint: System1
+              name: johnWS
+              securitysystem: System1
+              status: '1'
+  responses:
+    '200':
+      description: Update Account
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 08 Aug 2018 00:36:41 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=7a5ee95d-8152-493e-b4ec-ee93437036cc; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: Account Updated Successfully
+          examples:
+            Update Account:
+              value:
+                errorCode: '0'
+                message: Account Updated Successfully

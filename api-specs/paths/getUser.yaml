@@ -1,0 +1,166 @@
+post:
+  tags:
+    - Users
+  summary: Get User Details
+  description: "This method returns a `List` of Users in SSM. \r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nOptional params:\r\n\r\n`username` - Specify the username for which you want to get the user attribute details,\r\n\r\n`responsefields` - User attributes which you want to see in the response(for encrypted values, mention ecp<1-5>, and for hashed values, mention hcp<1-5>),\r\n\r\n`max`,\r\n\r\n`offset`,\r\n\r\n`sort`,\r\n\r\n`order` - asc/desc,\r\n\r\n`manager` - username,\r\n\r\n`secondarymanager` - userkey *OR* `secondaryManager` - username\r\n\r\n`showsecurityanswers` - \"0\"/\"1\" to display encrypted security answers for the user \r\n\r\n&nbsp;\r\n\r\n\r\n`filtercriteria` - User fields based on which you want to get the user attribute details(including userkey),\r\n\r\n***OR***\r\n\r\n`searchCriteria` - search for a user based on the string passed (eg - “\\*ab\\*” or “\\*ab” or “ab\\*”) in their firstname, lastname, displayname and username only, example - \"ab*\" - This will return all users with firstname or lastname or username starting with \"ab\"\r\n\r\n***OR***\r\n\r\n`advsearchcriteria` - search for a user based on the string passed (eg - “\\*ab\\*” or “\\*ab” or “ab\\*”), example - {\"username\":\"a*\", \"firstname\":\"*b\"} - This will return all users with username starting with \"a\" AND firstname ending with \"b\". Exact match search is applicable for types boolean, users, customer. Date can be entered in format - yyyy-MM-dd.\r\n\r\n***OR***\r\n\r\n`userQuery` - Sample: “userQuery”:”user.customproperty1='abc' or user.displayname like '%display%'”.\r\n\r\n***Note*** - By default, if no responsefields param is passed, required attrs that will always return are username, email, statuskey, firstname, lastname, employeeid along with other attributes with nonblank values only."
+  operationId: getUserDetails
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            filtercriteria:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: lmcneil
+            showsecurityanswers:
+              type: string
+              example: '1'
+        examples:
+          Get User Details:
+            value:
+              filtercriteria:
+                username: lmcneil
+              showsecurityanswers: '1'
+  responses:
+    '200':
+      description: Get User Details / Get User Details 2
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Thu, 23 Jul 2020 18:46:04 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=94589b88-cb05-4e05-a11d-dc62e85bb238; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displaycount:
+                type: string
+                example: '1'
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+              totalcount:
+                type: string
+                example: '1'
+              userlist:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    firstname:
+                      type: string
+                      example: John
+                    statuskey:
+                      type: string
+                      example: '1'
+                    userKey:
+                      type: number
+                      example: 5
+                    username:
+                      type: string
+                      example: johndoe
+                example:
+                  - firstname: John
+                    statuskey: '1'
+                    userKey: 5
+                    username: johndoe
+          examples:
+            Get User Details:
+              value:
+                displaycount: '1'
+                errorCode: '0'
+                msg: Successful
+                totalcount: '1'
+                userlist:
+                  - firstname: John
+                    statuskey: '1'
+                    userKey: 5
+                    username: johndoe
+            Get User Details 2:
+              value:
+                displaycount: '1'
+                errorCode: '0'
+                msg: Successful
+                totalcount: '1'
+                userlist:
+                  - accountExpired: 'false'
+                    accountLocked: 'false'
+                    city: San Francisco
+                    companyname: Global Modern Services, Inc. (USA)
+                    costcenter: GMS USA
+                    country: USA
+                    createdate: 06/08/2020T10:35:46+0000
+                    customer: testorg
+                    customproperty1: 3aa5550b7fe348b98d7b5741afc65534
+                    displayname: Logan McNeil
+                    email: test@gmail.com
+                    employeeType: Regular
+                    employeeid: '21001'
+                    enabled: 'true'
+                    encryptedSecurityAnswers: >-
+                      lhCSZZbYyxHaRZN6L9s4IPXAIwx86J87GEXwt5wIutPnEGkywv4W9UImm9u+qlk67bTNecLwHBClApo9olYBEceyC+h4gcLrjWwLOLlJ3Wc=
+                    failedTries: '0'
+                    firstname: Logan
+                    lastPasswordUpdateDate: 07/23/2020T18:25:58+0000
+                    lastname: McNeil
+                    location: San Francisco
+                    passwordExpired: 'false'
+                    phonenumber: 415789-8904
+                    preferedFirstName: Logan
+                    savUpdateDate: 06/08/2020T10:36:03+0000
+                    statuskey: '1'
+                    systemUserName: lmcneil
+                    title: Chief Human Resources Officer
+                    updatedate: 07/23/2020T18:25:58+0000
+                    updateuser: admin
+                    userKey: 12444
+                    userSource: '127'
+                    username: lmcneil

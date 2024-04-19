@@ -1,0 +1,100 @@
+servers:
+  - url: https://{tenant}.saviyntcloud.com/ECM
+    variables:
+      tenant:
+        description: tenant
+        default: example
+post:
+  security: []
+  tags:
+    - Authentication
+  summary: Get Authorization Token
+  description: >-
+    The `Bearer Authentication scheme` is dedicated to the authentication using
+    a token and is described by the [RFC6750]. Even if this scheme comes from an
+    OAuth2 specification, you can still use it as a way to exchange between a
+    client and a server.
+
+    The SSM API currently requires the HTTP authentication scheme `Bearer` for
+    authentication. All requests must have a valid `Token` specified in the HTTP
+    Authorization header with the `Bearer` scheme.
+
+    > https://example.saviyntcloud.com/ECM/api/login 
+
+
+    A `POST` request by passing 'username' and 'password' in `json` text in the
+    `body`, will return a `Token` in the response which can be passed in a
+    `header` variable for subsequent requests
+  operationId: getAuthorizationToken
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+              example: ''
+            password:
+              type: string
+              example: ''
+        examples:
+          Get Authorization Token:
+            value: ''
+  responses:
+    '200':
+      description: Get Token
+      headers:
+        Cache-Control:
+          schema:
+            type: string
+            example: no-store
+        Content-Length:
+          schema:
+            type: string
+            example: '2167'
+        Date:
+          schema:
+            type: string
+            example: Fri, 17 Aug 2018 22:21:22 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              access_token:
+                type: string
+                example: '*****'
+              expires_in:
+                type: number
+                example: 1800
+              refresh_token:
+                type: string
+                example: refreshTokenabcd*******
+              roles:
+                type: array
+                items:
+                  type: string
+                  example: ROLE_ADMIN
+                example:
+                  - ROLE_ADMIN
+              token_type:
+                type: string
+                example: Bearer
+              username:
+                type: string
+                example: admin
+          examples:
+            Get Token:
+              value:
+                access_token: '*****'
+                expires_in: 1800
+                refresh_token: refreshTokenabcd*******
+                roles:
+                  - ROLE_ADMIN
+                token_type: Bearer
+                username: admin

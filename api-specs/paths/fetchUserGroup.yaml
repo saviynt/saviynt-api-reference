@@ -1,0 +1,574 @@
+post:
+  tags:
+    - User Groups
+  summary: Get List of UserGroups
+  description: |-
+    This API returns list of UserGroups in SSM.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Optional params:
+    `usergroupkey`,
+    `usergroupname`,
+    `usergroupdescription`,`groupid`,
+    `max (default value is 5)`,
+    `offset (default value is 0)`
+  operationId: getListOfUsergroups
+  parameters:
+    - name: systemname
+      in: query
+      schema:
+        type: string
+        example: amigopod
+    - name: offset
+      in: query
+      schema:
+        type: string
+        example: '0'
+    - name: connectionname
+      in: query
+      schema:
+        type: string
+        example: CN_SERP_ECC_A53
+    - name: connectionType
+      in: query
+      schema:
+        type: string
+        example: SAP
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            usergroupkey:
+              type: string
+              example: '1'
+            usergroupname:
+              type: string
+              example: AdminGroup
+        examples:
+          Get List of UserGroups:
+            value:
+              usergroupkey: '1'
+              usergroupname: AdminGroup
+  responses:
+    '200':
+      description: Fetch UserGroups - SUCCESS / Get List of UserGroups - usergroupkey
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 22 Jun 2021 18:08:29 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=1eae9a2d-290d-44de-bcf9-3d74760832f7; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displaycount:
+                type: number
+                example: 1
+              errorcode:
+                type: number
+                example: 0
+              msg:
+                type: string
+                example: success
+              totalcount:
+                type: number
+                example: 1
+              usergroups:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    entitlements:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          description:
+                            type: string
+                            example: ''
+                          displayname:
+                            type: string
+                            example: ''
+                          entitlement_value:
+                            type: string
+                            example: Report Writer (Report_Writer)
+                          entitlement_valuekey:
+                            type: number
+                            example: 1
+                      example:
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: Report Writer (Report_Writer)
+                          entitlement_valuekey: 1
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: >-
+                            Job and Position Administrator
+                            (Job_and_Position_Administrator)
+                          entitlement_valuekey: 2
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: >-
+                            Organization Administrator
+                            (Organization_Administrator)
+                          entitlement_valuekey: 3
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: Setup Administrator (Setup_Administrator)
+                          entitlement_valuekey: 4
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: >-
+                            Compensation Administrator
+                            (Compensation_Administrator)
+                          entitlement_valuekey: 5
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: Benefits Administrator (Benefits_Administrator)
+                          entitlement_valuekey: 6
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: >-
+                            Payroll Interface Administrator
+                            (Payroll_Interface_Administrator)
+                          entitlement_valuekey: 7
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: Costing Administrator (Costing_Administrator)
+                          entitlement_valuekey: 8
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: >-
+                            Training Administrator (Inactive)
+                            (Training_Administrator)
+                          entitlement_valuekey: 9
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: Talent Administrator (Employee_Review_Administrator)
+                          entitlement_valuekey: 10
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: >-
+                            Business Process Administrator
+                            (Business_Process_Administrator)
+                          entitlement_valuekey: 11
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: Finance Administrator (Finance_Administrator)
+                          entitlement_valuekey: 12
+                        - description: ''
+                          displayname: ''
+                          entitlement_value: Customer Administrator (Customer_Administrator)
+                          entitlement_valuekey: 13
+                    groupid:
+                      type: string
+                      example: ''
+                    owners:
+                      type: array
+                      items: {}
+                      example: []
+                    risk:
+                      type: string
+                      example: ''
+                    user_groupdescription:
+                      type: string
+                      example: USERAPPROVAL
+                    user_groupname:
+                      type: string
+                      example: USERAPPROVAL
+                    usergroupkey:
+                      type: number
+                      example: 1
+                    users:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          city:
+                            type: string
+                            example: ''
+                          email:
+                            type: string
+                            example: ''
+                          firstname:
+                            type: string
+                            example: adminfname
+                          lastname:
+                            type: string
+                            example: adminlname
+                          userkey:
+                            type: number
+                            example: 1
+                          username:
+                            type: string
+                            example: admin
+                      example:
+                        - city: ''
+                          email: ''
+                          firstname: adminfname
+                          lastname: adminlname
+                          userkey: 1
+                          username: admin
+                        - city: San Francisco
+                          email: lmcneil@workday.net
+                          firstname: Logan
+                          lastname: McNeil
+                          userkey: 12444
+                          username: lmcneil
+                        - city: San Francisco
+                          email: smorgan@workday.net
+                          firstname: Steve
+                          lastname: Morgan
+                          userkey: 12445
+                          username: smorgan
+                        - city: San Francisco
+                          email: oliverr@sav.net
+                          firstname: Oliver
+                          lastname: Reynolds
+                          userkey: 12446
+                          username: Executive Management
+                example:
+                  - entitlements:
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Report Writer (Report_Writer)
+                        entitlement_valuekey: 1
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Job and Position Administrator
+                          (Job_and_Position_Administrator)
+                        entitlement_valuekey: 2
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Organization Administrator
+                          (Organization_Administrator)
+                        entitlement_valuekey: 3
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Setup Administrator (Setup_Administrator)
+                        entitlement_valuekey: 4
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Compensation Administrator
+                          (Compensation_Administrator)
+                        entitlement_valuekey: 5
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Benefits Administrator (Benefits_Administrator)
+                        entitlement_valuekey: 6
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Payroll Interface Administrator
+                          (Payroll_Interface_Administrator)
+                        entitlement_valuekey: 7
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Costing Administrator (Costing_Administrator)
+                        entitlement_valuekey: 8
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Training Administrator (Inactive)
+                          (Training_Administrator)
+                        entitlement_valuekey: 9
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Talent Administrator (Employee_Review_Administrator)
+                        entitlement_valuekey: 10
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Business Process Administrator
+                          (Business_Process_Administrator)
+                        entitlement_valuekey: 11
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Finance Administrator (Finance_Administrator)
+                        entitlement_valuekey: 12
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Customer Administrator (Customer_Administrator)
+                        entitlement_valuekey: 13
+                    groupid: ''
+                    owners: []
+                    risk: ''
+                    user_groupdescription: USERAPPROVAL
+                    user_groupname: USERAPPROVAL
+                    usergroupkey: 1
+                    users:
+                      - city: ''
+                        email: ''
+                        firstname: adminfname
+                        lastname: adminlname
+                        userkey: 1
+                        username: admin
+                      - city: San Francisco
+                        email: lmcneil@workday.net
+                        firstname: Logan
+                        lastname: McNeil
+                        userkey: 12444
+                        username: lmcneil
+                      - city: San Francisco
+                        email: smorgan@workday.net
+                        firstname: Steve
+                        lastname: Morgan
+                        userkey: 12445
+                        username: smorgan
+                      - city: San Francisco
+                        email: oliverr@sav.net
+                        firstname: Oliver
+                        lastname: Reynolds
+                        userkey: 12446
+                        username: Executive Management
+          examples:
+            Fetch UserGroups - SUCCESS:
+              value:
+                displaycount: 1
+                errorcode: 0
+                msg: success
+                totalcount: 1
+                usergroups:
+                  - entitlements:
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Report Writer (Report_Writer)
+                        entitlement_valuekey: 1
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Job and Position Administrator
+                          (Job_and_Position_Administrator)
+                        entitlement_valuekey: 2
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Organization Administrator
+                          (Organization_Administrator)
+                        entitlement_valuekey: 3
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Setup Administrator (Setup_Administrator)
+                        entitlement_valuekey: 4
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Compensation Administrator
+                          (Compensation_Administrator)
+                        entitlement_valuekey: 5
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Benefits Administrator (Benefits_Administrator)
+                        entitlement_valuekey: 6
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Payroll Interface Administrator
+                          (Payroll_Interface_Administrator)
+                        entitlement_valuekey: 7
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Costing Administrator (Costing_Administrator)
+                        entitlement_valuekey: 8
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Training Administrator (Inactive)
+                          (Training_Administrator)
+                        entitlement_valuekey: 9
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Talent Administrator (Employee_Review_Administrator)
+                        entitlement_valuekey: 10
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: >-
+                          Business Process Administrator
+                          (Business_Process_Administrator)
+                        entitlement_valuekey: 11
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Finance Administrator (Finance_Administrator)
+                        entitlement_valuekey: 12
+                      - description: ''
+                        displayname: ''
+                        entitlement_value: Customer Administrator (Customer_Administrator)
+                        entitlement_valuekey: 13
+                    groupid: ''
+                    owners: []
+                    risk: ''
+                    user_groupdescription: USERAPPROVAL
+                    user_groupname: USERAPPROVAL
+                    usergroupkey: 1
+                    users:
+                      - city: ''
+                        email: ''
+                        firstname: adminfname
+                        lastname: adminlname
+                        userkey: 1
+                        username: admin
+                      - city: San Francisco
+                        email: lmcneil@workday.net
+                        firstname: Logan
+                        lastname: McNeil
+                        userkey: 12444
+                        username: lmcneil
+                      - city: San Francisco
+                        email: smorgan@workday.net
+                        firstname: Steve
+                        lastname: Morgan
+                        userkey: 12445
+                        username: smorgan
+                      - city: San Francisco
+                        email: oliverr@sav.net
+                        firstname: Oliver
+                        lastname: Reynolds
+                        userkey: 12446
+                        username: Executive Management
+            Get List of UserGroups - usergroupkey:
+              value:
+                displaycount: 1
+                errorcode: 0
+                msg: success
+                totalcount: 1
+                usergroups:
+                  - entitlements:
+                      - description: Fixed Assets Inquiry - Tech IN
+                        displayname: ''
+                        entitlement_value: FIXED_ASSET_INQUIRY_TECH_IN
+                        entitlement_valuekey: 3
+                    groupid: ''
+                    owners:
+                      - city: ''
+                        comments: ''
+                        email: example@saviynt.com
+                        firstname: Lilith
+                        lastname: Larionova
+                        rank: 1
+                        userkey: 301254
+                        username: zz003487
+                    risk: ''
+                    user_groupdescription: Group admin
+                    user_groupname: AdminGroup
+                    usergroupkey: 1
+                    users:
+                      - city: Los Angeles
+                        email: example@saviynt.com
+                        firstname: margar'etm-anager
+                        lastname: margaretm'a:nager
+                        userkey: 317375
+                        username: margaret'manager
+                      - city: Los Angeles
+                        email: example@saviynt.com
+                        firstname: Stacy
+                        lastname: Sponsor
+                        userkey: 317378
+                        username: stacysponsor
+    '412':
+      description: Get List of UserGroups - FAIL
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 15 Jun 2020 20:52:09 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=dd76fe8b-d8b4-4f34-9f59-e87d073dceb4; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorcode:
+                type: number
+                example: 1
+              msg:
+                type: string
+                example: user group not found  with groupid 100
+          examples:
+            Get List of UserGroups - FAIL:
+              value:
+                errorcode: 1
+                msg: user group not found  with groupid 100

@@ -1,0 +1,218 @@
+put:
+  tags:
+    - Dynamic Attributes
+  summary: Update Dynamic Attribute
+  description: >-
+    This API updates dynamic attributes in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `securitysystem`
+
+    `endpoint`
+
+    `updateuser`
+
+    `dynamicattributes` - `attributename`
+
+    Optional params:
+
+    - `dynamicattributes` - other attributes of dynamic attributes -
+    `attributetype`(BOOLEAN/NUMBER/STRING/ENUM/MULTIPLE SELECT FROM
+    LIST/MULTIPLE SELECT FROM SQL QUERY/SINGLE SELECT FROM SQL
+    QUERY/PASSWORD/LARGE TEXT/CHECK BOX/DATE) - `requesttype`(ACCOUNT/PROPOSED
+    ENTITLEMENT OWNER/ENTITLEMENT OWNER ATTESTATION/ROLE/SERVICE ACCOUNT) -
+    `attributelable`: Specify the name of the attribute, which you want to
+    display in the Access Requests request form. You can apply following font
+    styling to the label:
+        - **##SavBoldStart##**_**Attribute_Name**_**##SavBoldEnd##**
+        - **##SavItalicStart##**_**Attribute_Name**_**##SavItalicEnd##**
+        - **##SavUnderlineStart##**_**Attribute_Name**_**##SavItalicEnd##**
+        - **##SavUrlStart##**_**Attribute_Name**_**##SavUrlEnd##**
+        - **##SavAnchorStart####SavUrlStart##**[<b>https://exampleorg.com##SavUrlEnd####SavUrlTextStart##</b>]_**URL_Text**_**##SavUrlTextEnd####SavAnchorEnd##**
+  operationId: updateDynamicAttribute
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            dynamicattributes:
+              type: array
+              items:
+                type: object
+                properties:
+                  Parentattribute:
+                    type: string
+                    example: ''
+                  accountscolumn:
+                    type: string
+                    example: customproperty1
+                  actionstring:
+                    type: string
+                    example: ''
+                  actiontoperformwhenparentattributechanges:
+                    type: string
+                    example: ''
+                  attributegroup:
+                    type: string
+                    example: ''
+                  attributelable:
+                    type: string
+                    example: ''
+                  attributename:
+                    type: string
+                    example: air5
+                  attributetype:
+                    type: string
+                    example: BOOLEAN
+                  attributevalue:
+                    type: string
+                    example: ''
+                  defaultvalue:
+                    type: string
+                    example: ''
+                  descriptionascsv:
+                    type: string
+                    example: ''
+                  editable:
+                    type: string
+                    example: 'true'
+                  hideoncreate:
+                    type: string
+                    example: 'false'
+                  hideonupdate:
+                    type: string
+                    example: 'false'
+                  orderindex:
+                    type: string
+                    example: ''
+                  regex:
+                    type: string
+                    example: ''
+                  requesttype:
+                    type: string
+                    example: SERVICE ACCOUNT
+                  required:
+                    type: string
+                    example: 'false'
+                  showonchild:
+                    type: string
+                    example: 'false'
+              example:
+                - Parentattribute: ''
+                  accountscolumn: customproperty1
+                  actionstring: ''
+                  actiontoperformwhenparentattributechanges: ''
+                  attributegroup: ''
+                  attributelable: ''
+                  attributename: air5
+                  attributetype: BOOLEAN
+                  attributevalue: ''
+                  defaultvalue: ''
+                  descriptionascsv: ''
+                  editable: 'true'
+                  hideoncreate: 'false'
+                  hideonupdate: 'false'
+                  orderindex: ''
+                  regex: ''
+                  requesttype: SERVICE ACCOUNT
+                  required: 'false'
+                  showonchild: 'false'
+            endpoint:
+              type: string
+              example: System1
+            securitysystem:
+              type: string
+              example: System1
+            username:
+              type: string
+              example: admin
+        examples:
+          Update Dynamic Attribute:
+            value:
+              dynamicattributes:
+                - Parentattribute: ''
+                  accountscolumn: customproperty1
+                  actionstring: ''
+                  actiontoperformwhenparentattributechanges: ''
+                  attributegroup: ''
+                  attributelable: ''
+                  attributename: air5
+                  attributetype: BOOLEAN
+                  attributevalue: ''
+                  defaultvalue: ''
+                  descriptionascsv: ''
+                  editable: 'true'
+                  hideoncreate: 'false'
+                  hideonupdate: 'false'
+                  orderindex: ''
+                  regex: ''
+                  requesttype: SERVICE ACCOUNT
+                  required: 'false'
+                  showonchild: 'false'
+              endpoint: System1
+              securitysystem: System1
+              username: admin
+  responses:
+    '200':
+      description: Update Dynamic Attribute
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 05 Aug 2019 23:16:14 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=b8fbc39c-e05e-400f-9e0a-ab41b5dac1cf; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Update Dynamic Attribute:
+              value:
+                errorcode: '0'
+                msg: Success

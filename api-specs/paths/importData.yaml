@@ -1,0 +1,57 @@
+post:
+  tags:
+    - Common Utilities
+  summary: Import Application Data
+  description: "This API is used to run import data job for a specific application\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`\r\n\r\nMandatory params: \r\n\r\n`systemname`,\r\n`connectiontype`,\r\n`connectionName`\r\n\r\nOptional params:\r\n\r\n`fullorincremental` - full/incremental,\r\n`accountsoraccess` - accounts/access\r\n`CREATEUSERS`- Yes/No\r\n\r\nAdditional import parameters can also be passed - \r\n\r\nFor example, \r\n\r\n1. For SAP Import, provide the parameters - JCO_ASHOST, JCO_SYSNR, JCO_CLIENT, JCO_USER, PASSWORD\r\n2. For AWS Import, provide the parameters  - AWS_ACCESS_KEY,AWS_ACCESS_SECRET_PASSWORD,AWS_ACCOUNT_ID,CROSS_ACCOUNT_ROLE_ARN"
+  operationId: importApplicationData
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            connectionName:
+              type: string
+              example: System1
+            connectiontype:
+              type: string
+              example: db
+            systemname:
+              type: string
+              example: System1
+  responses:
+    '200':
+      description: Import Data
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Thu, 02 Aug 2018 20:24:22 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=bf3ead5a-e35f-4d4c-9a91-29c1aef6f2cc; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: >-
+                  Import process started successfully.Please use
+                  checkImportStatus to get the current status
+          examples:
+            Import Data:
+              value:
+                errorCode: '0'
+                msg: >-
+                  Import process started successfully.Please use
+                  checkImportStatus to get the current status

@@ -1,0 +1,59 @@
+post:
+  tags:
+    - Job Management
+  summary: Delete Trigger
+  description: "This API call can be used to delete a trigger for a particular \"jobgroup\" in SSM.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n\r\n`jobname`\r\n\r\nOptional params:\r\n\r\n`triggername`\r\n\r\n`jobgroup`"
+  operationId: deleteTrigger
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            jobgroup:
+              type: string
+              example: utility
+            jobname:
+              type: string
+              example: TriggerChainJob
+            triggername:
+              type: string
+              example: TCAPI
+        examples:
+          Delete Trigger:
+            value:
+              jobgroup: utility
+              jobname: TriggerChainJob
+              triggername: TCAPI
+  responses:
+    '200':
+      description: DeleteTriggers
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Tue, 07 Aug 2018 18:39:43 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=e814071b-eba9-45fe-9edc-38e3e834949a; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: number
+                example: 0
+              msg:
+                type: string
+                example: Success
+          examples:
+            DeleteTriggers:
+              value:
+                errorCode: 0
+                msg: Success

@@ -1,0 +1,104 @@
+post:
+  tags:
+    - Transport
+  summary: Import Package
+  description: >-
+    This API imports a compressed file containing objects specified for T2P
+    migration.
+
+    The `Authorization` must have `Bearer` followed by `Token`. 
+
+    Mandatory params: 
+
+    `packagetoimport` - Complete path of the package that needs to be imported
+
+    Optional params:
+
+    `updateuser` - username of the user importing the package, 
+    `businessjustification`
+
+    Supported objects:
+
+    `savRoles`, `emailTemplate`, `roles`, `analyticsV1`, `analyticsV2`,
+    `globalConfig`, `workflows`, `connection`, `appOnboarding`, `userGroups`,
+    `scanRules`, `organizations`, `securitySystems`
+  operationId: importPackage
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            businessjustification:
+              type: string
+              example: test
+            packagetoimport:
+              type: string
+              example: >-
+                /saviynt_shared/testexport/transportPackage/transport_admin_2023-01-13_10-19-11(UTC).zip
+            updateuser:
+              type: string
+              example: admin
+        examples:
+          Import Package:
+            value:
+              businessjustification: test
+              packagetoimport: >-
+                /saviynt_shared/testexport/transportPackage/transport_admin_2023-01-13_10-19-11(UTC).zip
+              updateuser: admin
+  responses:
+    '200':
+      description: Import Package - Success
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Fri, 13 Jan 2023 14:33:30 GMT
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=36bcab8f-cd96-495d-a7f9-6a4a9197fb38; Version=1;
+              Path=";Path=/;HttpOnly;"; Secure
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        Vary:
+          schema:
+            type: string
+            example: Access-Control-Request-Headers
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorcode:
+                type: number
+                example: 0
+              msg:
+                type: string
+                example: success
+              msgDescription:
+                type: string
+                example: >-
+                  Import Requested. If other requests are currently processing,
+                  your import will begin after they complete. You can call
+                  /transportPackageStatus API to check the status of your import
+              requestId:
+                type: string
+                example: '2490001'
+          examples:
+            Import Package - Success:
+              value:
+                errorcode: 0
+                msg: success
+                msgDescription: >-
+                  Import Requested. If other requests are currently processing,
+                  your import will begin after they complete. You can call
+                  /transportPackageStatus API to check the status of your import
+                requestId: '2490001'

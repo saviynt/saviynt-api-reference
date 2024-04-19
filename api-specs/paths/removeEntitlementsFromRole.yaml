@@ -1,0 +1,130 @@
+post:
+  tags:
+    - Roles
+  summary: Remove Entitlement From Role
+  description: >-
+    This API removes entitlement from role.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `rolename` or `rolekey` (if both are passed then rolekey will be
+    considered), `entitlements`(within list of entitlements entitlementvalue,
+    entitlementtype, endpoint are mandatory)
+
+    Optional params:
+
+    `requestor`, `comments`
+  operationId: removeEntitlementFromRole
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            comments:
+              type: string
+              example: removed using API
+            entitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  endpoint:
+                    type: string
+                    example: Oracle
+                  entitlementtype:
+                    type: string
+                    example: OEBS-Responsibility
+                  entitlementvalue:
+                    type: string
+                    example: FIXED_ASSET_INQUIRY_TECH_IN
+              example:
+                - endpoint: Oracle
+                  entitlementtype: OEBS-Responsibility
+                  entitlementvalue: FIXED_ASSET_INQUIRY_TECH_IN
+            requestor:
+              type: string
+              example: admin
+            rolekey:
+              type: string
+              example: '115'
+            rolename:
+              type: string
+              example: Lambda_CreateAlarm
+        examples:
+          Remove Entitlement From Role:
+            value:
+              comments: removed using API
+              entitlements:
+                - endpoint: Oracle
+                  entitlementtype: OEBS-Responsibility
+                  entitlementvalue: FIXED_ASSET_INQUIRY_TECH_IN
+              requestor: admin
+              rolekey: '115'
+              rolename: Lambda_CreateAlarm
+  responses:
+    '200':
+      description: Remove Entitlement From Role
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Thu, 31 Dec 2020 22:26:21 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=41605420-ab72-4a92-b5f5-c09531dd583a; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorcode:
+                type: number
+                example: 0
+              msg:
+                type: string
+                example: success
+          examples:
+            Remove Entitlement From Role:
+              value:
+                errorcode: 0
+                msg: success

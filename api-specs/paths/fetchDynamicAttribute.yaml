@@ -1,0 +1,265 @@
+get:
+  tags:
+    - Dynamic Attributes
+  summary: Fetch Dynamic Attributes
+  description: >-
+    This API fetches the dynamic attributes in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Optional params:
+
+    `securitysystem`
+
+    `endpoint`
+
+    `dynamicattributes`
+
+    `max`, `offset`,
+
+    `requesttype` - can be ['ACCOUNT', 'PROPOSED ENTITLEMENT OWNER',
+    'ENTITLEMENT OWNER ATTESTATION', 'ROLE', 'SERVICE ACCOUNT','USER'],
+
+    `loggedinuser`
+  operationId: fetchDynamicAttributes
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            dynamicattributes:
+              type: array
+              items:
+                type: string
+                example: parent
+              example:
+                - parent
+                - child
+            endpoint:
+              type: array
+              items:
+                type: string
+                example: System1
+              example:
+                - System1
+            max:
+              type: string
+              example: '2'
+            offset:
+              type: string
+              example: '0'
+            securitysystem:
+              type: array
+              items:
+                type: string
+                example: System1
+              example:
+                - System1
+        examples:
+          Fetch Dynamic Attributes:
+            value:
+              dynamicattributes:
+                - parent
+                - child
+              endpoint:
+                - System1
+              max: '2'
+              offset: '0'
+              securitysystem:
+                - System1
+  responses:
+    '200':
+      description: Fetch Dynamic Attributes
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 05 Aug 2019 22:57:45 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=08e761fa-47af-42d0-8faa-8be801f4914a; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displaycount:
+                type: number
+                example: 2
+              dynamicattributes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accountscolumn:
+                      type: string
+                      example: customproperty11
+                    actiontoperformwhenparentattributechanges:
+                      type: string
+                      example: Mapping
+                    attributelable:
+                      type: string
+                      example: Select Parent
+                    attributename:
+                      type: string
+                      example: parent
+                    attributetype:
+                      type: string
+                      example: SQL MULTISELECT
+                    attributevalue:
+                      type: string
+                      example: >-
+                        select 'ERS' as ID,'ers desc' as description UNION
+                        select 'FALCON' as ID, 'falcon desc' as description
+                    editable:
+                      type: string
+                      example: 'true'
+                    endpoint:
+                      type: string
+                      example: System1
+                    hideoncreate:
+                      type: string
+                      example: 'false'
+                    hideonupdate:
+                      type: string
+                      example: 'false'
+                    orderindex:
+                      type: string
+                      example: '1'
+                    parentattribute:
+                      type: string
+                      example: parent
+                    requesttype:
+                      type: string
+                      example: ACCOUNT
+                    required:
+                      type: string
+                      example: 'false'
+                    securitysystem:
+                      type: string
+                      example: System1
+                    showonchild:
+                      type: string
+                      example: 'false'
+                example:
+                  - accountscolumn: customproperty11
+                    actiontoperformwhenparentattributechanges: Mapping
+                    attributelable: Select Parent
+                    attributename: parent
+                    attributetype: SQL MULTISELECT
+                    attributevalue: >-
+                      select 'ERS' as ID,'ers desc' as description UNION select
+                      'FALCON' as ID, 'falcon desc' as description
+                    editable: 'true'
+                    endpoint: System1
+                    hideoncreate: 'false'
+                    hideonupdate: 'false'
+                    orderindex: '1'
+                    requesttype: ACCOUNT
+                    required: 'false'
+                    securitysystem: System1
+                    showonchild: 'false'
+                  - accountscolumn: customproperty12
+                    actiontoperformwhenparentattributechanges: Mapping
+                    attributelable: Select Child
+                    attributename: child
+                    attributetype: SQL ENUM
+                    attributevalue: >-
+                      select customername as ID, CUSTOMPROPERTY1 as description
+                      from customer where customproperty12 in (${parent})
+                    editable: 'true'
+                    endpoint: System1
+                    hideoncreate: 'false'
+                    hideonupdate: 'false'
+                    orderindex: '2'
+                    parentattribute: parent
+                    requesttype: ACCOUNT
+                    required: 'false'
+                    securitysystem: System1
+                    showonchild: 'false'
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: success
+              totalcount:
+                type: number
+                example: 2
+          examples:
+            Fetch Dynamic Attributes:
+              value:
+                displaycount: 2
+                dynamicattributes:
+                  - accountscolumn: customproperty11
+                    actiontoperformwhenparentattributechanges: Mapping
+                    attributelable: Select Parent
+                    attributename: parent
+                    attributetype: SQL MULTISELECT
+                    attributevalue: >-
+                      select 'ERS' as ID,'ers desc' as description UNION select
+                      'FALCON' as ID, 'falcon desc' as description
+                    editable: 'true'
+                    endpoint: System1
+                    hideoncreate: 'false'
+                    hideonupdate: 'false'
+                    orderindex: '1'
+                    requesttype: ACCOUNT
+                    required: 'false'
+                    securitysystem: System1
+                    showonchild: 'false'
+                  - accountscolumn: customproperty12
+                    actiontoperformwhenparentattributechanges: Mapping
+                    attributelable: Select Child
+                    attributename: child
+                    attributetype: SQL ENUM
+                    attributevalue: >-
+                      select customername as ID, CUSTOMPROPERTY1 as description
+                      from customer where customproperty12 in (${parent})
+                    editable: 'true'
+                    endpoint: System1
+                    hideoncreate: 'false'
+                    hideonupdate: 'false'
+                    orderindex: '2'
+                    parentattribute: parent
+                    requesttype: ACCOUNT
+                    required: 'false'
+                    securitysystem: System1
+                    showonchild: 'false'
+                errorcode: '0'
+                msg: success
+                totalcount: 2

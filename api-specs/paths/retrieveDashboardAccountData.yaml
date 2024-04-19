@@ -1,0 +1,45 @@
+post:
+  tags:
+    - Dashboard
+  summary: Retrieve Dashboard Account Data
+  description: |-
+    The `Authorization` must have `Bearer` followed by `Token`. 
+    No params
+  operationId: retrieveDashboardAccountData
+  responses:
+    '200':
+      description: Retrieve Dashboard Account Data
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 12 Sep 2018 05:58:05 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=85364032-2843-44fe-b188-934037e042ae; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              dashboardAccountData:
+                type: array
+                items: {}
+                example: []
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: SUCCESS
+          examples:
+            Retrieve Dashboard Account Data:
+              value:
+                dashboardAccountData: []
+                errorCode: '0'
+                msg: SUCCESS

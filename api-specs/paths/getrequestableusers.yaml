@@ -1,0 +1,258 @@
+get:
+  tags:
+    - User Request
+  summary: Get Requestable Users
+  description: |-
+    This API fetches the list of user for whom the requestor can request.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params: 
+    `requestor`
+    Optional params:
+    `max`, `offset`
+  operationId: getRequestableUsers
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            max:
+              type: string
+              example: '2'
+            requestor:
+              type: string
+              example: jdwad
+        examples:
+          Get Requestable Users:
+            value:
+              max: '2'
+              requestor: jdwad
+  responses:
+    '200':
+      description: Get Requestable User
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 06 Aug 2019 18:47:26 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=47c1c225-2f8e-4f9f-957d-e68d6dd77c0f; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displaycount:
+                type: number
+                example: 2
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+              totalcount:
+                type: number
+                example: 151543
+              users:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                      example: Miami
+                    companyname:
+                      type: string
+                      example: ''
+                    costcenter:
+                      type: string
+                      example: ''
+                    departmentname:
+                      type: string
+                      example: ''
+                    departmentnumber:
+                      type: string
+                      example: ''
+                    displayname:
+                      type: string
+                      example: Ln, Fn
+                    email:
+                      type: string
+                      example: fn.ln@saviynt.com
+                    enddate:
+                      type: string
+                      example: '2018-12-03 07:40:21'
+                    firstname:
+                      type: string
+                      example: fn
+                    jobCode:
+                      type: string
+                      example: ''
+                    jobcodedesc:
+                      type: string
+                      example: jobdesc
+                    lastname:
+                      type: string
+                      example: ln
+                    lastsyncdate:
+                      type: string
+                      example: ''
+                    location:
+                      type: string
+                      example: ''
+                    manager:
+                      type: string
+                      example: acook
+                    region:
+                      type: string
+                      example: ''
+                    secmanager:
+                      type: string
+                      example: ''
+                    startdate:
+                      type: string
+                      example: ''
+                    statuskey:
+                      type: string
+                      example: Active
+                    systemusername:
+                      type: string
+                      example: admin
+                    username:
+                      type: string
+                      example: admin
+                    vendormanager:
+                      type: string
+                      example: ''
+                example:
+                  - city: Miami
+                    companyname: ''
+                    costcenter: ''
+                    departmentname: ''
+                    departmentnumber: ''
+                    displayname: Ln, Fn
+                    email: fn.ln@saviynt.com
+                    enddate: '2018-12-03 07:40:21'
+                    firstname: fn
+                    jobCode: ''
+                    jobcodedesc: jobdesc
+                    lastname: ln
+                    lastsyncdate: ''
+                    location: ''
+                    manager: acook
+                    region: ''
+                    secmanager: ''
+                    startdate: ''
+                    statuskey: Active
+                    systemusername: admin
+                    username: admin
+                    vendormanager: ''
+                  - city: New York
+                    companyname: ''
+                    costcenter: ''
+                    departmentname: ''
+                    departmentnumber: ''
+                    displayname: ''
+                    email: awsadmin@saviynt.com
+                    enddate: ''
+                    firstname: aws
+                    jobCode: ''
+                    jobcodedesc: jobdesc
+                    lastname: admin
+                    lastsyncdate: ''
+                    location: ''
+                    manager: acook
+                    region: ''
+                    secmanager: ''
+                    startdate: ''
+                    statuskey: Active
+                    systemusername: aadmin
+                    username: awsadmin
+                    vendormanager: ''
+          examples:
+            Get Requestable User:
+              value:
+                displaycount: 2
+                errorCode: '0'
+                msg: Success
+                totalcount: 151543
+                users:
+                  - city: Miami
+                    companyname: ''
+                    costcenter: ''
+                    departmentname: ''
+                    departmentnumber: ''
+                    displayname: Ln, Fn
+                    email: fn.ln@saviynt.com
+                    enddate: '2018-12-03 07:40:21'
+                    firstname: fn
+                    jobCode: ''
+                    jobcodedesc: jobdesc
+                    lastname: ln
+                    lastsyncdate: ''
+                    location: ''
+                    manager: acook
+                    region: ''
+                    secmanager: ''
+                    startdate: ''
+                    statuskey: Active
+                    systemusername: admin
+                    username: admin
+                    vendormanager: ''
+                  - city: New York
+                    companyname: ''
+                    costcenter: ''
+                    departmentname: ''
+                    departmentnumber: ''
+                    displayname: ''
+                    email: awsadmin@saviynt.com
+                    enddate: ''
+                    firstname: aws
+                    jobCode: ''
+                    jobcodedesc: jobdesc
+                    lastname: admin
+                    lastsyncdate: ''
+                    location: ''
+                    manager: acook
+                    region: ''
+                    secmanager: ''
+                    startdate: ''
+                    statuskey: Active
+                    systemusername: aadmin
+                    username: awsadmin
+                    vendormanager: ''

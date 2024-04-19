@@ -1,0 +1,114 @@
+get:
+  tags:
+    - User Delegation
+  summary: Get Delegate User List
+  description: >-
+    This API returns list of users that are allowed to be added as delegate for
+    a parentuser in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `parentusername`
+
+    Optional params:
+
+    `max`, `offset`,
+
+    `searchCriteria` - example "t*" or "*te*" or "test" to search in username or
+    firstname or lastname for the delegate user
+  operationId: getDelegateUserList
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            max:
+              type: string
+              example: '2'
+            parentusername:
+              type: string
+              example: acook
+            searchCriteria:
+              type: string
+              example: d*
+        examples:
+          Get Delegate User List:
+            value:
+              max: '2'
+              parentusername: acook
+              searchCriteria: d*
+  responses:
+    '200':
+      description: Get Delegate User List
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Thu, 06 Dec 2018 22:41:32 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=dab029a9-a0d4-45ff-a6da-52099e4c17b3; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displayCount:
+                type: string
+                example: '2'
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+              result:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    firstname:
+                      type: string
+                      example: Damien
+                    lastname:
+                      type: string
+                      example: Baliey
+                    username:
+                      type: string
+                      example: dbailey
+                example:
+                  - firstname: Damien
+                    lastname: Baliey
+                    username: dbailey
+                  - firstname: Deanna
+                    lastname: Odonnell
+                    username: dodonnell
+              totalCount:
+                type: string
+                example: '166'
+          examples:
+            Get Delegate User List:
+              value:
+                displayCount: '2'
+                errorCode: '0'
+                msg: Success
+                result:
+                  - firstname: Damien
+                    lastname: Baliey
+                    username: dbailey
+                  - firstname: Deanna
+                    lastname: Odonnell
+                    username: dodonnell
+                totalCount: '166'

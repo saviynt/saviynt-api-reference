@@ -1,0 +1,207 @@
+post:
+  tags:
+    - Job Management
+  summary: Run Job Trigger
+  description: >-
+    This API call can be used to run a job trigger in SSM.
+
+    The following cases illustrate different scenarios on the usage of the
+    `analyticsAdvanceQuery` parameter in the API:
+
+    Case 1: When you configure the `"analyticsAdvanceQuery"` within the payload,
+    set the "defaultActionForAnalytics" as "true", and then execute the control
+    from the API, it overrides the default action and the advanced query
+    configuration within the job trigger.
+
+    Case 2: When you configure the `"analyticsAdvanceQuery"` within the payload,
+    set the "defaultActionForAnalytics" as "false", and then execute the control
+    from the API without performing the default actions configured in the
+    control, it overrides the default action and the advanced query
+    configuration within the job trigger.
+
+    Case 3: When you do not configure both the `"analyticsAdvanceQuery"` and the
+    "defaultActionForAnalytics", the default action will depend on the
+    configuration provided in the analytics job trigger.
+
+    The following cases illustrate different scenarios on the usage of the
+    `analyticsCategories` parameter in the API:
+
+    Case 1: When you set the "defaultActionForAnalytics" as "true" to perform
+    default actions for analytics controls by executing the control from job
+    API, it will override the default action configuration within the job
+    trigger.
+
+    Case 2: When you set the "defaultActionForAnalytics" as "false" to not
+    perform default actions for analytics controls by executing the control from
+    job API, it will override the default action configuration within the job
+    trigger.
+
+    Case 3: When the defaultActionForAnalytics parameter is not set in the
+    payload, the default action will depend on the configuration provided in the
+    analytics job trigger.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `jobname`
+
+    `triggername`
+
+    `jobgroup`
+
+    Optional params:
+
+    `valueMap`
+
+    `createJobIfDoesNotExist` - true/false
+  operationId: runJobTrigger
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            analyticsCategories:
+              type: string
+              example: trigger
+            defaultActionForAnalytics:
+              type: string
+              example: 'false'
+            jobgroup:
+              type: string
+              example: Analytics
+            jobname:
+              type: string
+              example: RunAllAnalyticsJob
+            triggername:
+              type: string
+              example: analytics_trigger
+        examples:
+          Run Job Trigger:
+            value:
+              analyticsCategories: trigger
+              defaultActionForAnalytics: 'false'
+              jobgroup: Analytics
+              jobname: RunAllAnalyticsJob
+              triggername: analytics_trigger
+      text/plain:
+        examples:
+          Run Job Trigger:
+            value: |-
+              {
+                  "jobgroup": "Analytics",
+                  "triggername":"analytics_trigger",
+                  "jobname": "RunAllAnalyticsJob",
+                  "analyticsCategories":"trigger",
+                  }
+  responses:
+    '200':
+      description: >-
+        Run Job Trigger / Runjobtrigger - class name package / Run Job Trigger -
+        defaultActionForAnalytics set as true / Run Job Trigger - default action
+        for analytics set as false in payload / Run Job Trigger - Not
+        configuring "analyticsAdvanceQuery" and "defaultActionForAnalytics" /
+        Analytics categories with default action set as true / Analytics
+        categories with default action set as false / Analytics categories
+        without adding default action for analytics
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: https://release-2022-0-qe.saviyntcloud.com
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 15 May 2023 10:33:16 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Permissions-Policy:
+          schema:
+            type: string
+            example: script-src 'self'; camera 'none'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=02bbf218-c30c-4922-86d9-bfa030def042; HttpOnly;
+              Secure; SameSite=Strict; Path=/;
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Starting Job
+              timestamp:
+                type: string
+                example: '2020-01-17 07:57:34'
+          examples:
+            Analytics categories with default action set as false:
+              value:
+                errorCode: '0'
+                msg: Starting Job
+                timestamp: '2023-05-15 10:31:40'
+            Analytics categories with default action set as true:
+              value:
+                errorCode: '0'
+                msg: Starting Job
+                timestamp: '2023-05-15 10:30:06'
+            Analytics categories without adding default action for analytics:
+              value:
+                errorCode: '0'
+                msg: Starting Job
+                timestamp: '2023-05-15 10:33:13'
+            Run Job Trigger:
+              value:
+                errorCode: '0'
+                msg: Starting Job
+                timestamp: '2020-01-17 07:57:34'
+            Run Job Trigger - Not configuring "analyticsAdvanceQuery" and "defaultActionForAnalytics":
+              value:
+                errorCode: '0'
+                msg: Starting Job
+                timestamp: '2023-05-09 06:49:54'
+            Run Job Trigger - default action for analytics set as false in payload:
+              value:
+                errorCode: '0'
+                msg: Starting Job
+                timestamp: '2023-05-09 06:47:26'
+            Run Job Trigger - defaultActionForAnalytics set as true:
+              value:
+                errorCode: '0'
+                msg: Starting Job
+                timestamp: '2023-05-09 06:42:19'
+            Runjobtrigger - class name package:
+              value:
+                errorCode: '0'
+                msg: Starting Job
+                timestamp: '2023-04-15 17:18:34'
+  security:
+    - bearerAuth: []

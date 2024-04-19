@@ -1,0 +1,168 @@
+put:
+  tags:
+    - Privileges
+  summary: Create Privilege
+  description: >-
+    This API updates an endpoint in EIC.
+
+    The Authorization must have a Bearer followed by a Token.   Mandatory
+    parameters:   • Endpoint   • Securitysystem   • Entitlementtype   •
+    attributename
+
+    Optional parameters:   •attributetype((BOOLEAN/NUMBER/STRING/ENUM/MULTIPLE
+    SELECT FROM LIST/MULTIPLE SELECT FROM SQL QUERY/SINGLE SELECT FROM SQL
+    QUERY/PASSWORD/LARGE TEXT/CHECK BOX/DATE)),   • orderindex,   •
+    defaultvalues,   • attributeconfig(entitlement-based/user-based),   •
+    label,   • attributegroup,   • parentattribute,   • childaction,   •
+    description,   • actionstring,   • required(true/false),   •
+    requestable(true/false),   • hideoncreate(true/false),   •
+    hideonupdate(true/false)
+  operationId: createPrivilege
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            endpoint:
+              type: string
+              example: gcpshruti
+            entitlementtype:
+              type: string
+              example: Groups
+            privilege:
+              type: object
+              properties:
+                actionstring:
+                  type: string
+                  example: ghjkfghj
+                attributeconfig:
+                  type: string
+                  example: user-based
+                attributegroup:
+                  type: string
+                  example: ''
+                attributename:
+                  type: string
+                  example: att68
+                attributetype:
+                  type: string
+                  example: PASSWORD
+                childaction:
+                  type: string
+                  example: fghj
+                defaultvalue:
+                  type: string
+                  example: erfg
+                description:
+                  type: string
+                  example: fghjk
+                hideoncreate:
+                  type: boolean
+                  example: true
+                hideonupdate:
+                  type: boolean
+                  example: false
+                label:
+                  type: string
+                  example: assadsd
+                orderindex:
+                  type: string
+                  example: '2'
+                parentattribute:
+                  type: string
+                  example: ''
+                requestable:
+                  type: boolean
+                  example: true
+                required:
+                  type: boolean
+                  example: true
+            securitysystem:
+              type: string
+              example: gcpshruti
+        examples:
+          Create Privilege:
+            value:
+              endpoint: gcpshruti
+              entitlementtype: Groups
+              privilege:
+                actionstring: ghjkfghj
+                attributeconfig: user-based
+                attributegroup: ''
+                attributename: att68
+                attributetype: PASSWORD
+                childaction: fghj
+                defaultvalue: erfg
+                description: fghjk
+                hideoncreate: true
+                hideonupdate: false
+                label: assadsd
+                orderindex: '2'
+                parentattribute: ''
+                requestable: true
+                required: true
+              securitysystem: gcpshruti
+  responses:
+    '200':
+      description: Create Privilege
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: https://dev-scrum-om.saviyntcloud.com
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Content-Language:
+          schema:
+            type: string
+            example: en
+        Content-Security-Policy:
+          schema:
+            type: string
+            example: >-
+              base-uri 'self' ; style-src 'self'  https://fonts.googleapis.com
+              'unsafe-inline'; script-src 'self' 
+              https://ssl.google-analytics.com https://www.google.com/recaptcha/
+              https://www.gstatic.com/recaptcha/ 'unsafe-inline' 'unsafe-eval';
+              object-src 'self' ; media-src 'self' ; manifest-src 'self' ; 
+              img-src 'self' https://ssl.google-analytics.com ; frame-src 'self'
+              https://www.google.com/ ; connect-src 'self' ; font-src 'self'
+              https://fonts.googleapis.com https://www.google.com
+              https://www.unpkg.com https://fonts.gstatic.com ; form-action
+              'self'; frame-ancestors 'self'; default-src 'self'
+        Date:
+          schema:
+            type: string
+            example: Tue, 05 Sep 2023 14:26:57 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Permissions-Policy:
+          schema:
+            type: string
+            example: script-src 'self'; camera 'none'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        text/plain:
+          examples:
+            Create Privilege:
+              value: "\r\n\n<!DOCTYPE html>\n<!--[if IE 8]>\n<html lang=\"en\" class=\"ie8 no-js\">\n    <![endif]-->\n    <!--[if IE 9]>\n    <html lang=\"en\" class=\"ie9 no-js\">\n        <![endif]-->\n        <!--[if !IE]>\n        <!-->\n        <html lang=\"en\" class=\"no-js\">\n            <!--\n            <![endif]-->\n            <!-- BEGIN HEAD -->\n            <!-- BEGIN HEAD -->\n            <head>\n                <meta charset=\"utf-8\"/>\n                <title>Saviynt Security Manager Login</title>\n                <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n                <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\"/>\n                <meta name=\"MobileOptimized\" content=\"320\">\n                <!-- BEGIN CORE PLUGINS -->\n                <!--[if lt IE 9]>\n                <script src=\"/ECM/assets/plugins/excanvas.min.js\"></script>\n                <script src=\"/ECM/assets/plugins/respond.min.js\"></script>\n                <![endif]-->\n                <script src=\"/ECM/assets/plugins/jquery-1.12.4.min.js\" type=\"text/javascript\"></script>\n                <script src=\"/ECM/assets/plugins/jquery-migrate-1.2.1.min.js\" type=\"text/javascript\"></script>\n                <script type=\"text/javascript\" src=\"/ECM/assets/plugins/jquery-ui/jquery-ui.js\"></script>\n                <script src=\"/ECM/assets/plugins/bootstrap/js/bootstrap.min.js\" type=\"text/javascript\"></script>\n                <script src=\"/ECM/assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js\"\r\n            type=\"text/javascript\"></script>\n                <script src=\"/ECM/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js\"\r\n            type=\"text/javascript\"></script>\n                <script src=\"/ECM/assets/plugins/jquery-slimscroll/jquery.slimscrollHorizontal.js\"\r\n            type=\"text/javascript\"></script>\n                <script src=\"/ECM/assets/plugins/jquery.blockui.min.js\" type=\"text/javascript\"></script>\n                <script src=\"/ECM/assets/plugins/jquery.cookie.min.js\" type=\"text/javascript\"></script>\n                <script src=\"/ECM/assets/plugins/uniform/jquery.uniform.min.js\" type=\"text/javascript\"></script>\n                <script src=\"/ECM/assets/plugins/bootbox.js\" type=\"text/javascript\"></script>\n                <link href=\"/ECM/assets/plugins/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\"\r\n          type=\"text/css\"/>\n                <link href=\"/ECM/assets/plugins/bootstrap-modal/css/bootstrap-modal.css\" rel=\"stylesheet\"\r\n          type=\"text/css\"/>\n                <link href=\"/ECM/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css\"\r\n          rel=\"stylesheet\" type=\"text/css\"/>\n                <!-- BEGIN GLOBAL MANDATORY STYLES -->\n                <link href=\"/ECM/assets/plugins/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\"\r\n          type=\"text/css\"/>\n                <link href=\"/ECM/assets/plugins/uniform/css/uniform.default.css\" rel=\"stylesheet\"\r\n          type=\"text/css\"/>\n                <!-- END GLOBAL MANDATORY STYLES -->\n                <!-- BEGIN PAGE LEVEL STYLES -->\n                <link rel=\"stylesheet\" type=\"text/css\" href=\"/ECM/assets/plugins/select2/select2_metro.css\"/>\n                <!-- END PAGE LEVEL SCRIPTS -->\n                <!-- BEGIN THEME STYLES -->\n                <link href=\"/ECM/assets/css/style-metronic.css\" rel=\"stylesheet\" type=\"text/css\"/>\n                <link href=\"/ECM/assets/css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\n                <link href=\"/ECM/assets/css/style-responsive.css\" rel=\"stylesheet\" type=\"text/css\"/>\n                <link href=\"/ECM/assets/css/plugins.css\" rel=\"stylesheet\" type=\"text/css\"/>\n                <link href=\"/ECM/assets/css/themes/default.css\" rel=\"stylesheet\" type=\"text/css\"\r\n          id=\"style_color\"/>\n                <link href=\"/ECM/assets/css/pages/login-soft.css\" rel=\"stylesheet\" type=\"text/css\"/>\n                <link href=\"/ECM/assets/css/custom.css\" rel=\"stylesheet\" type=\"text/css\"/>\n                <!-- END THEME STYLES -->\n                <!DOCTYPE html>\n                <link rel=\"shortcut icon\" type=\"image/jpg\" href=\"/ECMv6/api/idw/resource/image/app/title.png\"/>\n                <style type=\"text/css\">\r\n    .redborder {\r\n        border: 1px solid red;\r\n    }\r\n\r\n    .normborder {\r\n        border: 1px solid #e5e5e5;\r\n    }\r\n    .footer{\r\n        position: absolute;\r\n        left: 0;\r\n        right: 0;\r\n        bottom: 0;\r\n    }\r\n    .login-footer {\r\n        position: absolute;\r\n        bottom: 0;\r\n        width: 100%;\r\n        padding-bottom: 10px;\r\n    }\r\n    .login-footer .login-copyright {\r\n        padding-left: 0;\r\n        margin-top: 6px;\r\n    }\r\n\r\n    .login-footer .login-copyright > p {\r\n        margin: 0;\r\n        font-size: 13px;\r\n        color: #000000;\r\n    }\r\n\r\n    .select2-container .select2-choice{\r\n        border: 1px solid #e5e5e5 !important;\r\n    }\r\n\r\n    .select2-container-active .select2-choice{\r\n        border: 1px solid #e5e5e5 !important;\r\n    }\r\n    </style>\n            </head>\n            <!-- END HEAD -->\n            <!-- BEGIN BODY -->\n            <body class=\"login\">\n                <div class=\"user-login\">\n                    <div class=\"row bs-reset\">\n                        <div class=\"col-md-7 bs-reset mt-login-bsfix\">\n                            <!DOCTYPE html>\n                            <div class=\"login-bg\" style=\"background-image: url('/ECMv6/api/idw/resource/image/app/bg1.jpg')\">\n                                <img class=\"login-logo\" src=\"/ECMv6/api/idw/resource/image/app/SaviyntR_White-Original.png\" alt=\"Saviynt\"  height=\"40\"/>\n                            </div>\n                        </div>\n                        <div class=\"col-md-5 login-container\">\n                            <div class=\"col-md-9 col-lg-8 login-content loginclass\" style=\"\">\n                                <h1>Sign in</h1>\n                                <!-- BEGIN LOGIN FORM -->\n                                <form class=\"login-form\" action='/ECM/j_spring_security_check' method=\"post\">\n                                    <div class=\"alert alert-danger display-hide\">\n                                        <button class=\"close\" data-close=\"alert\"></button>\n                                        <span>Enter Username And Password\r\n                            </span>\n                                    </div>\n                                    <div class=\"form-label-group\">\n                                        <span class=\"icon-placeholder\">\n                                            <svg data-name=\"user\" width=\"14px\" height=\"15px\" viewBox=\"0 0 14 15.57\" fill=\"#e9ebf2\">\n                                                <g>\n                                                    <path d=\"M7 7.44a3.72 3.72 0 1 0-3.73-3.72A3.73 3.73 0 0 0 7 7.44zM10.63 8.3a2.82 2.82 0 0 0-2.37.11 3.94 3.94 0 0 1-1.28.3 3.94 3.94 0 0 1-1.29-.33 2.86 2.86 0 0 0-2.39-.11C1.14 9.48-.01 11.8-.01 14.99v.55h14v-.55c-.01-3.17-1.16-5.5-3.36-6.69z\"></path>\n                                                </g>\n                                            </svg>\n                                        </span>\n                                        <input class=\"form-control form-control-solid placeholder-no-fix\" id=\"username\" type=\"text\" autocomplete=\"off\" placeholder=\"Username\" onkeypress=\"if (event.keyCode == 13) {document.forms[0].submit();}\" name=\"j_username\"/>\n                                        <span id=\"blankusername\" class=\"älert alert-danger\"></span>\n                                    </div>\n                                    <div class=\"form-label-group\">\n                                        <span class=\"icon-placeholder\">\n                                            <svg data-name=\"key\" width=\"14px\" height=\"14px\" viewBox=\"0 0 14 13.96\">\n                                                <path d=\"M5.23 6.59a3.82 3.82 0 1 0 1.29 6.25 3.78 3.78 0 0 0 .87-4l1-1 .31-1.82 1.73-.3.3-.3.27-1.69 1.73-.3L14 2.2V.02h-2.2zM3.6 11.65a.87.87 0 1 1 0-1.23.86.86 0 0 1 0 1.23z\" fill=\"#e9ebf2\"></path>\n                                            </svg>\n                                        </span>\n                                        <input class=\"form-control form-control-solid placeholder-no-fix\" type=\"password\" autocomplete=\"off\" placeholder=\"Password\" onkeypress=\"if (event.keyCode == 13) {document.forms[0].submit();}\"\r\n                                       name=\"j_password\"/>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"col-sm-12 text-right\">\n                                            <div class=\"forgot-password\">\n                                                <a  href=\"javascript: submitForm('/ECM/maintenance/forgotpassword')\">\r\n                                        Forgot your password?</a>\n                                            </div>\n                                            <button class=\"btn blue\" type=\"submit\" onclick=\"showSpinner();\">\r\n                                    Login\r\n                                </button>\n                                        </div>\n                                    </div>\n                                </if>\n                            </form>\n                        </div>\n                        <div class=\"login-footer footer\">\n                            <div class=\"row bs-reset\">\n                                <div class=\"col-xs-12 bs-reset\">\n                                    <div class=\"login-copyright text-right\">\n                                        <p style=\"color:black\">  Saviynt veic-trunk, &copy;   Copyright 2023, Saviynt All Rights Reserved. Use is subject to license terms. </p>\n                                        <br>\n                                        <a  href=\"\" data-toggle=\"modal\" type=\"button\" id=\"showSendRequestForm\" onclick=\"showSendNewRequestForm()\">\n                                            <i class=\"icon-envelope\"></i>\r\n                                        Support Request\n                                        </a>\n                                    </p>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <!-- END LOGIN -->\n        <script src=\"/ECM/assets/plugins/backstretch/jquery.backstretch.min.js\"\r\n        type=\"text/javascript\"></script>\n        <script type=\"text/javascript\" src=\"/ECM/assets/plugins/select2/select2.min.js\"></script>\n        <script src=\"/ECM/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js\" type=\"text/javascript\"></script>\n        <script src=\"/ECM/assets/plugins/bootstrap-modal/js/bootstrap-modal.js\" type=\"text/javascript\"></script>\n        <script src=\"/ECM/assets/plugins/backstretch/jquery.backstretch.min.js\" type=\"text/javascript\"></script>\n        <script src=\"/ECM/assets/scripts/app.js\" type=\"text/javascript\"></script>\n        <script src=\"/ECM/assets/scripts/login-soft.js\" type=\"text/javascript\"></script>\n        <!-- END PAGE LEVEL SCRIPTS -->\n        <script type=\"text/javascript\">\r\n    jQuery(document).ready(function () {\r\n        // $('.login-bg').backstretch([\r\n        //         \"../images/bg1.jpg\",\r\n        //         \"../images/bg2.jpg\",\r\n        //         \"../images/bg3.jpg\",\r\n        //         \"../images/bg4.jpg\",\r\n        //         \"../images/bg5.jpg\",\r\n        //         \"../images/bg6.jpg\",\r\n        //         \"../images/bg7.jpg\",\r\n        //         \"../images/bg8.jpg\",\r\n        //         \"../images/bg9.jpg\"\r\n        //     ], {\r\n        //         fade: 1000,\r\n        //         duration: 8000\r\n        //     }\r\n        // );\r\n        const isNewUISet=\"true\"\r\n        App.loadCarousel(isNewUISet);\r\n        App.init();\r\n        Login.init();\r\n    });\r\n    $('#selecteddomain').select2();\r\n    function ajaxLoader(el, options) {\r\n        // Becomes this.options\r\n        var defaults = {\r\n            bgColor:'#fff',\r\n            duration:800,\r\n            opacity:0.7,\r\n            classOveride:false\r\n        }\r\n        this.options = jQuery.extend(defaults, options);\r\n        this.container = $(el);\r\n        this.init = function () {\r\n            var container = this.container;\r\n            // Delete any other loaders\r\n            this.remove();\r\n            $(\"#newspinner\").css(\"display\", \"block\");\r\n            // Create the overlay\r\n            var overlay = $('\n            <div></div>').css({\r\n                'background-color':this.options.bgColor,\r\n                'opacity':this.options.opacity,\r\n                'width':container.width(),\r\n                'height':container.height(),\r\n                'position':'absolute',\r\n                'top':'0px',\r\n                'left':'0px',\r\n                'z-index':99999\r\n            }).addClass('ajax_overlay');\r\n            // add an overiding class name to set new loader style\r\n            if (this.options.classOveride) {\r\n                overlay.addClass(this.options.classOveride);\r\n            }\r\n            // insert overlay and loader into DOM\r\n            container.append(\r\n                overlay.append(\r\n                    $('\n            <div></div>').addClass('ajax_loader')\r\n                ).fadeIn(this.options.duration)\r\n            );\r\n        };\r\n\r\n        this.remove = function () {\r\n            var overlay = this.container.children(\".ajax_overlay\");\r\n            if (overlay.length) {\r\n                overlay.fadeOut(this.options.classOveride, function () {\r\n                    overlay.remove();\r\n                    document.getElementById('newspinner').style.display = 'none'\r\n                });\r\n            }\r\n        }\r\n\r\n        this.init();\r\n    }\r\n    var box1;\r\n    function showSpinner() {\r\n        box1 = new ajaxLoader(document.getElementById('newspinner'));\r\n    }\r\n    function hideSpinner() {\r\n        if (box1 == null) {\r\n\r\n        }\r\n        else {\r\n            box1.remove();\r\n        }\r\n\r\n    }\r\n    function showSendNewRequestForm() {\r\n        completepath = \"/ECM/maintenance/showSendNewRequestForm\";\r\n        $('.opened-dialogs').dialog(\"close\");\r\n\r\n        $('\n            <div class=\"opened-dialogs\">').html('loading...').dialog({\r\n            position:  ['center',25],\r\n            open: function () {\r\n                $(this).load(completepath);\r\n                $('.ui-widget-overlay').css('background', 'black'); //write background color change code here\r\n\r\n            },\r\n            close: function(event, ui) {\r\n                $(this).remove();\r\n            },\r\n\r\n            title:'',\r\n            minWidth: 600,\r\n            modal: true,\r\n            draggable: false,\r\n            resizable: false,\r\n            show: {effect: 'fade'},\r\n            hide: {effect: 'fade'},\r\n            width: 400,\r\n            dialogClass: 'ui-dialog-osx'\r\n        });\r\n    }\r\n    function handleSubmit(obj) {\r\n        var proceed = true;\r\n        if (document.getElementById('firstName').value == '') {\r\n\r\n            $('#firstName').removeClass(\"normborder\");\r\n            $('#firstName').addClass('redborder');\r\n            document.getElementById('blankfirstname').innerHTML = 'First Name cannot be blank';\r\n            proceed = false;\r\n        }\r\n        else {\r\n            $('#firstName').removeClass(\"redborder\");\r\n            $('#firstName').addClass('normborder');\r\n            document.getElementById('blankfirstname').innerHTML = ''\r\n\r\n        }\r\n\r\n        if (document.getElementById('lastName').value == '') {\r\n            $('#lastName').removeClass(\"normborder\");\r\n            $('#lastName').addClass('redborder');\r\n            document.getElementById('blanklastname').innerHTML = 'Last Name cannot be blank';\r\n            proceed = false;\r\n        }\r\n        else {\r\n            $('#lastName').removeClass(\"redborder\");\r\n            $('#lastName').addClass('normborder');\r\n            document.getElementById('blanklastname').innerHTML = ''\r\n\r\n        }\r\n\r\n        if (document.getElementById('email').value == '') {\r\n            $('#email').removeClass(\"normborder\");\r\n            $('#email').addClass('redborder');\r\n            document.getElementById('invalidemail').innerHTML = 'Email cannot be blank';\r\n            proceed = false;\r\n        }\r\n        else {\r\n            var email = document.getElementById('email').value;\r\n            var atpos = email.indexOf(\"@\");\r\n            var dotpos = email.lastIndexOf(\".\");\r\n            if (atpos\n                <1 || dotpos\n                    <atpos+2 || dotpos+2>=email.length) {\r\n                $('#email').removeClass(\"normborder\");\r\n                $('#email').addClass('redborder');\r\n                document.getElementById('invalidemail').innerHTML = 'Email is not valid';\r\n                proceed = false;\r\n            } else {\r\n                $('#email').removeClass(\"redborder\");\r\n                $('#email').addClass('normborder');\r\n                document.getElementById('invalidemail').innerHTML = ''\r\n            }\r\n        }\r\n\r\n        if (document.getElementById('company').value == '') {\r\n            $('#company').removeClass(\"normborder\");\r\n            $('#company').addClass('redborder');\r\n            document.getElementById('blankcompany').innerHTML = 'Company cannot be blank';\r\n            proceed = false;\r\n        }\r\n        else {\r\n            $('#company').removeClass(\"redborder\");\r\n            $('#company').addClass('normborder');\r\n            document.getElementById('blankcompany').innerHTML = ''\r\n\r\n        }\r\n\r\n        if (document.getElementById('phoneNumber').value == '') {\r\n            $('#phoneNumber').removeClass(\"normborder\");\r\n            $('#phoneNumber').addClass('redborder');\r\n            document.getElementById('invalidphonenubmer').innerHTML = 'Phone Number cannot be blank';\r\n            proceed = false;\r\n        }\r\n        else {\r\n            $('#phoneNumber').removeClass(\"redborder\");\r\n            $('#phoneNumber').addClass('normborder');\r\n            document.getElementById('invalidphonenubmer').innerHTML = ''\r\n\r\n        }\r\n\r\n        if (document.getElementById('description').value == '') {\r\n            $('#description').removeClass(\"normborder\");\r\n            $('#description').addClass('redborder');\r\n            document.getElementById('blankdescription').innerHTML = 'Comments cannot be blank';\r\n            proceed = false;\r\n        }\r\n        else {\r\n            $('#description').removeClass(\"redborder\");\r\n            $('#description').addClass('normborder');\r\n            document.getElementById('blankdescription').innerHTML = ''\r\n\r\n        }\r\n        //SD-1727 captcha condition check\r\n        var validate=false\r\n        validate=captchaValidation()\r\n        if(validate==false){\r\n            document.getElementById('blankCaptcha').innerHTML = 'Captcha cannot be blank or check your internet connectivity'\r\n            proceed= false\r\n        }else{\r\n            document.getElementById('blankCaptcha').innerHTML = ''\r\n        }\r\n        if (proceed == true){\r\n            obj.form.submit();\r\n        } else {\r\n            return false;\r\n        }\r\n    }\r\n    function submitForm() {\r\n            var form = $(document.createElement('form'));\r\n            $(form).attr(\"action\", \"/ECM/maintenance/forgotpassword\");\r\n            $(form).attr(\"method\", \"POST\");\r\n            var username = document.createElement('input')\r\n            $(username).attr(\"type\", \"text\")\r\n            $(username).attr(\"name\", \"username\")\r\n            $(username).val($('#username').val());\r\n\r\n            $(form).append($(username));\r\n            form.appendTo( document.body );\r\n            $(form).submit();\r\n    }\r\n\r\n    function processlogins() {\r\n\r\n        var usernameval = document.getElementById('domainusernameid').value\r\n        var selecteddomainvalue = document.getElementById('selecteddomain').value\r\n        if(!!usernameval.trim() == '' && !!selecteddomainvalue.trim() == \"\") {\r\n            alert('Please enter either username or select correct domain')\r\n            return false\r\n        } else {\r\n            document.forms.processlogin.submit()\r\n        }\r\n        //document.forms\r\n    }\r\n\r\n    function displayLocalLogin(){\r\n        document.getElementById(\"localLogin\").style.display=\"block\";\r\n    }\r\n    var searchingselect=\"Searching...\"\r\n\n                    </script>\n                    <!-- END JAVASCRIPTS -->\n                    <div class=\"box-1\" id=\"newspinner\" style=\"display: none\">\r\n</div>\n                </body>\n            </html>"

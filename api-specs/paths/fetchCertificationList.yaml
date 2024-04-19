@@ -1,0 +1,242 @@
+post:
+  tags:
+    - Campaigns
+  summary: Fetch Certification List
+  description: >-
+    This API returns list of all the certifications for a certifier.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `certifierUsername`
+
+    Optional params:
+
+    `certkey`
+
+    `certificationname`
+
+    `max`, `offset`
+
+    `refreshProgress`(can be 'Y' or 'N')
+
+    `status`(can be
+    preview/new/readytosubmit/expired/fullyexecuted/inprogress/lockedandtaskcreated/discontinued/locked)
+  operationId: fetchCertificationList
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            certifierUsername:
+              type: string
+              example: lmcneil
+            max:
+              type: string
+              example: '2'
+            offset:
+              type: string
+              example: '0'
+            refreshProgress:
+              type: string
+              example: 'Y'
+            status:
+              type: string
+              example: new,fullyexecuted,inprogress
+        examples:
+          Fetch Certification List:
+            value:
+              certifierUsername: lmcneil
+              max: '2'
+              offset: '0'
+              refreshProgress: 'Y'
+              status: new,fullyexecuted,inprogress
+  responses:
+    '200':
+      description: Fetch Certification List
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 21 Jul 2020 05:13:34 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=8a56ec8d-a73d-4fd4-b58d-7cb6d0034075; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              certifications:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    campaignKey:
+                      type: number
+                      example: 12
+                    campaignName:
+                      type: string
+                      example: appownertest_Reconfigure
+                    certificationName:
+                      type: string
+                      example: appownertest_Reconfigure - lmcneil (Logan McNeil)
+                    certifier:
+                      type: string
+                      example: lmcneil (Logan McNeil)
+                    comments:
+                      type: string
+                      example: ''
+                    dueIn:
+                      type: string
+                      example: 56 Days
+                    enddate:
+                      type: string
+                      example: '2020-09-14 22:34:00'
+                    id:
+                      type: number
+                      example: 16
+                    progress:
+                      type: string
+                      example: 0%
+                    startdate:
+                      type: string
+                      example: '2020-07-16 22:34:00'
+                    status:
+                      type: string
+                      example: New
+                    type:
+                      type: string
+                      example: Application Owner
+                example:
+                  - campaignKey: 12
+                    campaignName: appownertest_Reconfigure
+                    certificationName: appownertest_Reconfigure - lmcneil (Logan McNeil)
+                    certifier: lmcneil (Logan McNeil)
+                    comments: ''
+                    dueIn: 56 Days
+                    enddate: '2020-09-14 22:34:00'
+                    id: 16
+                    progress: 0%
+                    startdate: '2020-07-16 22:34:00'
+                    status: New
+                    type: Application Owner
+                  - campaignKey: 13
+                    campaignName: appownertest_Reconfigure_Reconfigure
+                    certificationName: >-
+                      appownertest_Reconfigure_Reconfigure - lmcneil (Logan
+                      McNeil)
+                    certifier: lmcneil (Logan McNeil)
+                    comments: ''
+                    dueIn: 60 Days
+                    enddate: '2020-09-18 20:42:00'
+                    id: 26
+                    progress: 0%
+                    startdate: '2020-07-20 20:42:00'
+                    status: New
+                    type: Application Owner
+              certifierUsername:
+                type: string
+                example: lmcneil
+              displayCount:
+                type: number
+                example: 7
+              errorCode:
+                type: string
+                example: '0'
+              max:
+                type: string
+                example: '2'
+              msg:
+                type: string
+                example: successful
+              offset:
+                type: string
+                example: '0'
+              refreshProgress:
+                type: string
+                example: 'Y'
+              status:
+                type: string
+                example: new,fullyexecuted,inprogress
+              totalCount:
+                type: number
+                example: 7
+          examples:
+            Fetch Certification List:
+              value:
+                certifications:
+                  - campaignKey: 12
+                    campaignName: appownertest_Reconfigure
+                    certificationName: appownertest_Reconfigure - lmcneil (Logan McNeil)
+                    certifier: lmcneil (Logan McNeil)
+                    comments: ''
+                    dueIn: 56 Days
+                    enddate: '2020-09-14 22:34:00'
+                    id: 16
+                    progress: 0%
+                    startdate: '2020-07-16 22:34:00'
+                    status: New
+                    type: Application Owner
+                  - campaignKey: 13
+                    campaignName: appownertest_Reconfigure_Reconfigure
+                    certificationName: >-
+                      appownertest_Reconfigure_Reconfigure - lmcneil (Logan
+                      McNeil)
+                    certifier: lmcneil (Logan McNeil)
+                    comments: ''
+                    dueIn: 60 Days
+                    enddate: '2020-09-18 20:42:00'
+                    id: 26
+                    progress: 0%
+                    startdate: '2020-07-20 20:42:00'
+                    status: New
+                    type: Application Owner
+                certifierUsername: lmcneil
+                displayCount: 7
+                errorCode: '0'
+                max: '2'
+                msg: successful
+                offset: '0'
+                refreshProgress: 'Y'
+                status: new,fullyexecuted,inprogress
+                totalCount: 7

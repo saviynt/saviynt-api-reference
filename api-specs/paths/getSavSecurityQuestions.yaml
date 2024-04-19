@@ -1,0 +1,107 @@
+post:
+  tags:
+    - Password Management
+  summary: Fetch Security Questions
+  description: |-
+    This API is used to get the Security Questions defined in SSM
+    Optional params: 
+    `max`,`offset`, `questiongroup`
+    The `Authorization` must have `Bearer` followed by `Token`.
+  operationId: fetchSecurityQuestions
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            questiongroup:
+              type: string
+              example: Personal
+        examples:
+          Fetch Security Questions:
+            value:
+              questiongroup: Personal
+  responses:
+    '200':
+      description: Fetch Security Questions1 / Fetch Security Questions2
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Sat, 15 Sep 2018 01:14:54 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=ecb5f969-9dca-4ded-917d-172fba58a9af; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: successful
+              questions:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    question:
+                      type: string
+                      example: What is your mother's maiden name?
+                    questiongroup:
+                      type: string
+                      example: Personal
+                example:
+                  - question: What is your mother's maiden name?
+                    questiongroup: Personal
+                  - question: What is your first school name?
+                    questiongroup: Personal
+                  - question: What is your first Pet's name?
+                    questiongroup: Personal
+                  - question: What is your favorite food?
+                    questiongroup: Favorites
+                  - question: What is your favorite color?
+                    questiongroup: Favorites
+                  - question: What is your favorite holiday destination?
+                    questiongroup: Favorites
+          examples:
+            Fetch Security Questions1:
+              value:
+                errorCode: '0'
+                message: successful
+                questions:
+                  - question: What is your mother's maiden name?
+                    questiongroup: Personal
+                  - question: What is your first school name?
+                    questiongroup: Personal
+                  - question: What is your first Pet's name?
+                    questiongroup: Personal
+                  - question: What is your favorite food?
+                    questiongroup: Favorites
+                  - question: What is your favorite color?
+                    questiongroup: Favorites
+                  - question: What is your favorite holiday destination?
+                    questiongroup: Favorites
+            Fetch Security Questions2:
+              value:
+                errorCode: '0'
+                message: successful
+                questions:
+                  - question: What is your mother's maiden name?
+                    questiongroup: Personal
+                  - question: What is your first school name?
+                    questiongroup: Personal
+                  - question: What is your first Pet's name?
+                    questiongroup: Personal

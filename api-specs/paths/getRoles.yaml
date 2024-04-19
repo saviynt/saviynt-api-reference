@@ -1,0 +1,656 @@
+post:
+  tags:
+    - Roles
+  summary: Get Role Details for user
+  description: >-
+    This API can be used to get the list of all the roles.
+
+    This API call can be used to get the list and details of all the roles
+    associated to the user. 
+
+    The `Authorization` must have `Bearer` followed by `Token`. 
+
+    Optional params:
+
+    `username`, `customproperty<1 to 60>`, `roletype`, `requestable`, `status`,
+    `role_name`, `description`, `displayname`, `glossary`, `mininginstance`,
+    `risk`, `updateuser`, `systemid`, `soxcritical`, `syscritical`, `level`,
+    `priviliged`, `confidentiality`, `requestedObject` - contains users and/or
+    entitlement_values
+  operationId: getRoleDetailsForUser
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            max:
+              type: string
+              example: '5'
+            offset:
+              type: string
+              example: '0'
+            requestedObject:
+              type: string
+              example: entitlement_values,users
+            roleQuery:
+              type: string
+              example: r.role_name = 'Feb7th1988Role'
+            roletype:
+              type: string
+              example: '4'
+            username:
+              type: string
+              example: usngom
+      text/plain:
+        examples:
+          Get Role Details for user:
+            value: ''
+  responses:
+    '200':
+      description: Get Role Details for user / Get Role Details
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: https://23-monthly-aws.saviyntcloud.com
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 13 Feb 2023 09:18:08 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=3ace8924-6ccb-4065-9808-42a794834bf9; Version=1;
+              Path=";Path=/;HttpOnly;"; Secure
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              Roledetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    confidentiality:
+                      type: string
+                      example: '5'
+                    customproperty1:
+                      type: string
+                      example: jjjjjjjjjjj
+                    customproperty10:
+                      type: string
+                      example: cp10
+                    customproperty11:
+                      type: string
+                      example: ''
+                    customproperty12:
+                      type: string
+                      example: ''
+                    customproperty13:
+                      type: string
+                      example: ''
+                    customproperty14:
+                      type: string
+                      example: ''
+                    customproperty15:
+                      type: string
+                      example: ''
+                    customproperty16:
+                      type: string
+                      example: ''
+                    customproperty17:
+                      type: string
+                      example: ''
+                    customproperty18:
+                      type: string
+                      example: ''
+                    customproperty19:
+                      type: string
+                      example: ''
+                    customproperty2:
+                      type: string
+                      example: ''
+                    customproperty20:
+                      type: string
+                      example: ''
+                    customproperty21:
+                      type: string
+                      example: ''
+                    customproperty22:
+                      type: string
+                      example: ''
+                    customproperty23:
+                      type: string
+                      example: ''
+                    customproperty24:
+                      type: string
+                      example: ''
+                    customproperty25:
+                      type: string
+                      example: ''
+                    customproperty26:
+                      type: string
+                      example: ''
+                    customproperty27:
+                      type: string
+                      example: ''
+                    customproperty28:
+                      type: string
+                      example: ''
+                    customproperty29:
+                      type: string
+                      example: ''
+                    customproperty3:
+                      type: string
+                      example: ''
+                    customproperty30:
+                      type: string
+                      example: cp30bh
+                    customproperty31:
+                      type: string
+                      example: cp31
+                    customproperty32:
+                      type: string
+                      example: ''
+                    customproperty33:
+                      type: string
+                      example: ''
+                    customproperty34:
+                      type: string
+                      example: ''
+                    customproperty35:
+                      type: string
+                      example: ''
+                    customproperty36:
+                      type: string
+                      example: cp36
+                    customproperty37:
+                      type: string
+                      example: ''
+                    customproperty38:
+                      type: string
+                      example: ''
+                    customproperty39:
+                      type: string
+                      example: ''
+                    customproperty4:
+                      type: string
+                      example: ''
+                    customproperty40:
+                      type: string
+                      example: ''
+                    customproperty41:
+                      type: string
+                      example: ''
+                    customproperty42:
+                      type: string
+                      example: ''
+                    customproperty43:
+                      type: string
+                      example: ''
+                    customproperty44:
+                      type: string
+                      example: ''
+                    customproperty45:
+                      type: string
+                      example: ''
+                    customproperty46:
+                      type: string
+                      example: ''
+                    customproperty47:
+                      type: string
+                      example: ''
+                    customproperty48:
+                      type: string
+                      example: ''
+                    customproperty49:
+                      type: string
+                      example: ''
+                    customproperty5:
+                      type: string
+                      example: ''
+                    customproperty50:
+                      type: string
+                      example: ''
+                    customproperty51:
+                      type: string
+                      example: ''
+                    customproperty52:
+                      type: string
+                      example: ''
+                    customproperty53:
+                      type: string
+                      example: ''
+                    customproperty54:
+                      type: string
+                      example: ''
+                    customproperty55:
+                      type: string
+                      example: ''
+                    customproperty56:
+                      type: string
+                      example: ''
+                    customproperty57:
+                      type: string
+                      example: ''
+                    customproperty58:
+                      type: string
+                      example: ''
+                    customproperty59:
+                      type: string
+                      example: ''
+                    customproperty6:
+                      type: string
+                      example: ''
+                    customproperty60:
+                      type: string
+                      example: ''
+                    customproperty7:
+                      type: string
+                      example: ''
+                    customproperty8:
+                      type: string
+                      example: ''
+                    customproperty9:
+                      type: string
+                      example: ''
+                    defaultTimeFrameHrs:
+                      type: string
+                      example: ''
+                    description:
+                      type: string
+                      example: >-
+                        this is description |  | EnterPriseEnterPrise 
+                        EnterPriseEnterPrise
+                    displayname:
+                      type: string
+                      example: ''
+                    endpointkey:
+                      type: string
+                      example: '13'
+                    glossary:
+                      type: string
+                      example: ''
+                    maxTimeFrameHrs:
+                      type: string
+                      example: ''
+                    owner:
+                      type: array
+                      items:
+                        type: string
+                        example: dbailey
+                      example:
+                        - dbailey
+                        - lkrause
+                    priviliged:
+                      type: string
+                      example: '1'
+                    requestable:
+                      type: string
+                      example: 'true'
+                    risk:
+                      type: string
+                      example: ''
+                    role_name:
+                      type: string
+                      example: EnterPrise
+                    roletype:
+                      type: string
+                      example: '4'
+                    showDynamicAttrs:
+                      type: string
+                      example: 'false'
+                    soxcritical:
+                      type: string
+                      example: '3'
+                    status:
+                      type: string
+                      example: '1'
+                    syscritical:
+                      type: string
+                      example: '3'
+                    updatedate:
+                      type: string
+                      example: '2019-02-01 00:04:21'
+                    updateuser:
+                      type: string
+                      example: '1'
+                    userAccounts:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          accountname:
+                            type: string
+                            example: johndoe
+                          enddate:
+                            type: string
+                            example: ''
+                          startdate:
+                            type: string
+                            example: '2019-02-11 22:47:32'
+                      example:
+                        - accountname: johndoe
+                          enddate: ''
+                          startdate: '2019-02-11 22:47:32'
+                    version:
+                      type: string
+                      example: '79'
+                example:
+                  - confidentiality: '5'
+                    customproperty1: jjjjjjjjjjj
+                    customproperty10: cp10
+                    customproperty11: ''
+                    customproperty12: ''
+                    customproperty13: ''
+                    customproperty14: ''
+                    customproperty15: ''
+                    customproperty16: ''
+                    customproperty17: ''
+                    customproperty18: ''
+                    customproperty19: ''
+                    customproperty2: ''
+                    customproperty20: ''
+                    customproperty21: ''
+                    customproperty22: ''
+                    customproperty23: ''
+                    customproperty24: ''
+                    customproperty25: ''
+                    customproperty26: ''
+                    customproperty27: ''
+                    customproperty28: ''
+                    customproperty29: ''
+                    customproperty3: ''
+                    customproperty30: cp30bh
+                    customproperty31: cp31
+                    customproperty32: ''
+                    customproperty33: ''
+                    customproperty34: ''
+                    customproperty35: ''
+                    customproperty36: cp36
+                    customproperty37: ''
+                    customproperty38: ''
+                    customproperty39: ''
+                    customproperty4: ''
+                    customproperty40: ''
+                    customproperty41: ''
+                    customproperty42: ''
+                    customproperty43: ''
+                    customproperty44: ''
+                    customproperty45: ''
+                    customproperty46: ''
+                    customproperty47: ''
+                    customproperty48: ''
+                    customproperty49: ''
+                    customproperty5: ''
+                    customproperty50: ''
+                    customproperty51: ''
+                    customproperty52: ''
+                    customproperty53: ''
+                    customproperty54: ''
+                    customproperty55: ''
+                    customproperty56: ''
+                    customproperty57: ''
+                    customproperty58: ''
+                    customproperty59: ''
+                    customproperty6: ''
+                    customproperty60: ''
+                    customproperty7: ''
+                    customproperty8: ''
+                    customproperty9: ''
+                    defaultTimeFrameHrs: ''
+                    description: >-
+                      this is description |  | EnterPriseEnterPrise 
+                      EnterPriseEnterPrise
+                    displayname: ''
+                    endpointkey: '13'
+                    glossary: ''
+                    maxTimeFrameHrs: ''
+                    owner:
+                      - dbailey
+                      - lkrause
+                    priviliged: '1'
+                    requestable: 'true'
+                    risk: ''
+                    role_name: EnterPrise
+                    roletype: '4'
+                    showDynamicAttrs: 'false'
+                    soxcritical: '3'
+                    status: '1'
+                    syscritical: '3'
+                    updatedate: '2019-02-01 00:04:21'
+                    updateuser: '1'
+                    userAccounts:
+                      - accountname: johndoe
+                        enddate: ''
+                        startdate: '2019-02-11 22:47:32'
+                    version: '79'
+              displayCount:
+                type: number
+                example: 1
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+              totalCount:
+                type: number
+                example: 1
+          examples:
+            Get Role Details:
+              value:
+                Roledetails:
+                  - customproperty1: ''
+                    customproperty10: ''
+                    customproperty11: ''
+                    customproperty12: ''
+                    customproperty13: ''
+                    customproperty14: ''
+                    customproperty15: ''
+                    customproperty16: ''
+                    customproperty17: ''
+                    customproperty18: ''
+                    customproperty19: ''
+                    customproperty2: ''
+                    customproperty20: ''
+                    customproperty21: ''
+                    customproperty22: ''
+                    customproperty23: ''
+                    customproperty24: ''
+                    customproperty25: ''
+                    customproperty26: ''
+                    customproperty27: ''
+                    customproperty28: ''
+                    customproperty29: ''
+                    customproperty3: ''
+                    customproperty30: ''
+                    customproperty31: ''
+                    customproperty32: ''
+                    customproperty33: ''
+                    customproperty34: ''
+                    customproperty35: ''
+                    customproperty36: ''
+                    customproperty37: ''
+                    customproperty38: ''
+                    customproperty39: ''
+                    customproperty4: ''
+                    customproperty40: ''
+                    customproperty41: ''
+                    customproperty42: ''
+                    customproperty43: ''
+                    customproperty44: ''
+                    customproperty45: ''
+                    customproperty46: ''
+                    customproperty47: ''
+                    customproperty48: ''
+                    customproperty49: ''
+                    customproperty5: ''
+                    customproperty50: ''
+                    customproperty51: ''
+                    customproperty52: ''
+                    customproperty53: ''
+                    customproperty54: ''
+                    customproperty55: ''
+                    customproperty56: ''
+                    customproperty57: ''
+                    customproperty58: ''
+                    customproperty59: ''
+                    customproperty6: ''
+                    customproperty60: ''
+                    customproperty7: ''
+                    customproperty8: ''
+                    customproperty9: ''
+                    UserDetails:
+                      - User Details Not Found
+                    confidentiality: ''
+                    defaultTimeFrameHrs: ''
+                    description: ''
+                    displayname: ''
+                    endpointkey: '396'
+                    entitlement_valueKey: ''
+                    glossary: ''
+                    lastReviewedBy: ''
+                    lastReviewedCampaignName: ''
+                    maxTimeFrameHrs: ''
+                    owner:
+                      - ownername: admin
+                        rank: '1'
+                    priviliged: ''
+                    requestable: 'true'
+                    risk: ''
+                    roleKey: 1310
+                    roleState: ''
+                    role_name: Feb7th1988Role
+                    roletype: '4'
+                    showDynamicAttrs: 'true'
+                    soxcritical: ''
+                    status: '1'
+                    syscritical: ''
+                    updatedate: '2023-02-08 09:18:08'
+                    updateuser: '1'
+                    version: 8
+                displayCount: 1
+                errorCode: '0'
+                msg: Successful
+                totalCount: 1
+            Get Role Details for user:
+              value:
+                Roledetails:
+                  - confidentiality: '5'
+                    customproperty1: jjjjjjjjjjj
+                    customproperty10: cp10
+                    customproperty11: ''
+                    customproperty12: ''
+                    customproperty13: ''
+                    customproperty14: ''
+                    customproperty15: ''
+                    customproperty16: ''
+                    customproperty17: ''
+                    customproperty18: ''
+                    customproperty19: ''
+                    customproperty2: ''
+                    customproperty20: ''
+                    customproperty21: ''
+                    customproperty22: ''
+                    customproperty23: ''
+                    customproperty24: ''
+                    customproperty25: ''
+                    customproperty26: ''
+                    customproperty27: ''
+                    customproperty28: ''
+                    customproperty29: ''
+                    customproperty3: ''
+                    customproperty30: cp30bh
+                    customproperty31: cp31
+                    customproperty32: ''
+                    customproperty33: ''
+                    customproperty34: ''
+                    customproperty35: ''
+                    customproperty36: cp36
+                    customproperty37: ''
+                    customproperty38: ''
+                    customproperty39: ''
+                    customproperty4: ''
+                    customproperty40: ''
+                    customproperty41: ''
+                    customproperty42: ''
+                    customproperty43: ''
+                    customproperty44: ''
+                    customproperty45: ''
+                    customproperty46: ''
+                    customproperty47: ''
+                    customproperty48: ''
+                    customproperty49: ''
+                    customproperty5: ''
+                    customproperty50: ''
+                    customproperty51: ''
+                    customproperty52: ''
+                    customproperty53: ''
+                    customproperty54: ''
+                    customproperty55: ''
+                    customproperty56: ''
+                    customproperty57: ''
+                    customproperty58: ''
+                    customproperty59: ''
+                    customproperty6: ''
+                    customproperty60: ''
+                    customproperty7: ''
+                    customproperty8: ''
+                    customproperty9: ''
+                    defaultTimeFrameHrs: ''
+                    description: >-
+                      this is description |  | EnterPriseEnterPrise 
+                      EnterPriseEnterPrise
+                    displayname: ''
+                    endpointkey: '13'
+                    glossary: ''
+                    maxTimeFrameHrs: ''
+                    owner:
+                      - dbailey
+                      - lkrause
+                    priviliged: '1'
+                    requestable: 'true'
+                    risk: ''
+                    role_name: EnterPrise
+                    roletype: '4'
+                    showDynamicAttrs: 'false'
+                    soxcritical: '3'
+                    status: '1'
+                    syscritical: '3'
+                    updatedate: '2019-02-01 00:04:21'
+                    updateuser: '1'
+                    userAccounts:
+                      - accountname: johndoe
+                        enddate: ''
+                        startdate: '2019-02-11 22:47:32'
+                    version: '79'
+                errorCode: '0'
+                msg: Successful

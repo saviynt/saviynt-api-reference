@@ -1,0 +1,101 @@
+get:
+  tags:
+    - Transport
+  summary: Transport Status
+  description: >-
+    This API obtains the status of the transport request (import, export, or
+    transfer), and helps in confirming whether the transport was completed
+    successfully or failed.
+
+    **Note**: This API returns the status of only those requests that have been
+    processed using the Enhanced Transport feature.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `operation` - enter the type of transport request (export, import, or
+    transfer)   `filename` - enter the transport package zip file name in full
+    (including the .zip extension)   `requestid`(required only if the operation
+    is import) - enter the request ID generated during the submission of the
+    import request
+  operationId: transportStatus
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            filename:
+              type: string
+              example: transport_admin_2023-01-13_13-27-43(UTC).zip
+            operation:
+              type: string
+              example: export
+        examples:
+          Transport Status:
+            value:
+              filename: transport_admin_2023-01-13_13-27-43(UTC).zip
+              operation: export
+  responses:
+    '200':
+      description: >-
+        Transport Status - Blank Request ID / Transport Status - Import /
+        Transport Status - Export
+      headers:
+        Cache-Control:
+          schema:
+            type: string
+            example: private
+        Date:
+          schema:
+            type: string
+            example: Fri, 13 Jan 2023 14:31:19 GMT
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=36bcab8f-cd96-495d-a7f9-6a4a9197fb38; Version=1;
+              Path=";Path=/;HttpOnly;"; Secure
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        Vary:
+          schema:
+            type: string
+            example: Access-Control-Request-Headers
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: number
+                example: 1
+              msg:
+                type: string
+                example: Invalid request Payload
+              msgDescription:
+                type: string
+                example: Requestid cannot be blank
+          examples:
+            Transport Status - Blank Request ID:
+              value:
+                errorCode: 1
+                msg: Invalid request Payload
+                msgDescription: Requestid cannot be blank
+            Transport Status - Export:
+              value:
+                errorCode: 0
+                msg: Success
+                msgDescription: The environment package was successfully exported.
+            Transport Status - Import:
+              value:
+                errorCode: 0
+                msg: Success
+                msgDescription: The environment package was successfully imported.

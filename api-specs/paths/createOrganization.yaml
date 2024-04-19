@@ -1,0 +1,312 @@
+post:
+  tags:
+    - Organization
+  summary: Create Organization
+  description: >-
+    This API creates an organization in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `organizationname`, `username` - user who is creating the organization
+
+    Optional params:
+
+    Organization Detail attributes can be passed like `parentorganization`,
+    `primarycontact`, `customproperty<1 to 20>`, `status` etc.
+
+    `organizationtype` - Type of Organization. Possible values: DATA SECURITY /
+    GROUPING / REQUEST RULES
+
+    `roles` - List of roles with params -  1. `rolename`
+
+    `rules` - List of rules with params -  1. `name` 2. `type` -  BUISNESS /
+    TECH / USERUPDATE / NEWUSER / REMOVEUSER / UPDATE_ENTITLEMENT /
+    NEW_ENTITLEMENT / REMOVE_ENTITLEMENT/REQUEST
+
+    `entitlements` - List of entitlements with params -  1. `entitlementvalue`
+    2. `entitlementtype` 3. `endpoint` 
+
+    `users` - List of users with params -  1. `username`
+
+    `endpoints` - 
+
+    1. `endpointname` 2. `cp(1..5)`
+
+    `owners` - 1. `owner` 2. `rank` 3. `policy`(can be
+    SUPERADMIN/ADMIN/BULKADMIN/READONLY)
+
+    `attributes` - 1. `attributegroupname` 2. `attributes` 3. `value` 4.
+    `attributevalues`
+  operationId: createOrganization
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            attributes:
+              type: array
+              items:
+                type: object
+                properties:
+                  attributegroupname:
+                    type: string
+                    example: dfdf
+                  attributes:
+                    type: string
+                    example: street,pincode
+                  attributevalues:
+                    type: object
+                    properties:
+                      pincode:
+                        type: string
+                        example: '123456'
+                      street:
+                        type: string
+                        example: treee
+                  value:
+                    type: string
+                    example: group val
+              example:
+                - attributegroupname: dfdf
+                  attributes: street,pincode
+                  attributevalues:
+                    pincode: '123456'
+                    street: treee
+                  value: group val
+            comments:
+              type: string
+              example: comment
+            customproperty10:
+              type: string
+              example: cp10
+            customproperty5:
+              type: string
+              example: cp5
+            endpoints:
+              type: array
+              items:
+                type: object
+                properties:
+                  cp1:
+                    type: string
+                    example: cp1
+                  cp2:
+                    type: string
+                    example: cp2
+                  cp3:
+                    type: string
+                    example: cp3
+                  cp4:
+                    type: string
+                    example: cp4
+                  cp5:
+                    type: string
+                    example: cp5
+                  endpointname:
+                    type: string
+                    example: Office365
+              example:
+                - cp1: cp1
+                  cp2: cp2
+                  cp3: cp3
+                  cp4: cp4
+                  cp5: cp5
+                  endpointname: Office365
+                - endpointname: Salesforce
+            entitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  endpoint:
+                    type: string
+                    example: Office365
+                  entitlementtype:
+                    type: string
+                    example: O365-ADGroup
+                  entitlementvalue:
+                    type: string
+                    example: AzureADSP
+              example:
+                - endpoint: Office365
+                  entitlementtype: O365-ADGroup
+                  entitlementvalue: AzureADSP
+                - endpoint: Office365
+                  entitlementtype: O365-ADGroup
+                  entitlementvalue: DepartmentDynamicGroup
+            location:
+              type: string
+              example: los angeles
+            organizationname:
+              type: string
+              example: TestOrg5
+            organizationtype:
+              type: string
+              example: request rules
+            owners:
+              type: array
+              items:
+                type: object
+                properties:
+                  owner:
+                    type: string
+                    example: admin
+                  rank:
+                    type: number
+                    example: 2
+              example:
+                - owner: admin
+                  rank: 2
+                - owner: awsadmin
+                  rank: 2
+            parentorganization:
+              type: string
+              example: Globex
+            primarycontact:
+              type: string
+              example: awsadmin
+            roles:
+              type: array
+              items:
+                type: object
+                properties:
+                  rolename:
+                    type: string
+                    example: ADT_AdmitSuperv_MCL
+              example:
+                - rolename: ADT_AdmitSuperv_MCL
+                - rolename: ADT_AdmitSuperv_MVH
+            status:
+              type: string
+              example: ACTIVE
+            username:
+              type: string
+              example: awsadmin
+            users:
+              type: array
+              items:
+                type: object
+                properties:
+                  username:
+                    type: string
+                    example: '1000003'
+              example:
+                - username: '1000003'
+                - username: '1000005'
+        examples:
+          Create Organization:
+            value:
+              attributes:
+                - attributegroupname: dfdf
+                  attributes: street,pincode
+                  attributevalues:
+                    pincode: '123456'
+                    street: treee
+                  value: group val
+              comments: comment
+              customproperty10: cp10
+              customproperty5: cp5
+              endpoints:
+                - cp1: cp1
+                  cp2: cp2
+                  cp3: cp3
+                  cp4: cp4
+                  cp5: cp5
+                  endpointname: Office365
+                - endpointname: Salesforce
+              entitlements:
+                - endpoint: Office365
+                  entitlementtype: O365-ADGroup
+                  entitlementvalue: AzureADSP
+                - endpoint: Office365
+                  entitlementtype: O365-ADGroup
+                  entitlementvalue: DepartmentDynamicGroup
+              location: los angeles
+              organizationname: TestOrg5
+              organizationtype: request rules
+              owners:
+                - owner: admin
+                  rank: 2
+                - owner: awsadmin
+                  rank: 2
+              parentorganization: Globex
+              primarycontact: awsadmin
+              roles:
+                - rolename: ADT_AdmitSuperv_MCL
+                - rolename: ADT_AdmitSuperv_MVH
+              status: ACTIVE
+              username: awsadmin
+              users:
+                - username: '1000003'
+                - username: '1000005'
+  responses:
+    '200':
+      description: createOrganization / Create Organization 2
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Wed, 30 Dec 2020 02:37:06 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=2e50304d-88ee-406e-a9dc-db97315cfe66; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Create Organization 2:
+              value:
+                errorCode: '0'
+                msg: Success
+            createOrganization:
+              value:
+                errorCode: '0'
+                msg: Success

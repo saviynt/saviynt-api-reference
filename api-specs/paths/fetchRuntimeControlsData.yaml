@@ -1,0 +1,128 @@
+post:
+  tags:
+    - Analytics
+  summary: Fetch Runtime Controls Data
+  description: "This API is used to fetch runtime analytics data from SSM.\n\nThe `Authorization` must have `Bearer` followed by `Token`.\n\nMandatory params: \n`analyticsid` ***OR*** `analyticsname`,\n`attributes` - runtime control params. \nSample : For this query - select * from users where manager = ${manager} and username = ${username}\n\"attributes\":{\n\t\"manager\":\"4\",\n\t\"username\":\"johndoe\"\n}\n\nOptional params:\n`max`,\n`offset`,\n`loggedinuser`"
+  operationId: fetchRuntimeControlsData
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            analyticsid:
+              type: string
+              example: '82'
+            attributes:
+              type: object
+              properties:
+                manager:
+                  type: string
+                  example: '4'
+                username:
+                  type: string
+                  example: johndoe
+            loggedinuser:
+              type: string
+              example: admin
+            max:
+              type: string
+              example: '10'
+            offset:
+              type: string
+              example: '0'
+        examples:
+          Fetch Runtime Controls Data:
+            value:
+              analyticsid: '82'
+              attributes:
+                manager: '4'
+                username: johndoe
+              loggedinuser: admin
+              max: '10'
+              offset: '0'
+  responses:
+    '200':
+      description: Fetch Runtime Controls Data
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Thu, 02 Jan 2020 23:09:09 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=d14c2c8d-a9e4-4e9d-b742-fb816b21f8c5; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displaycount:
+                type: number
+                example: 1
+              errorCode:
+                type: number
+                example: 0
+              msg:
+                type: string
+                example: Success
+              result:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    FIRSTNAME:
+                      type: string
+                      example: John
+                    USERNAME:
+                      type: string
+                      example: johndoe
+                example:
+                  - FIRSTNAME: John
+                    USERNAME: johndoe
+              total:
+                type: number
+                example: 1
+          examples:
+            Fetch Runtime Controls Data:
+              value:
+                displaycount: 1
+                errorCode: 0
+                msg: Success
+                result:
+                  - FIRSTNAME: John
+                    USERNAME: johndoe
+                total: 1

@@ -1,0 +1,93 @@
+post:
+  tags:
+    - Access
+  summary: Assign Entitlement to Account
+  description: >-
+    This method provisions one or more "Entitlements" to an "Account". The
+    "Entitlements" and "Account" correspond to a particular IT Application (e.g
+    Microsoft Active Directory) which is modeled in SSM as "Endpoint" of a
+    "Security System".
+
+    Mandatory params:   `securitysystem` - Name of the Security System for the
+    relevant IT Application modeled in SSM.
+
+    `endpoint`\- Name of the Endpoint corresponding to the Security System.
+
+    `accountname` - Account name to which the entitlements should be
+    provisioned.
+
+    `entitlementtype` - Entitlement type for the entitlements which are to be
+    provisioned. e.g. AD Groups, EBS Responsibilities, SAP Roles etc.
+
+    `entitlementvalue` - Names of the actual entitlements which are to be
+    provisioned.
+
+    `startdate`: Specify the start date for the access period in MM-DD-YYYY date
+    format (example: `12-23-2022`).
+
+
+
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+  operationId: assignEntitlementToAccount
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            accountname:
+              type: string
+              example: johnWS
+            endpoint:
+              type: string
+              example: System1
+            entitlementtype:
+              type: string
+              example: Access
+            entitlementvalue:
+              type: string
+              example: Entitlement1
+            securitysystem:
+              type: string
+              example: System1
+        examples:
+          Assign Entitlement to Account:
+            value:
+              accountname: johnWS
+              endpoint: System1
+              entitlementtype: Access
+              entitlementvalue: Entitlement1
+              securitysystem: System1
+  responses:
+    '200':
+      description: Assign Entitlement to Account
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 08 Aug 2018 00:44:22 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=87be9ddb-28a8-45a6-9841-b15e8fa3998a; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: SUCCESS
+          examples:
+            Assign Entitlement to Account:
+              value:
+                errorCode: '0'
+                message: SUCCESS

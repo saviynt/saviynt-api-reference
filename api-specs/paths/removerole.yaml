@@ -1,0 +1,60 @@
+post:
+  tags:
+    - Roles
+  summary: Remove Role
+  description: |-
+    This API removes role from user.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params:
+    `username`,
+    `rolename`
+  operationId: removeRole
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            rolename:
+              type: string
+              example: RoleTest
+            username:
+              type: string
+              example: johndoe
+        examples:
+          Remove Role:
+            value:
+              rolename: RoleTest
+              username: johndoe
+  responses:
+    '200':
+      description: Remove Role
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 24 Oct 2018 21:33:54 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=068b5011-365c-4e03-a926-9b08e439b8e1; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: ' Tasks created. IDs:: 673977 '
+          examples:
+            Remove Role:
+              value:
+                message: ' Tasks created. IDs:: 673977 '

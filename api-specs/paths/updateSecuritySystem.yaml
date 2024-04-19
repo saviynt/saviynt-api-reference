@@ -1,0 +1,138 @@
+put:
+  tags:
+    - Security Systems
+  summary: Update Security System
+  description: >-
+    This API updates Security system in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `systemname`
+
+    Optional params:
+
+    `displayName`,   `hostname`,   `port`,   `accessAddWorkflow`,  
+    `accessRemoveWorkflow`,   `addServiceAccountWorkflow`,  
+    `removeServiceAccountWorkflow`   `connectionparameters`  
+    `automatedProvisioning`   `connectionname`   `provisioningConnection`  
+    `serviceDeskConnection`   `provisioningcomments`   `action` - "enable" or
+    "disable",   `defaultSystem`,   `reconApplication`   `provisioningTries`
+
+    **Note:** From Release v23.1, you can specify `provisioningTries` between 1
+    to 20 based on your requirement.
+  operationId: updateSecuritySystem
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accessAddWorkflow:
+              type: string
+              example: SampleManagerApproval
+            accessRemoveWorkflow:
+              type: string
+              example: SampleManagerApproval
+            action:
+              type: string
+              example: enable
+            addServiceAccountWorkflow:
+              type: string
+              example: SampleManagerApproval
+            automatedProvisioning:
+              type: string
+              example: 'true'
+            connectionname:
+              type: string
+              example: CN_DDF
+            connectionparameters:
+              type: string
+              example: '{"conn params":"test1"}'
+            defaultSystem:
+              type: string
+              example: 'true'
+            displayName:
+              type: string
+              example: sys1Disp
+            hostname:
+              type: string
+              example: https://test_test.test
+            port:
+              type: string
+              example: '1001'
+            provisioningConnection:
+              type: string
+              example: SAP_HANA
+            provisioningcomments:
+              type: string
+              example: prov comm
+            reconApplication:
+              type: string
+              example: 'true'
+            removeServiceAccountWorkflow:
+              type: string
+              example: SampleManagerApproval
+            serviceDeskConnection:
+              type: string
+              example: CN_Saviynt
+            systemname:
+              type: string
+              example: sys1
+        examples:
+          Update Security System:
+            value:
+              accessAddWorkflow: SampleManagerApproval
+              accessRemoveWorkflow: SampleManagerApproval
+              action: enable
+              addServiceAccountWorkflow: SampleManagerApproval
+              automatedProvisioning: 'true'
+              connectionname: CN_DDF
+              connectionparameters: '{"conn params":"test1"}'
+              defaultSystem: 'true'
+              displayName: sys1Disp
+              hostname: https://test_test.test
+              port: '1001'
+              provisioningConnection: SAP_HANA
+              provisioningcomments: prov comm
+              reconApplication: 'true'
+              removeServiceAccountWorkflow: SampleManagerApproval
+              serviceDeskConnection: CN_Saviynt
+              systemname: sys1
+  responses:
+    '200':
+      description: Update Security System
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Fri, 19 Oct 2018 21:44:25 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=92293297-5e25-49b9-9ef5-f4ca43717451; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Update Security System:
+              value:
+                errorCode: '0'
+                msg: Success

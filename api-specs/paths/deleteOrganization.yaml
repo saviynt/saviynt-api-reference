@@ -1,0 +1,92 @@
+post:
+  tags:
+    - Organization
+  summary: Delete Organization
+  description: |-
+    This API deletes organization in SSM.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params:
+    `organizationname`,
+    `username`
+  operationId: deleteOrganization
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            organizationname:
+              type: string
+              example: testorg1
+            username:
+              type: string
+              example: admin
+        examples:
+          Delete Organization:
+            value:
+              organizationname: testorg1
+              username: admin
+  responses:
+    '200':
+      description: Delete Organization
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Thu, 23 Jul 2020 19:37:04 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=94589b88-cb05-4e05-a11d-dc62e85bb238; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: success
+          examples:
+            Delete Organization:
+              value:
+                errorcode: '0'
+                msg: success

@@ -1,0 +1,61 @@
+post:
+  tags:
+    - User Delegation
+  summary: Delete Delegate
+  description: |-
+    This API is used to delete a specific delegate. 
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params: 
+    `userName` - this is the user who is deleting the delegate,
+    `key` - the is the delegatekey
+  operationId: deleteDelegate
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            key:
+              type: string
+              example: '27'
+            userName:
+              type: string
+              example: admin
+        examples:
+          Delete Delegate:
+            value:
+              key: '27'
+              userName: admin
+  responses:
+    '200':
+      description: Delete Delegate
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Fri, 03 Aug 2018 00:55:24 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=4aa0bffb-f633-4f9f-8602-ca789a6c5db5; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+          examples:
+            Delete Delegate:
+              value:
+                errorCode: '0'
+                msg: Successful

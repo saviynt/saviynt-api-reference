@@ -1,0 +1,180 @@
+get:
+  tags:
+    - Role Membership
+  summary: Get Flat Response Role Details For User
+  description: "This API call can be used to get a flat response consisting of user details and details of all the roles the user has access to. \r\n\r\nThis API will return only the entitlement attributes which are not null or not empty.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nOptional params:\r\n`rolename`, `roletype`, `username`, `userQuery`, `roleQuery`, `roleUserAccQuery`, `max`(default - 100), `offset`(default - 0)"
+  operationId: getFlatResponseRoleDetailsForUser
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            max:
+              type: string
+              example: '1'
+            offset:
+              type: string
+              example: '0'
+            roleQuery:
+              type: string
+              example: role.role_name like '%Content Administrator%'
+            roleUserAccQuery:
+              type: string
+              example: roleUserAcc.updatedate > '2000-09-17 00:00:00'
+            rolename:
+              type: string
+              example: Content Administrator:661222050851
+            roletype:
+              type: string
+              example: FIREFIGHTER
+            userQuery:
+              type: string
+              example: user.id='27'
+            username:
+              type: string
+              example: U020966
+        examples:
+          Get Flat Response Role Details For User:
+            value:
+              max: '1'
+              offset: '0'
+              roleQuery: role.role_name like '%Content Administrator%'
+              roleUserAccQuery: roleUserAcc.updatedate > '2000-09-17 00:00:00'
+              rolename: Content Administrator:661222050851
+              roletype: FIREFIGHTER
+              userQuery: user.id='27'
+              username: U020966
+  responses:
+    '200':
+      description: Get Role Details For User - Flat response
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 29 Dec 2020 02:40:12 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=2a2dce02-9adf-405f-a07c-29492fccd012; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displayCount:
+                type: number
+                example: 1
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+              roleDetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    roledescription:
+                      type: string
+                      example: >-
+                        Privileged access designed for content owners who need
+                        full access to CloudFront, S3, Glacier, Kinesis
+                        Firehose, App Streams and Cloud Search.
+                    roledisplayname:
+                      type: string
+                      example: Content Administrator
+                    rolekey:
+                      type: number
+                      example: 3
+                    rolename:
+                      type: string
+                      example: Content Administrator:661222050851
+                    rolestatus:
+                      type: number
+                      example: 1
+                    roletype:
+                      type: number
+                      example: 3
+                    userkey:
+                      type: number
+                      example: 27
+                    username:
+                      type: string
+                      example: U020966
+                    userstatus:
+                      type: number
+                      example: 1
+                example:
+                  - roledescription: >-
+                      Privileged access designed for content owners who need
+                      full access to CloudFront, S3, Glacier, Kinesis Firehose,
+                      App Streams and Cloud Search.
+                    roledisplayname: Content Administrator
+                    rolekey: 3
+                    rolename: Content Administrator:661222050851
+                    rolestatus: 1
+                    roletype: 3
+                    userkey: 27
+                    username: U020966
+                    userstatus: 1
+              totalCount:
+                type: number
+                example: 1
+          examples:
+            Get Role Details For User - Flat response:
+              value:
+                displayCount: 1
+                errorCode: '0'
+                msg: Successful
+                roleDetails:
+                  - roledescription: >-
+                      Privileged access designed for content owners who need
+                      full access to CloudFront, S3, Glacier, Kinesis Firehose,
+                      App Streams and Cloud Search.
+                    roledisplayname: Content Administrator
+                    rolekey: 3
+                    rolename: Content Administrator:661222050851
+                    rolestatus: 1
+                    roletype: 3
+                    userkey: 27
+                    username: U020966
+                    userstatus: 1
+                totalCount: 1

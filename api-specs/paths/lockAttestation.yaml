@@ -1,0 +1,53 @@
+post:
+  tags:
+    - Attestations
+  summary: Lock Attestation
+  description: "This API can be used to lock a completed attestation, which is not locked. Once the attestation is locked using lockAttestation, no changes can be made to the attestation.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n\r\n`verifier` - Indicates the approver/verifier username verifying the attestation request,\r\n\r\n`attid` - Indicates the attestation id\r\n\r\nOptional params:\r\n\r\n`comments`"
+  operationId: lockAttestation
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            attid:
+              type: string
+              example: '19'
+            comments:
+              type: string
+              example: locking comment
+            verifier:
+              type: string
+              example: admin
+  responses:
+    '200':
+      description: Lock Attestation
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Mon, 06 Aug 2018 21:48:12 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=6e891410-6048-4462-bec4-3170341a83eb; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+          examples:
+            Lock Attestation:
+              value:
+                errorCode: '0'
+                msg: Successful

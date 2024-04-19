@@ -1,0 +1,113 @@
+get:
+  tags:
+    - Users
+  summary: Get List of Users
+  description: "This API returns the user information from SSM. This API will return only the user attributes which are not null or blank.\r\n\r\nYou can search for a user based on any parameters given below and not only the username.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`q`\r\n\r\nOptional params:\r\n`offset`,\r\n`max`,\r\n`sort`,\r\n`order`,\r\n`countonly`,\r\n`fields`\r\n`showsecurityanswers` - \"0\"/\"1\" to display encrypted security answers for the user"
+  operationId: getListOfUsers
+  parameters:
+    - name: q
+      in: query
+      schema:
+        type: string
+        example: accountExpired:0
+    - name: fields
+      in: query
+      schema:
+        type: string
+        example: firstname,lastname,username
+    - name: sort
+      in: query
+      schema:
+        type: string
+        example: username
+    - name: order
+      in: query
+      schema:
+        type: string
+        example: desc
+    - name: offset
+      in: query
+      schema:
+        type: string
+        example: '2'
+    - name: max
+      in: query
+      schema:
+        type: string
+        example: '2'
+  responses:
+    '200':
+      description: Get User
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Tue, 07 Aug 2018 20:08:23 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=4e8d3193-c459-4e21-abf7-2f0ee18aad3f; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                example: 2
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+              offset:
+                type: string
+                example: '2'
+              order:
+                type: string
+                example: desc
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Last Name:
+                      type: string
+                      example: Doe
+                    User Name:
+                      type: string
+                      example: johndoe
+                    firstname:
+                      type: string
+                      example: John
+                example:
+                  - Last Name: Doe
+                    User Name: johndoe
+                    firstname: John
+                  - Last Name: Doe
+                    User Name: janedoe
+                    firstname: Jane
+              sort:
+                type: string
+                example: username
+          examples:
+            Get User:
+              value:
+                count: 2
+                errorCode: '0'
+                msg: Successful
+                offset: '2'
+                order: desc
+                results:
+                  - Last Name: Doe
+                    User Name: johndoe
+                    firstname: John
+                  - Last Name: Doe
+                    User Name: janedoe
+                    firstname: Jane
+                sort: username

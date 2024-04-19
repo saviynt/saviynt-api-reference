@@ -1,0 +1,505 @@
+post:
+  tags:
+    - Entitlements
+  summary: Get Entitlements
+  description: "This API can be used to get the list of all the entitlements.\r\n\r\nThis API call can be used to get the list and details of all the entitlements the user has access to. \r\n\r\nThis API will return only the entitlement attributes which are not null or not empty.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nOptional params:\r\n`username`,\r\n`entitlementtype`,\r\n`endpoint`,\r\n`requestedObject` -\"users\",\"userscount\",\r\n`max`,\r\n`offset`,\r\n`entitlementResponseFields`,\r\n`userResponseFields`,\r\n`userfiltercriteria`,\r\n`accountname`,\r\n`entownerwithrank` - if \"true\", returns the list of owners with owner rank for every entitlementValue,\r\n`returnentitlementmap`(true/false,default:false) - If true, entitlementmap details will be returned,\r\n`exactmatch` - Default is true. If given as false, it will search based on similar matches,\r\n\r\n`entitlementfiltercriteria`,\r\n\r\nOR \r\n\r\n`entQuery` - query to support only entitlement_values parameters. Sample - \"ent.description  = 'Desc' or ent.displayname like '%display%'\".\r\n\r\n***Note*** - Either pass param entitlementfiltercriteria (with or without exactmatch) OR entQuery. Both cannot be passed simultaneously."
+  operationId: getEntitlements
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            endpoint:
+              type: string
+              example: AWS
+            entQuery:
+              type: string
+              example: ent.entitlement_value like '%i-03d58cd60fa90b9a9%'
+            entownerwithrank:
+              type: string
+              example: 'true'
+            returnentitlementmap:
+              type: string
+              example: 'true'
+            username:
+              type: string
+              example: jasorodriguez
+        examples:
+          Get Entitlements:
+            value:
+              endpoint: AWS
+              entQuery: ent.entitlement_value like '%i-03d58cd60fa90b9a9%'
+              entownerwithrank: 'true'
+              returnentitlementmap: 'true'
+              username: jasorodriguez
+          Get Entitlements Copy:
+            value:
+              endpoint: AWS
+              entQuery: ent.entitlement_value like '%i-03d58cd60fa90b9a9%'
+              entownerwithrank: 'true'
+              returnentitlementmap: 'true'
+              username: jasorodriguez
+  responses:
+    '200':
+      description: Get Entitlements / Get Entitlements
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Wed, 30 Jun 2021 20:38:34 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=5fa8a880-0b39-44c7-be59-d60df88371ee; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              Entitlementdetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accounts:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          accountname:
+                            type: string
+                            example: jasorodriguez
+                          enddate:
+                            type: string
+                            example: ''
+                          startdate:
+                            type: string
+                            example: ''
+                          updatedate:
+                            type: string
+                            example: ''
+                      example:
+                        - accountname: jasorodriguez
+                          enddate: ''
+                          startdate: ''
+                          updatedate: ''
+                        - accountname: jasorodriguez
+                          enddate: ''
+                          startdate: ''
+                          updatedate: ''
+                        - accountname: jasorodriguez
+                          enddate: ''
+                          startdate: ''
+                          updatedate: ''
+                    childEntitlementCount:
+                      type: number
+                      example: 0
+                    customproperty1:
+                      type: string
+                      example: 'Code: 80,Name: stopped'
+                    customproperty10:
+                      type: string
+                      example: 'false'
+                    customproperty13:
+                      type: string
+                      example: 'N'
+                    customproperty15:
+                      type: string
+                      example: '2017-07-03 17:10:15'
+                    customproperty16:
+                      type: string
+                      example: 'State: disabled'
+                    customproperty17:
+                      type: string
+                      example: ami-0c2dfb1a
+                    customproperty18:
+                      type: string
+                      example: AWSSaviynt-6612acc
+                    customproperty19:
+                      type: string
+                      example: default
+                    customproperty2:
+                      type: string
+                      example: m3.xlarge
+                    customproperty20:
+                      type: string
+                      example: ip-172-31-19-127.ec2.internal
+                    customproperty3:
+                      type: string
+                      example: >-
+                        Key: Owner,Value: Sagar Srikantaiah, Key:
+                        aws:cloudformation:stack-id,Value:
+                        arn:aws:cloudformation:us-east-1:661222050851:stack/IDMAMITest/b8c82f20-f8a8-11e6-845b-500c28903236,
+                        Key: aws:cloudformation:logical-id,Value: SaviyntAWSEC2,
+                        Key: Name,Value: IDMAMITest, Key:
+                        aws:cloudformation:stack-name,Value: IDMAMITest
+                    customproperty4:
+                      type: string
+                      example: 172.31.19.127
+                    customproperty5:
+                      type: string
+                      example: vpc-60389904
+                    customproperty6:
+                      type: string
+                      example: subnet-3e9ea667
+                    customproperty7:
+                      type: string
+                      example: 'false'
+                    customproperty8:
+                      type: string
+                      example: >-
+                        Arn:
+                        arn:aws:iam::661222050851:instance-profile/IDMAMITest-SaviyntAWSInstanceProfile-PB8FBG9QPF8J,Id:
+                        AIPAI4Z55IKG4PEYTP622
+                    customproperty9:
+                      type: string
+                      example: us-east-1
+                    description:
+                      type: string
+                      example: ''
+                    displayname:
+                      type: string
+                      example: ''
+                    endpoint:
+                      type: string
+                      example: AWS
+                    endpointKey:
+                      type: number
+                      example: 1
+                    entitlementID:
+                      type: string
+                      example: i-03d58cd60fa90b9a9
+                    entitlementMapDetails:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          addDependentTask:
+                            type: string
+                            example: ''
+                          description:
+                            type: string
+                            example: >-
+                              Enable http, https, ssh access to the My
+                              ControlNode.
+                          excludeEntitlement:
+                            type: string
+                            example: ''
+                          exportPrimary:
+                            type: string
+                            example: sg-4341773f
+                          primary:
+                            type: string
+                            example: sg-4341773f
+                          primaryEntKey:
+                            type: string
+                            example: '189289'
+                          primaryEntType:
+                            type: string
+                            example: AWSSecurityGroup
+                          removeDependentEntTask:
+                            type: string
+                            example: ''
+                          requestFilter:
+                            type: string
+                            example: ''
+                      example:
+                        - addDependentTask: ''
+                          description: >-
+                            Enable http, https, ssh access to the My
+                            ControlNode.
+                          excludeEntitlement: ''
+                          exportPrimary: sg-4341773f
+                          primary: sg-4341773f
+                          primaryEntKey: '189289'
+                          primaryEntType: AWSSecurityGroup
+                          removeDependentEntTask: ''
+                          requestFilter: ''
+                        - addDependentTask: ''
+                          description: ''
+                          excludeEntitlement: ''
+                          exportPrimary: vol-011ca83c3d8894018
+                          primary: vol-011ca83c3d8894018
+                          primaryEntKey: '192408'
+                          primaryEntType: EBSVolume
+                          removeDependentEntTask: ''
+                          requestFilter: ''
+                        - addDependentTask: ''
+                          description: ''
+                          excludeEntitlement: ''
+                          exportPrimary: >-
+                            arn:aws:iam::661222050851:policy/ADAWSFFRoles-SaviyntAWSConfigPolicy-TVZXKOYNVMLC
+                          primary: >-
+                            arn:aws:iam::661222050851:policy/ADAWSFFRoles-SaviyntAWSConfigPolicy-TVZXKOYNVMLC
+                          primaryEntKey: '193885'
+                          primaryEntType: AWSPolicy
+                          removeDependentEntTask: ''
+                          requestFilter: ''
+                    entitlementOwner:
+                      type: string
+                      example: ''
+                    entitlementType:
+                      type: string
+                      example: EC2InstanceDisplay
+                    entitlementTypeKey:
+                      type: number
+                      example: 52
+                    entitlementTypeName:
+                      type: string
+                      example: EC2Instance
+                    entitlement_glossary:
+                      type: string
+                      example: ''
+                    entitlement_value:
+                      type: string
+                      example: i-03d58cd60fa90b9a9
+                    entitlement_valuekey:
+                      type: string
+                      example: '191373'
+                    requestForm:
+                      type: string
+                      example: Request Form None
+                    soxcritical:
+                      type: string
+                      example: '0'
+                    status:
+                      type: string
+                      example: '1'
+                    syscritical:
+                      type: string
+                      example: '0'
+                    updatedate:
+                      type: string
+                      example: '2017-08-10 16:11:47'
+                example:
+                  - accounts:
+                      - accountname: jasorodriguez
+                        enddate: ''
+                        startdate: ''
+                        updatedate: ''
+                      - accountname: jasorodriguez
+                        enddate: ''
+                        startdate: ''
+                        updatedate: ''
+                      - accountname: jasorodriguez
+                        enddate: ''
+                        startdate: ''
+                        updatedate: ''
+                    childEntitlementCount: 0
+                    customproperty1: 'Code: 80,Name: stopped'
+                    customproperty10: 'false'
+                    customproperty13: 'N'
+                    customproperty15: '2017-07-03 17:10:15'
+                    customproperty16: 'State: disabled'
+                    customproperty17: ami-0c2dfb1a
+                    customproperty18: AWSSaviynt-6612acc
+                    customproperty19: default
+                    customproperty2: m3.xlarge
+                    customproperty20: ip-172-31-19-127.ec2.internal
+                    customproperty3: >-
+                      Key: Owner,Value: Sagar Srikantaiah, Key:
+                      aws:cloudformation:stack-id,Value:
+                      arn:aws:cloudformation:us-east-1:661222050851:stack/IDMAMITest/b8c82f20-f8a8-11e6-845b-500c28903236,
+                      Key: aws:cloudformation:logical-id,Value: SaviyntAWSEC2,
+                      Key: Name,Value: IDMAMITest, Key:
+                      aws:cloudformation:stack-name,Value: IDMAMITest
+                    customproperty4: 172.31.19.127
+                    customproperty5: vpc-60389904
+                    customproperty6: subnet-3e9ea667
+                    customproperty7: 'false'
+                    customproperty8: >-
+                      Arn:
+                      arn:aws:iam::661222050851:instance-profile/IDMAMITest-SaviyntAWSInstanceProfile-PB8FBG9QPF8J,Id:
+                      AIPAI4Z55IKG4PEYTP622
+                    customproperty9: us-east-1
+                    description: ''
+                    displayname: ''
+                    endpoint: AWS
+                    endpointKey: 1
+                    entitlementID: i-03d58cd60fa90b9a9
+                    entitlementMapDetails:
+                      - addDependentTask: ''
+                        description: Enable http, https, ssh access to the My ControlNode.
+                        excludeEntitlement: ''
+                        exportPrimary: sg-4341773f
+                        primary: sg-4341773f
+                        primaryEntKey: '189289'
+                        primaryEntType: AWSSecurityGroup
+                        removeDependentEntTask: ''
+                        requestFilter: ''
+                      - addDependentTask: ''
+                        description: ''
+                        excludeEntitlement: ''
+                        exportPrimary: vol-011ca83c3d8894018
+                        primary: vol-011ca83c3d8894018
+                        primaryEntKey: '192408'
+                        primaryEntType: EBSVolume
+                        removeDependentEntTask: ''
+                        requestFilter: ''
+                      - addDependentTask: ''
+                        description: ''
+                        excludeEntitlement: ''
+                        exportPrimary: >-
+                          arn:aws:iam::661222050851:policy/USFederalDemoStack-SaviyntAWSPolicy-EQ3LNR2RUGS7
+                        primary: >-
+                          arn:aws:iam::661222050851:policy/USFederalDemoStack-SaviyntAWSPolicy-EQ3LNR2RUGS7
+                        primaryEntKey: '3932043'
+                        primaryEntType: AWSPolicy
+                        removeDependentEntTask: ''
+                        requestFilter: ''
+                    entitlementOwner: ''
+                    entitlementType: EC2InstanceDisplay
+                    entitlementTypeKey: 52
+                    entitlementTypeName: EC2Instance
+                    entitlement_glossary: ''
+                    entitlement_value: i-03d58cd60fa90b9a9
+                    entitlement_valuekey: '191373'
+                    requestForm: Request Form None
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: '2017-08-10 16:11:47'
+              entitlementsCount:
+                type: number
+                example: 1
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+              totalEntitlementCount:
+                type: number
+                example: 1
+          examples:
+            Get Entitlements:
+              value:
+                Entitlementdetails:
+                  - accounts:
+                      - accountname: jasorodriguez
+                        enddate: ''
+                        startdate: ''
+                        updatedate: ''
+                      - accountname: jasorodriguez
+                        enddate: ''
+                        startdate: ''
+                        updatedate: ''
+                      - accountname: jasorodriguez
+                        enddate: ''
+                        startdate: ''
+                        updatedate: ''
+                    childEntitlementCount: 0
+                    customproperty1: 'Code: 80,Name: stopped'
+                    customproperty10: 'false'
+                    customproperty13: 'N'
+                    customproperty15: '2017-07-03 17:10:15'
+                    customproperty16: 'State: disabled'
+                    customproperty17: ami-0c2dfb1a
+                    customproperty18: AWSSaviynt-6612acc
+                    customproperty19: default
+                    customproperty2: m3.xlarge
+                    customproperty20: ip-172-31-19-127.ec2.internal
+                    customproperty3: >-
+                      Key: Owner,Value: Sagar Srikantaiah, Key:
+                      aws:cloudformation:stack-id,Value:
+                      arn:aws:cloudformation:us-east-1:661222050851:stack/IDMAMITest/b8c82f20-f8a8-11e6-845b-500c28903236,
+                      Key: aws:cloudformation:logical-id,Value: SaviyntAWSEC2,
+                      Key: Name,Value: IDMAMITest, Key:
+                      aws:cloudformation:stack-name,Value: IDMAMITest
+                    customproperty4: 172.31.19.127
+                    customproperty5: vpc-60389904
+                    customproperty6: subnet-3e9ea667
+                    customproperty7: 'false'
+                    customproperty8: >-
+                      Arn:
+                      arn:aws:iam::661222050851:instance-profile/IDMAMITest-SaviyntAWSInstanceProfile-PB8FBG9QPF8J,Id:
+                      AIPAI4Z55IKG4PEYTP622
+                    customproperty9: us-east-1
+                    description: ''
+                    displayname: ''
+                    endpoint: AWS
+                    endpointKey: 1
+                    entitlementID: i-03d58cd60fa90b9a9
+                    entitlementMapDetails:
+                      - addDependentTask: ''
+                        description: Enable http, https, ssh access to the My ControlNode.
+                        excludeEntitlement: ''
+                        exportPrimary: sg-4341773f
+                        primary: sg-4341773f
+                        primaryEntKey: '189289'
+                        primaryEntType: AWSSecurityGroup
+                        removeDependentEntTask: ''
+                        requestFilter: ''
+                      - addDependentTask: ''
+                        description: ''
+                        excludeEntitlement: ''
+                        exportPrimary: vol-011ca83c3d8894018
+                        primary: vol-011ca83c3d8894018
+                        primaryEntKey: '192408'
+                        primaryEntType: EBSVolume
+                        removeDependentEntTask: ''
+                        requestFilter: ''
+                      - addDependentTask: ''
+                        description: ''
+                        excludeEntitlement: ''
+                        exportPrimary: >-
+                          arn:aws:iam::661222050851:policy/ADAWSFFRoles-SaviyntAWSConfigPolicy-TVZXKOYNVMLC
+                        primary: >-
+                          arn:aws:iam::661222050851:policy/ADAWSFFRoles-SaviyntAWSConfigPolicy-TVZXKOYNVMLC
+                        primaryEntKey: '193885'
+                        primaryEntType: AWSPolicy
+                        removeDependentEntTask: ''
+                        requestFilter: ''
+                    entitlementOwner: ''
+                    entitlementType: EC2InstanceDisplay
+                    entitlementTypeKey: 52
+                    entitlementTypeName: EC2Instance
+                    entitlement_glossary: ''
+                    entitlement_value: i-03d58cd60fa90b9a9
+                    entitlement_valuekey: '191373'
+                    requestForm: Request Form None
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: '2017-08-10 16:11:47'
+                entitlementsCount: 1
+                errorCode: '0'
+                msg: Successful
+                totalEntitlementCount: 1

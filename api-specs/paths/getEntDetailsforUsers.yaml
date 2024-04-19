@@ -1,0 +1,246 @@
+get:
+  tags:
+    - Access
+  summary: Get Flat Response Entitlement Details For User
+  description: "This API call can be used to get a flat response consisting of user details, account details, and details of all the entitlements the user has access to. \r\n\r\nThis API will return only the entitlement attributes which are not null or not empty.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nOptional params:\r\n`username`, `entitlementType`, `entitlement_value`, `endpoint`, `userQuery`, `accountQuery`, `entQuery`, `accEntQuery`, `max`(default - 100), `offset`(default - 0)"
+  operationId: getFlatResponseEntitlementDetailsForUser
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accEntQuery:
+              type: string
+              example: accEnt.updatedate > '2000-11-07 00:00:00'
+            accountQuery:
+              type: string
+              example: account.name like '%245947%'
+            endpoint:
+              type: string
+              example: AWS
+            entQuery:
+              type: string
+              example: ent.entitlement_value like '%arn:aws:iam::%'
+            entitlementType:
+              type: string
+              example: AWSPolicy
+            entitlement_value:
+              type: string
+              example: arn:aws:iam::661222050851:policy/CrossPolicy2
+            max:
+              type: string
+              example: '1'
+            offset:
+              type: string
+              example: '0'
+            userQuery:
+              type: string
+              example: user.username like '%245947%'
+            username:
+              type: string
+              example: '245947'
+        examples:
+          Get Flat Response Entitlement Details For User:
+            value:
+              accEntQuery: accEnt.updatedate > '2000-11-07 00:00:00'
+              accountQuery: account.name like '%245947%'
+              endpoint: AWS
+              entQuery: ent.entitlement_value like '%arn:aws:iam::%'
+              entitlementType: AWSPolicy
+              entitlement_value: arn:aws:iam::661222050851:policy/CrossPolicy2
+              max: '1'
+              offset: '0'
+              userQuery: user.username like '%245947%'
+              username: '245947'
+  responses:
+    '200':
+      description: Get Entitlement Details For User - Flat response
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 29 Dec 2020 02:03:19 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=2a2dce02-9adf-405f-a07c-29492fccd012; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              accessDetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accountdisplayname:
+                      type: string
+                      example: '245947'
+                    accountkey:
+                      type: number
+                      example: 3684
+                    accountname:
+                      type: string
+                      example: '245947'
+                    accountstatus:
+                      type: string
+                      example: Manually Suspended
+                    endpointDisplayname:
+                      type: string
+                      example: AWS
+                    endpointkey:
+                      type: number
+                      example: 1
+                    endpointname:
+                      type: string
+                      example: AWS
+                    entdescription:
+                      type: string
+                      nullable: true
+                      example: null
+                    entdisplayname:
+                      type: string
+                      nullable: true
+                      example: null
+                    entitlementType:
+                      type: string
+                      example: AWSPolicy
+                    entitlementTypeDisplayname:
+                      type: string
+                      example: AWSPolicy
+                    entitlementTypeRequestForm:
+                      type: string
+                      example: Request Form Table
+                    entitlementTypekey:
+                      type: number
+                      example: 59
+                    entitlement_value:
+                      type: string
+                      example: arn:aws:iam::661222050851:policy/CrossPolicy2
+                    entitlement_valuekey:
+                      type: number
+                      example: 194098
+                    entstatus:
+                      type: number
+                      example: 1
+                    securitysystemdisplayname:
+                      type: string
+                      example: AWS
+                    securitysystemkey:
+                      type: number
+                      example: 1
+                    systemname:
+                      type: string
+                      example: AWS
+                    userkey:
+                      type: number
+                      example: 2511
+                    username:
+                      type: string
+                      example: '245947'
+                    userstatus:
+                      type: number
+                      example: 1
+                example:
+                  - accountdisplayname: '245947'
+                    accountkey: 3684
+                    accountname: '245947'
+                    accountstatus: Manually Suspended
+                    endpointDisplayname: AWS
+                    endpointkey: 1
+                    endpointname: AWS
+                    entdescription: null
+                    entdisplayname: null
+                    entitlementType: AWSPolicy
+                    entitlementTypeDisplayname: AWSPolicy
+                    entitlementTypeRequestForm: Request Form Table
+                    entitlementTypekey: 59
+                    entitlement_value: arn:aws:iam::661222050851:policy/CrossPolicy2
+                    entitlement_valuekey: 194098
+                    entstatus: 1
+                    securitysystemdisplayname: AWS
+                    securitysystemkey: 1
+                    systemname: AWS
+                    userkey: 2511
+                    username: '245947'
+                    userstatus: 1
+              displayCount:
+                type: number
+                example: 1
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+              totalCount:
+                type: number
+                example: 1
+          examples:
+            Get Entitlement Details For User - Flat response:
+              value:
+                accessDetails:
+                  - accountdisplayname: '245947'
+                    accountkey: 3684
+                    accountname: '245947'
+                    accountstatus: Manually Suspended
+                    endpointDisplayname: AWS
+                    endpointkey: 1
+                    endpointname: AWS
+                    entdescription: null
+                    entdisplayname: null
+                    entitlementType: AWSPolicy
+                    entitlementTypeDisplayname: AWSPolicy
+                    entitlementTypeRequestForm: Request Form Table
+                    entitlementTypekey: 59
+                    entitlement_value: arn:aws:iam::661222050851:policy/CrossPolicy2
+                    entitlement_valuekey: 194098
+                    entstatus: 1
+                    securitysystemdisplayname: AWS
+                    securitysystemkey: 1
+                    systemname: AWS
+                    userkey: 2511
+                    username: '245947'
+                    userstatus: 1
+                displayCount: 1
+                errorCode: '0'
+                msg: Successful
+                totalCount: 1

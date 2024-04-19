@@ -1,0 +1,129 @@
+post:
+  tags:
+    - Analytics
+  summary: Run Analytics Controls
+  description: |-
+    This API is used to run analytics job.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params: 
+    `jobgroup`,
+    `jobname`,
+    `analyticsCategories` (start and end with ###)
+    Optional params:
+    `analyticsApplications`
+    `analyticssubcategories` (start and end with ###)
+  operationId: runAnalyticsControls
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            analyticsid:
+              type: string
+              example: '6'
+            jobgroup:
+              type: string
+              example: Analytics
+            jobname:
+              type: string
+              example: AnalyticsESJob
+        examples:
+          Run Analytics Controls ES:
+            value:
+              analyticsid: '6'
+              jobgroup: Analytics
+              jobname: AnalyticsESJob
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            analyticsCategories:
+              type: string
+              example: '###Usage###'
+            analyticssubcategories:
+              type: string
+              example: '###testsub###'
+            jobgroup:
+              type: string
+              example: Analytics
+            jobname:
+              type: string
+              example: AnalyticsJob
+        examples:
+          Run Analytics Controls:
+            value:
+              analyticsCategories: '###Usage###'
+              analyticssubcategories: '###testsub###'
+              jobgroup: Analytics
+              jobname: AnalyticsJob
+  responses:
+    '200':
+      description: >-
+        Run Analytics Controls / Run Analytics Controls with
+        analyticssubcategories / Run Analytics Controls ES
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 20 Aug 2019 06:46:14 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=1653a088-9c42-4c30-851d-6eee26acb660; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Job started successfully
+          examples:
+            Run Analytics Controls:
+              value:
+                errorCode: '0'
+                msg: Job started successfully
+            Run Analytics Controls ES:
+              value:
+                errorCode: '0'
+                msg: Job started successfully
+            Run Analytics Controls with analyticssubcategories:
+              value:
+                errorCode: '0'
+                msg: Job started successfully

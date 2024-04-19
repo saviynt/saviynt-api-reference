@@ -1,0 +1,1448 @@
+post:
+  tags:
+    - Segregation of Duties
+  summary: SoD Evaluation for Non - SAP Functions
+  description: "This API can be used to evaluate SODs for entitlements with the same name.\n\n**Mandatory Parameters**:\n\n\\* `user` - account name  \n\\* entitlement JSON\n\nStartFragment\n\n{\_\_\_\_\n\n\"user\":\_\"soduser971\",\n\n\"entitlementJSON\":\_{\_\n\n\_\"Data\":\_\\[\n\n\_{\n\n\_\"Endpoint\":\_\"SODendpoint2\",\n\n\_\_\"EntitlementType\":\_\"NewPandC\",\n\n\_\_\_\"ExistingEntitlementsKeys\":\_\\[\n\n\_\_\_\_\"635216\",\n\n\_\_\_\_\"635217\",\_\n\n\_\_\_\_\_\"635218\"\_\n\n\_\_\_\_\_\\],\n\n\_\"NewEntitlementsKeys\":\_\\[\n\n\_\"635215\",\n\n\_\"635214\"\_\_\n\n\_\_\_\\]\n\n\_\_\_},\n\n\_\_\_{\n\n\_\_\"Endpoint\":\_\"SODendpoint2\",\n\n\_\_\"EntitlementType\":\_\"NewPandC\",\_\_\_\n\n\_\_\_\"ExistingEntitlementsKeys\":\_\\[\_\_\_\n\n\_\_\_\_\"635216\",\_\_\n\n\_\_\_\_\_\"635217\",\_\_\_\_\n\n\_\_\_\_\_\"635218\"\_\_\_\_\n\n\_\_\_\_\_\_\\],\_\n\n\_\_\_\_\"NewEntitlementsKeys\":\_\\[\_\_\_\_\_\_\_\n\n\_\_\_\_\"635215\",\_\n\n\_\_\_\_\"635214\"\_\_\n\n\_\_\_\_\_\_\\]\_\_\_\_\n\n\_\_\_\_\_\_}\_\n\n\_\_\_\_\_\_\\]\_\n\n\_\_\_}\n\n}\n\nEndFragment\n\n  \n  \n**HEADERS**\n\nEndFragment\n\nThe `Authorization` must have `Bearer` followed by `Token`.\n\n**Optional parameters**:\n\n`Ruleset - ExistingEntitlementsKeys/NewEntitlementsKeys -`These parameters are available from Release v2022.0.  \nThe SODEvaluation API takes the input parameters in the following order:\n\n\\* Key of the entitlement  \n\\* Name of the entitlement\n\nThe Key of the entitlement takes precedence to check SODs during access request to avoid the failure of duplicate entitlements so that the SOD risks are displayed if exists. If the entitlement key is not passed in the API, then the entitlement name is considered."
+  operationId: sodEvaluationForNonSapFunctions
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            entitlementJSON:
+              type: object
+              properties:
+                Data:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      Endpoint:
+                        type: string
+                        example: SODendpoint2
+                      EntitlementType:
+                        type: string
+                        example: NewPandC
+                      ExistingEntitlementsKeys:
+                        type: array
+                        items:
+                          type: string
+                          example: '635216'
+                        example:
+                          - '635216'
+                          - '635217'
+                          - '635218'
+                      NewEntitlementsKeys:
+                        type: array
+                        items:
+                          type: string
+                          example: '635215'
+                        example:
+                          - '635215'
+                          - '635214'
+                  example:
+                    - Endpoint: SODendpoint2
+                      EntitlementType: NewPandC
+                      ExistingEntitlementsKeys:
+                        - '635216'
+                        - '635217'
+                        - '635218'
+                      NewEntitlementsKeys:
+                        - '635215'
+                        - '635214'
+                    - Endpoint: SODendpoint2
+                      EntitlementType: NewPandC
+                      ExistingEntitlementsKeys:
+                        - '635216'
+                        - '635217'
+                        - '635218'
+                      NewEntitlementsKeys:
+                        - '635215'
+                        - '635214'
+            user:
+              type: string
+              example: soduser971
+        examples:
+          SoD Evaluation for Non - SAP Functions:
+            value:
+              entitlementJSON:
+                Data:
+                  - Endpoint: SODendpoint2
+                    EntitlementType: NewPandC
+                    ExistingEntitlementsKeys:
+                      - '635216'
+                      - '635217'
+                      - '635218'
+                    NewEntitlementsKeys:
+                      - '635215'
+                      - '635214'
+                  - Endpoint: SODendpoint2
+                    EntitlementType: NewPandC
+                    ExistingEntitlementsKeys:
+                      - '635216'
+                      - '635217'
+                      - '635218'
+                    NewEntitlementsKeys:
+                      - '635215'
+                      - '635214'
+              user: soduser971
+  responses:
+    '200':
+      description: >-
+        SoD Evaluation for Non - SAP Functions / SoD Evaluation for Non - SAP
+        Functions(riskSODEvaluationByUser) / SOD Evaluation for Non-SAP
+        Duplicate Entitlements
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Mon, 19 Sep 2022 12:34:06 GMT
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=a0746f02-c6f0-4330-8831-bdb012cde87e; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        Vary:
+          schema:
+            type: string
+            example: Access-Control-Request-Headers
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: SUCCESS
+              result:
+                anyOf:
+                  - type: object
+                    properties:
+                      SOD:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Assigned_MitigatingControls:
+                              type: array
+                              items: {}
+                              example: []
+                            Available_MitigatingControls:
+                              type: array
+                              items: {}
+                              example: []
+                            Description:
+                              type: string
+                              example: ''
+                            Functions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  Description:
+                                    type: string
+                                    example: ''
+                                  Entitlements:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        Entitlement:
+                                          type: string
+                                          example: >-
+                                            [Accounting Journal Event: Create
+                                            Journal: Initiate, Verify Capital
+                                            Project Expense: Review Capital Project
+                                            Transactions - Manual Journals:
+                                            Initiate]
+                                        EntitlementDescription:
+                                          type: string
+                                          example: ''
+                                        EntitlementDisplayName:
+                                          type: string
+                                          example: ''
+                                        ParentRole:
+                                          type: string
+                                          example: '[Accountant]'
+                                        Role:
+                                          type: string
+                                          example: Accountant
+                                    example:
+                                      - Entitlement: >-
+                                          [Accounting Journal Event: Create
+                                          Journal: Initiate, Verify Capital
+                                          Project Expense: Review Capital Project
+                                          Transactions - Manual Journals:
+                                          Initiate]
+                                        EntitlementDescription: ''
+                                        EntitlementDisplayName: ''
+                                        ParentRole: '[Accountant]'
+                                        Role: Accountant
+                                  FunctionName:
+                                    type: string
+                                    example: 'GL: Enter Journal Entry'
+                              example:
+                                - Description: ''
+                                  Entitlements:
+                                    - Entitlement: >-
+                                        [Accounting Journal Event: Create
+                                        Journal: Initiate, Verify Capital
+                                        Project Expense: Review Capital Project
+                                        Transactions - Manual Journals:
+                                        Initiate]
+                                      EntitlementDescription: ''
+                                      EntitlementDisplayName: ''
+                                      ParentRole: '[Accountant]'
+                                      Role: Accountant
+                                  FunctionName: 'GL: Enter Journal Entry'
+                                - Description: ''
+                                  Entitlements:
+                                    - Entitlement: >-
+                                        [Verify Capital Project Expense: Review
+                                        Capital Project Transactions - Supplier
+                                        Invoices: Initiate]
+                                      EntitlementDescription: ''
+                                      EntitlementDisplayName: ''
+                                      ParentRole: '[Accountant]'
+                                      Role: Accountant
+                                  FunctionName: 'PTP: Create Invoices'
+                            Priority:
+                              type: number
+                              example: 1
+                            Risk:
+                              type: string
+                              example: >-
+                                GL: Enter Journal Entry conflicts with PTP:
+                                Create Invoices
+                            RiskId:
+                              type: number
+                              example: 1762
+                        example:
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Accounting Journal Event: Create Journal:
+                                      Initiate, Verify Capital Project Expense:
+                                      Review Capital Project Transactions -
+                                      Manual Journals: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Enter Journal Entry'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Verify Capital Project Expense: Review
+                                      Capital Project Transactions - Supplier
+                                      Invoices: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'PTP: Create Invoices'
+                            Priority: 1
+                            Risk: >-
+                              GL: Enter Journal Entry conflicts with PTP: Create
+                              Invoices
+                            RiskId: 1762
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Accounting Journal Event: Create Journal:
+                                      Initiate, Verify Capital Project Expense:
+                                      Review Capital Project Transactions -
+                                      Manual Journals: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Enter Journal Entry'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Prepaid Spend Amortization Event: Create
+                                      Prepaid Spend Amortization: Initiate,
+                                      Receipt Accrual Event: Create Receipt
+                                      Accrual: Initiate, Accounting Journal
+                                      Unpost Event: Unpost Journal: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Post Journal Entry'
+                            Priority: 1
+                            Risk: >-
+                              GL: Enter Journal Entry conflicts with GL: Post
+                              Journal Entry
+                            RiskId: 1763
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Process: Allocations: Modify, Allocation
+                                      Finalize Event: Finalize Allocation:
+                                      Initiate, Revaluation Run Event: Run
+                                      Revaluation: Initiate, Allocation Run
+                                      Event: Run Allocation: Initiate, Period
+                                      Close Notification Event: Period Close
+                                      Notification: Initiate, Allocation Run
+                                      Event: Schedule Allocation Run: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Mass Allocate Journal Entries'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Accounting Journal Event: Create Journal:
+                                      Initiate, Verify Capital Project Expense:
+                                      Review Capital Project Transactions -
+                                      Manual Journals: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Enter Journal Entry'
+                            Priority: 1
+                            Risk: >-
+                              GL: Mass Allocate Journal Entries conflicts with
+                              GL: Enter Journal Entry
+                            RiskId: 1764
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Accounting Journal Event: Create Journal:
+                                      Initiate, Verify Capital Project Expense:
+                                      Review Capital Project Transactions -
+                                      Manual Journals: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Enter Journal Entry'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Process: Business Asset Accounting:
+                                      Modify]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'AM: Assets Depreciation'
+                            Priority: 1
+                            Risk: >-
+                              GL: Enter Journal Entry conflicts with AM: Assets
+                              Depreciation
+                            RiskId: 1769
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Accounting Journal Event: Create Journal:
+                                      Initiate, Verify Capital Project Expense:
+                                      Review Capital Project Transactions -
+                                      Manual Journals: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Enter Journal Entry'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Process: Allocations: Modify, Allocation
+                                      Finalize Event: Finalize Allocation:
+                                      Initiate, Revaluation Run Event: Run
+                                      Revaluation: Initiate, Allocation Run
+                                      Event: Run Allocation: Initiate, Period
+                                      Close Notification Event: Period Close
+                                      Notification: Initiate, Allocation Run
+                                      Event: Schedule Allocation Run: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Mass Allocate Journal Entries'
+                            Priority: 1
+                            Risk: >-
+                              GL: Enter Journal Entry conflicts with GL: Mass
+                              Allocate Journal Entries
+                            RiskId: 1773
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Prepaid Spend Amortization Event: Create
+                                      Prepaid Spend Amortization: Initiate,
+                                      Receipt Accrual Event: Create Receipt
+                                      Accrual: Initiate, Accounting Journal
+                                      Unpost Event: Unpost Journal: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Post Journal Entry'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Process: Business Asset Accounting:
+                                      Modify]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'AM: Assets Depreciation'
+                            Priority: 1
+                            Risk: >-
+                              GL: Post Journal Entry conflicts with AM: Assets
+                              Depreciation
+                            RiskId: 1775
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Prepaid Spend Amortization Event: Create
+                                      Prepaid Spend Amortization: Initiate,
+                                      Receipt Accrual Event: Create Receipt
+                                      Accrual: Initiate, Accounting Journal
+                                      Unpost Event: Unpost Journal: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Post Journal Entry'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Process: Allocations: Modify, Allocation
+                                      Finalize Event: Finalize Allocation:
+                                      Initiate, Revaluation Run Event: Run
+                                      Revaluation: Initiate, Allocation Run
+                                      Event: Run Allocation: Initiate, Period
+                                      Close Notification Event: Period Close
+                                      Notification: Initiate, Allocation Run
+                                      Event: Schedule Allocation Run: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Mass Allocate Journal Entries'
+                            Priority: 1
+                            Risk: >-
+                              GL: Post Journal Entry conflicts with GL: Mass
+                              Allocate Journal Entries
+                            RiskId: 1780
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Payment Printing Event: Create Positive
+                                      Pay File: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Open Close Periods'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Accounting Journal Event: Create Journal:
+                                      Initiate, Verify Capital Project Expense:
+                                      Review Capital Project Transactions -
+                                      Manual Journals: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Enter Journal Entry'
+                            Priority: 0
+                            Risk: >-
+                              GL: Open Close Periods conflicts with GL: Enter
+                              Journal Entry
+                            RiskId: 1781
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Payment Printing Event: Create Positive
+                                      Pay File: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Open Close Periods'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Prepaid Spend Amortization Event: Create
+                                      Prepaid Spend Amortization: Initiate,
+                                      Receipt Accrual Event: Create Receipt
+                                      Accrual: Initiate, Accounting Journal
+                                      Unpost Event: Unpost Journal: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Post Journal Entry'
+                            Priority: 3
+                            Risk: >-
+                              GL: Open Close Periods conflicts with GL: Post
+                              Journal Entry
+                            RiskId: 1782
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: '[Process: Journals: Modify]'
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'OTC: Enter Journal Entry'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Record Intercompany Receipt Event: Record
+                                      Intercompany Receipt: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'OTC: Enter Customer Receipts'
+                            Priority: 1
+                            Risk: >-
+                              OTC: Enter Journal Entry conflicts with OTC: Enter
+                              Customer Receipts
+                            RiskId: 1821
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Prepaid Spend Amortization Event: Create
+                                      Prepaid Spend Amortization: Initiate,
+                                      Receipt Accrual Event: Create Receipt
+                                      Accrual: Initiate, Accounting Journal
+                                      Unpost Event: Unpost Journal: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'GL: Post Journal Entry'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Record Intercompany Receipt Event: Record
+                                      Intercompany Receipt: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'OTC: Enter Customer Receipts'
+                            Priority: 1
+                            Risk: >-
+                              GL: Post Journal Entry conflicts with OTC: Enter
+                              Customer Receipts
+                            RiskId: 1823
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Verify Capital Project Expense: Review
+                                      Capital Project Transactions - Supplier
+                                      Invoices: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'PTP: Create Invoices'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Process: Intercompany Payment/Settlement:
+                                      Modify]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'PTP: Print Checks'
+                            Priority: 1
+                            Risk: >-
+                              PTP: Create Invoices conflicts with PTP: Print
+                              Checks
+                            RiskId: 1848
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: ''
+                            Functions:
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Verify Capital Project Expense: Review
+                                      Capital Project Transactions - Supplier
+                                      Invoices: Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'PTP: Create Invoices'
+                              - Description: ''
+                                Entitlements:
+                                  - Entitlement: >-
+                                      [Procurement Mass Close Event: Mass Close
+                                      Procurement Documents: Initiate,
+                                      Procurement Roll Forward: Roll Forward
+                                      Procurement Documents: Initiate, Verify
+                                      Capital Project Expense: Review Capital
+                                      Project Transactions - Supplier Invoices:
+                                      Initiate]
+                                    EntitlementDescription: ''
+                                    EntitlementDisplayName: ''
+                                    ParentRole: '[Accountant]'
+                                    Role: Accountant
+                                FunctionName: 'PTP: Payables Transactions'
+                            Priority: 1
+                            Risk: >-
+                              PTP: Create Invoices conflicts with PTP: Payables
+                              Transactions
+                            RiskId: 1866
+                  - type: array
+                    items:
+                      type: object
+                      properties:
+                        ACCOUNT:
+                          type: number
+                          example: 2
+                        ENTLIST:
+                          type: array
+                          items:
+                            type: string
+                            example: 4351776###927###4359855###4359855###Accountant
+                          example:
+                            - 4351776###927###4359855###4359855###Accountant
+                            - 4351775###890###4359855###4359855###Accountant
+                            - 4351755###890###4359855###4359855###Accountant
+                        MC:
+                          type: string
+                          nullable: true
+                          example: null
+                        RISKS:
+                          type: number
+                          example: 1762
+                    example:
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351776###927###4359855###4359855###Accountant
+                          - 4351775###890###4359855###4359855###Accountant
+                          - 4351755###890###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1762
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351768###892###4359855###4359855###Accountant
+                          - 4351758###892###4359855###4359855###Accountant
+                          - 4351775###890###4359855###4359855###Accountant
+                          - 4351755###890###4359855###4359855###Accountant
+                          - 4351766###892###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1763
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351760###891###4359855###4359855###Accountant
+                          - 4351759###891###4359855###4359855###Accountant
+                          - 4351775###890###4359855###4359855###Accountant
+                          - 4351755###890###4359855###4359855###Accountant
+                          - 4352569###891###4359855###4359855###Accountant
+                          - 4351763###891###4359855###4359855###Accountant
+                          - 4351761###891###4359855###4359855###Accountant
+                          - 4351762###891###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1764
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351775###890###4359855###4359855###Accountant
+                          - 4351755###890###4359855###4359855###Accountant
+                          - 4352568###942###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1769
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351760###891###4359855###4359855###Accountant
+                          - 4351759###891###4359855###4359855###Accountant
+                          - 4351775###890###4359855###4359855###Accountant
+                          - 4351755###890###4359855###4359855###Accountant
+                          - 4352569###891###4359855###4359855###Accountant
+                          - 4351763###891###4359855###4359855###Accountant
+                          - 4351761###891###4359855###4359855###Accountant
+                          - 4351762###891###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1773
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351768###892###4359855###4359855###Accountant
+                          - 4351758###892###4359855###4359855###Accountant
+                          - 4352568###942###4359855###4359855###Accountant
+                          - 4351766###892###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1775
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351760###891###4359855###4359855###Accountant
+                          - 4351759###891###4359855###4359855###Accountant
+                          - 4351768###892###4359855###4359855###Accountant
+                          - 4351758###892###4359855###4359855###Accountant
+                          - 4352569###891###4359855###4359855###Accountant
+                          - 4351763###891###4359855###4359855###Accountant
+                          - 4351761###891###4359855###4359855###Accountant
+                          - 4351762###891###4359855###4359855###Accountant
+                          - 4351766###892###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1780
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351775###890###4359855###4359855###Accountant
+                          - 4351755###890###4359855###4359855###Accountant
+                          - 4351764###894###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1781
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351768###892###4359855###4359855###Accountant
+                          - 4351758###892###4359855###4359855###Accountant
+                          - 4351764###894###4359855###4359855###Accountant
+                          - 4351766###892###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1782
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351765###907###4359855###4359855###Accountant
+                          - 4352572###916###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1821
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351768###892###4359855###4359855###Accountant
+                          - 4351758###892###4359855###4359855###Accountant
+                          - 4351765###907###4359855###4359855###Accountant
+                          - 4351766###892###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1823
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351776###927###4359855###4359855###Accountant
+                          - 4352571###956###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1848
+                      - ACCOUNT: 2
+                        ENTLIST:
+                          - 4351776###960###4359855###4359855###Accountant
+                          - 4351771###960###4359855###4359855###Accountant
+                          - 4351776###927###4359855###4359855###Accountant
+                          - 4351769###960###4359855###4359855###Accountant
+                        MC: null
+                        RISKS: 1866
+                  - type: object
+                    properties:
+                      SOD:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Assigned_MitigatingControls:
+                              type: array
+                              items: {}
+                              example: []
+                            Available_MitigatingControls:
+                              type: array
+                              items: {}
+                              example: []
+                            Description:
+                              type: string
+                              example: RiskDepth2
+                            Functions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  Description:
+                                    type: string
+                                    example: test
+                                  Entitlements:
+                                    type: array
+                                    items: {}
+                                    example: []
+                                  FunctionName:
+                                    type: string
+                                    example: FunctionDepthLevel2
+                              example:
+                                - Description: test
+                                  Entitlements: []
+                                  FunctionName: FunctionDepthLevel2
+                            Priority:
+                              type: number
+                              example: 2
+                            Risk:
+                              type: string
+                              example: RiskDepth2
+                            RiskId:
+                              type: number
+                              example: 3215
+                        example:
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: RiskDepth2
+                            Functions:
+                              - Description: test
+                                Entitlements: []
+                                FunctionName: FunctionDepthLevel2
+                            Priority: 2
+                            Risk: RiskDepth2
+                            RiskId: 3215
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: RiskDepth3
+                            Functions:
+                              - Description: oiu
+                                Entitlements: []
+                                FunctionName: FunctionDepthLevel3
+                            Priority: 2
+                            Risk: RiskDepth3
+                            RiskId: 3216
+                          - Assigned_MitigatingControls: []
+                            Available_MitigatingControls: []
+                            Description: risk 971
+                            Functions:
+                              - Description: FA1
+                                Entitlements: []
+                                FunctionName: Function971
+                            Priority: 2
+                            Risk: Risk971
+                            RiskId: 3224
+          examples:
+            SOD Evaluation for Non-SAP Duplicate Entitlements:
+              value:
+                errorCode: '0'
+                message: SUCCESS
+                result:
+                  SOD:
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: RiskDepth2
+                      Functions:
+                        - Description: test
+                          Entitlements: []
+                          FunctionName: FunctionDepthLevel2
+                      Priority: 2
+                      Risk: RiskDepth2
+                      RiskId: 3215
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: RiskDepth3
+                      Functions:
+                        - Description: oiu
+                          Entitlements: []
+                          FunctionName: FunctionDepthLevel3
+                      Priority: 2
+                      Risk: RiskDepth3
+                      RiskId: 3216
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: risk 971
+                      Functions:
+                        - Description: FA1
+                          Entitlements: []
+                          FunctionName: Function971
+                      Priority: 2
+                      Risk: Risk971
+                      RiskId: 3224
+            SoD Evaluation for Non - SAP Functions:
+              value:
+                errorCode: '0'
+                message: SUCCESS
+                result:
+                  SOD:
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Accounting Journal Event: Create Journal:
+                                Initiate, Verify Capital Project Expense: Review
+                                Capital Project Transactions - Manual Journals:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Enter Journal Entry'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Verify Capital Project Expense: Review Capital
+                                Project Transactions - Supplier Invoices:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'PTP: Create Invoices'
+                      Priority: 1
+                      Risk: >-
+                        GL: Enter Journal Entry conflicts with PTP: Create
+                        Invoices
+                      RiskId: 1762
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Accounting Journal Event: Create Journal:
+                                Initiate, Verify Capital Project Expense: Review
+                                Capital Project Transactions - Manual Journals:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Enter Journal Entry'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Prepaid Spend Amortization Event: Create
+                                Prepaid Spend Amortization: Initiate, Receipt
+                                Accrual Event: Create Receipt Accrual: Initiate,
+                                Accounting Journal Unpost Event: Unpost Journal:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Post Journal Entry'
+                      Priority: 1
+                      Risk: >-
+                        GL: Enter Journal Entry conflicts with GL: Post Journal
+                        Entry
+                      RiskId: 1763
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Process: Allocations: Modify, Allocation
+                                Finalize Event: Finalize Allocation: Initiate,
+                                Revaluation Run Event: Run Revaluation:
+                                Initiate, Allocation Run Event: Run Allocation:
+                                Initiate, Period Close Notification Event:
+                                Period Close Notification: Initiate, Allocation
+                                Run Event: Schedule Allocation Run: Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Mass Allocate Journal Entries'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Accounting Journal Event: Create Journal:
+                                Initiate, Verify Capital Project Expense: Review
+                                Capital Project Transactions - Manual Journals:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Enter Journal Entry'
+                      Priority: 1
+                      Risk: >-
+                        GL: Mass Allocate Journal Entries conflicts with GL:
+                        Enter Journal Entry
+                      RiskId: 1764
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Accounting Journal Event: Create Journal:
+                                Initiate, Verify Capital Project Expense: Review
+                                Capital Project Transactions - Manual Journals:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Enter Journal Entry'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: '[Process: Business Asset Accounting: Modify]'
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'AM: Assets Depreciation'
+                      Priority: 1
+                      Risk: >-
+                        GL: Enter Journal Entry conflicts with AM: Assets
+                        Depreciation
+                      RiskId: 1769
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Accounting Journal Event: Create Journal:
+                                Initiate, Verify Capital Project Expense: Review
+                                Capital Project Transactions - Manual Journals:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Enter Journal Entry'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Process: Allocations: Modify, Allocation
+                                Finalize Event: Finalize Allocation: Initiate,
+                                Revaluation Run Event: Run Revaluation:
+                                Initiate, Allocation Run Event: Run Allocation:
+                                Initiate, Period Close Notification Event:
+                                Period Close Notification: Initiate, Allocation
+                                Run Event: Schedule Allocation Run: Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Mass Allocate Journal Entries'
+                      Priority: 1
+                      Risk: >-
+                        GL: Enter Journal Entry conflicts with GL: Mass Allocate
+                        Journal Entries
+                      RiskId: 1773
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Prepaid Spend Amortization Event: Create
+                                Prepaid Spend Amortization: Initiate, Receipt
+                                Accrual Event: Create Receipt Accrual: Initiate,
+                                Accounting Journal Unpost Event: Unpost Journal:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Post Journal Entry'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: '[Process: Business Asset Accounting: Modify]'
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'AM: Assets Depreciation'
+                      Priority: 1
+                      Risk: >-
+                        GL: Post Journal Entry conflicts with AM: Assets
+                        Depreciation
+                      RiskId: 1775
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Prepaid Spend Amortization Event: Create
+                                Prepaid Spend Amortization: Initiate, Receipt
+                                Accrual Event: Create Receipt Accrual: Initiate,
+                                Accounting Journal Unpost Event: Unpost Journal:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Post Journal Entry'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Process: Allocations: Modify, Allocation
+                                Finalize Event: Finalize Allocation: Initiate,
+                                Revaluation Run Event: Run Revaluation:
+                                Initiate, Allocation Run Event: Run Allocation:
+                                Initiate, Period Close Notification Event:
+                                Period Close Notification: Initiate, Allocation
+                                Run Event: Schedule Allocation Run: Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Mass Allocate Journal Entries'
+                      Priority: 1
+                      Risk: >-
+                        GL: Post Journal Entry conflicts with GL: Mass Allocate
+                        Journal Entries
+                      RiskId: 1780
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Payment Printing Event: Create Positive Pay
+                                File: Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Open Close Periods'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Accounting Journal Event: Create Journal:
+                                Initiate, Verify Capital Project Expense: Review
+                                Capital Project Transactions - Manual Journals:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Enter Journal Entry'
+                      Priority: 0
+                      Risk: >-
+                        GL: Open Close Periods conflicts with GL: Enter Journal
+                        Entry
+                      RiskId: 1781
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Payment Printing Event: Create Positive Pay
+                                File: Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Open Close Periods'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Prepaid Spend Amortization Event: Create
+                                Prepaid Spend Amortization: Initiate, Receipt
+                                Accrual Event: Create Receipt Accrual: Initiate,
+                                Accounting Journal Unpost Event: Unpost Journal:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Post Journal Entry'
+                      Priority: 3
+                      Risk: >-
+                        GL: Open Close Periods conflicts with GL: Post Journal
+                        Entry
+                      RiskId: 1782
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: '[Process: Journals: Modify]'
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'OTC: Enter Journal Entry'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Record Intercompany Receipt Event: Record
+                                Intercompany Receipt: Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'OTC: Enter Customer Receipts'
+                      Priority: 1
+                      Risk: >-
+                        OTC: Enter Journal Entry conflicts with OTC: Enter
+                        Customer Receipts
+                      RiskId: 1821
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Prepaid Spend Amortization Event: Create
+                                Prepaid Spend Amortization: Initiate, Receipt
+                                Accrual Event: Create Receipt Accrual: Initiate,
+                                Accounting Journal Unpost Event: Unpost Journal:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'GL: Post Journal Entry'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Record Intercompany Receipt Event: Record
+                                Intercompany Receipt: Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'OTC: Enter Customer Receipts'
+                      Priority: 1
+                      Risk: >-
+                        GL: Post Journal Entry conflicts with OTC: Enter
+                        Customer Receipts
+                      RiskId: 1823
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Verify Capital Project Expense: Review Capital
+                                Project Transactions - Supplier Invoices:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'PTP: Create Invoices'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Process: Intercompany Payment/Settlement:
+                                Modify]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'PTP: Print Checks'
+                      Priority: 1
+                      Risk: 'PTP: Create Invoices conflicts with PTP: Print Checks'
+                      RiskId: 1848
+                    - Assigned_MitigatingControls: []
+                      Available_MitigatingControls: []
+                      Description: ''
+                      Functions:
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Verify Capital Project Expense: Review Capital
+                                Project Transactions - Supplier Invoices:
+                                Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'PTP: Create Invoices'
+                        - Description: ''
+                          Entitlements:
+                            - Entitlement: >-
+                                [Procurement Mass Close Event: Mass Close
+                                Procurement Documents: Initiate, Procurement
+                                Roll Forward: Roll Forward Procurement
+                                Documents: Initiate, Verify Capital Project
+                                Expense: Review Capital Project Transactions -
+                                Supplier Invoices: Initiate]
+                              EntitlementDescription: ''
+                              EntitlementDisplayName: ''
+                              ParentRole: '[Accountant]'
+                              Role: Accountant
+                          FunctionName: 'PTP: Payables Transactions'
+                      Priority: 1
+                      Risk: >-
+                        PTP: Create Invoices conflicts with PTP: Payables
+                        Transactions
+                      RiskId: 1866
+            SoD Evaluation for Non - SAP Functions(riskSODEvaluationByUser):
+              value:
+                errorCode: '0'
+                message: SUCCESS
+                result:
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351776###927###4359855###4359855###Accountant
+                      - 4351775###890###4359855###4359855###Accountant
+                      - 4351755###890###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1762
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351768###892###4359855###4359855###Accountant
+                      - 4351758###892###4359855###4359855###Accountant
+                      - 4351775###890###4359855###4359855###Accountant
+                      - 4351755###890###4359855###4359855###Accountant
+                      - 4351766###892###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1763
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351760###891###4359855###4359855###Accountant
+                      - 4351759###891###4359855###4359855###Accountant
+                      - 4351775###890###4359855###4359855###Accountant
+                      - 4351755###890###4359855###4359855###Accountant
+                      - 4352569###891###4359855###4359855###Accountant
+                      - 4351763###891###4359855###4359855###Accountant
+                      - 4351761###891###4359855###4359855###Accountant
+                      - 4351762###891###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1764
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351775###890###4359855###4359855###Accountant
+                      - 4351755###890###4359855###4359855###Accountant
+                      - 4352568###942###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1769
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351760###891###4359855###4359855###Accountant
+                      - 4351759###891###4359855###4359855###Accountant
+                      - 4351775###890###4359855###4359855###Accountant
+                      - 4351755###890###4359855###4359855###Accountant
+                      - 4352569###891###4359855###4359855###Accountant
+                      - 4351763###891###4359855###4359855###Accountant
+                      - 4351761###891###4359855###4359855###Accountant
+                      - 4351762###891###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1773
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351768###892###4359855###4359855###Accountant
+                      - 4351758###892###4359855###4359855###Accountant
+                      - 4352568###942###4359855###4359855###Accountant
+                      - 4351766###892###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1775
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351760###891###4359855###4359855###Accountant
+                      - 4351759###891###4359855###4359855###Accountant
+                      - 4351768###892###4359855###4359855###Accountant
+                      - 4351758###892###4359855###4359855###Accountant
+                      - 4352569###891###4359855###4359855###Accountant
+                      - 4351763###891###4359855###4359855###Accountant
+                      - 4351761###891###4359855###4359855###Accountant
+                      - 4351762###891###4359855###4359855###Accountant
+                      - 4351766###892###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1780
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351775###890###4359855###4359855###Accountant
+                      - 4351755###890###4359855###4359855###Accountant
+                      - 4351764###894###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1781
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351768###892###4359855###4359855###Accountant
+                      - 4351758###892###4359855###4359855###Accountant
+                      - 4351764###894###4359855###4359855###Accountant
+                      - 4351766###892###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1782
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351765###907###4359855###4359855###Accountant
+                      - 4352572###916###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1821
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351768###892###4359855###4359855###Accountant
+                      - 4351758###892###4359855###4359855###Accountant
+                      - 4351765###907###4359855###4359855###Accountant
+                      - 4351766###892###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1823
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351776###927###4359855###4359855###Accountant
+                      - 4352571###956###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1848
+                  - ACCOUNT: 2
+                    ENTLIST:
+                      - 4351776###960###4359855###4359855###Accountant
+                      - 4351771###960###4359855###4359855###Accountant
+                      - 4351776###927###4359855###4359855###Accountant
+                      - 4351769###960###4359855###4359855###Accountant
+                    MC: null
+                    RISKS: 1866

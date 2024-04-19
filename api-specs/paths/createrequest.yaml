@@ -1,0 +1,203 @@
+post:
+  tags:
+    - Access Request
+  summary: Request to Create Entitlement Based Role
+  description: >-
+    This API is used to create role of roletype "Entitlement", such as
+    AzureAD/Unix Group in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:   `accesstype` - roles,   `roletype` - 6,   `requesttype`
+    - create,   `entitlementtype`,   `endpoint`,   `securitysystem`   `role_name
+    customproperty22`
+
+    Optional params:
+
+    `requestor`,   `displayname`,   `description`,   `grouptype`,  
+    `enablemail`,   `enablesecurity`,   `soxcritical`,   `syscritical`,  
+    `priviliged`,   `confidentiality`,
+
+    Note: From v23.8 onwards, the acceptable value for soxcritical, syscritical,
+    priviliged and confidentiality will be critical, high, medium, low, and very
+    low.
+
+    `requestable`,   `comments`,   `owner` -
+
+    1. `ownername` - mandatory 2. `rank` 3. `updatetype` - optional, value can
+    be 'add'
+
+
+    `entitlements` -
+
+    1. `entitlement_value` - mandatory 2. `updatetype` - optional, value can be
+    'add'
+
+
+    `parententitlements` -
+
+    1. `entitlement_value` - mandatory 2. `entitlementType` 3. `updatetype` -
+    add/remove
+  operationId: requestToCreateEntitlementBasedRole
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accesstype:
+              type: string
+              example: roles
+            confidentiality:
+              type: string
+              example: Low
+            customproperty22:
+              type: string
+              example: Global
+            description:
+              type: string
+              example: adGroupAshok300600 Description
+            displayname:
+              type: string
+              example: adGroupAshok300600 Display
+            endpoint:
+              type: string
+              example: AD_Rashid
+            entitlementtype:
+              type: string
+              example: memberof
+            priviliged:
+              type: string
+              example: Medium
+            requestor:
+              type: string
+              example: admin
+            requesttype:
+              type: string
+              example: Create
+            role_name:
+              type: string
+              example: >-
+                CN=adGroupAshok300600,OU=DocTeamOU,OU=SaviyntTeams,DC=saviyntlabs,DC=org
+            roletype:
+              type: string
+              example: '6'
+            securitysystem:
+              type: string
+              example: AD_Rashid
+            soxcritical:
+              type: string
+              example: Critical
+            syscritical:
+              type: string
+              example: High
+        examples:
+          Request to Create Entitlement Based Role:
+            value:
+              accesstype: roles
+              confidentiality: Low
+              customproperty22: Global
+              description: adGroupAshok300600 Description
+              displayname: adGroupAshok300600 Display
+              endpoint: AD_Rashid
+              entitlementtype: memberof
+              priviliged: Medium
+              requestor: admin
+              requesttype: Create
+              role_name: >-
+                CN=adGroupAshok300600,OU=DocTeamOU,OU=SaviyntTeams,DC=saviyntlabs,DC=org
+              roletype: '6'
+              securitysystem: AD_Rashid
+              soxcritical: Critical
+              syscritical: High
+  responses:
+    '200':
+      description: Request to Create AzureAD Group / new json
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: https://release-2022-0-qe.saviyntcloud.com
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Content-Security-Policy:
+          schema:
+            type: string
+            example: >-
+              base-uri 'self' ; style-src 'self'  https://fonts.googleapis.com
+              'unsafe-inline'; script-src 'self' 
+              https://ssl.google-analytics.com 'unsafe-inline' 'unsafe-eval';
+              object-src 'self' ; media-src 'self' ; manifest-src 'self' ; 
+              img-src 'self' https://ssl.google-analytics.com ; frame-src 'self'
+              ; connect-src 'self' ; font-src 'self'
+              https://fonts.googleapis.com https://www.google.com
+              https://www.unpkg.com https://fonts.gstatic.com ; form-action
+              'self'; frame-ancestors 'self'; default-src 'self'
+        Date:
+          schema:
+            type: string
+            example: Mon, 17 Jul 2023 06:25:28 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Permissions-Policy:
+          schema:
+            type: string
+            example: script-src 'self'; camera 'none'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=ae9de3e2-4c6d-48dd-b197-9b8caf147d97; HttpOnly;
+              Secure; SameSite=Strict; Path=/;
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: number
+                example: 0
+              msg:
+                type: string
+                example: Success
+              requestid:
+                type: string
+                example: '3110105'
+              requestkey:
+                type: string
+                example: '3924'
+          examples:
+            Request to Create AzureAD Group:
+              value:
+                errorCode: 0
+                msg: Success
+                requestid: '3110105'
+                requestkey: '3924'
+            new json:
+              value:
+                errorCode: 0
+                msg: Success
+                requestid: '6960781'
+                requestkey: '17731'
+  security:
+    - bearerAuth: []

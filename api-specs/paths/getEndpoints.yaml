@@ -1,0 +1,198 @@
+post:
+  tags:
+    - Endpoints
+  summary: Get List of Endpoints
+  description: >-
+    This API returns list of Endpoints in EIC.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Optional params:   `connectionType`,   `endpointkey`,   `endpointname`,  
+    `max`,   `offset`,   `filterCriteria`
+
+    **Note**: You must specify the value for `endpointkey` parameter in array.
+    Fr example, `"endpointkey" : [5]`.
+  operationId: getListOfEndpoints
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            filterCriteria1:
+              type: object
+              properties:
+                customproperty1:
+                  type: string
+                  example: '1'
+                displayName:
+                  type: string
+                  example: Access Manager
+        examples:
+          Get List of Endpoints:
+            value:
+              filterCriteria1:
+                customproperty1: '1'
+                displayName: Access Manager
+  responses:
+    '200':
+      description: Get List of Endpoints
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Thu, 25 Apr 2019 21:45:23 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=9f026105-c1df-4fe6-b5b5-7d1924c508d7; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displayCount:
+                type: number
+                example: 2
+              endpoints:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accountNameRule:
+                      type: string
+                      example: >-
+                        (users.customproperty7) #
+                        (substring(users.username,1,255))
+                    accountTypeNoDeprovision:
+                      type: string
+                      example: Service
+                    connectionconfig:
+                      type: string
+                      example: <conf></conf>
+                    createEntTaskforRemoveAcc:
+                      type: string
+                      example: 'false'
+                    customproperty1:
+                      type: string
+                      example: '1'
+                    description:
+                      type: string
+                      example: Access Management System
+                    disableaccountrequest:
+                      type: string
+                      example: >-
+                        {"DISABLENEWACCOUNT":"0","DISABLEMODIFYACCOUNT":"0","DISABLEREMOVEACCOUNT":"1"}
+                    displayName:
+                      type: string
+                      example: Access Manager
+                    enableCopyAccess:
+                      type: string
+                      example: 'false'
+                    endpointname:
+                      type: string
+                      example: Endpoint1
+                    ownerType:
+                      type: string
+                      example: '2'
+                    ownerkey:
+                      type: string
+                      example: '9'
+                    requestownertype:
+                      type: string
+                      example: '0'
+                    securitySystem:
+                      type: string
+                      example: SecuritySystem1
+                    status:
+                      type: string
+                      example: '1'
+                    userAccountCorrelationRule:
+                      type: string
+                      example: '(users.customproperty7) = accounts.name '
+                example:
+                  - createEntTaskforRemoveAcc: 'false'
+                    customproperty1: '1'
+                    description: Access Management System
+                    disableaccountrequest: >-
+                      {"DISABLENEWACCOUNT":"0","DISABLEMODIFYACCOUNT":"0","DISABLEREMOVEACCOUNT":"1"}
+                    displayName: Access Manager
+                    enableCopyAccess: 'false'
+                    endpointname: Endpoint1
+                    requestownertype: '0'
+                    securitySystem: SecuritySystem1
+                    status: '1'
+                  - accountNameRule: >-
+                      (users.customproperty7) #
+                      (substring(users.username,1,255))
+                    accountTypeNoDeprovision: Service
+                    connectionconfig: <conf></conf>
+                    createEntTaskforRemoveAcc: 'false'
+                    customproperty1: '1'
+                    description: SecuritySystem2 desc
+                    disableaccountrequest: >-
+                      {"DISABLENEWACCOUNT":"0","DISABLEMODIFYACCOUNT":"0","DISABLEREMOVEACCOUNT":"0"}
+                    displayName: Access Manager
+                    enableCopyAccess: 'false'
+                    endpointname: Endpoint2
+                    ownerType: '2'
+                    ownerkey: '9'
+                    requestownertype: '0'
+                    securitySystem: SecuritySystem2
+                    status: '1'
+                    userAccountCorrelationRule: '(users.customproperty7) = accounts.name '
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: Success
+              totalCount:
+                type: number
+                example: 2
+          examples:
+            Get List of Endpoints:
+              value:
+                displayCount: 2
+                endpoints:
+                  - createEntTaskforRemoveAcc: 'false'
+                    customproperty1: '1'
+                    description: Access Management System
+                    disableaccountrequest: >-
+                      {"DISABLENEWACCOUNT":"0","DISABLEMODIFYACCOUNT":"0","DISABLEREMOVEACCOUNT":"1"}
+                    displayName: Access Manager
+                    enableCopyAccess: 'false'
+                    endpointname: Endpoint1
+                    requestownertype: '0'
+                    securitySystem: SecuritySystem1
+                    status: '1'
+                  - accountNameRule: >-
+                      (users.customproperty7) #
+                      (substring(users.username,1,255))
+                    accountTypeNoDeprovision: Service
+                    connectionconfig: <conf></conf>
+                    createEntTaskforRemoveAcc: 'false'
+                    customproperty1: '1'
+                    description: SecuritySystem2 desc
+                    disableaccountrequest: >-
+                      {"DISABLENEWACCOUNT":"0","DISABLEMODIFYACCOUNT":"0","DISABLEREMOVEACCOUNT":"0"}
+                    displayName: Access Manager
+                    enableCopyAccess: 'false'
+                    endpointname: Endpoint2
+                    ownerType: '2'
+                    ownerkey: '9'
+                    requestownertype: '0'
+                    securitySystem: SecuritySystem2
+                    status: '1'
+                    userAccountCorrelationRule: '(users.customproperty7) = accounts.name '
+                errorCode: '0'
+                message: Success
+                totalCount: 2

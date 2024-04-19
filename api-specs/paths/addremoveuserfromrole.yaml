@@ -1,0 +1,52 @@
+post:
+  tags:
+    - Role Membership
+  summary: Add/Remove User from SAV ROLE
+  description: "This method grants/removes membership of a \"user\" to one or more roles in SSM.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n\r\n`username` - Username for the user to whom the roles are to be granted,\r\n\r\n`rolename` - comma separated values with names of roles that need to be granted,\r\n\r\n`operation` (0/1) - 0:Remove and 1:Add"
+  operationId: addRemoveUserFromSavRole
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties: {}
+  responses:
+    '200':
+      description: >-
+        Add Remove User from Sav Role - Success / Add/Remove User from SAV ROLE
+        - Failure
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Tue, 11 Sep 2018 01:17:52 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=3f2130c1-55ca-4f1a-86a2-1546bc09944a; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: success
+          examples:
+            Add Remove User from Sav Role - Success:
+              value:
+                errorCode: '0'
+                message: success
+            Add/Remove User from SAV ROLE - Failure:
+              value:
+                errorCode: '1'
+                message: >-
+                  Bad Request. Association Between User 'johndoe' and role
+                  'ROLE_MANAGER' already exists.

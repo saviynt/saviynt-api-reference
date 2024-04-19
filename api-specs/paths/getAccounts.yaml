@@ -1,0 +1,315 @@
+post:
+  tags:
+    - Accounts
+  summary: Get Account Details
+  description: >-
+    This method returns a `List` of "Accounts" in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Optional params:   `username`,   `endpoint`,   `max`,   `offset`,  
+    `accountQuery`,   `advsearchcriteria` -
+    accountKey,description,comments,accounttype,status,customproperty1-customproperty56,accountID,displayName,name,creator
+    (username),updateuser (username),validfromDate
+    validthrough,createdon,lastlogondate,lastpasswordchange,updatedate,orphan
+    (true/false),   accountowner - with fields 1. type - user/ usergroup
+    (mandatory), 2. value - username/ usergroup name (mandatory), 3. rank - 1 to
+    5 (optional)
+
+    Sample - "advsearchcriteria":{
+    "status":"ACTIVE","name":"john\*","createdon":"2016-12-13","customproperty12":"\*Ro\*","orphan":"true","accountowner":
+    \[   {   "type": "user",   "value": "janedoe",   "rank": "1"   }   \]},
+
+    Date can be searched with 'yyyy-MM-dd', dates and boolean are exact match.
+
+    **Note**: Any OR conditions must be used within parenthesis. For example:
+
+    {   "accountQuery":"(acc.status='1' or acc.comments like '%a%')",  
+    "username":"admin"   }
+  operationId: getAccountDetails
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accountQuery:
+              type: string
+              example: acc.status='1'
+            advsearchcriteria:
+              type: object
+              properties:
+                accountowner:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      rank:
+                        type: string
+                        example: '1'
+                      type:
+                        type: string
+                        example: user
+                      value:
+                        type: string
+                        example: admin
+                  example:
+                    - rank: '1'
+                      type: user
+                      value: admin
+                name:
+                  type: string
+                  example: svc*
+                status:
+                  type: string
+                  example: ACTIVE
+        examples:
+          Get Account Details:
+            value:
+              accountQuery: acc.status='1'
+              advsearchcriteria:
+                accountowner:
+                  - rank: '1'
+                    type: user
+                    value: admin
+                name: svc*
+                status: ACTIVE
+  responses:
+    '200':
+      description: Get Account Details
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 29 Dec 2020 03:25:42 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=ed52f4ad-43af-4e9a-974d-adaa7e626925; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              Accountdetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accountID:
+                      type: string
+                      example: CN=svcIT62341,OU=SaviyntPoC,DC=corpAD,DC=saviynt,DC=com
+                    accountKey:
+                      type: number
+                      example: 541341
+                    accountclass:
+                      type: string
+                      example: top,person,organizationalPerson,user
+                    accountowner:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          rank:
+                            type: number
+                            example: 1
+                          type:
+                            type: string
+                            example: user
+                          value:
+                            type: string
+                            example: admin
+                      example:
+                        - rank: 1
+                          type: user
+                          value: admin
+                        - rank: 26
+                          type: user
+                          value: allisonadowner
+                    accounttype:
+                      type: string
+                      example: Service Account
+                    comments:
+                      type: string
+                      example: Created as per request - 2430001
+                    createdon:
+                      type: string
+                      example: 07/10/2020
+                    creator:
+                      type: string
+                      example: System created
+                    customproperty1:
+                      type: string
+                      example: svcIT62341
+                    customproperty11:
+                      type: string
+                      example: '12717263'
+                    customproperty19:
+                      type: string
+                      example: '0'
+                    customproperty2:
+                      type: string
+                      example: svcIT62341
+                    customproperty20:
+                      type: string
+                      example: svcIT62341@saviynt.com
+                    customproperty26:
+                      type: string
+                      example: CN=svcIT62341,OU=SaviyntPoC,DC=corpAD,DC=saviynt,DC=com
+                    customproperty3:
+                      type: string
+                      example: AdminUser
+                    customproperty30:
+                      type: string
+                      example: '512'
+                    customproperty6:
+                      type: string
+                      example: svcIT62341
+                    customproperty7:
+                      type: string
+                      example: Saviynt
+                    endpoint:
+                      type: string
+                      example: SaviyntAD
+                    endpointKey:
+                      type: number
+                      example: 760
+                    lastpasswordchange:
+                      type: string
+                      example: 07/10/2020
+                    name:
+                      type: string
+                      example: svcIT62341
+                    status:
+                      type: string
+                      example: '1'
+                    updatedate:
+                      type: string
+                      example: 07/10/2020
+                    userKey:
+                      type: string
+                      example: ''
+                    username:
+                      type: string
+                      example: ''
+                example:
+                  - accountID: CN=svcIT62341,OU=SaviyntPoC,DC=corpAD,DC=saviynt,DC=com
+                    accountKey: 541341
+                    accountclass: top,person,organizationalPerson,user
+                    accountowner:
+                      - rank: 1
+                        type: user
+                        value: admin
+                      - rank: 26
+                        type: user
+                        value: allisonadowner
+                    accounttype: Service Account
+                    comments: Created as per request - 2430001
+                    createdon: 07/10/2020
+                    creator: System created
+                    customproperty1: svcIT62341
+                    customproperty11: '12717263'
+                    customproperty19: '0'
+                    customproperty2: svcIT62341
+                    customproperty20: svcIT62341@saviynt.com
+                    customproperty26: CN=svcIT62341,OU=SaviyntPoC,DC=corpAD,DC=saviynt,DC=com
+                    customproperty3: AdminUser
+                    customproperty30: '512'
+                    customproperty6: svcIT62341
+                    customproperty7: Saviynt
+                    endpoint: SaviyntAD
+                    endpointKey: 760
+                    lastpasswordchange: 07/10/2020
+                    name: svcIT62341
+                    status: '1'
+                    updatedate: 07/10/2020
+                    userKey: ''
+                    username: ''
+              displaycount:
+                type: number
+                example: 1
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+              total:
+                type: number
+                example: 1
+          examples:
+            Get Account Details:
+              value:
+                Accountdetails:
+                  - accountID: CN=svcIT62341,OU=SaviyntPoC,DC=corpAD,DC=saviynt,DC=com
+                    accountKey: 541341
+                    accountclass: top,person,organizationalPerson,user
+                    accountowner:
+                      - rank: 1
+                        type: user
+                        value: admin
+                      - rank: 26
+                        type: user
+                        value: allisonadowner
+                    accounttype: Service Account
+                    comments: Created as per request - 2430001
+                    createdon: 07/10/2020
+                    creator: System created
+                    customproperty1: svcIT62341
+                    customproperty11: '12717263'
+                    customproperty19: '0'
+                    customproperty2: svcIT62341
+                    customproperty20: svcIT62341@saviynt.com
+                    customproperty26: CN=svcIT62341,OU=SaviyntPoC,DC=corpAD,DC=saviynt,DC=com
+                    customproperty3: AdminUser
+                    customproperty30: '512'
+                    customproperty6: svcIT62341
+                    customproperty7: Saviynt
+                    endpoint: SaviyntAD
+                    endpointKey: 760
+                    lastpasswordchange: 07/10/2020
+                    name: svcIT62341
+                    status: '1'
+                    updatedate: 07/10/2020
+                    userKey: ''
+                    username: ''
+                displaycount: 1
+                errorCode: '0'
+                msg: Successful
+                total: 1

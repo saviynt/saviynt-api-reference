@@ -1,0 +1,146 @@
+post:
+  tags:
+    - Users
+  summary: Create User
+  description: >-
+    This API onboard or create a new user.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Optional Parameters:
+
+    `validateagainstpolicy` - Values: Y/N, default is Y. Checks for the password
+    policy,
+
+    `statuskey` - Values:1/0, 0 - Inactive, 1 - Active (default),
+
+    `allowpastdate` - true / false (default). If true, allows startdate to be
+    less than current date,
+
+    `User params` like   username,   firstname,   preferedFirstName,  
+    lastname,   middlename,   street,   city,   comments,   statuskey,  
+    startdate(MM-dd-yyyy),   enddate(MM-dd-yyyy),   manager (manager
+    username),   password,   location,   jobCode,   jobDescription,  
+    employeeType,   departmentNumber,   title,   state,   companyname,  
+    costcenter,   departmentname,   employeeclass,   entity,   jobcodedesc,  
+    locationdesc,   locationnumber,   siteid,   orgunitid,   region,  
+    regioncode,   owner,   employeeid,   lastsyncdate,   createdate,   email,  
+    phonenumber,   job_function,   country,   displayname,   enabled(can be
+    "1"/"true" or "0"/"false"),   passwordExpired(can be "1"/"true" or
+    "0"/"false"),   accountExpired(can be "1"/"true" or "0"/"false"),  
+    accountLocked(can be "1"/"true" or "0"/"false"),   secondaryManager,  
+    createdBy,   termDate,   vendorManager,   secondaryPhone,  
+    secondaryEmail,   customproperty<1-50>,   hcp<1-5>,   ecp<1-5>,  
+    customer(pass the organization name),
+
+    `securityQuestions` -
+
+    Example:   "securityQuestions":\[   {   "securityQuestion":"What is your
+    first Pet's name?",   "securityAnswer":"kitty"   },   {  
+    "securityQuestion":"What is your favorite food?",  
+    "securityAnswer":"food"   }   \],
+
+    `checkrules` - true/ false (default : true), if true, then rules will be
+    evaluated immediately, if false rules will be evaluated by a job. If
+    checkrulesforapi configuration(true/false/null) is set in the configuration
+    table, then it will take precendence over checkrules parameter.
+
+    `inlineruleevaluation` - true/ false (default is true), if true then rules
+    will be evaluated immediately, if false rules will be evaluated by a job.
+
+    _**Note**_ - CreateUser API will not invoke workflow based on the _**User
+    Modification Workflow**_ configuration. Please use createUserRequest API
+    instead.
+
+    _**Note**_ - Both `checkrules` and `inlineruleevaluation` need to be set as
+    true for the user update rules to be evaluated immediately.
+
+    `batchidentifier` - When inlineruleevaluation=false, this Rule Run Unique
+    Identifier can be set and user update rules can be processed later by
+    calling /api/processrules API
+
+    _**It's highly recommended to pass inlineruleevaluation:"false" for bulk
+    load and call processrules api to evaluate and run the rules after the load
+    is done.**_
+  operationId: createUser
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accountExpired:
+              type: string
+              example: 'true'
+            accountLocked:
+              type: string
+              example: 'false'
+            allowpastdate:
+              type: string
+              example: 'true'
+            enabled:
+              type: string
+              example: 'true'
+            enddate:
+              type: string
+              example: 10-11-2019
+            firstname:
+              type: string
+              example: myfirstname
+            passwordExpired:
+              type: string
+              example: 'true'
+            startdate:
+              type: string
+              example: 10-18-2018
+            statuskey:
+              type: string
+              example: '1'
+            username:
+              type: string
+              example: johndoe
+        examples:
+          Create User:
+            value:
+              accountExpired: 'true'
+              accountLocked: 'false'
+              allowpastdate: 'true'
+              enabled: 'true'
+              enddate: 10-11-2019
+              firstname: myfirstname
+              passwordExpired: 'true'
+              startdate: 10-18-2018
+              statuskey: '1'
+              username: johndoe
+  responses:
+    '200':
+      description: Create User
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Sat, 11 Aug 2018 00:50:48 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=efce7cb9-bea7-455f-9d19-545da8092b72; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: ' Users created with username johndoe '
+          examples:
+            Create User:
+              value:
+                errorCode: '0'
+                message: ' Users created with username johndoe '

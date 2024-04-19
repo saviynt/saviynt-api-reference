@@ -1,0 +1,177 @@
+post:
+  tags:
+    - Access Recommendations
+  summary: Get Access Recommendations
+  description: >-
+    This API provides the count and details of all the recommended entitlements
+    associated with that entitlement type and displays relevance scores to
+    requestors while requesting access.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `username`/`userkey`(if both are passed then userkey will be considered)
+
+    Optional params:
+
+    `endpointname`/`endpointkey`(if both are passed then endpointkey will be
+    considered)
+
+    `entitlementtypekey`/`entitlementtype`(if both are passed then
+    entitlementtypekey will be considered)
+
+    `entitlement_valuekey`
+
+    `max`
+
+    `offset`
+  operationId: getAccessRecommendations
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            endpointkey:
+              type: string
+              example: '201'
+            entitlement_valuekey:
+              type: string
+              example: '102'
+            entitlementtypekey:
+              type: string
+              example: '101'
+            max:
+              type: string
+              example: '100'
+            offset:
+              type: string
+              example: '0'
+            userkey:
+              type: string
+              example: '2444562'
+        examples:
+          Get Access Recommendations:
+            value:
+              endpointkey: '201'
+              entitlement_valuekey: '102'
+              entitlementtypekey: '101'
+              max: '100'
+              offset: '0'
+              userkey: '2444562'
+  responses:
+    '200':
+      description: Get Access Recommendations
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Thu, 25 Aug 2022 07:40:17 GMT
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=cf402d57-9990-4cfe-ac9e-f64463d331c0; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        Vary:
+          schema:
+            type: string
+            example: Access-Control-Request-Headers
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displaycount:
+                type: number
+                example: 1
+              errorcode:
+                type: number
+                example: 0
+              msg:
+                type: string
+                example: success
+              recommendations:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accountkey:
+                      type: number
+                      example: 105923
+                    accountname:
+                      type: string
+                      example: Devloper2amp
+                    description:
+                      type: string
+                      example: ''
+                    displayname:
+                      type: string
+                      example: ''
+                    endpointkey:
+                      type: number
+                      example: 201
+                    endpointname:
+                      type: string
+                      example: Aha
+                    entitlement_value:
+                      type: string
+                      example: Aha Feature Editor
+                    entitlement_valuekey:
+                      type: number
+                      example: 102
+                    entitlementtype:
+                      type: string
+                      example: Aha Features
+                    entitlementtypekey:
+                      type: number
+                      example: 101
+                    peergroupconfidencepercentage:
+                      type: string
+                      example: '100'
+                    recommended:
+                      type: string
+                      example: 'true'
+                example:
+                  - accountkey: 105923
+                    accountname: Devloper2amp
+                    description: ''
+                    displayname: ''
+                    endpointkey: 201
+                    endpointname: Aha
+                    entitlement_value: Aha Feature Editor
+                    entitlement_valuekey: 102
+                    entitlementtype: Aha Features
+                    entitlementtypekey: 101
+                    peergroupconfidencepercentage: '100'
+                    recommended: 'true'
+              totalcount:
+                type: number
+                example: 1
+          examples:
+            Get Access Recommendations:
+              value:
+                displaycount: 1
+                errorcode: 0
+                msg: success
+                recommendations:
+                  - accountkey: 105923
+                    accountname: Devloper2amp
+                    description: ''
+                    displayname: ''
+                    endpointkey: 201
+                    endpointname: Aha
+                    entitlement_value: Aha Feature Editor
+                    entitlement_valuekey: 102
+                    entitlementtype: Aha Features
+                    entitlementtypekey: 101
+                    peergroupconfidencepercentage: '100'
+                    recommended: 'true'
+                totalcount: 1

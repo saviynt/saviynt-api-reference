@@ -1,0 +1,172 @@
+post:
+  tags:
+    - User Request
+  summary: Create User Request
+  description: >-
+    This API call can be used for creating update/create user request in the
+    EIC. The `Authorization` must have `Bearer` followed by `Token`. Optional
+    params: `statuskey` - Values:1/0, 0 - Inactive, 1 - Active `User params` can
+    be passed. Example: email, manager, username, firstname, lastname,
+    preferedFirstName, customproperty<1 to 40> `Roles`\- Specifies the rolename
+    (#### separated) that will be assigned to the newly created user `requestor`
+  operationId: createUserRequest
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            Roles:
+              type: string
+              example: ADT_AuthCert_MEE####ADT_AuthCert_MVH
+            email:
+              type: string
+              example: john24.doe24@saviynt.com
+            firstname:
+              type: string
+              example: john24
+            lastname:
+              type: string
+              example: doe24
+            username:
+              type: string
+              example: john24.doe24
+  responses:
+    '200':
+      description: Create User Request
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 22 Jun 2021 21:05:20 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=4e8655c6-92aa-4398-a444-70b14298be21; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              jbpmid:
+                type: string
+                example: AutoApprovalWF.3820118
+              msg:
+                type: string
+                example: Successful
+              requestid:
+                type: string
+                example: '3820118'
+              requestkey:
+                type: string
+                example: '4137'
+          examples:
+            Create User Request:
+              value:
+                errorCode: '0'
+                jbpmid: AutoApprovalWF.3820118
+                msg: Successful
+                requestid: '3820118'
+                requestkey: '4137'
+    '412':
+      description: Create User Request - Failure
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Fri, 12 Jun 2020 00:42:48 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=8712d5fe-f281-4ee0-a8eb-5d980cd9c619; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '1'
+              msg:
+                type: string
+                example: firstname cannot be null or blank
+          examples:
+            Create User Request - Failure:
+              value:
+                errorCode: '1'
+                msg: firstname cannot be null or blank

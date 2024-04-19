@@ -1,0 +1,95 @@
+post:
+  tags:
+    - Access
+  summary: Remove Entitlement from Account
+  description: >-
+    This method deprovisions one or more "Entitlements" from an "Account". The
+    "Entitlements" and "Account" correspond to a particular IT Application (e.g
+    Microsoft Active Directory) which is modeled in SSM as "Endpoint" of a
+    "Security System".
+
+    Mandatory params: 
+
+    `securitysystem` - Name of the Security System for the relevant IT
+    Application modeled in SSM.
+
+    `endpoint`- Name of the Endpoint corresponding to the Security System.
+
+    `accountname` - Account name from which the entitlements should be
+    deprovisioned.
+
+    `entitlementtype` - Entitlement type for the entitlements which are to be
+    deprovisioned. e.g. AD Groups, EBS Responsibilities, SAP Roles etc.
+
+    `entitlementvalue` - Names of the actual entitlements which are to be
+    deprovisioned.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+  operationId: removeEntitlementFromAccount
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            accountname:
+              type: string
+              example: johnWS
+            endpoint:
+              type: string
+              example: System1
+            entitlementtype:
+              type: string
+              example: Access
+            entitlementvalue:
+              type: string
+              example: Entitlement1
+            securitysystem:
+              type: string
+              example: System1
+        examples:
+          Remove Entitlement from Account:
+            value:
+              accountname: johnWS
+              endpoint: System1
+              entitlementtype: Access
+              entitlementvalue: Entitlement1
+              securitysystem: System1
+  responses:
+    '200':
+      description: >-
+        Removes Entitlement from Account Success / Removes Entitlement from
+        Account Failure
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 08 Aug 2018 01:02:09 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=fc8f40c4-9e40-46d1-be65-8d90885de30a; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: SUCCESS
+          examples:
+            Removes Entitlement from Account Failure:
+              value:
+                errorCode: '1'
+                message: Account (johnWS) has NO Entitlement (Entitlement1)
+            Removes Entitlement from Account Success:
+              value:
+                errorCode: '0'
+                message: SUCCESS

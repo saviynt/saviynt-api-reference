@@ -1,0 +1,164 @@
+post:
+  tags:
+    - Accounts
+  summary: Export Account
+  description: >-
+    This API call can be used to fetch all the existing accounts in a particular
+    endpoint and security system along with the account attributes.
+
+    The `Authorization` must have `Bearer` followed by `Token`. 
+
+    Mandatory params: `endpoint` - not the display name, `securitysystem` - not
+    the display name
+  operationId: exportAccount
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            endpoint:
+              description: mandatory
+              type: string
+              example: System1
+            securitysystem:
+              description: mandatory
+              type: string
+              example: System1
+  responses:
+    '200':
+      description: Export Account
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 08 Aug 2018 00:32:21 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=a86326df-bf5d-4505-9ce7-4996bb03dfa3; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: SUCCESS
+              result:
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        accountID:
+                          type: string
+                          example: 'null'
+                        accounttype:
+                          type: string
+                          example: A
+                        endpoint:
+                          type: string
+                          example: System1
+                        name:
+                          type: string
+                          example: smarquez
+                        status:
+                          type: string
+                          example: '1'
+                        systemname:
+                          type: string
+                          example: System1
+                    example:
+                      - accountID: 'null'
+                        accounttype: A
+                        endpoint: System1
+                        name: smarquez
+                        status: '1'
+                        systemname: System1
+                      - accountID: 'null'
+                        accounttype: 'null'
+                        endpoint: System1
+                        name: tbowers
+                        status: Manually Provisioned
+                        systemname: System1
+                      - accountID: 'null'
+                        accounttype: 'null'
+                        endpoint: System1
+                        name: dbailey
+                        status: Manually Provisioned
+                        systemname: System1
+                      - accountID: 'null'
+                        accounttype: 'null'
+                        endpoint: System1
+                        name: mchapman
+                        status: Manually Provisioned
+                        systemname: System1
+                      - accountID: 'null'
+                        accounttype: 'null'
+                        endpoint: System1
+                        name: glogan
+                        status: '1'
+                        systemname: System1
+                      - accountID: 'null'
+                        accounttype: 'null'
+                        endpoint: System1
+                        name: lkrause
+                        status: '1'
+                        systemname: System1
+                  total:
+                    type: string
+                    example: '6'
+          examples:
+            Export Account:
+              value:
+                errorCode: '0'
+                message: SUCCESS
+                result:
+                  accounts:
+                    - accountID: 'null'
+                      accounttype: A
+                      endpoint: System1
+                      name: smarquez
+                      status: '1'
+                      systemname: System1
+                    - accountID: 'null'
+                      accounttype: 'null'
+                      endpoint: System1
+                      name: tbowers
+                      status: Manually Provisioned
+                      systemname: System1
+                    - accountID: 'null'
+                      accounttype: 'null'
+                      endpoint: System1
+                      name: dbailey
+                      status: Manually Provisioned
+                      systemname: System1
+                    - accountID: 'null'
+                      accounttype: 'null'
+                      endpoint: System1
+                      name: mchapman
+                      status: Manually Provisioned
+                      systemname: System1
+                    - accountID: 'null'
+                      accounttype: 'null'
+                      endpoint: System1
+                      name: glogan
+                      status: '1'
+                      systemname: System1
+                    - accountID: 'null'
+                      accounttype: 'null'
+                      endpoint: System1
+                      name: lkrause
+                      status: '1'
+                      systemname: System1
+                  total: '6'

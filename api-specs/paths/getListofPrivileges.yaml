@@ -1,0 +1,373 @@
+post:
+  tags:
+    - Privileges
+  summary: Get List of Privileges for Entitlement Type
+  description: "This API gives the list of privileges for an entitlement type.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`endpoint`\r\n\r\nOptional params:\r\n`max`, `offset`, `entitlementType`"
+  operationId: getListOfPrivilegesForEntitlementType
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            endpoint:
+              type: string
+              example: System1
+            entitlementtype:
+              type: string
+              example: Access
+  responses:
+    '200':
+      description: >-
+        Get List of Privileges for Entitlement Type / Get List of Privileges for
+        Entitlement Type Copy
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Mon, 10 Sep 2018 21:38:10 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=eaae3d7b-2cce-4718-bec3-196281353d51; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              PrivilegeDetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    actionString:
+                      type: string
+                      nullable: true
+                      example: null
+                    attribute:
+                      type: string
+                      example: Read
+                    attribute_config:
+                      type: string
+                      example: USER-BASED
+                    attribute_type:
+                      type: string
+                      example: Boolean
+                    attribute_values:
+                      type: string
+                      example: ''
+                    attributegroup:
+                      type: string
+                      nullable: true
+                      example: null
+                    childaction:
+                      type: string
+                      nullable: true
+                      example: null
+                    defaultvalue:
+                      type: string
+                      example: 'true'
+                    descriptionascsv:
+                      type: string
+                      nullable: true
+                      example: null
+                    editable:
+                      type: boolean
+                      example: true
+                    entitlement_types:
+                      type: object
+                      properties:
+                        endpointkey:
+                          type: string
+                          example: System1
+                        entitlementname:
+                          type: string
+                          example: Access
+                    entitlements_column:
+                      type: number
+                      nullable: true
+                      example: null
+                    hideoncreate:
+                      type: boolean
+                      example: false
+                    hideonupd:
+                      type: boolean
+                      example: false
+                    label:
+                      type: string
+                      nullable: true
+                      example: Read
+                    orderindex:
+                      type: string
+                      example: '0'
+                    parentattribute:
+                      type: string
+                      nullable: true
+                      example: null
+                    regex:
+                      type: string
+                      nullable: true
+                      example: null
+                    requestablerequired:
+                      type: boolean
+                      example: false
+                    required:
+                      type: boolean
+                      example: true
+                    sqlquery:
+                      type: string
+                      nullable: true
+                      example: null
+                    updatedate:
+                      type: string
+                      example: 09/11/2018 02:18:49
+                    updateuser:
+                      type: string
+                      example: admin
+                example:
+                  - actionString: null
+                    attribute: Read
+                    attribute_config: USER-BASED
+                    attribute_type: Boolean
+                    attribute_values: ''
+                    attributegroup: null
+                    childaction: null
+                    defaultvalue: 'true'
+                    descriptionascsv: null
+                    editable: true
+                    entitlement_types:
+                      endpointkey: System1
+                      entitlementname: Access
+                    entitlements_column: null
+                    hideoncreate: false
+                    hideonupd: false
+                    label: Read
+                    orderindex: '0'
+                    parentattribute: null
+                    regex: null
+                    requestablerequired: false
+                    required: true
+                    sqlquery: null
+                    updatedate: 09/11/2018 02:18:49
+                    updateuser: admin
+                  - actionString: null
+                    attribute: Write
+                    attribute_config: USER-BASED
+                    attribute_type: Boolean
+                    attribute_values: ''
+                    attributegroup: null
+                    childaction: null
+                    defaultvalue: 'false'
+                    descriptionascsv: null
+                    editable: true
+                    entitlement_types:
+                      endpointkey: System1
+                      entitlementname: Access
+                    entitlements_column: null
+                    hideoncreate: false
+                    hideonupd: false
+                    label: null
+                    orderindex: '1'
+                    parentattribute: null
+                    regex: null
+                    requestablerequired: false
+                    required: true
+                    sqlquery: null
+                    updatedate: 09/11/2018 02:18:56
+                    updateuser: admin
+                  - actionString: null
+                    attribute: Privilege1
+                    attribute_config: USER-BASED
+                    attribute_type: String
+                    attribute_values: ''
+                    attributegroup: null
+                    childaction: null
+                    defaultvalue: ''
+                    descriptionascsv: null
+                    editable: true
+                    entitlement_types:
+                      endpointkey: System1
+                      entitlementname: Access
+                    entitlements_column: null
+                    hideoncreate: false
+                    hideonupd: false
+                    label: Privilege1
+                    orderindex: '0'
+                    parentattribute: null
+                    regex: null
+                    requestablerequired: false
+                    required: true
+                    sqlquery: null
+                    updatedate: 09/11/2018 02:19:35
+                    updateuser: admin
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+          examples:
+            Get List of Privileges for Entitlement Type:
+              value:
+                PrivilegeDetails:
+                  - actionString: null
+                    attribute: Read
+                    attribute_config: USER-BASED
+                    attribute_type: Boolean
+                    attribute_values: ''
+                    attributegroup: null
+                    childaction: null
+                    defaultvalue: 'true'
+                    descriptionascsv: null
+                    editable: true
+                    entitlement_types:
+                      endpointkey: System1
+                      entitlementname: Access
+                    entitlements_column: null
+                    hideoncreate: false
+                    hideonupd: false
+                    label: Read
+                    orderindex: '0'
+                    parentattribute: null
+                    regex: null
+                    requestablerequired: false
+                    required: true
+                    sqlquery: null
+                    updatedate: 09/11/2018 02:18:49
+                    updateuser: admin
+                  - actionString: null
+                    attribute: Write
+                    attribute_config: USER-BASED
+                    attribute_type: Boolean
+                    attribute_values: ''
+                    attributegroup: null
+                    childaction: null
+                    defaultvalue: 'false'
+                    descriptionascsv: null
+                    editable: true
+                    entitlement_types:
+                      endpointkey: System1
+                      entitlementname: Access
+                    entitlements_column: null
+                    hideoncreate: false
+                    hideonupd: false
+                    label: null
+                    orderindex: '1'
+                    parentattribute: null
+                    regex: null
+                    requestablerequired: false
+                    required: true
+                    sqlquery: null
+                    updatedate: 09/11/2018 02:18:56
+                    updateuser: admin
+                  - actionString: null
+                    attribute: Privilege1
+                    attribute_config: USER-BASED
+                    attribute_type: String
+                    attribute_values: ''
+                    attributegroup: null
+                    childaction: null
+                    defaultvalue: ''
+                    descriptionascsv: null
+                    editable: true
+                    entitlement_types:
+                      endpointkey: System1
+                      entitlementname: Access
+                    entitlements_column: null
+                    hideoncreate: false
+                    hideonupd: false
+                    label: Privilege1
+                    orderindex: '0'
+                    parentattribute: null
+                    regex: null
+                    requestablerequired: false
+                    required: true
+                    sqlquery: null
+                    updatedate: 09/11/2018 02:19:35
+                    updateuser: admin
+                errorCode: '0'
+                msg: Successful
+            Get List of Privileges for Entitlement Type Copy:
+              value:
+                PrivilegeDetails:
+                  - actionString: null
+                    attribute: Read
+                    attribute_config: USER-BASED
+                    attribute_type: Boolean
+                    attribute_values: ''
+                    attributegroup: null
+                    childaction: null
+                    defaultvalue: 'true'
+                    descriptionascsv: null
+                    editable: true
+                    entitlement_types:
+                      endpointkey: System1
+                      entitlementname: Access
+                    entitlements_column: null
+                    hideoncreate: false
+                    hideonupd: false
+                    label: Read
+                    orderindex: '0'
+                    parentattribute: null
+                    regex: null
+                    requestablerequired: false
+                    required: true
+                    sqlquery: null
+                    updatedate: 09/11/2018 02:18:49
+                    updateuser: admin
+                  - actionString: null
+                    attribute: Write
+                    attribute_config: USER-BASED
+                    attribute_type: Boolean
+                    attribute_values: ''
+                    attributegroup: null
+                    childaction: null
+                    defaultvalue: 'false'
+                    descriptionascsv: null
+                    editable: true
+                    entitlement_types:
+                      endpointkey: System1
+                      entitlementname: Access
+                    entitlements_column: null
+                    hideoncreate: false
+                    hideonupd: false
+                    label: null
+                    orderindex: '1'
+                    parentattribute: null
+                    regex: null
+                    requestablerequired: false
+                    required: true
+                    sqlquery: null
+                    updatedate: 09/11/2018 02:18:56
+                    updateuser: admin
+                  - actionString: null
+                    attribute: Privilege1
+                    attribute_config: USER-BASED
+                    attribute_type: String
+                    attribute_values: ''
+                    attributegroup: null
+                    childaction: null
+                    defaultvalue: ''
+                    descriptionascsv: null
+                    editable: true
+                    entitlement_types:
+                      endpointkey: System1
+                      entitlementname: Access
+                    entitlements_column: null
+                    hideoncreate: false
+                    hideonupd: false
+                    label: Privilege1
+                    orderindex: '0'
+                    parentattribute: null
+                    regex: null
+                    requestablerequired: false
+                    required: true
+                    sqlquery: null
+                    updatedate: 09/11/2018 02:19:35
+                    updateuser: admin
+                errorCode: '0'
+                msg: Successful

@@ -1,0 +1,76 @@
+post:
+  tags:
+    - Dataset
+  summary: updateDatasetValues
+  description: |-
+    This API is used to update the values of the DatasetValues.
+    The `Authorization` must have a `Bearer` followed by a `Token`.
+    Mandatory parameters:  
+    `datasetname`  
+    `updateattributes`
+  operationId: updatedatasetvalues
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            datasetname:
+              type: string
+              example: Latest_Car
+            locationCode:
+              type: string
+              example: '10'
+            updateattributes:
+              type: object
+              properties:
+                city:
+                  type: string
+                  example: ABC
+        examples:
+          updateDatasetValues:
+            value:
+              datasetname: Latest_Car
+              locationCode: '10'
+              updateattributes:
+                city: ABC
+  responses:
+    '200':
+      description: updateDatasetValues
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 08 Jun 2022 06:17:29 GMT
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=bacb63b3-3fde-4778-9b1b-86e8a94492d5; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        Vary:
+          schema:
+            type: string
+            example: Access-Control-Request-Headers
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: number
+                example: 0
+              msg:
+                type: string
+                example: Success
+          examples:
+            updateDatasetValues:
+              value:
+                errorCode: 0
+                msg: Success

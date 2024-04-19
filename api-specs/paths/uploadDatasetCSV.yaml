@@ -1,0 +1,64 @@
+post:
+  tags:
+    - Dataset
+  summary: uploadDatasetCSV
+  description: |-
+    This API is used to upload the CSV file for a dataset.
+    The `Authorization` must have a `Bearer` followed by a `Token`.
+    Mandatory parameters:
+    `datasetValuefile`
+    `datasetname`
+    **Note**: The `datasetValuefile` must be CSV.
+  operationId: uploaddatasetcsv
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            datasetValuefile:
+              type: string
+              example: ((.csv))
+            datasetname:
+              type: string
+              example: Latest_Car
+  responses:
+    '200':
+      description: uploadDatasetCSV
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 08 Jun 2022 06:31:38 GMT
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=bacb63b3-3fde-4778-9b1b-86e8a94492d5; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        Vary:
+          schema:
+            type: string
+            example: Access-Control-Request-Headers
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: number
+                example: 1
+              msg:
+                type: string
+                example: Unexpected error occurred
+          examples:
+            uploadDatasetCSV:
+              value:
+                errorCode: 1
+                msg: Unexpected error occurred

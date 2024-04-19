@@ -1,0 +1,127 @@
+post:
+  tags:
+    - Job Management
+  summary: createTrigger
+  description: createTrigger
+  operationId: createtrigger
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              triggers:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    cronExp:
+                      type: string
+                      example: 0 33 14 * * ? 2060
+                    group:
+                      type: string
+                      example: GRAILS_JOBS
+                    jobGroup:
+                      type: string
+                      example: utility
+                    jobName:
+                      type: string
+                      example: AccEntUsageConsildateJob
+                    name:
+                      type: string
+                      example: accEnt11
+                    valueMap:
+                      type: object
+                      properties: {}
+                example:
+                  - cronExp: 0 33 14 * * ? 2060
+                    group: GRAILS_JOBS
+                    jobGroup: utility
+                    jobName: AccEntUsageConsildateJob
+                    name: accEnt11
+                    valueMap: {}
+          example:
+            - triggers:
+                - cronExp: 0 33 14 * * ? 2060
+                  group: GRAILS_JOBS
+                  jobGroup: utility
+                  jobName: AccEntUsageConsildateJob
+                  name: accEnt11
+                  valueMap: {}
+        examples:
+          createTrigger:
+            value:
+              - triggers:
+                  - cronExp: 0 33 14 * * ? 2060
+                    group: GRAILS_JOBS
+                    jobGroup: utility
+                    jobName: AccEntUsageConsildateJob
+                    name: accEnt11
+                    valueMap: {}
+  responses:
+    '200':
+      description: createTrigger
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: https://dev-scrum-sod.saviyntcloud.com
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Wed, 29 Mar 2023 09:48:22 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Permissions-Policy:
+          schema:
+            type: string
+            example: script-src 'self'; camera 'none'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=338a2ee3-db96-4858-9aa8-474b37282f91; Path=/; Secure;
+              HttpOnly
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              accEnt11:
+                type: array
+                items:
+                  type: string
+                  example: success
+                example:
+                  - success
+          examples:
+            createTrigger:
+              value:
+                accEnt11:
+                  - success
+  security:
+    - bearerAuth: []

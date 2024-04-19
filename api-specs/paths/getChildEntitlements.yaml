@@ -1,0 +1,251 @@
+get:
+  tags:
+    - Entitlements
+  summary: Get Child Entitlements
+  description: >-
+    This API can be used to get the list of all child entitlements.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `endpointname`/`endpointkey` - if both are passed endpointkey is considered
+
+    Optional params:
+
+    `entitlementtypekey`/`entitlementtypename` - Possible values should have
+    parent entitlementtypekey/entitlementtypename. If both are passed
+    entitlementtypekey is considered,
+
+    `parententitlementvalue`/`parententitlementvaluekey` - if both are passed
+    parententitlementvaluekey is considered,
+
+    `entquery` - query to support parent entitlement_values parameters. Sample -
+    "pev.status = 1",
+
+    `childentquery` - query to support child entitlement_values parameters.
+    Sample - "cev.customproperty3 = '25'",
+
+    `entitlements2query` - query to support entitlements2 parameters. Sample -
+    "e2.jobId is not null",
+
+    `responsefields` - possible values should have child entitlementvalue domain
+    properties. Sample -
+    \["description","customproperty1","customproperty3","displayname"\],
+
+    `max`,
+
+    `offset`
+  operationId: getChildEntitlements
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            childentquery:
+              type: string
+              example: 'cev.customproperty3 = ''25'' '
+            endpointkey:
+              type: string
+              example: '1'
+            endpointname:
+              type: string
+              example: AWS
+            entitlements2query:
+              type: string
+              example: e2.jobId is not null
+            entitlementtypekey:
+              type: string
+              example: '54'
+            entitlementtypename:
+              type: string
+              example: AWSSecurityGroup
+            entquery:
+              type: string
+              example: pev.status = 1
+            max:
+              type: string
+              example: '5'
+            offset:
+              type: string
+              example: '0'
+            parententitlementvalue:
+              type: string
+              example: sg-0303987b
+            parententitlementvaluekey:
+              type: string
+              example: '189260'
+            responsefields:
+              type: array
+              items:
+                type: string
+                example: description
+              example:
+                - description
+                - customproperty1
+                - customproperty3
+                - displayname
+        examples:
+          Get Child Entitlements:
+            value:
+              childentquery: 'cev.customproperty3 = ''25'' '
+              endpointkey: '1'
+              endpointname: AWS
+              entitlements2query: e2.jobId is not null
+              entitlementtypekey: '54'
+              entitlementtypename: AWSSecurityGroup
+              entquery: pev.status = 1
+              max: '5'
+              offset: '0'
+              parententitlementvalue: sg-0303987b
+              parententitlementvaluekey: '189260'
+              responsefields:
+                - description
+                - customproperty1
+                - customproperty3
+                - displayname
+  responses:
+    '200':
+      description: Get Child Entitlements
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Fri, 24 Sep 2021 00:18:25 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=1e59254b-5058-49f9-89cd-3e9b9a250e8d; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              childEntitlementsList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    customproperty1:
+                      type: string
+                      example: 23.240.16.195/32
+                    customproperty3:
+                      type: string
+                      example: '25'
+                    endpoint:
+                      type: string
+                      example: AWS
+                    endpointKey:
+                      type: number
+                      example: 1
+                    entitlementType:
+                      type: string
+                      example: SGIBRules
+                    entitlementTypeKey:
+                      type: number
+                      example: 63
+                    entitlementTypeName:
+                      type: string
+                      example: SGIBRules
+                    entitlement_value:
+                      type: string
+                      example: InboundRules::sg-0303987b#0
+                    entitlement_valuekey:
+                      type: string
+                      example: '189502'
+                    parententitlementvalue:
+                      type: string
+                      example: sg-0303987b
+                    parententitlementvaluekey:
+                      type: number
+                      example: 189260
+                    parententstatus:
+                      type: string
+                      example: '1'
+                    requestForm:
+                      type: string
+                      example: Request Form None
+                example:
+                  - customproperty1: 23.240.16.195/32
+                    customproperty3: '25'
+                    endpoint: AWS
+                    endpointKey: 1
+                    entitlementType: SGIBRules
+                    entitlementTypeKey: 63
+                    entitlementTypeName: SGIBRules
+                    entitlement_value: InboundRules::sg-0303987b#0
+                    entitlement_valuekey: '189502'
+                    parententitlementvalue: sg-0303987b
+                    parententitlementvaluekey: 189260
+                    parententstatus: '1'
+                    requestForm: Request Form None
+              displaycount:
+                type: number
+                example: 1
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: success
+              totalcount:
+                type: number
+                example: 1
+          examples:
+            Get Child Entitlements:
+              value:
+                childEntitlementsList:
+                  - customproperty1: 23.240.16.195/32
+                    customproperty3: '25'
+                    endpoint: AWS
+                    endpointKey: 1
+                    entitlementType: SGIBRules
+                    entitlementTypeKey: 63
+                    entitlementTypeName: SGIBRules
+                    entitlement_value: InboundRules::sg-0303987b#0
+                    entitlement_valuekey: '189502'
+                    parententitlementvalue: sg-0303987b
+                    parententitlementvaluekey: 189260
+                    parententstatus: '1'
+                    requestForm: Request Form None
+                displaycount: 1
+                errorcode: '0'
+                msg: success
+                totalcount: 1

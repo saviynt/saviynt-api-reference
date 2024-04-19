@@ -1,0 +1,202 @@
+post:
+  tags:
+    - User Groups
+  summary: Create/Update UserGroup
+  description: |-
+    This API create or update usergroup in SSM.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params:
+    `usergroup`,
+    `username`
+    Optional params:
+    `user_groupdescription`,
+    `users` - 
+    1. `username` (mandatory),
+    2. `updateType` - ADD/REMOVE (optional),
+    `entitlements` - 
+    1. `endpoint` (mandatory),
+    2. `entitlement_type` (mandatory),
+    3. `entitlement_value` (mandatory),
+    4. `updateType` ADD/REMOVE (optional),
+    `owners` -
+    1. `username` (mandatory),
+    2. `updateType` - ADD/REMOVE/SETRANK (optional),
+    3. `rank` (optional)
+  operationId: createUpdateUsergroup
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            entitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  endpoint:
+                    type: string
+                    example: Oracle
+                  entitlement_type:
+                    type: string
+                    example: OEBS-Responsibility
+                  entitlement_value:
+                    type: string
+                    example: FIXED_ASSET_INQUIRY_TECH_IN
+                  updateType:
+                    type: string
+                    example: ADD
+              example:
+                - endpoint: Oracle
+                  entitlement_type: OEBS-Responsibility
+                  entitlement_value: FIXED_ASSET_INQUIRY_TECH_IN
+                  updateType: ADD
+                - endpoint: Oracle
+                  entitlement_type: OEBS-Responsibility
+                  entitlement_value: FIXED_ASSET_INQUIRY_SOFT_IN
+                  updateType: REMOVE
+            owners:
+              type: array
+              items:
+                type: object
+                properties:
+                  rank:
+                    type: string
+                    example: '2'
+                  updateType:
+                    type: string
+                    example: ADD
+                  username:
+                    type: string
+                    example: G000706
+              example:
+                - rank: '2'
+                  updateType: ADD
+                  username: G000706
+                - updateType: REMOVE
+                  username: G000526
+                - rank: '2'
+                  updateType: SETRANK
+                  username: U009075
+            user_groupdescription:
+              type: string
+              example: ADOwnerGroupdesc
+            usergroup:
+              type: string
+              example: ADOwnerGroup
+            username:
+              type: string
+              example: admin
+            users:
+              type: array
+              items:
+                type: object
+                properties:
+                  updateType:
+                    type: string
+                    example: ADD
+                  username:
+                    type: string
+                    example: U003961
+              example:
+                - updateType: ADD
+                  username: U003961
+                - updateType: REMOVE
+                  username: M0014
+        examples:
+          Create/Update UserGroup:
+            value:
+              entitlements:
+                - endpoint: Oracle
+                  entitlement_type: OEBS-Responsibility
+                  entitlement_value: FIXED_ASSET_INQUIRY_TECH_IN
+                  updateType: ADD
+                - endpoint: Oracle
+                  entitlement_type: OEBS-Responsibility
+                  entitlement_value: FIXED_ASSET_INQUIRY_SOFT_IN
+                  updateType: REMOVE
+              owners:
+                - rank: '2'
+                  updateType: ADD
+                  username: G000706
+                - updateType: REMOVE
+                  username: G000526
+                - rank: '2'
+                  updateType: SETRANK
+                  username: U009075
+              user_groupdescription: ADOwnerGroupdesc
+              usergroup: ADOwnerGroup
+              username: admin
+              users:
+                - updateType: ADD
+                  username: U003961
+                - updateType: REMOVE
+                  username: M0014
+  responses:
+    '200':
+      description: Create/Update UserGroup
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 22 Jun 2021 18:33:36 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=1eae9a2d-290d-44de-bcf9-3d74760832f7; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '1'
+              msg:
+                type: string
+                example: ' user U003961 already present in usergroup. user M0014 does not exist in usergroup. entitlement FIXED_ASSET_INQUIRY_TECH_IN already present in usergroup. entitlement FIXED_ASSET_INQUIRY_SOFT_IN does not exist in usergroup. owner G000706 is already present. Owner U009075 does not exist in usergroup. owner G000526 is not present.'
+              usergroupkey:
+                type: string
+                example: '2'
+          examples:
+            Create/Update UserGroup:
+              value:
+                errorCode: '1'
+                msg: ' user U003961 already present in usergroup. user M0014 does not exist in usergroup. entitlement FIXED_ASSET_INQUIRY_TECH_IN already present in usergroup. entitlement FIXED_ASSET_INQUIRY_SOFT_IN does not exist in usergroup. owner G000706 is already present. Owner U009075 does not exist in usergroup. owner G000526 is not present.'
+                usergroupkey: '2'

@@ -1,0 +1,144 @@
+post:
+  tags:
+    - Job Management
+  summary: Create and Update Trigger
+  description: >-
+    This API call can be used to create and update a trigger for a particular
+    "jobgroup" in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `jobname`
+
+    `triggername`
+
+    `jobgroup`
+
+    `cronexpression`
+
+    Optional params:
+
+    `valueMap` - sample for triggerChainJob -   {   "savtriggerorderform":
+    "TESTCONN,WSRETRY",   "onFailureForm": "Stop"   }
+
+    To know more on list of parameters that can be passed in valueMap, see
+    [Parameters for Job Trigger
+    APIs](https://docs.saviyntcloud.com/bundle/EIC-Admin-v23x/page/Content/Chapter10-Job-Control-Panel/Adding-a-new-job.htm)
+  operationId: createAndUpdateTrigger
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            triggers:
+              type: array
+              items:
+                type: object
+                properties:
+                  cronexpression:
+                    type: string
+                    example: 0 33 14 * * ? 2060
+                  jobgroup:
+                    type: string
+                    example: utility
+                  jobname:
+                    type: string
+                    example: TriggerChainJob
+                  triggername:
+                    type: string
+                    example: TriggerchainUI
+                  valueMap:
+                    type: object
+                    properties:
+                      onFailureForm:
+                        type: string
+                        example: Stop
+                      savtriggerorderform:
+                        type: string
+                        example: TESTCONN,WSRETRY
+              example:
+                - cronexpression: 0 33 14 * * ? 2060
+                  jobgroup: utility
+                  jobname: TriggerChainJob
+                  triggername: TriggerchainUI
+                  valueMap:
+                    onFailureForm: Stop
+                    savtriggerorderform: TESTCONN,WSRETRY
+                - cronexpression: 0 33 14 * * ? 2060
+                  jobgroup: utility
+                  jobname: TriggerChainJob
+                  triggername: TcAPI
+                  valueMap:
+                    onFailureForm: Continue
+                    savtriggerorderform: TESTCONN,LAMPLM,WSRETRY
+                - cronexpression: 0 33 14 * * ? 2060
+                  jobgroup: utility
+                  jobname: JRMRecommentationJob
+                  triggername: PAA_Job
+        examples:
+          Create and Update Trigger:
+            value:
+              triggers:
+                - cronexpression: 0 33 14 * * ? 2060
+                  jobgroup: utility
+                  jobname: TriggerChainJob
+                  triggername: TriggerchainUI
+                  valueMap:
+                    onFailureForm: Stop
+                    savtriggerorderform: TESTCONN,WSRETRY
+                - cronexpression: 0 33 14 * * ? 2060
+                  jobgroup: utility
+                  jobname: TriggerChainJob
+                  triggername: TcAPI
+                  valueMap:
+                    onFailureForm: Continue
+                    savtriggerorderform: TESTCONN,LAMPLM,WSRETRY
+                - cronexpression: 0 33 14 * * ? 2060
+                  jobgroup: utility
+                  jobname: JRMRecommentationJob
+                  triggername: PAA_Job
+  responses:
+    '200':
+      description: Create and Update Trigger
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Fri, 16 Sep 2022 13:03:50 GMT
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=131c0e32-9edf-419c-bd4c-77764a92d205; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        Vary:
+          schema:
+            type: string
+            example: Access-Control-Request-Headers
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Create and Update Trigger:
+              value:
+                errorCode: '0'
+                msg: Success
+  security:
+    - bearerAuth: []

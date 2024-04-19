@@ -1,0 +1,155 @@
+post:
+  tags:
+    - Entitlements
+  summary: Create/Update Entitlement
+  description: "This method creates a new \"entitlementvalue\" for an \"endpoint\" in SSM. All the input parameters it requires are attributes with which the new account record would get created.\r\n\r\nEnsure: The `Authorization` header variable must be set to `Bearer` followed by `Token`.\r\n\r\nMandatory params:\r\n\r\n`endpoint`,\r\n`entitlementtype`,\r\n`entitlement_value`\r\n\r\nOptional params:\r\n\r\n`attributes` for Entitlement_values,\r\n\r\n`entitlementowner<N>` - N is the rank, `entitlementowner` modifies entitlementowner with rank 1, `entitlementowner3` - modifies entitlementowner with rank 3,\r\n\r\n`entitlementID`,`newentitlement_value` - used to update the entitlement if multiple entitlements with same entitlement_value are present under the same entitlementtype and endpoint\r\n\r\n`entitlementcasecheck`(can be true or false, default : false) - If true, entitlement value search will be case sensitive during create or update.\r\n\r\n`entitlement_valuekey`\r\n\r\n`updatedentitlement_value` - new value for entitlement_value\r\n\r\n`entitlementmap` - \r\n1. `entitlementvalue`\r\n2. `entitlementtype`\r\n3. `endpoint`\r\n4. `requestfilter`\r\n5. `excludeentitlement`\r\n6. `adddependenttask`\r\n7. `removedependententtask`\r\n8. `updateType`(ADD/REMOVE, default : ADD)"
+  operationId: createUpdateEntitlement
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            endpoint:
+              type: string
+              example: Workday
+            entitlement_value:
+              type: string
+              example: Accounts Receivable Specialist (Unconstrained)
+            entitlementtype:
+              type: string
+              example: Security-Groups
+            status:
+              type: number
+              example: 1
+            updatedentitlement_value:
+              type: string
+              example: Accounts Receivable Specialist (Unconstrained) Test
+        examples:
+          Create/Update Entitlement:
+            value:
+              endpoint: Workday
+              entitlement_value: Accounts Receivable Specialist (Unconstrained)
+              entitlementtype: Security-Groups
+              status: 1
+              updatedentitlement_value: Accounts Receivable Specialist (Unconstrained) Test
+  responses:
+    '200':
+      description: Create/Update Entitlement
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Thu, 23 Jul 2020 22:45:47 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=94589b88-cb05-4e05-a11d-dc62e85bb238; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              entitlementObj:
+                type: object
+                properties:
+                  description:
+                    type: string
+                    example: ''
+                  displayname:
+                    type: string
+                    example: ''
+                  endpoint:
+                    type: string
+                    example: Workday
+                  entitlementID:
+                    type: string
+                    example: 3f9fc9e54e42458daa84ad725dcae8ff
+                  entitlementOwner:
+                    type: string
+                    example: ''
+                  entitlementType:
+                    type: string
+                    example: Security-Groups
+                  entitlement_glossary:
+                    type: string
+                    example: ''
+                  entitlement_value:
+                    type: string
+                    example: Accounts Receivable Specialist (Unconstrained) Test
+                  entitlement_valuekey:
+                    type: string
+                    example: '296'
+                  requestForm:
+                    type: string
+                    example: Request Form Table
+                  soxcritical:
+                    type: string
+                    example: '0'
+                  status:
+                    type: string
+                    example: '1'
+                  syscritical:
+                    type: string
+                    example: '0'
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful in saving entitlement
+          examples:
+            Create/Update Entitlement:
+              value:
+                entitlementObj:
+                  description: ''
+                  displayname: ''
+                  endpoint: Workday
+                  entitlementID: 3f9fc9e54e42458daa84ad725dcae8ff
+                  entitlementOwner: ''
+                  entitlementType: Security-Groups
+                  entitlement_glossary: ''
+                  entitlement_value: Accounts Receivable Specialist (Unconstrained) Test
+                  entitlement_valuekey: '296'
+                  requestForm: Request Form Table
+                  soxcritical: '0'
+                  status: '1'
+                  syscritical: '0'
+                errorCode: '0'
+                msg: Successful in saving entitlement

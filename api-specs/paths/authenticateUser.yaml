@@ -1,0 +1,59 @@
+post:
+  tags:
+    - Users
+  summary: Authenticate User
+  description: |-
+    This API call can be used to authenticate the user in SSM
+    The `Authorization` must have `Bearer` followed by `Token` 
+    Mandatory Params:
+    `username`,
+    `password`
+  operationId: authenticateUser
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            password:
+              type: string
+              example: password1A
+            username:
+              type: string
+              example: johndoe
+  responses:
+    '200':
+      description: Authenticate User Failure / Authenticate User Success
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 08 Aug 2018 01:29:31 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=2c0ea716-a367-4c45-8251-6bc4ca89083e; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '1'
+              message:
+                type: string
+                example: Authentication Failed
+          examples:
+            Authenticate User Failure:
+              value:
+                errorCode: '1'
+                message: Authentication Failed
+            Authenticate User Success:
+              value:
+                errorCode: '0'
+                message: Authentication Successful

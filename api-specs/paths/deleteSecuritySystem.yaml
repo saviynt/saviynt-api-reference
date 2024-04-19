@@ -1,0 +1,117 @@
+delete:
+  tags:
+    - Security Systems
+  summary: Delete Security System
+  description: >-
+    This API deletes Security System in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `updateuser`
+
+    `systemQuery` or `systemkey` (If both are passed then systemkey will be
+    considered)
+  operationId: deleteSecuritySystem
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            systemkey:
+              type: array
+              items:
+                type: string
+                example: '9'
+              example:
+                - '9'
+                - '10'
+            updateuser:
+              type: string
+              example: admin
+        examples:
+          Delete Security System:
+            value:
+              systemkey:
+                - '9'
+                - '10'
+              updateuser: admin
+      text/plain:
+        examples:
+          Delete Security System:
+            value: ''
+  responses:
+    '200':
+      description: Delete Security System
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: https://dev-scrum-utl-1.saviyntcloud.com
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 28 Feb 2022 06:42:36 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=8e8359be-0048-4924-af98-6a728a3f0b20; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: success
+              securitysystems:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '9':
+                      type: string
+                      example: Securitysystem deleted
+                    '10':
+                      type: string
+                      example: Securitysystem deleted
+                example:
+                  - '9': Securitysystem deleted
+                  - '10': Securitysystem deleted
+          examples:
+            Delete Security System:
+              value:
+                errorcode: '0'
+                msg: success
+                securitysystems:
+                  - '9': Securitysystem deleted
+                  - '10': Securitysystem deleted
