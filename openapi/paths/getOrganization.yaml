@@ -1,0 +1,326 @@
+get:
+  tags:
+    - Organization
+  summary: Get Organization
+  description: >-
+    This API returns a list of organizations in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Optional params:
+
+    `organizationname`, `max`, `offset`
+
+    `filtercriteria` - organizationname,organizationtype(possible values -  Data
+    Security, Request Rules, Grouping, 1, 2,
+    3),status("ACTIVE"/"INACTIVE"),updateuser(username),createuser(username),parentorganization,customproperty<1-20>,description,primarycontact(username),vendormanager(username),location,risk,score
+
+    ***OR***
+
+    `orgQuery`(Example : c.organizationname like '%example_orgname%')
+  operationId: getOrganization
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            max:
+              type: string
+              example: '2'
+            offset:
+              type: string
+              example: '0'
+            orgQuery:
+              type: string
+              example: c.organizationname like '%TestOrg5%'
+        examples:
+          Get Organization:
+            value:
+              max: '2'
+              offset: '0'
+              orgQuery: c.organizationname like '%TestOrg5%'
+  responses:
+    '200':
+      description: Get Organization / Get Organization 2
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 30 Dec 2020 04:19:30 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=406488b2-e5a1-4a1b-8c87-ccf8177ef29e; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displaycount:
+                type: number
+                example: 1
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+              organizations:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    createdate:
+                      type: string
+                      example: '2019-08-20 18:31:38'
+                    createuser:
+                      type: string
+                      example: admin
+                    customproperty17:
+                      type: string
+                      example: Compliance
+                    description:
+                      type: string
+                      example: testorg
+                    endpoints:
+                      type: array
+                      items: {}
+                      example: []
+                    entitlements:
+                      type: array
+                      items: {}
+                      example: []
+                    location:
+                      type: string
+                      example: Bangalore
+                    organizationname:
+                      type: string
+                      example: testorg
+                    organizationtype:
+                      type: string
+                      example: Data Security
+                    parentorganization:
+                      type: string
+                      example: orgNameSav
+                    primaryvendorcontact:
+                      type: string
+                      example: lmcneil
+                    risk:
+                      type: string
+                      example: '0'
+                    roles:
+                      type: array
+                      items: {}
+                      example: []
+                    rules:
+                      type: array
+                      items: {}
+                      example: []
+                    score:
+                      type: string
+                      example: '0'
+                    status:
+                      type: string
+                      example: Active
+                    updatedate:
+                      type: string
+                      example: '2020-07-23 20:19:59'
+                    updateuser:
+                      type: string
+                      example: admin
+                    users:
+                      type: array
+                      items: {}
+                      example: []
+                example:
+                  - createdate: '2019-08-20 18:31:38'
+                    createuser: admin
+                    customproperty17: Compliance
+                    description: testorg
+                    endpoints: []
+                    entitlements: []
+                    location: Bangalore
+                    organizationname: testorg
+                    organizationtype: Data Security
+                    parentorganization: orgNameSav
+                    primaryvendorcontact: lmcneil
+                    risk: '0'
+                    roles: []
+                    rules: []
+                    score: '0'
+                    status: Active
+                    updatedate: '2020-07-23 20:19:59'
+                    updateuser: admin
+                    users: []
+              totalcount:
+                type: number
+                example: 1
+          examples:
+            Get Organization:
+              value:
+                displaycount: 1
+                errorCode: '0'
+                msg: Success
+                organizations:
+                  - createdate: '2019-08-20 18:31:38'
+                    createuser: admin
+                    customproperty17: Compliance
+                    description: testorg
+                    endpoints: []
+                    entitlements: []
+                    location: Bangalore
+                    organizationname: testorg
+                    organizationtype: Data Security
+                    parentorganization: orgNameSav
+                    primaryvendorcontact: lmcneil
+                    risk: '0'
+                    roles: []
+                    rules: []
+                    score: '0'
+                    status: Active
+                    updatedate: '2020-07-23 20:19:59'
+                    updateuser: admin
+                    users: []
+                totalcount: 1
+            Get Organization 2:
+              value:
+                displaycount: 1
+                errorCode: '0'
+                msg: Success
+                organizations:
+                  - attributes:
+                      - attributegroupname: dfdf
+                        attributes:
+                          pincode: '1234567'
+                          street: treee1
+                        value: group val
+                    comments: comment
+                    createdate: '2020-12-30 02:37:00'
+                    createuser: admin
+                    customproperty10: cp10
+                    customproperty5: cp5
+                    enddate: '2021-01-30 00:00:00'
+                    endpoints:
+                      - cp1: cp1
+                        cp2: cp2
+                        cp3: cp3
+                        cp4: cp4
+                        cp5: cp5
+                        endpointname: Office365
+                      - cp1: cp1
+                        cp2: cp2
+                        cp3: cp3
+                        cp4: cp4
+                        cp5: cp5
+                        endpointname: CyberArk
+                    entitlements:
+                      - customproperty1: 'true'
+                        description: ''
+                        entitlement_glossary: ''
+                        entitlementtypekey: O365-ADGroup
+                        entitlementvalue: AzureADSP
+                        systemname: Office365
+                    eventsource: '11'
+                    location: los angeles
+                    organizationkey: '23'
+                    organizationname: TestOrg5
+                    organizationowners:
+                      - city: Los Angeles
+                        comments: 'CN=admin,OU=SaviyntPoC,DC=corpAD,DC=saviynt,DC=com'
+                        email: example@saviynt.com
+                        enddate: '12-29-9999 00:00:00'
+                        firstname: Saviynt
+                        lastname: AdminUser
+                        policy: 1
+                        rank: 2
+                        userkey: 2
+                        username: admin
+                      - city: Puteaux
+                        comments: ''
+                        email: example@saviynt.com
+                        enddate: ''
+                        firstname: Patricia
+                        lastname: Bathilde
+                        policy: 1
+                        rank: 2
+                        userkey: 301258
+                        username: '1000003'
+                    organizationtype: Request Rules
+                    parentorganization: Globex
+                    primaryvendorcontact: awsadmin
+                    risk: '0'
+                    roles:
+                      - rolename: ADT_AdmitSuperv_MCL
+                    rules: []
+                    savCreateDate: '2020-12-30 02:37:00'
+                    savUpdateDate: '2020-12-30 02:37:00'
+                    score: '0'
+                    startdate: '2020-12-29 00:00:00'
+                    status: Active
+                    updatedate: '2020-12-30 03:13:57'
+                    updateuser: admin
+                    users:
+                      - city: Puteaux
+                        companyname: Saviynt France
+                        costcenter: '36100'
+                        departmentNumber: ''
+                        departmentname: ''
+                        email: example@saviynt.com
+                        firstname: Patricia
+                        jobcode: '45200'
+                        jobcodedesc: ''
+                        lastname: Bathilde
+                        manager: margaret'manager
+                        status: Active
+                        username: '1000003'
+                      - city: Puteaux
+                        companyname: Saviynt France
+                        costcenter: '3428'
+                        departmentNumber: ''
+                        departmentname: ''
+                        email: example@saviynt.com
+                        firstname: Peggy
+                        jobcode: ''
+                        jobcodedesc: Sr. Technology Sales Engineer
+                        lastname: Bouabbache
+                        manager: ADAMSL
+                        status: Active
+                        username: '1000005'
+                totalcount: 1

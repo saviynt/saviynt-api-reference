@@ -1,0 +1,455 @@
+post:
+  tags:
+    - Entitlement Owner Campaigns
+  summary: Fetch Account Entitlement Details
+  description: >-
+    This API returns user details, account-entitlement details of a particular
+    campaign required for certify/revoke API. If last certified actions and last
+    certified comments are configured during campaign creation, then it is
+    displayed in the API response.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `campaignId`
+
+    Optional params:
+
+    `certkey`
+
+    `max`
+
+    `offset`
+
+    `entitlementmax`
+
+    `entitlementoffset`
+
+    `accountmax`
+
+    `accountoffset`
+
+    `entitlement2max`
+
+    `entitlement2offset`
+
+    `verifier`
+  operationId: fetchAccountEntitlementDetails1
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accountmax:
+              type: string
+              example: '2'
+            accountoffset:
+              type: string
+              example: '0'
+            campaignId:
+              type: string
+              example: '178'
+            certkey:
+              type: string
+              example: '33600'
+            entitlement2max:
+              type: string
+              example: '2'
+            entitlement2offset:
+              type: string
+              example: '0'
+            entitlementmax:
+              type: string
+              example: '3'
+            entitlementoffset:
+              type: string
+              example: '0'
+            max:
+              type: string
+              example: '1'
+            offset:
+              type: string
+              example: '0'
+            verifier:
+              type: string
+              example: admin
+        examples:
+          Fetch Account Entitlement Details:
+            value:
+              accountmax: '2'
+              accountoffset: '0'
+              campaignId: '178'
+              certkey: '33600'
+              entitlement2max: '2'
+              entitlement2offset: '0'
+              entitlementmax: '3'
+              entitlementoffset: '0'
+              max: '1'
+              offset: '0'
+              verifier: admin
+  responses:
+    '200':
+      description: Fetch Account Entitlement Details
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 23 Jun 2021 16:23:31 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=ddfc7622-1638-4226-b359-43e94dacf6d9; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              campaignAccountEntDetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    certificationname:
+                      type: string
+                      example: Linux Access Review - U006789 (Constance Bihner)
+                    certkey:
+                      type: string
+                      example: '33600'
+                    entitlementDisplayCount:
+                      type: number
+                      example: 1
+                    entitlementTotalCount:
+                      type: number
+                      example: 1
+                    entitlements:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          accountdisplaycount:
+                            type: number
+                            example: 2
+                          accounts:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                accountStatus:
+                                  type: string
+                                  example: '1'
+                                accountname:
+                                  type: string
+                                  example: admin
+                                certaccountkey:
+                                  type: number
+                                  example: 192406
+                                certfied:
+                                  type: string
+                                  example: NORESPONSE
+                                comment:
+                                  type: string
+                                  nullable: true
+                                  example: null
+                                consulted:
+                                  type: string
+                                  example: 'no'
+                                endpoint:
+                                  type: string
+                                  example: SaviyntLinuxServer
+                                lastCertifiedCampaignName:
+                                  type: string
+                                  example: ''
+                                lastCertifiedDate:
+                                  type: string
+                                  example: ''
+                                lastCertifiedUser:
+                                  type: string
+                                  example: ''
+                                systemUserName:
+                                  type: string
+                                  example: admin
+                                userStatus:
+                                  type: string
+                                  example: '1'
+                                username:
+                                  type: string
+                                  example: admin
+                            example:
+                              - accountStatus: '1'
+                                accountname: admin
+                                certaccountkey: 192406
+                                certfied: NORESPONSE
+                                comment: null
+                                consulted: 'no'
+                                endpoint: SaviyntLinuxServer
+                                lastCertifiedCampaignName: ''
+                                lastCertifiedDate: ''
+                                lastCertifiedUser: ''
+                                systemUserName: admin
+                                userStatus: '1'
+                                username: admin
+                              - accountStatus: '1'
+                                accountname: U037787
+                                certaccountkey: 192407
+                                certfied: NORESPONSE
+                                comment: null
+                                consulted: 'no'
+                                endpoint: SaviyntLinuxServer
+                                lastCertifiedCampaignName: ''
+                                lastCertifiedDate: ''
+                                lastCertifiedUser: ''
+                                systemUserName: jwallace
+                                userStatus: '1'
+                                username: U037787
+                          accounttotalcount:
+                            type: number
+                            example: 10
+                          certentvalkey:
+                            type: number
+                            example: 1530363
+                          certfied:
+                            type: string
+                            example: APPROVED
+                          comment:
+                            type: string
+                            nullable: true
+                            example: null
+                          consulted:
+                            type: string
+                            example: 'no'
+                          entitlement2displaycount:
+                            type: number
+                            example: 0
+                          entitlement2totalcount:
+                            type: number
+                            example: 0
+                          entitlementStatus:
+                            type: number
+                            example: 1
+                          entitlementType:
+                            type: string
+                            example: Groups
+                          entitlement_value:
+                            type: string
+                            example: audio
+                          risk:
+                            type: string
+                            example: ''
+                          soxcritical:
+                            type: string
+                            example: '0'
+                          status:
+                            type: string
+                            example: '1'
+                          syscritical:
+                            type: string
+                            example: '0'
+                      example:
+                        - accountdisplaycount: 2
+                          accounts:
+                            - accountStatus: '1'
+                              accountname: admin
+                              certaccountkey: 192406
+                              certfied: NORESPONSE
+                              comment: null
+                              consulted: 'no'
+                              endpoint: SaviyntLinuxServer
+                              lastCertifiedCampaignName: ''
+                              lastCertifiedDate: ''
+                              lastCertifiedUser: ''
+                              systemUserName: admin
+                              userStatus: '1'
+                              username: admin
+                            - accountStatus: '1'
+                              accountname: U037787
+                              certaccountkey: 192407
+                              certfied: NORESPONSE
+                              comment: null
+                              consulted: 'no'
+                              endpoint: SaviyntLinuxServer
+                              lastCertifiedCampaignName: ''
+                              lastCertifiedDate: ''
+                              lastCertifiedUser: ''
+                              systemUserName: jwallace
+                              userStatus: '1'
+                              username: U037787
+                          accounttotalcount: 10
+                          certentvalkey: 1530363
+                          certfied: APPROVED
+                          comment: null
+                          consulted: 'no'
+                          entitlement2displaycount: 0
+                          entitlement2totalcount: 0
+                          entitlementStatus: 1
+                          entitlementType: Groups
+                          entitlement_value: audio
+                          risk: ''
+                          soxcritical: '0'
+                          status: '1'
+                          syscritical: '0'
+                    status:
+                      type: string
+                      example: In progress
+                example:
+                  - certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: '33600'
+                    entitlementDisplayCount: 1
+                    entitlementTotalCount: 1
+                    entitlements:
+                      - accountdisplaycount: 2
+                        accounts:
+                          - accountStatus: '1'
+                            accountname: admin
+                            certaccountkey: 192406
+                            certfied: NORESPONSE
+                            comment: null
+                            consulted: 'no'
+                            endpoint: SaviyntLinuxServer
+                            lastCertifiedCampaignName: ''
+                            lastCertifiedDate: ''
+                            lastCertifiedUser: ''
+                            systemUserName: admin
+                            userStatus: '1'
+                            username: admin
+                          - accountStatus: '1'
+                            accountname: U037787
+                            certaccountkey: 192407
+                            certfied: NORESPONSE
+                            comment: null
+                            consulted: 'no'
+                            endpoint: SaviyntLinuxServer
+                            lastCertifiedCampaignName: ''
+                            lastCertifiedDate: ''
+                            lastCertifiedUser: ''
+                            systemUserName: jwallace
+                            userStatus: '1'
+                            username: U037787
+                        accounttotalcount: 10
+                        certentvalkey: 1530363
+                        certfied: APPROVED
+                        comment: null
+                        consulted: 'no'
+                        entitlement2displaycount: 0
+                        entitlement2totalcount: 0
+                        entitlementStatus: 1
+                        entitlementType: Groups
+                        entitlement_value: audio
+                        risk: ''
+                        soxcritical: '0'
+                        status: '1'
+                        syscritical: '0'
+                    status: In progress
+              campaignId:
+                type: string
+                example: '178'
+              complete:
+                type: string
+                example: 'No'
+              displayCount:
+                type: number
+                example: 1
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: successful
+              totalCount:
+                type: number
+                example: 1
+          examples:
+            Fetch Account Entitlement Details:
+              value:
+                campaignAccountEntDetails:
+                  - certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: '33600'
+                    entitlementDisplayCount: 1
+                    entitlementTotalCount: 1
+                    entitlements:
+                      - accountdisplaycount: 2
+                        accounts:
+                          - accountStatus: '1'
+                            accountname: admin
+                            certaccountkey: 192406
+                            certfied: NORESPONSE
+                            comment: null
+                            consulted: 'no'
+                            endpoint: SaviyntLinuxServer
+                            lastCertifiedCampaignName: ''
+                            lastCertifiedDate: ''
+                            lastCertifiedUser: ''
+                            systemUserName: admin
+                            userStatus: '1'
+                            username: admin
+                          - accountStatus: '1'
+                            accountname: U037787
+                            certaccountkey: 192407
+                            certfied: NORESPONSE
+                            comment: null
+                            consulted: 'no'
+                            endpoint: SaviyntLinuxServer
+                            lastCertifiedCampaignName: ''
+                            lastCertifiedDate: ''
+                            lastCertifiedUser: ''
+                            systemUserName: jwallace
+                            userStatus: '1'
+                            username: U037787
+                        accounttotalcount: 10
+                        certentvalkey: 1530363
+                        certfied: APPROVED
+                        comment: null
+                        consulted: 'no'
+                        entitlement2displaycount: 0
+                        entitlement2totalcount: 0
+                        entitlementStatus: 1
+                        entitlementType: Groups
+                        entitlement_value: audio
+                        risk: ''
+                        soxcritical: '0'
+                        status: '1'
+                        syscritical: '0'
+                    status: In progress
+                campaignId: '178'
+                complete: 'No'
+                displayCount: 1
+                errorCode: '0'
+                msg: successful
+                totalCount: 1

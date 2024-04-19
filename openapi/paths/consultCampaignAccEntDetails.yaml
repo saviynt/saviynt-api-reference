@@ -1,0 +1,176 @@
+post:
+  tags:
+    - User Manager Campaigns
+  summary: Consult Campaign Account Entitlement Details
+  description: >-
+    This API consults User Manager for Campaign at Account and Access
+    Certification Stage in SSM. 
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `newassignee`
+
+    `campaignname` or `campaignid`
+
+    `certificationname` or `certkey`
+
+    `accounts` - 1. `accattkey` 2. `userattkey` 3.
+    `consultassociatedentitlements`
+
+    ***OR***
+
+    `entitlements` -  1. `accattkey`  2. `userattkey` 3. `entattkey`
+
+    Optional params:
+
+    `comments`
+
+    `updateuser`
+  operationId: consultCampaignAccountEntitlementDetails
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accounts:
+              type: array
+              items:
+                type: object
+                properties:
+                  accattkey:
+                    type: string
+                    example: '32740'
+                  consultassociatedentitlements:
+                    type: string
+                    example: 'false'
+                  userattkey:
+                    type: string
+                    example: '57463'
+              example:
+                - accattkey: '32740'
+                  consultassociatedentitlements: 'false'
+                  userattkey: '57463'
+            campaignid:
+              type: string
+              example: '390'
+            campaignname:
+              type: string
+              example: Campaign_46
+            certificationname:
+              type: string
+              example: Campaign_46 - awsadmin (aws admin)
+            certkey:
+              type: string
+              example: '68179'
+            comments:
+              type: string
+              example: test2
+            entitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  accattkey:
+                    type: string
+                    example: '32735'
+                  entattkey:
+                    type: string
+                    example: '38486'
+                  userattkey:
+                    type: string
+                    example: '57451'
+              example:
+                - accattkey: '32735'
+                  entattkey: '38486'
+                  userattkey: '57451'
+            newassignee:
+              type: string
+              example: ahinton
+            updateuser:
+              type: string
+              example: admin
+        examples:
+          Consult Campaign Account Entitlement Details:
+            value:
+              accounts:
+                - accattkey: '32740'
+                  consultassociatedentitlements: 'false'
+                  userattkey: '57463'
+              campaignid: '390'
+              campaignname: Campaign_46
+              certificationname: Campaign_46 - awsadmin (aws admin)
+              certkey: '68179'
+              comments: test2
+              entitlements:
+                - accattkey: '32735'
+                  entattkey: '38486'
+                  userattkey: '57451'
+              newassignee: ahinton
+              updateuser: admin
+  responses:
+    '200':
+      description: Consult Campaign Account Entitlement Details
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Content-Language:
+          schema:
+            type: string
+            example: en-US
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 13 Feb 2020 00:19:46 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: success
+          examples:
+            Consult Campaign Account Entitlement Details:
+              value:
+                errorcode: '0'
+                msg: success

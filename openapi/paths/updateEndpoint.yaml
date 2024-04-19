@@ -1,0 +1,155 @@
+put:
+  tags:
+    - Endpoints
+  summary: Update Endpoint
+  description: >-
+    This API updates an endpoint within the Saviynt EIC.
+
+    The `Authorization` must have a `Bearer` followed by a `Token`.
+
+    Note: From Release v23.9, a new parameter **`requestableRoleType`** is
+    introduced to update the requestable options of a Role for a particular
+    endpoint.
+
+    Mandatory parameters:
+
+    `endpointname`   `roleType` Supports valid case-senstive string values such
+    as "Enabler”, “Transactional”, “EmergencyAccess”, “Enterprise”, and
+    “Application”
+
+    Optional parameters:
+
+    `securitysystem`,   `displayName`,   `description`,   `ownerType`,  
+    `owner`,   `resourceOwnerType`,   `resourceOwner`,   `customproperty` - N is
+    between 1 to 30,   `custompropertyLabel` - N is between 1 to 30,  
+    `accountNameRule`,   `accessquery`,   `enableCopyAccess`,  
+    `disableNewAccountRequestIfAccountExists`,   `disableRemoveAccount`,  
+    `disableModifyAccount`,   `blockInflightRequest`,  
+    `userAccountCorrelationRule`,   `createEntTaskforRemoveAcc`,  
+    `connectionconfig requestableRoleType requestOption` - Supports valid
+    case-senstive string values such as “None”, “DropDownSingle”, “Table”, and
+    “TableOnlyAdd”   `required` - Supports valid boolean values are true and
+    false`requestedQuery/selectedQuery` Supports string values in double quotes
+  operationId: updateEndpoint
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            connectionconfig:
+              type: string
+              example: '{"conf":[{"ADDUSERTOENT":"FALSE"},{"ADDMEMBERTOENT":"FALSE"}]}'
+            endpointname:
+              type: string
+              example: Create-an-endpoint
+            resourceOwnerType:
+              type: string
+              example: User
+        examples:
+          Update Endpoint:
+            value:
+              connectionconfig: '{"conf":[{"ADDUSERTOENT":"FALSE"},{"ADDMEMBERTOENT":"FALSE"}]}'
+              endpointname: Create-an-endpoint
+              resourceOwnerType: User
+      text/plain:
+        examples:
+          Update Endpoint:
+            value: |-
+              {
+                  "endpointname": "gcpshruti123",
+                  "requestableRoleType": [
+                      {
+                          "roleType": "Application",
+                          "requestOption": "Table",
+                          "required": true,
+                          "requestedQuery": "r.displayname='\''testxyz'\''",
+                          "selectedQuery": "r.displayname='\''abcd'\''"
+                      },
+                      {
+                          "roleType": "Enterprise",
+                          "requestOption": "Table",
+                          "required": true,
+                          "requestedQuery": "r.displayname='\''testxyz'\''",
+                          "selectedQuery": "r.displayname='\''abcd'\''"
+                      }
+                  ]
+              }
+  responses:
+    '200':
+      description: Update Endpoint / Update Endpoint
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'https://qe-automation-aws.saviyntcloud.com'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Content-Security-Policy:
+          schema:
+            type: string
+            example: >-
+              base-uri 'self' ; style-src 'self'  https://fonts.googleapis.com
+              'unsafe-inline'; script-src 'self' 
+              https://ssl.google-analytics.com https://www.google.com/recaptcha/
+              https://www.gstatic.com/recaptcha/ 'unsafe-inline' 'unsafe-eval';
+              object-src 'self' ; media-src 'self' ; manifest-src 'self' ; 
+              img-src 'self' https://ssl.google-analytics.com ; frame-src 'self'
+              https://www.google.com/ ; connect-src 'self' ; font-src 'self'
+              https://fonts.googleapis.com https://www.google.com
+              https://www.unpkg.com https://fonts.gstatic.com ; form-action
+              'self'; frame-ancestors 'self'; default-src 'self'
+        Date:
+          schema:
+            type: string
+            example: 'Tue, 22 Aug 2023 10:46:16 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Permissions-Policy:
+          schema:
+            type: string
+            example: script-src 'self'; camera 'none'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=9fa962e2-8d1b-4244-be4f-1628a7bd15c0; HttpOnly;
+              Secure; SameSite=Strict; Path=/;
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Update Endpoint:
+              value:
+                errorCode: '0'
+                msg: Success
+  security:
+    - bearerAuth: []

@@ -1,0 +1,124 @@
+post:
+  tags:
+    - Analytics
+  summary: Fetch Control Details ES
+  description: >-
+    This API performs the action specified under the
+    `Default_Action_For_Analytics` parameter and retrieves records starting from
+    the offset. This API can return the response even if the `offset` parameter
+    is set beyond 1000. Now, the response of this API displays an additional
+    offset attribute. Starting with Release v24.1, the behavior of this API has
+    been modified as follows: - **For newly created analytics controls:** You
+    can swiftly execute and retrieve the history of newly created analytics
+    controls.
+
+    - **For previously existing analytics controls:** To expedite fetching the
+    run history of previously existing analytics controls, you must initially
+    run the control on the Analytics Configuration List page within the user
+    interface. Subsequently, you can use the API to fetch the run history.
+
+
+    The `Authorization` must have `Bearer` followed by `Token`. **Mandatory**
+    **params:** - `controlId` - this is the ANALYTICSKEY
+
+
+    - `offset`\- Specify the value from where the records must be retrieved
+
+
+    **Optional params:** `max`
+  operationId: fetchControlDetailsEs
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            analyticsid:
+              type: string
+              example: '18'
+            offset:
+              type: string
+              example: '1001'
+        examples:
+          Fetch Control Details ES:
+            value:
+              analyticsid: '18'
+              offset: '1001'
+  responses:
+    '200':
+      description: >-
+        Fetch Control Details ES / Fetch Control Details ES / Offset value set <
+        1000 / Offset value set > 1000 / max parameter set / Removed max
+        parameter
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'https://23-monthly-aws.saviyntcloud.com'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Fri, 19 May 2023 13:07:50 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Permissions-Policy:
+          schema:
+            type: string
+            example: script-src 'self'; camera 'none'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=95e2ccfc-648b-49c0-a56a-24ef46e6d2a0; HttpOnly;
+              Secure; SameSite=Strict; Path=/;
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              attributeDefaultValue:
+                type: string
+                example: '''Enter Account ID here'''
+              attributeKey:
+                type: number
+                example: 145
+              attributeLabel:
+                type: string
+                example: AWS Accounts
+              attributeName:
+                type: string
+                example: AWS Accounts
+              attributeValue:
+                type: string
+                example: ''
+              format:
+                type: string
+                example: String
+              orderIndex:
+                type: number
+                nullable: true
+                example: null
+  security:
+    - bearerAuth: []

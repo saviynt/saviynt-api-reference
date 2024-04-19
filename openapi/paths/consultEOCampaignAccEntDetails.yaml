@@ -1,0 +1,152 @@
+post:
+  tags:
+    - Entitlement Owner Campaigns
+  summary: Consult EntitlementOwner Step 2 for Campaign
+  description: >-
+    This API consults Entitltment Owner for Campaign at Account and Access
+    Certification Stage in SSM.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `campaignname` or `campaignid`
+
+    `certificationname` or `certkey`
+
+    `newassignee`
+
+    `accountentitlements` -  1. `entitlement` 2. `accounts`
+
+    Optional params:
+
+    `comments`
+
+    `updateuser`
+  operationId: consultEntitlementownerStep2ForCampaign
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accountentitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      type: string
+                      example: saviyntUser03
+                    example:
+                      - saviyntUser03
+                  entitlement:
+                    type: string
+                    example: Ent1
+              example:
+                - accounts:
+                    - saviyntUser03
+                  entitlement: Ent1
+                - accounts:
+                    - Derekautoincrement
+                  entitlement: Accountant
+            campaignid:
+              type: string
+              example: '412'
+            campaignname:
+              type: string
+              example: test_ent_acc_camp_2
+            certificationname:
+              type: string
+              example: test_ent_acc_camp_2 - awsadmin (firstnametest1 lastnametest1)
+            certkey:
+              type: string
+              example: '136121'
+            comments:
+              type: string
+              example: certifier from API
+            newassignee:
+              type: string
+              example: ahinton
+            updateuser:
+              type: string
+              example: admin
+        examples:
+          Consult EntitlementOwner Step 2 for Campaign:
+            value:
+              accountentitlements:
+                - accounts:
+                    - saviyntUser03
+                  entitlement: Ent1
+                - accounts:
+                    - Derekautoincrement
+                  entitlement: Accountant
+              campaignid: '412'
+              campaignname: test_ent_acc_camp_2
+              certificationname: test_ent_acc_camp_2 - awsadmin (firstnametest1 lastnametest1)
+              certkey: '136121'
+              comments: certifier from API
+              newassignee: ahinton
+              updateuser: admin
+  responses:
+    '200':
+      description: Consult EntitlementOwner Step 2 for Campaign
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Content-Language:
+          schema:
+            type: string
+            example: en-US
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 13 Feb 2020 00:11:04 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: success
+          examples:
+            Consult EntitlementOwner Step 2 for Campaign:
+              value:
+                errorcode: '0'
+                msg: success

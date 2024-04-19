@@ -1,0 +1,136 @@
+post:
+  tags:
+    - User Delegation
+  summary: Create Delegate
+  description: >-
+    This method creates a new delegate for a parent User. The input parameters
+    of this method contains the details of the Parent User as well as the one to
+    whom the Delegation is carried out.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params: 
+
+    `userName` - this is user who is creating the delegation,
+
+    `name` - name of delegate,
+
+    `delegateusername` - this is the user who should be assigned as the delegate
+    of the parent user,
+
+    `delegatestartdate` - in format MMDDYYY,
+
+    `delegateenddate` - in format MMDDYYY
+
+    Optional params:
+
+    `parentusername` - this is the parent username, if not passed it will
+    consider `userName` as parentusername,
+
+    `description`
+  operationId: createDelegate
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            delegateenddate:
+              type: string
+              example: 08182020
+            delegatestartdate:
+              type: string
+              example: '07142020'
+            delegateusername:
+              type: string
+              example: U011556
+            description:
+              type: string
+              example: ''
+            name:
+              type: string
+              example: delegatetest
+            parentusername:
+              type: string
+              example: U013053
+            userName:
+              type: string
+              example: admin
+        examples:
+          Create Delegate:
+            value:
+              delegateenddate: 08182020
+              delegatestartdate: '07142020'
+              delegateusername: U011556
+              description: ''
+              name: delegatetest
+              parentusername: U013053
+              userName: admin
+  responses:
+    '200':
+      description: Create Delegate
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 01 Jul 2020 22:39:49 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=bb12b0ba-7fc5-48e8-ac65-4e6537207af7; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              delegatekey:
+                type: string
+                example: '1'
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: ' Delegate created'
+          examples:
+            Create Delegate:
+              value:
+                delegatekey: '1'
+                errorCode: '0'
+                msg: ' Delegate created'

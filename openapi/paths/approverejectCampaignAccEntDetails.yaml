@@ -1,0 +1,260 @@
+post:
+  tags:
+    - User Manager Campaigns
+  summary: Approve Reject Campaign Account Entitlement Details
+  description: >-
+    This API is used to certify/revoke the user's access (account, entitlement)
+    along with employment verification. When an approve or reject action is
+    performed for a line item in a User Manager campaign, then only the latest
+    comment sent through the API is retained in the comments field but all the
+    comments (including actions) are stored in the audit trail/history.
+
+    From Release v23.8, this API now supports resetting of actions on roles
+    within a certification.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `campaignid`
+
+    `certkey`
+
+    `verifier`
+
+    `accounts` -
+
+    1. `accattkey` 2. `userattkey` 3. `certified` (Can be Yes/No/Reset) 4.
+    `comments`
+
+
+    `entitlements` -
+
+    1. `entattkey` 2. `accattkey` 3. `userattkey` 4. `certified` (Can be
+    Yes/No/Reset) 5. `comments`
+
+
+    `users` -
+
+    1. `userattkey` 2. `certified` 3. `comments`
+
+
+    Optional params:
+
+    `bulkUpdate`(Can be Y or N)
+
+    `approveComment`
+
+    `rejectComment`
+
+    `doesNotBelongToMeComment`
+
+    `roleattkey`
+
+    `bulkValidations`(If 'Y' the code works as is and all validations happen, if
+    bulkValidations=' N' the code will skip validations for all the records
+    passed)
+  operationId: approveRejectCampaignAccountEntitlementDetails
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accounts:
+              type: array
+              items:
+                type: object
+                properties:
+                  accattkey:
+                    type: string
+                    example: '295938'
+                  certified:
+                    type: string
+                    example: 'YES'
+                  comments:
+                    type: string
+                    example: yash_approve123
+                  userattkey:
+                    type: string
+                    example: '199968'
+              example:
+                - accattkey: '295938'
+                  certified: 'YES'
+                  comments: yash_approve123
+                  userattkey: '199968'
+            bulkUpdate:
+              type: string
+              example: 'Y'
+            bulkValidations:
+              type: string
+              example: 'N'
+            campaignid:
+              type: string
+              example: '8509'
+            certkey:
+              type: string
+              example: '8841'
+            entitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  accattkey:
+                    type: string
+                    example: '295938'
+                  certified:
+                    type: string
+                    example: 'YES'
+                  entattkey:
+                    type: string
+                    example: '813182'
+                  userattkey:
+                    type: string
+                    example: '199968'
+              example:
+                - accattkey: '295938'
+                  certified: 'YES'
+                  entattkey: '813182'
+                  userattkey: '199968'
+            roles:
+              type: array
+              items:
+                type: object
+                properties:
+                  accattkey:
+                    type: string
+                    example: '295938'
+                  certified:
+                    type: string
+                    example: 'YES'
+                  comments:
+                    type: string
+                    example: APPROLECOMMENTS#$
+                  roleattkey:
+                    type: string
+                    example: '14948'
+                  userattkey:
+                    type: string
+                    example: '199968'
+              example:
+                - accattkey: '295938'
+                  certified: 'YES'
+                  comments: APPROLECOMMENTS#$
+                  roleattkey: '14948'
+                  userattkey: '199968'
+                - certified: 'NO'
+                  comments: ENTROLECOMMENTS#$
+                  roleattkey: '14949'
+                  userattkey: '199968'
+                - certified: 'YES'
+                  comments: FiREROLECOMMENTS#$@
+                  roleattkey: '14950'
+                  userattkey: '199968'
+            verifier:
+              type: string
+              example: admin
+        examples:
+          Approve Reject Campaign Account Entitlement Details:
+            value:
+              accounts:
+                - accattkey: '295938'
+                  certified: 'YES'
+                  comments: yash_approve123
+                  userattkey: '199968'
+              bulkUpdate: 'Y'
+              bulkValidations: 'N'
+              campaignid: '8509'
+              certkey: '8841'
+              entitlements:
+                - accattkey: '295938'
+                  certified: 'YES'
+                  entattkey: '813182'
+                  userattkey: '199968'
+              roles:
+                - accattkey: '295938'
+                  certified: 'YES'
+                  comments: APPROLECOMMENTS#$
+                  roleattkey: '14948'
+                  userattkey: '199968'
+                - certified: 'NO'
+                  comments: ENTROLECOMMENTS#$
+                  roleattkey: '14949'
+                  userattkey: '199968'
+                - certified: 'YES'
+                  comments: FiREROLECOMMENTS#$@
+                  roleattkey: '14950'
+                  userattkey: '199968'
+              verifier: admin
+  responses:
+    '200':
+      description: >-
+        Approve Reject Campaign Account Entitlement Details / Approve Reject
+        Campaign Account Entitlement Details - new
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'https://release-2022-0-qe.saviyntcloud.com'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Mon, 26 Jun 2023 10:31:38 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Permissions-Policy:
+          schema:
+            type: string
+            example: script-src 'self'; camera 'none'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=6d31db43-01f2-437a-8a04-dbce152ed735; HttpOnly;
+              Secure; SameSite=Strict; Path=/;
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+              users:
+                type: string
+                example: Success
+          examples:
+            Approve Reject Campaign Account Entitlement Details:
+              value:
+                errorCode: '0'
+                msg: Success
+            Approve Reject Campaign Account Entitlement Details - new:
+              value:
+                errorCode: '0'
+                msg: Success
+                users: Success

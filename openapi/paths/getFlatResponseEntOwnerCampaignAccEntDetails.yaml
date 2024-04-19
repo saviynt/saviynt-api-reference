@@ -1,0 +1,641 @@
+post:
+  tags:
+    - Entitlement Owner Campaigns
+  summary: Fetch Flat Response Entitlement Owner Campaign Details
+  description: >-
+    This API return flat details of a particular Entitlement Owner campaign in
+    SSM. If last certified actions and last certified comments are configured
+    during campaign creation, then it is displayed in the API response.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `campaignId`
+
+    Optional params:
+
+    `max`
+
+    `offset`
+
+    `entitlementmax`
+
+    `entitlementoffset`
+
+    `certkey`
+  operationId: fetchFlatResponseEntitlementOwnerCampaignDetails
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            campaignId:
+              type: string
+              example: '178'
+            certkey:
+              type: string
+              example: '33600'
+            entitlementmax:
+              type: string
+              example: '5'
+            entitlementoffset:
+              type: string
+              example: '0'
+            max:
+              type: string
+              example: '20'
+            offset:
+              type: string
+              example: '0'
+        examples:
+          Fetch Flat Response Entitlement Owner Campaign Details:
+            value:
+              campaignId: '178'
+              certkey: '33600'
+              entitlementmax: '5'
+              entitlementoffset: '0'
+              max: '20'
+              offset: '0'
+  responses:
+    '200':
+      description: Fetch Flat Response Entitlement Owner Campaign Details
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 23 Jun 2021 16:24:43 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=ddfc7622-1638-4226-b359-43e94dacf6d9; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              campaignAccountEntDetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Ent_SOX_CRITICAL:
+                      type: number
+                      example: 0
+                    Ent_SYS_CRITICAL:
+                      type: number
+                      example: 0
+                    Ent_entitlement_value:
+                      type: string
+                      example: audio
+                    Ent_risk:
+                      type: string
+                      nullable: true
+                      example: null
+                    Ent_status:
+                      type: number
+                      example: 1
+                    User_lastCertifiedCampaignName:
+                      type: string
+                      nullable: true
+                      example: null
+                    User_lastCertifiedDate:
+                      type: string
+                      nullable: true
+                      example: null
+                    User_lastCertifiedUser:
+                      type: string
+                      nullable: true
+                      example: null
+                    User_systemUserName:
+                      type: string
+                      nullable: true
+                      example: admin
+                    User_username:
+                      type: string
+                      nullable: true
+                      example: admin
+                    accComment:
+                      type: string
+                      nullable: true
+                      example: null
+                    accHistory:
+                      type: string
+                      nullable: true
+                      example: null
+                    accStatus:
+                      type: string
+                      example: '1'
+                    accountCertfied:
+                      type: string
+                      example: NORESPONSE
+                    accountCount:
+                      type: number
+                      example: 10
+                    accountname:
+                      type: string
+                      example: admin
+                    certaccountkey:
+                      type: number
+                      example: 192406
+                    certentval2key:
+                      type: number
+                      nullable: true
+                      example: null
+                    certentvalkey:
+                      type: number
+                      example: 1530363
+                    certificationname:
+                      type: string
+                      example: Linux Access Review - U006789 (Constance Bihner)
+                    certkey:
+                      type: number
+                      example: 33600
+                    endpoint:
+                      type: string
+                      example: SaviyntLinuxServer
+                    ent2History:
+                      type: string
+                      nullable: true
+                      example: null
+                    ent2Status:
+                      type: number
+                      nullable: true
+                      example: null
+                    ent2certified:
+                      type: string
+                      nullable: true
+                      example: null
+                    ent2comments:
+                      type: string
+                      nullable: true
+                      example: null
+                    ent2name:
+                      type: string
+                      nullable: true
+                      example: null
+                    entCertfied:
+                      type: string
+                      example: APPROVED
+                    entComment:
+                      type: string
+                      nullable: true
+                      example: null
+                    entStatus:
+                      type: number
+                      example: 1
+                    entcriticality:
+                      type: number
+                      example: 0
+                    entitlement2count:
+                      type: number
+                      nullable: true
+                      example: null
+                    entitlementcount:
+                      type: number
+                      example: 1
+                    enttype:
+                      type: string
+                      example: Groups
+                    history:
+                      type: string
+                      example: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status:
+                      type: string
+                      example: In progress
+                    userStatus:
+                      type: number
+                      nullable: true
+                      example: 1
+                example:
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: admin
+                    User_username: admin
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: admin
+                    certaccountkey: 192406
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: 1
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: jwallace
+                    User_username: U037787
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: U037787
+                    certaccountkey: 192407
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: 1
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: null
+                    User_username: null
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: svc_aws
+                    certaccountkey: 192408
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: null
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: null
+                    User_username: null
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: aws_service
+                    certaccountkey: 192409
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: null
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: null
+                    User_username: null
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: newtest_mysvc
+                    certaccountkey: 192410
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: null
+              campaignId:
+                type: string
+                example: '178'
+              complete:
+                type: string
+                example: 'No'
+              count:
+                type: number
+                example: 5
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: successful
+          examples:
+            Fetch Flat Response Entitlement Owner Campaign Details:
+              value:
+                campaignAccountEntDetails:
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: admin
+                    User_username: admin
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: admin
+                    certaccountkey: 192406
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: 1
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: jwallace
+                    User_username: U037787
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: U037787
+                    certaccountkey: 192407
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: 1
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: null
+                    User_username: null
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: svc_aws
+                    certaccountkey: 192408
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: null
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: null
+                    User_username: null
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: aws_service
+                    certaccountkey: 192409
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: null
+                  - Ent_SOX_CRITICAL: 0
+                    Ent_SYS_CRITICAL: 0
+                    Ent_entitlement_value: audio
+                    Ent_risk: null
+                    Ent_status: 1
+                    User_lastCertifiedCampaignName: null
+                    User_lastCertifiedDate: null
+                    User_lastCertifiedUser: null
+                    User_systemUserName: null
+                    User_username: null
+                    accComment: null
+                    accHistory: null
+                    accStatus: '1'
+                    accountCertfied: NORESPONSE
+                    accountCount: 10
+                    accountname: newtest_mysvc
+                    certaccountkey: 192410
+                    certentval2key: null
+                    certentvalkey: 1530363
+                    certificationname: Linux Access Review - U006789 (Constance Bihner)
+                    certkey: 33600
+                    endpoint: SaviyntLinuxServer
+                    ent2History: null
+                    ent2Status: null
+                    ent2certified: null
+                    ent2comments: null
+                    ent2name: null
+                    entCertfied: APPROVED
+                    entComment: null
+                    entStatus: 1
+                    entcriticality: 0
+                    entitlement2count: null
+                    entitlementcount: 1
+                    enttype: Groups
+                    history: 'Belongs to Me on[07/15/20-SSM Admin(ssmadmin)] <br>'
+                    status: In progress
+                    userStatus: null
+                campaignId: '178'
+                complete: 'No'
+                count: 5
+                errorCode: '0'
+                msg: successful

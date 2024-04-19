@@ -1,0 +1,245 @@
+get:
+  tags:
+    - Analytics
+  summary: Fetch List of Analytics ES
+  description: >-
+    This method fetches a list of Analytic Controls in Elastic and support the
+    usage of GET and POST methods. It is recommended to use the POST method.
+    Optional params: `searchcriteria`: analytics params to search. Example:
+    {"analyticsid": "9","risk": "Medium","category": "Usage","status":
+    "Active","analyticsname":"testESQuery","owner":"awsadmin","usergroup":"MTSTrade_Approver_BusinessOwner","tags":"Tagname","description":"desc","recommendations":"comm"},
+    `max`, `offset` `loggedinuser` _**Note**_: Security is based on owner,
+    delegate, ROLE_ADMIN, SAV_ROLE's analytics ES category. The `Authorization`
+    must have `Bearer` followed by `Token`.
+  operationId: fetchListOfAnalyticsEs
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            analyticsid:
+              type: string
+              example: '1707'
+            max:
+              type: string
+              example: '100'
+            offset:
+              type: string
+              example: '0'
+        examples:
+          Fetch List of Analytics ES:
+            value:
+              analyticsid: '1707'
+              max: '100'
+              offset: '0'
+  responses:
+    '200':
+      description: Fetch List of Analytics ES / GET - Fetchlist / Post-FetchControlListES
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'https://23-monthly-aws.saviyntcloud.com'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Tue, 14 Feb 2023 11:56:05 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: >-
+              CCSRF-TOKEN=569eb221-ee36-4281-803f-90651013a781; Version=1;
+              Path=";Path=/;HttpOnly;"; Secure
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displaycount:
+                type: string
+                example: '1'
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+              result:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    allowedAction:
+                      type: string
+                      example: '1:Accept,2:Revoke,3:Further Review'
+                    analyticsEsIndex:
+                      type: string
+                      example: testapi1
+                    analyticsEsIndexType:
+                      type: string
+                      example: analytics
+                    analyticsName:
+                      type: string
+                      example: testESQuery1
+                    analyticsid:
+                      type: string
+                      example: '8'
+                    analyticstype:
+                      type: string
+                      example: ESQUERY
+                    baseCount:
+                      type: string
+                      example: '1'
+                    category:
+                      type: string
+                      example: Usage
+                    createDate:
+                      type: string
+                      example: '2019-07-31 23:23:57'
+                    description:
+                      type: string
+                      example: desc
+                    emailTemplate:
+                      type: string
+                      example: Actionable Email
+                    enableArchival:
+                      type: string
+                      example: 'true'
+                    noOfHistoryToKeep:
+                      type: string
+                      example: '2'
+                    recommendations:
+                      type: string
+                      example: recommend
+                    risk:
+                      type: string
+                      example: Medium
+                    securityContext:
+                      type: string
+                      example: User
+                    status:
+                      type: string
+                      example: Active
+                    subcategory:
+                      type: string
+                      example: SubCat1
+                    tags:
+                      type: string
+                      example: 'TagName,TagName2'
+                example:
+                  - allowedAction: '1:Accept,2:Revoke,3:Further Review'
+                    analyticsEsIndex: testapi1
+                    analyticsEsIndexType: analytics
+                    analyticsName: testESQuery1
+                    analyticsid: '8'
+                    analyticstype: ESQUERY
+                    baseCount: '1'
+                    category: Usage
+                    createDate: '2019-07-31 23:23:57'
+                    description: desc
+                    emailTemplate: Actionable Email
+                    enableArchival: 'true'
+                    noOfHistoryToKeep: '2'
+                    recommendations: recommend
+                    risk: Medium
+                    securityContext: User
+                    status: Active
+                    subcategory: SubCat1
+                    tags: 'TagName,TagName2'
+              totalcount:
+                type: string
+                example: '1'
+          examples:
+            Fetch List of Analytics ES:
+              value:
+                displaycount: '1'
+                errorcode: '0'
+                msg: Success
+                result:
+                  - allowedAction: '1:Accept,2:Revoke,3:Further Review'
+                    analyticsEsIndex: testapi1
+                    analyticsEsIndexType: analytics
+                    analyticsName: testESQuery1
+                    analyticsid: '8'
+                    analyticstype: ESQUERY
+                    baseCount: '1'
+                    category: Usage
+                    createDate: '2019-07-31 23:23:57'
+                    description: desc
+                    emailTemplate: Actionable Email
+                    enableArchival: 'true'
+                    noOfHistoryToKeep: '2'
+                    recommendations: recommend
+                    risk: Medium
+                    securityContext: User
+                    status: Active
+                    subcategory: SubCat1
+                    tags: 'TagName,TagName2'
+                totalcount: '1'
+            GET - Fetchlist:
+              value:
+                displaycount: '1'
+                errorcode: '0'
+                msg: Success
+                result:
+                  - actionJson: >-
+                      {"sendEmail":"false","saveToDBElastic":{"version":"v2","checked":"true"},"saveToFile":"false"}
+                    allowedAction: '1:Accept,2:Revoke,3:Further Review'
+                    analyticsName: sqllv2sw
+                    analyticsid: '1707'
+                    analyticstype: SQL
+                    category: Information Refresh
+                    createDate: '2023-02-13 07:07:04'
+                    description: crf
+                    enableArchival: 'false'
+                    noOfHistoryToKeep: '6'
+                    risk: Medium
+                    securityContext: None
+                    status: Active
+                totalcount: '1'
+            Post-FetchControlListES:
+              value:
+                displaycount: '1'
+                errorcode: '0'
+                msg: Success
+                result:
+                  - actionJson: >-
+                      {"sendEmail":"false","saveToDBElastic":{"version":"v2","checked":"true"},"saveToFile":"false"}
+                    allowedAction: '1:Accept,2:Revoke,3:Further Review'
+                    analyticsName: sqllv2sw
+                    analyticsid: '1707'
+                    analyticstype: SQL
+                    category: Information Refresh
+                    createDate: '2023-02-13 07:07:04'
+                    description: crf
+                    enableArchival: 'false'
+                    noOfHistoryToKeep: '6'
+                    risk: Medium
+                    securityContext: None
+                    status: Active
+                totalcount: '1'

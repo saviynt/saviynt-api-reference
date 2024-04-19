@@ -1,5 +1,5 @@
 apiDefinitions:
-  main: path/to/your/main/openapi.yaml
+  main: ./docs/saviynt-eic-api-5.0.yaml
 
 lint:
   extends: recommended

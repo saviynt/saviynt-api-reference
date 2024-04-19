@@ -1,0 +1,87 @@
+post:
+  tags:
+    - Access Request
+  summary: Create Birthright Request
+  description: |-
+    This method creates "Request" record for a new user in SSM. 
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Optional params:
+    `SAVUSERNAME` - in header,
+    `REQUESTTYPE`,
+    `REQUESTER`,
+    `COMMENTS`,
+    `USERNAME`,
+    `startdate`,
+    `enddate`,
+    `SYSTEMNAME`,
+    `ENDPOINTS`,
+    `entitlement`,
+    `APPROVER`,
+    `ACCOUNTNAME`
+  operationId: createBirthrightRequest
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            ACCOUNTNAME:
+              type: string
+              example: dbailey
+            APPROVER:
+              type: string
+              example: admin
+            COMMENTS:
+              type: string
+              example: test
+            ENDPOINTS:
+              type: string
+              example: System1
+            REQUESTTYPE:
+              type: string
+              example: '1'
+            SYSTEMNAME:
+              type: string
+              example: System1
+            USERNAME:
+              type: string
+              example: dbailey
+            entitlement:
+              type: string
+              example: testent
+  responses:
+    '200':
+      description: Create Birthright Request
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 12 Sep 2018 00:20:37 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=d00e2f97-ae81-4212-b50c-ce527b38af19; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: Success
+              requestId:
+                type: string
+                example: '579652'
+          examples:
+            Create Birthright Request:
+              value:
+                errorCode: '0'
+                message: Success
+                requestId: '579652'

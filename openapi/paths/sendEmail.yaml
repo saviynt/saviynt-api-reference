@@ -1,0 +1,59 @@
+post:
+  tags:
+    - Common Utilities
+  summary: Send Email
+  description: "This API can be used send an email from SSM.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nNote: Configure SMTP in SSM before using this API. \r\n\r\nMandatory params: \r\n\r\n`to`,\r\n`from`,\r\n`subject`,\r\n`body`\r\n\r\nOptional params:\r\n\r\n`cc`,`bcc`"
+  operationId: sendEmail
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            body:
+              type: string
+              example: test email body
+            cc:
+              type: string
+              example: tim@saviynt.com
+            from:
+              type: string
+              example: john@saviynt.com
+            subject:
+              type: string
+              example: test email subject
+            to:
+              type: string
+              example: john.doe@saviynt.com
+  responses:
+    '200':
+      description: Send Email
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 13 Sep 2018 01:13:37 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=9baa7fd0-b5cf-4442-91cd-9b8c9f1cdd57; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+          examples:
+            Send Email:
+              value:
+                errorCode: '0'
+                msg: Successful

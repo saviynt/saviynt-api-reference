@@ -1,0 +1,1008 @@
+post:
+  tags:
+    - User Manager Campaigns
+  summary: Fetch Account Entitlement Details
+  description: >-
+    This API returns user details, account-entitlement details of a particular
+    campaign required for certify/revoke API. If last certified actions and last
+    certified comments are configured during campaign creation, then it is
+    displayed in the API response. If the employmentStatus parameter is passed
+    with this API, then only the match records in the certified field are
+    displayed in the API response.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `campaignId`
+
+    Optional params:
+
+    `certifierUsername`,
+
+    `certkey`,
+
+    `max`(default is 100),
+
+    `offset`(default is 0),
+
+    `returnFlatResponse`(can be true or false)
+
+    `employmentStatus` (NORESPONSE/ WORKSFORME/ DOESNOTWORKFORME/ TERMINATED/
+    ENDDATE_EXTENDED)
+
+    ***Note***: The user attributes in the response is driven by the attributes
+    selected during the campaign launch.
+  operationId: fetchAccountEntitlementDetails
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            campaignId:
+              type: string
+              example: '64'
+        examples:
+          Fetch Account Entitlement Details:
+            value:
+              campaignId: '64'
+  responses:
+    '200':
+      description: Fetch Account Entitlement Details
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 23 Jun 2021 16:03:21 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=c560d6b7-9ec8-4c56-a3b7-ff51d5ca3c98; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              campaignAccountEntDetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    certificationname:
+                      type: string
+                      example: EPICUserMgrCampQ1Feb1 - admin (Saviynt AdminUser)
+                    certkey:
+                      type: string
+                      example: '29292'
+                    status:
+                      type: string
+                      example: New
+                    usercount:
+                      type: number
+                      example: 1
+                    users:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          accountCount:
+                            type: number
+                            example: 2
+                          accounts:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                accountStatus:
+                                  type: string
+                                  example: Active
+                                accountname:
+                                  type: string
+                                  example: '154'
+                                certaccountkey:
+                                  type: number
+                                  example: 190880
+                                certfied:
+                                  type: string
+                                  nullable: true
+                                  example: null
+                                certified:
+                                  type: string
+                                  example: Active
+                                comments:
+                                  type: string
+                                  nullable: true
+                                  example: null
+                                consulted:
+                                  type: string
+                                  example: 'true'
+                                endpoint:
+                                  type: string
+                                  example: Epic
+                                entitlementcount:
+                                  type: number
+                                  example: 3
+                                entitlements:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      certEntitlementkey:
+                                        type: number
+                                        example: 1469785
+                                      consulted:
+                                        type: string
+                                        example: 'true'
+                                      entStatus:
+                                        type: number
+                                        example: 1
+                                      entcertified:
+                                        type: string
+                                        nullable: true
+                                        example: null
+                                      entcomments:
+                                        type: string
+                                        nullable: true
+                                        example: null
+                                      entcriticality:
+                                        type: number
+                                        example: 0
+                                      entname:
+                                        type: string
+                                        example: T00010
+                                      enttype:
+                                        type: string
+                                        example: Template
+                                  example:
+                                    - certEntitlementkey: 1469785
+                                      consulted: 'true'
+                                      entStatus: 1
+                                      entcertified: null
+                                      entcomments: null
+                                      entcriticality: 0
+                                      entname: T00010
+                                      enttype: Template
+                                    - certEntitlementkey: 1469786
+                                      consulted: 'false'
+                                      entStatus: 1
+                                      entcertified: null
+                                      entcomments: null
+                                      entcriticality: 0
+                                      entname: T00918
+                                      enttype: Sub-Template
+                                    - certEntitlementkey: 1469787
+                                      consulted: 'true'
+                                      entStatus: 1
+                                      entcertified: null
+                                      entcomments: null
+                                      entcriticality: 0
+                                      entname: T01138
+                                      enttype: Sub-Template
+                            example:
+                              - accountStatus: Active
+                                accountname: '154'
+                                certaccountkey: 190880
+                                certfied: null
+                                certified: Active
+                                comments: null
+                                consulted: 'true'
+                                endpoint: Epic
+                                entitlementcount: 3
+                                entitlements:
+                                  - certEntitlementkey: 1469785
+                                    consulted: 'true'
+                                    entStatus: 1
+                                    entcertified: null
+                                    entcomments: null
+                                    entcriticality: 0
+                                    entname: T00010
+                                    enttype: Template
+                                  - certEntitlementkey: 1469786
+                                    consulted: 'false'
+                                    entStatus: 1
+                                    entcertified: null
+                                    entcomments: null
+                                    entcriticality: 0
+                                    entname: T00918
+                                    enttype: Sub-Template
+                                  - certEntitlementkey: 1469787
+                                    consulted: 'true'
+                                    entStatus: 1
+                                    entcertified: null
+                                    entcomments: null
+                                    entcriticality: 0
+                                    entname: T01138
+                                    enttype: Sub-Template
+                              - accountStatus: Active
+                                accountname: chammersmith
+                                certaccountkey: 190881
+                                certfied: null
+                                certified: Active
+                                comments: null
+                                consulted: 'true'
+                                endpoint: Epic
+                                entitlementcount: 2
+                                entitlements:
+                                  - certEntitlementkey: 1469788
+                                    consulted: 'true'
+                                    entStatus: 1
+                                    entcertified: null
+                                    entcomments: null
+                                    entcriticality: 0
+                                    entname: TestSubTemplate
+                                    enttype: Sub-Template
+                                  - certEntitlementkey: 1469789
+                                    consulted: 'false'
+                                    entStatus: 1
+                                    entcertified: null
+                                    entcomments: null
+                                    entcriticality: 0
+                                    entname: TestSubTemplate3
+                                    enttype: Sub-Template
+                          certfied:
+                            type: string
+                            example: WORKSFORME
+                          certuserkey:
+                            type: number
+                            example: 203136
+                          comment:
+                            type: string
+                            example: ''
+                          consulted:
+                            type: string
+                            example: 'true'
+                          userStatus:
+                            type: number
+                            example: 1
+                          username:
+                            type: string
+                            example: Chammersmith
+                      example:
+                        - accountCount: 2
+                          accounts:
+                            - accountStatus: Active
+                              accountname: '154'
+                              certaccountkey: 190880
+                              certfied: null
+                              certified: Active
+                              comments: null
+                              consulted: 'true'
+                              endpoint: Epic
+                              entitlementcount: 3
+                              entitlements:
+                                - certEntitlementkey: 1469785
+                                  consulted: 'true'
+                                  entStatus: 1
+                                  entcertified: null
+                                  entcomments: null
+                                  entcriticality: 0
+                                  entname: T00010
+                                  enttype: Template
+                                - certEntitlementkey: 1469786
+                                  consulted: 'false'
+                                  entStatus: 1
+                                  entcertified: null
+                                  entcomments: null
+                                  entcriticality: 0
+                                  entname: T00918
+                                  enttype: Sub-Template
+                                - certEntitlementkey: 1469787
+                                  consulted: 'true'
+                                  entStatus: 1
+                                  entcertified: null
+                                  entcomments: null
+                                  entcriticality: 0
+                                  entname: T01138
+                                  enttype: Sub-Template
+                            - accountStatus: Active
+                              accountname: chammersmith
+                              certaccountkey: 190881
+                              certfied: null
+                              certified: Active
+                              comments: null
+                              consulted: 'true'
+                              endpoint: Epic
+                              entitlementcount: 2
+                              entitlements:
+                                - certEntitlementkey: 1469788
+                                  consulted: 'true'
+                                  entStatus: 1
+                                  entcertified: null
+                                  entcomments: null
+                                  entcriticality: 0
+                                  entname: TestSubTemplate
+                                  enttype: Sub-Template
+                                - certEntitlementkey: 1469789
+                                  consulted: 'false'
+                                  entStatus: 1
+                                  entcertified: null
+                                  entcomments: null
+                                  entcriticality: 0
+                                  entname: TestSubTemplate3
+                                  enttype: Sub-Template
+                          certfied: WORKSFORME
+                          certuserkey: 203136
+                          comment: ''
+                          consulted: 'true'
+                          userStatus: 1
+                          username: Chammersmith
+                example:
+                  - certificationname: EPICUserMgrCampQ1Feb1 - admin (Saviynt AdminUser)
+                    certkey: '29292'
+                    status: New
+                    usercount: 1
+                    users:
+                      - accountCount: 2
+                        accounts:
+                          - accountStatus: Active
+                            accountname: '154'
+                            certaccountkey: 190880
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 3
+                            entitlements:
+                              - certEntitlementkey: 1469785
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00010
+                                enttype: Template
+                              - certEntitlementkey: 1469786
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00918
+                                enttype: Sub-Template
+                              - certEntitlementkey: 1469787
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T01138
+                                enttype: Sub-Template
+                          - accountStatus: Active
+                            accountname: chammersmith
+                            certaccountkey: 190881
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 2
+                            entitlements:
+                              - certEntitlementkey: 1469788
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: TestSubTemplate
+                                enttype: Sub-Template
+                              - certEntitlementkey: 1469789
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: TestSubTemplate3
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203136
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: Chammersmith
+                  - certificationname: EPICUserMgrCampQ1Feb1 - U045101 (Siu Han Chung)
+                    certkey: '29293'
+                    status: New
+                    usercount: 1
+                    users:
+                      - accountCount: 1
+                        accounts:
+                          - accountStatus: '1'
+                            accountname: '21607'
+                            certaccountkey: 190882
+                            certfied: null
+                            certified: '1'
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469790
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00274
+                                enttype: Template
+                        certfied: WORKSFORME
+                        certuserkey: 203137
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: G000706
+                  - certificationname: EPICUserMgrCampQ1Feb1 - jwen (Jim Wen)
+                    certkey: '29295'
+                    status: New
+                    usercount: 2
+                    users:
+                      - accountCount: 1
+                        accounts:
+                          - accountStatus: '1'
+                            accountname: '63585'
+                            certaccountkey: 190883
+                            certfied: null
+                            certified: '1'
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469791
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00274
+                                enttype: Template
+                        certfied: WORKSFORME
+                        certuserkey: 203138
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: U003961
+                      - accountCount: 1
+                        accounts:
+                          - accountStatus: Manually Provisioned
+                            accountname: U024789
+                            certaccountkey: 190884
+                            certfied: null
+                            certified: Manually Provisioned
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 2
+                            entitlements:
+                              - certEntitlementkey: 1469792
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T01093
+                                enttype: Template
+                              - certEntitlementkey: 1469793
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: TestSubTemplate2
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203139
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: U024789
+                  - certificationname: EPICUserMgrCampQ1Feb1 - Mr_Manager (Bobby Cox)
+                    certkey: '29296'
+                    status: New
+                    usercount: 2
+                    users:
+                      - accountCount: 2
+                        accounts:
+                          - accountStatus: Active
+                            accountname: '166'
+                            certaccountkey: 190885
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 2
+                            entitlements:
+                              - certEntitlementkey: 1469794
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: Epic_Demo_Template
+                                enttype: Template
+                              - certEntitlementkey: 1469795
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00918
+                                enttype: Sub-Template
+                          - accountStatus: Active
+                            accountname: '1256'
+                            certaccountkey: 190887
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 2
+                            entitlements:
+                              - certEntitlementkey: 1469797
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00010
+                                enttype: Template
+                              - certEntitlementkey: 1469798
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T01448
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203140
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: JSMOLTZ
+                      - accountCount: 1
+                        accounts:
+                          - accountStatus: Active
+                            accountname: '1112'
+                            certaccountkey: 190886
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469798
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T01448
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203141
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: GMADDUX
+                  - certificationname: EPICUserMgrCampQ1Feb1 - 320156 (Le Chang)
+                    certkey: '29297'
+                    status: New
+                    usercount: 1
+                    users:
+                      - accountCount: 2
+                        accounts:
+                          - accountStatus: '1'
+                            accountname: '21172'
+                            certaccountkey: 190888
+                            certfied: null
+                            certified: '1'
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469799
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00274
+                                enttype: Template
+                          - accountStatus: Active
+                            accountname: G000526
+                            certaccountkey: 190889
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469800
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: TestSubTemplate2
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203142
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: G000526
+              campaignId:
+                type: string
+                example: '64'
+              complete:
+                type: string
+                example: 'No'
+              count:
+                type: number
+                example: 5
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: successful
+          examples:
+            Fetch Account Entitlement Details:
+              value:
+                campaignAccountEntDetails:
+                  - certificationname: EPICUserMgrCampQ1Feb1 - admin (Saviynt AdminUser)
+                    certkey: '29292'
+                    status: New
+                    usercount: 1
+                    users:
+                      - accountCount: 2
+                        accounts:
+                          - accountStatus: Active
+                            accountname: '154'
+                            certaccountkey: 190880
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 3
+                            entitlements:
+                              - certEntitlementkey: 1469785
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00010
+                                enttype: Template
+                              - certEntitlementkey: 1469786
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00918
+                                enttype: Sub-Template
+                              - certEntitlementkey: 1469787
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T01138
+                                enttype: Sub-Template
+                          - accountStatus: Active
+                            accountname: chammersmith
+                            certaccountkey: 190881
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 2
+                            entitlements:
+                              - certEntitlementkey: 1469788
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: TestSubTemplate
+                                enttype: Sub-Template
+                              - certEntitlementkey: 1469789
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: TestSubTemplate3
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203136
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: Chammersmith
+                  - certificationname: EPICUserMgrCampQ1Feb1 - U045101 (Siu Han Chung)
+                    certkey: '29293'
+                    status: New
+                    usercount: 1
+                    users:
+                      - accountCount: 1
+                        accounts:
+                          - accountStatus: '1'
+                            accountname: '21607'
+                            certaccountkey: 190882
+                            certfied: null
+                            certified: '1'
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469790
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00274
+                                enttype: Template
+                        certfied: WORKSFORME
+                        certuserkey: 203137
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: G000706
+                  - certificationname: EPICUserMgrCampQ1Feb1 - jwen (Jim Wen)
+                    certkey: '29295'
+                    status: New
+                    usercount: 2
+                    users:
+                      - accountCount: 1
+                        accounts:
+                          - accountStatus: '1'
+                            accountname: '63585'
+                            certaccountkey: 190883
+                            certfied: null
+                            certified: '1'
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469791
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00274
+                                enttype: Template
+                        certfied: WORKSFORME
+                        certuserkey: 203138
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: U003961
+                      - accountCount: 1
+                        accounts:
+                          - accountStatus: Manually Provisioned
+                            accountname: U024789
+                            certaccountkey: 190884
+                            certfied: null
+                            certified: Manually Provisioned
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 2
+                            entitlements:
+                              - certEntitlementkey: 1469792
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T01093
+                                enttype: Template
+                              - certEntitlementkey: 1469793
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: TestSubTemplate2
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203139
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: U024789
+                  - certificationname: EPICUserMgrCampQ1Feb1 - Mr_Manager (Bobby Cox)
+                    certkey: '29296'
+                    status: New
+                    usercount: 2
+                    users:
+                      - accountCount: 2
+                        accounts:
+                          - accountStatus: Active
+                            accountname: '166'
+                            certaccountkey: 190885
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 2
+                            entitlements:
+                              - certEntitlementkey: 1469794
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: Epic_Demo_Template
+                                enttype: Template
+                              - certEntitlementkey: 1469795
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00918
+                                enttype: Sub-Template
+                          - accountStatus: Active
+                            accountname: '1256'
+                            certaccountkey: 190887
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 2
+                            entitlements:
+                              - certEntitlementkey: 1469797
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00010
+                                enttype: Template
+                              - certEntitlementkey: 1469798
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T01448
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203140
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: JSMOLTZ
+                      - accountCount: 1
+                        accounts:
+                          - accountStatus: Active
+                            accountname: '1112'
+                            certaccountkey: 190886
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469798
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T01448
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203141
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: GMADDUX
+                  - certificationname: EPICUserMgrCampQ1Feb1 - 320156 (Le Chang)
+                    certkey: '29297'
+                    status: New
+                    usercount: 1
+                    users:
+                      - accountCount: 2
+                        accounts:
+                          - accountStatus: '1'
+                            accountname: '21172'
+                            certaccountkey: 190888
+                            certfied: null
+                            certified: '1'
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469799
+                                consulted: 'true'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: T00274
+                                enttype: Template
+                          - accountStatus: Active
+                            accountname: G000526
+                            certaccountkey: 190889
+                            certfied: null
+                            certified: Active
+                            comments: null
+                            consulted: 'true'
+                            endpoint: Epic
+                            entitlementcount: 1
+                            entitlements:
+                              - certEntitlementkey: 1469800
+                                consulted: 'false'
+                                entStatus: 1
+                                entcertified: null
+                                entcomments: null
+                                entcriticality: 0
+                                entname: TestSubTemplate2
+                                enttype: Sub-Template
+                        certfied: WORKSFORME
+                        certuserkey: 203142
+                        comment: ''
+                        consulted: 'true'
+                        userStatus: 1
+                        username: G000526
+                campaignId: '64'
+                complete: 'No'
+                count: 5
+                errorCode: '0'
+                msg: successful

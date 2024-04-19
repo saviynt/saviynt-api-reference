@@ -1,220 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Redoc</title>
+  <head>
+    <title>API Reference | ReDoc</title>
     <!-- needed for adaptive design -->
-    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
 
+    <!--
+    ReDoc uses font options from the parent element
+    So override default browser styles
+    -->
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Montserrat, sans-serif;
-        }
-        header {
-            position: fixed;
-            top: 0;
-            width: 99%;
-            background-color: #fff; /* Or any color that fits your design */
-            z-index: 1000; /* Ensure the header is above other content */
-            background-color: #f8f9fa;
-            box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        select {
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav ul li {
-            cursor: pointer;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border-bottom: 1px solid #ddd;
-        }
-        nav ul li:hover {
-            background-color: #e0e0e0;
-        }
-        .spinner {
-              border: 4px solid rgba(0, 0, 0, 0.1);
-              width: 36px;
-              height: 36px;
-              border-radius: 50%;
-              border-left-color: #09f;
-              animation: spin 1s infinite linear;
-        }
-
-        @keyframes spin {
-              0% {
-                  transform: rotate(0deg);
-              }
-              100% {
-                  transform: rotate(360deg);
-              }
-          }
+      body {
+        margin: 0;
+        padding: 0;
+      }
     </style>
-</head>
-<body>
-<header>
-    <select name="Spec" id="api-selector">
-        <!-- Options will be dynamically added -->
-    </select>
-    <select name="Client-Language"  id="sdk-language-selector">
-      <option value="csharp">C#</option>
-      <option value="go">Go</option>
-      <option value="groovy">Groovy</option>
-      <option value="html">HTML</option>
-      <option value="java">Java</option>
-      <option value="javascript">JavaScript</option>
-      <option value="kotlin">Kotlin</option>
-      <option value="openapi">OpenAPI</option>
-      <option value="openapi-yaml">OpenAPI YAML</option>
-      <option value="php">PHP</option>
-      <option value="powershell">PowerShell</option>
-      <option value="python">Python</option>
-      <option value="ruby">Ruby</option>
-      <option value="rust">Rust</option>
-      <option value="swift5">Swift 5</option>
-      <option value="typescript">TypeScript</option>
-  </select>
-</header>
-
-<div id="redoc-container"></div>
-
-<!-- Modal for error messages -->
-<div id="loadingIndicator" style="display: none;">
-  <div class="spinner"></div>
-</div>
-
-<div id="errorModal" style="display:none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4); padding-top: 60px;">
-  <div style="background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%;">
-      <span id="closeModal" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
-      <p id="errorMessage" style="text-align: center;"></p>
-  </div>
-</div>
-
-
-<script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
-<script>
-    var apis = [
-        {
-            name: 'v5.0',
-            url: 'https://saviynt.github.io/saviynt-api-reference/saviynt-eic-api-5.0.yaml'
-        },
-        {
-            name: 'v2.0',
-            url: 'https://saviynt.github.io/saviynt-api-reference/saviynt-eic-api-2.0.yaml'
-        },
-        {
-            name: 'copilot',
-            url: 'https://saviynt.github.io/saviynt-api-reference/SaviyntMSCopilotOpenAPIDesc.yaml'
-        },
-
-    ];
-
-    function initRedoc(apiUrl) {
-        Redoc.init(apiUrl, {
-            scrollYOffset: 'header',
-            expandResponses: "200,400"
-        }, document.getElementById('redoc-container'));
-    }
-
-        // Initially render the first API
-        initRedoc(apis[0].url);
-
-        // Populate the API selector dropdown
-        var selector = document.getElementById('api-selector');
-        apis.forEach(function(api, index) {
-            var option = new Option(api.name, index);
-            selector.add(option);
-        });
-
-        // Handle selection change
-        selector.addEventListener('change', function() {
-            var apiUrl = apis[this.value].url;
-            initRedoc(apiUrl);
-        });
-
-
-
-        document.getElementById('sdk-language-selector').addEventListener('change', async function() {
-            var apiSelector = document.getElementById('api-selector');
-            var selectedApiUrl = apis[apiSelector.value].url;
-            var selectedLanguage = this.value;
-            // Show loading indicator
-            document.getElementById('loadingIndicator').style.display = 'block';
-
-            // Example API call to OpenAPI Generator API (Adjust according to your actual API)
-            try {
-
-                const optionsResponse= await fetch("https://saviynt.github.io/saviynt-api-reference/client-sdk-generator-config.json");
-                const options = await optionsResponse.json();
-
-                // let proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
-                let targetUrl = `https://api.openapi-generator.tech/api/gen/clients/${selectedLanguage}`;
-                let downloadUrl ='https://api.openapi-generator.tech/api/gen/download/';
-
-                let response = await fetch(targetUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // Include any necessary headers
-                },
-                body: JSON.stringify({
-                openAPIUrl: selectedApiUrl,
-                options: options
-                    // Add any additional parameters required by the API
-                }),
-                redirect: 'manual' // This prevents the fetch from automatically following redirects
-            });
-        
-
-            if (!response.ok) {
-                    throw response;
-            }
-
-            let data = await response.json();
-            // showModal(JSON.stringify(data));
-            const message = `Your SDK is ready! <a href="${downloadUrl + data.code}">Click here to download</a>.`;  
-            showModal(message);
-            // window.location.href = data.link; // Redirect user to download URL
-        } catch (error) {
-            if (error instanceof Response) {
-                error.json().then(err => {
-                    showModal(err.message || "An error occurred during SDK generation.");
-                }).catch(() => {
-                    showModal("An error occurred and could not parse error details.");
-                });
-            } else {
-                showModal(error || "An unknown error occurred.");
-                console.error(error);
-            }
-        }finally {
-            // Hide loading indicator
-            document.getElementById('loadingIndicator').style.display = 'none';
-        }
-    });
-
-    function showModal(message) {
-        document.getElementById('errorMessage').innerHTML = message;
-        document.getElementById('errorModal').style.display = "block";
-    }
-
-    document.getElementById('closeModal').onclick = function() {
-        document.getElementById('errorModal').style.display = "none";
-    };
-
-
-</script>
-</body>
+    {{{redocHead}}}
+  </head>
+  <body>
+    {{{redocHTML}}}
+  </body>
 </html>

@@ -1,0 +1,79 @@
+post:
+  tags:
+    - Accounts
+  summary: Assign Account to User
+  description: >-
+    This method provisions an "Account" to a "User" in SSM.  The "Account"
+    corresponds to a particular IT Application (e.g Microsoft Active Directory)
+    which is modeled in SSM as "Endpoint" of a "Security System". 
+
+    Mandatory params:
+
+    `securitysystem` - Name of the Security System for the relevant IT
+    Application modeled in SSM.
+
+    `endpoint`- Name of the Endpoint corresponding to the Security System.
+
+    `accountname` - Account name for the provisioned account.
+
+    `username` - Username of the user to whom the account has to be provisioned.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+  operationId: assignAccountToUser
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            accountname:
+              type: string
+              example: johnWS
+            endpoint:
+              type: string
+              example: System1
+            securitysystem:
+              type: string
+              example: System1
+            username:
+              type: string
+              example: johndoe
+        examples:
+          Assign Account to User:
+            value:
+              accountname: johnWS
+              endpoint: System1
+              securitysystem: System1
+              username: johndoe
+  responses:
+    '200':
+      description: Assign Account to User
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 08 Aug 2018 00:38:43 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=c247d759-3fd0-4750-b593-fb5eec81c650; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: SUCCESS
+          examples:
+            Assign Account to User:
+              value:
+                errorCode: '0'
+                message: SUCCESS

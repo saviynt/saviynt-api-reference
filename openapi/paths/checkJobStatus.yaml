@@ -1,0 +1,50 @@
+post:
+  tags:
+    - Job Management
+  summary: Check Job Status
+  description: "This API is used to fetch the status of any job other that Data Import Job.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n`jobgroup`,\r\n`jobname`"
+  operationId: checkJobStatus
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            jobgroup:
+              type: string
+              example: Analytics
+            jobname:
+              type: string
+              example: AnalyticsJob
+  responses:
+    '200':
+      description: Check Job Status
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 02 Aug 2018 22:04:59 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=68b0b4c6-5c76-4b74-964f-0a8b12a92c20; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: IN-PROGRESS
+          examples:
+            Check Job Status:
+              value:
+                errorCode: '0'
+                msg: IN-PROGRESS

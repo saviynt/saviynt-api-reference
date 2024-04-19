@@ -1,0 +1,143 @@
+post:
+  tags:
+    - Analytics
+  summary: Fetch Control Attributes
+  description: >-
+    This API is used for fetching the details of dynamic attributes associated
+    with an analytics control. This can be used for both Elasticsearch and
+    Database analytics. The `Authorization` must have `Bearer` followed by
+    `Token`. Mandatory params:   `analyticstype`(ES/DB)   `analyticsname`
+    _**OR**_ `id`
+  operationId: fetchControlAttributes
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            analyticstype:
+              type: string
+              example: DB
+            id:
+              type: string
+              example: '61'
+            max:
+              type: string
+              example: '1'
+            offset:
+              type: string
+              example: '0'
+        examples:
+          Fetch Control Attributes:
+            value:
+              analyticstype: DB
+              id: '61'
+              max: '1'
+              offset: '0'
+  responses:
+    '200':
+      description: Fetch Control Attributes
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 17 Jun 2021 20:50:04 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=c48e8f16-db71-4e0a-abc0-cde79d9a3bd0; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              attributesList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    attributeDefaultValue:
+                      type: string
+                      example: '''Enter Account ID here'''
+                    attributeKey:
+                      type: number
+                      example: 145
+                    attributeLabel:
+                      type: string
+                      example: AWS Accounts
+                    attributeName:
+                      type: string
+                      example: AWS Accounts
+                    attributeValue:
+                      type: string
+                      example: ''
+                    format:
+                      type: string
+                      example: String
+                    orderIndex:
+                      type: number
+                      nullable: true
+                      example: null
+                example:
+                  - attributeDefaultValue: '''Enter Account ID here'''
+                    attributeKey: 145
+                    attributeLabel: AWS Accounts
+                    attributeName: AWS Accounts
+                    attributeValue: ''
+                    format: String
+                    orderIndex: null
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Fetch Control Attributes:
+              value:
+                attributesList:
+                  - attributeDefaultValue: '''Enter Account ID here'''
+                    attributeKey: 145
+                    attributeLabel: AWS Accounts
+                    attributeName: AWS Accounts
+                    attributeValue: ''
+                    format: String
+                    orderIndex: null
+                errorcode: '0'
+                msg: Success

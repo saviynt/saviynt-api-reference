@@ -1,0 +1,1055 @@
+get:
+  tags:
+    - Sav Roles
+  summary: Get SavRoles
+  description: "StartFragment\n\nThis API returns the SavRoles of an user in SSM.\n\nThe\_`Authorization`\_must have\_`Bearer`\_followed by\_`Token`.\n\nOptional params:\n\n`max`,`offset`,`username`\n\nEndFragment"
+  operationId: getSavroles
+  requestBody:
+    content:
+      text/plain:
+        examples:
+          Get SavRoles:
+            value: ''
+  responses:
+    '200':
+      description: Get SavRoles
+      headers:
+        Cache-Control:
+          schema:
+            type: string
+            example: 'no-cache, no-store, max-age=0, must-revalidate'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 30 Nov 2022 05:25:43 GMT'
+        Expires:
+          schema:
+            type: string
+            example: '0'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: no-referrer
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=15724800; includeSubDomains
+        Vary:
+          schema:
+            type: string
+            example: Access-Control-Request-Headers
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+        X-XSS-Protection:
+          schema:
+            type: string
+            example: 1 ; mode=block
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              savroles:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    CUSTOMPROPERTY1:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY10:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY11:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY12:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY13:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY14:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY15:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY16:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY17:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY18:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY19:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY2:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY20:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY3:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY4:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY5:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY6:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY7:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY8:
+                      type: string
+                      example: 'null'
+                    CUSTOMPROPERTY9:
+                      type: string
+                      example: 'null'
+                    HOMEPAGE:
+                      type: string
+                      example: 'null'
+                    ISOOTB:
+                      type: string
+                      example: 'true'
+                    READONLY:
+                      type: string
+                      example: 'false'
+                    ROLEDESCRIPTION:
+                      type: string
+                      example: ADMIN USER
+                    ROLENAME:
+                      type: string
+                      example: ROLE_ADMIN
+                    STATUSKEY:
+                      type: string
+                      example: Active
+                    UPDATEDATE:
+                      type: string
+                      example: '2021-06-01 06:47:27.0'
+                    UPDATEUSER:
+                      type: string
+                      example: admin
+                example:
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: ADMIN USER
+                    ROLENAME: ROLE_ADMIN
+                    STATUSKEY: Active
+                    UPDATEDATE: '2021-06-01 06:47:27.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: ROLE_ADMIN_SAVIYNTSUPPORT USER
+                    ROLENAME: ROLE_ADMIN_SAVIYNTSUPPORT
+                    STATUSKEY: Active
+                    UPDATEDATE: '2021-06-01 06:58:24.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: ''
+                    CUSTOMPROPERTY10: ''
+                    CUSTOMPROPERTY11: ''
+                    CUSTOMPROPERTY12: ''
+                    CUSTOMPROPERTY13: ''
+                    CUSTOMPROPERTY14: ''
+                    CUSTOMPROPERTY15: ''
+                    CUSTOMPROPERTY16: ''
+                    CUSTOMPROPERTY17: ''
+                    CUSTOMPROPERTY18: ''
+                    CUSTOMPROPERTY19: ''
+                    CUSTOMPROPERTY2: ''
+                    CUSTOMPROPERTY20: ''
+                    CUSTOMPROPERTY3: ''
+                    CUSTOMPROPERTY4: ''
+                    CUSTOMPROPERTY5: ''
+                    CUSTOMPROPERTY6: ''
+                    CUSTOMPROPERTY7: ''
+                    CUSTOMPROPERTY8: ''
+                    CUSTOMPROPERTY9: ''
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: PAM END USER ROLE
+                    ROLENAME: ROLE_SAV_PAMENDUSER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:26.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: ''
+                    CUSTOMPROPERTY10: ''
+                    CUSTOMPROPERTY11: ''
+                    CUSTOMPROPERTY12: ''
+                    CUSTOMPROPERTY13: ''
+                    CUSTOMPROPERTY14: ''
+                    CUSTOMPROPERTY15: ''
+                    CUSTOMPROPERTY16: ''
+                    CUSTOMPROPERTY17: ''
+                    CUSTOMPROPERTY18: ''
+                    CUSTOMPROPERTY19: ''
+                    CUSTOMPROPERTY2: ''
+                    CUSTOMPROPERTY20: ''
+                    CUSTOMPROPERTY3: ''
+                    CUSTOMPROPERTY4: ''
+                    CUSTOMPROPERTY5: ''
+                    CUSTOMPROPERTY6: ''
+                    CUSTOMPROPERTY7: ''
+                    CUSTOMPROPERTY8: ''
+                    CUSTOMPROPERTY9: ''
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: PAM MANAGEMENT ROLE
+                    ROLENAME: ROLE_SAV_PAMOWNER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:26.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: END USER ROLE
+                    ROLENAME: ROLE_SAV_ENDUSER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: MANAGER ROLE
+                    ROLENAME: ROLE_SAV_MANAGER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: SOD OWNER ROLE
+                    ROLENAME: ROLE_SAV_SODOWNER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: >-
+                      SAV Role to provide access to all the OOTB personas
+                      shipped with Control Center. This won’t have access to PAM
+                      Owner persona.
+                    ROLENAME: ROLE_SAV_CONTROLCENTER_IGAOWNER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'true'
+                    ROLEDESCRIPTION: ROLE SAV AUDITOR READONLY
+                    ROLENAME: ROLE_SAV_AUDITOR_READONLY
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: UI ADMIN USER ROLE
+                    ROLENAME: ROLE_UIADMIN
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: ''
+                    CUSTOMPROPERTY10: ''
+                    CUSTOMPROPERTY11: ''
+                    CUSTOMPROPERTY12: ''
+                    CUSTOMPROPERTY13: ''
+                    CUSTOMPROPERTY14: ''
+                    CUSTOMPROPERTY15: ''
+                    CUSTOMPROPERTY16: ''
+                    CUSTOMPROPERTY17: ''
+                    CUSTOMPROPERTY18: ''
+                    CUSTOMPROPERTY19: ''
+                    CUSTOMPROPERTY2: ''
+                    CUSTOMPROPERTY20: ''
+                    CUSTOMPROPERTY3: ''
+                    CUSTOMPROPERTY4: ''
+                    CUSTOMPROPERTY5: ''
+                    CUSTOMPROPERTY6: ''
+                    CUSTOMPROPERTY7: ''
+                    CUSTOMPROPERTY8: ''
+                    CUSTOMPROPERTY9: ''
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: Used by PAM extended solution
+                    ROLENAME: ROLE_SAV_PAM_EXTENSIONS
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:32.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: SAV4SAV ROLE
+                    ROLENAME: ROLE_SAV4SAV_ADMIN
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:22:07.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'false'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: SOD AUDITOR
+                    ROLENAME: ROLE_SOD_AUDITOR
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-04 09:27:39.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: ''
+                    CUSTOMPROPERTY17: ''
+                    CUSTOMPROPERTY18: ''
+                    CUSTOMPROPERTY19: ''
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: ''
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'false'
+                    READONLY: 'null'
+                    ROLEDESCRIPTION: Role service account
+                    ROLENAME: ROLE_SERVICE_ACCOUNT
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-03 13:37:20.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'false'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: test
+                    ROLENAME: ROLE_TEST
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-04 12:30:18.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'false'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: COPY OF ADMIN USER
+                    ROLENAME: ROLE_ADMIN -COPY
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-11 15:46:29.0'
+                    UPDATEUSER: admin
+          examples:
+            Get SavRoles:
+              value:
+                savroles:
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: ADMIN USER
+                    ROLENAME: ROLE_ADMIN
+                    STATUSKEY: Active
+                    UPDATEDATE: '2021-06-01 06:47:27.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: ROLE_ADMIN_SAVIYNTSUPPORT USER
+                    ROLENAME: ROLE_ADMIN_SAVIYNTSUPPORT
+                    STATUSKEY: Active
+                    UPDATEDATE: '2021-06-01 06:58:24.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: ''
+                    CUSTOMPROPERTY10: ''
+                    CUSTOMPROPERTY11: ''
+                    CUSTOMPROPERTY12: ''
+                    CUSTOMPROPERTY13: ''
+                    CUSTOMPROPERTY14: ''
+                    CUSTOMPROPERTY15: ''
+                    CUSTOMPROPERTY16: ''
+                    CUSTOMPROPERTY17: ''
+                    CUSTOMPROPERTY18: ''
+                    CUSTOMPROPERTY19: ''
+                    CUSTOMPROPERTY2: ''
+                    CUSTOMPROPERTY20: ''
+                    CUSTOMPROPERTY3: ''
+                    CUSTOMPROPERTY4: ''
+                    CUSTOMPROPERTY5: ''
+                    CUSTOMPROPERTY6: ''
+                    CUSTOMPROPERTY7: ''
+                    CUSTOMPROPERTY8: ''
+                    CUSTOMPROPERTY9: ''
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: PAM END USER ROLE
+                    ROLENAME: ROLE_SAV_PAMENDUSER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:26.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: ''
+                    CUSTOMPROPERTY10: ''
+                    CUSTOMPROPERTY11: ''
+                    CUSTOMPROPERTY12: ''
+                    CUSTOMPROPERTY13: ''
+                    CUSTOMPROPERTY14: ''
+                    CUSTOMPROPERTY15: ''
+                    CUSTOMPROPERTY16: ''
+                    CUSTOMPROPERTY17: ''
+                    CUSTOMPROPERTY18: ''
+                    CUSTOMPROPERTY19: ''
+                    CUSTOMPROPERTY2: ''
+                    CUSTOMPROPERTY20: ''
+                    CUSTOMPROPERTY3: ''
+                    CUSTOMPROPERTY4: ''
+                    CUSTOMPROPERTY5: ''
+                    CUSTOMPROPERTY6: ''
+                    CUSTOMPROPERTY7: ''
+                    CUSTOMPROPERTY8: ''
+                    CUSTOMPROPERTY9: ''
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: PAM MANAGEMENT ROLE
+                    ROLENAME: ROLE_SAV_PAMOWNER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:26.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: END USER ROLE
+                    ROLENAME: ROLE_SAV_ENDUSER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: MANAGER ROLE
+                    ROLENAME: ROLE_SAV_MANAGER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: SOD OWNER ROLE
+                    ROLENAME: ROLE_SAV_SODOWNER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: >-
+                      SAV Role to provide access to all the OOTB personas
+                      shipped with Control Center. This won’t have access to PAM
+                      Owner persona.
+                    ROLENAME: ROLE_SAV_CONTROLCENTER_IGAOWNER
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'true'
+                    ROLEDESCRIPTION: ROLE SAV AUDITOR READONLY
+                    ROLENAME: ROLE_SAV_AUDITOR_READONLY
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: UI ADMIN USER ROLE
+                    ROLENAME: ROLE_UIADMIN
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:28.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: ''
+                    CUSTOMPROPERTY10: ''
+                    CUSTOMPROPERTY11: ''
+                    CUSTOMPROPERTY12: ''
+                    CUSTOMPROPERTY13: ''
+                    CUSTOMPROPERTY14: ''
+                    CUSTOMPROPERTY15: ''
+                    CUSTOMPROPERTY16: ''
+                    CUSTOMPROPERTY17: ''
+                    CUSTOMPROPERTY18: ''
+                    CUSTOMPROPERTY19: ''
+                    CUSTOMPROPERTY2: ''
+                    CUSTOMPROPERTY20: ''
+                    CUSTOMPROPERTY3: ''
+                    CUSTOMPROPERTY4: ''
+                    CUSTOMPROPERTY5: ''
+                    CUSTOMPROPERTY6: ''
+                    CUSTOMPROPERTY7: ''
+                    CUSTOMPROPERTY8: ''
+                    CUSTOMPROPERTY9: ''
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: Used by PAM extended solution
+                    ROLENAME: ROLE_SAV_PAM_EXTENSIONS
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:21:32.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'true'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: SAV4SAV ROLE
+                    ROLENAME: ROLE_SAV4SAV_ADMIN
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-02 04:22:07.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'false'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: SOD AUDITOR
+                    ROLENAME: ROLE_SOD_AUDITOR
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-04 09:27:39.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: ''
+                    CUSTOMPROPERTY17: ''
+                    CUSTOMPROPERTY18: ''
+                    CUSTOMPROPERTY19: ''
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: ''
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'false'
+                    READONLY: 'null'
+                    ROLEDESCRIPTION: Role service account
+                    ROLENAME: ROLE_SERVICE_ACCOUNT
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-03 13:37:20.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'false'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: test
+                    ROLENAME: ROLE_TEST
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-04 12:30:18.0'
+                    UPDATEUSER: admin
+                  - CUSTOMPROPERTY1: 'null'
+                    CUSTOMPROPERTY10: 'null'
+                    CUSTOMPROPERTY11: 'null'
+                    CUSTOMPROPERTY12: 'null'
+                    CUSTOMPROPERTY13: 'null'
+                    CUSTOMPROPERTY14: 'null'
+                    CUSTOMPROPERTY15: 'null'
+                    CUSTOMPROPERTY16: 'null'
+                    CUSTOMPROPERTY17: 'null'
+                    CUSTOMPROPERTY18: 'null'
+                    CUSTOMPROPERTY19: 'null'
+                    CUSTOMPROPERTY2: 'null'
+                    CUSTOMPROPERTY20: 'null'
+                    CUSTOMPROPERTY3: 'null'
+                    CUSTOMPROPERTY4: 'null'
+                    CUSTOMPROPERTY5: 'null'
+                    CUSTOMPROPERTY6: 'null'
+                    CUSTOMPROPERTY7: 'null'
+                    CUSTOMPROPERTY8: 'null'
+                    CUSTOMPROPERTY9: 'null'
+                    HOMEPAGE: 'null'
+                    ISOOTB: 'false'
+                    READONLY: 'false'
+                    ROLEDESCRIPTION: COPY OF ADMIN USER
+                    ROLENAME: ROLE_ADMIN -COPY
+                    STATUSKEY: Active
+                    UPDATEDATE: '2022-11-11 15:46:29.0'
+                    UPDATEUSER: admin
+  security:
+    - bearerAuth: []

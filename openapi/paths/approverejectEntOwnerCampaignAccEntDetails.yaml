@@ -1,0 +1,164 @@
+post:
+  tags:
+    - Entitlement Owner Campaigns
+  summary: Approve Reject Account Entitlement Details
+  description: >-
+    This API is used to certify/revoke the user's access (account, entitlement).
+    When an approve or reject action is performed for a line item in an
+    Entitlement Owner campaign, then only the latest comment sent through the
+    API is retained in the comments field but all the comments (including
+    actions) are stored in the audit trail/history.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `campaignid`
+
+    `certkey`
+
+    `verifier`
+
+    `entitlements` 1.
+    `action`(APPROVED/REJECTED/DECOMMISSIONED/DOESNOTBELONGTOME) 2. `entattkey`
+    3. `certified`(Can be Yes/No/Reset) 4. `comments`
+     OR 
+
+    `accounts`
+     1. `action`(APPROVED/REJECTED)
+     2. `accattkey`
+     3. `entattkey`
+     4. `certified`(Can be Yes/No/Reset)
+     5. `comments`
+
+     OR 
+
+    `entitlements2`
+     1. `action`(APPROVED/REJECTED)
+     2. `entattkey`
+     3. `ent2attkey`
+     4. `certified`(Can be Yes/No/Reset)
+     5. `comments`
+    Optional params:
+
+    `bulkUpdate`(Can be Y or N) If set to Y, approveComments or rejectComments
+    will be considered at the global level. If set to 'N' then comments at the
+    individual record/user level is considered.
+
+    `approveComment`
+
+    `rejectComment`
+
+    `doesNotBelongToMeComment`
+
+    `bulkValidations`(If 'Y' the code works as is and all validations happen, if
+    bulkValidations=' N' the code will skip validations for all the records
+    passed)
+  operationId: approveRejectAccountEntitlementDetails
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            accounts:
+              type: array
+              items:
+                type: object
+                properties:
+                  accattkey:
+                    type: string
+                    example: '25290'
+                  action:
+                    type: string
+                    example: APPROVED
+                  entattkey:
+                    type: string
+                    example: '30897'
+              example:
+                - accattkey: '25290'
+                  action: APPROVED
+                  entattkey: '30897'
+                - accattkey: '25291'
+                  action: REJECTED
+                  entattkey: '30897'
+            approveComment:
+              type: string
+              example: Approve Comment Test123!!@#$%^&*
+            bulkUpdate:
+              type: string
+              example: 'Y'
+            bulkValidations:
+              type: string
+              example: 'Y'
+            campaignid:
+              type: string
+              example: '1112'
+            certkey:
+              type: string
+              example: '5995'
+            doesNotBelongToMeComment:
+              type: string
+              example: DoesNotBelongToMeComment Test 123!!@#$%^&
+            entitlements2:
+              type: array
+              items:
+                type: object
+                properties:
+                  action:
+                    type: string
+                    example: APPROVED
+                  comments:
+                    type: string
+                    example: Approve Comment Test123!!@#$%^&*
+                  ent2attkey:
+                    type: string
+                    example: '30906'
+                  entattkey:
+                    type: string
+                    example: '30897'
+              example:
+                - action: APPROVED
+                  comments: Approve Comment Test123!!@#$%^&*
+                  ent2attkey: '30906'
+                  entattkey: '30897'
+                - action: REJECTED
+                  comments: Reject Comment Test123!!@#$%^&*
+                  ent2attkey: '30907'
+                  entattkey: '30897'
+            rejectComment:
+              type: string
+              example: Reject Comment Test123!!@#$%^&*
+            verifier:
+              type: string
+              example: RO_Owner1
+        examples:
+          Approve Reject Account Entitlement Details:
+            value:
+              accounts:
+                - accattkey: '25290'
+                  action: APPROVED
+                  entattkey: '30897'
+                - accattkey: '25291'
+                  action: REJECTED
+                  entattkey: '30897'
+              approveComment: Approve Comment Test123!!@#$%^&*
+              bulkUpdate: 'Y'
+              bulkValidations: 'Y'
+              campaignid: '1112'
+              certkey: '5995'
+              doesNotBelongToMeComment: DoesNotBelongToMeComment Test 123!!@#$%^&
+              entitlements2:
+                - action: APPROVED
+                  comments: Approve Comment Test123!!@#$%^&*
+                  ent2attkey: '30906'
+                  entattkey: '30897'
+                - action: REJECTED
+                  comments: Reject Comment Test123!!@#$%^&*
+                  ent2attkey: '30907'
+                  entattkey: '30897'
+              rejectComment: Reject Comment Test123!!@#$%^&*
+              verifier: RO_Owner1
+  responses:
+    '200':
+      description: ''

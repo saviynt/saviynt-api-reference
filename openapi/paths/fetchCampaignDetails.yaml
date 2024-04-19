@@ -1,0 +1,323 @@
+post:
+  tags:
+    - Campaigns
+    - User Manager
+  summary: Fetch Campaign Details
+  description: >-
+    This API return details of a particular campaign required for employee
+    verification. 
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `campaignId`
+
+    Optional params:
+
+    `certifierUsername`
+
+    `certkey`
+
+    `max`
+
+    `offset`
+
+    `showCampaignConfig` (True/ False) Returns the campaign configuration
+    details when set to True.
+
+    ***Note***: The user attributes in the response is driven by the attributes
+    selected during the campaign launch.
+  operationId: fetchCampaignDetails
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            campaignId:
+              type: string
+              example: '232'
+        examples:
+          Fetch Campaign Details:
+            value:
+              campaignId: '232'
+  responses:
+    '200':
+      description: Fetch Campaign Details
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 25 Apr 2019 20:41:00 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=e46e8de2-fe87-4986-8bdb-fb927923a1c1; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              Total Preview Certification:
+                type: array
+                items:
+                  type: string
+                  example: testLock2 - dbailey (Damien Bailey)
+                example:
+                  - testLock2 - dbailey (Damien Bailey)
+              campaignDetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    certificationame:
+                      type: string
+                      example: testLock2 - dbailey (Damien Bailey)
+                    certifier:
+                      type: string
+                      example: dlogan
+                    certkey:
+                      type: string
+                      example: '12258'
+                    progress:
+                      type: string
+                      example: 100%
+                    status:
+                      type: string
+                      example: Locked And Task Created
+                    usercount:
+                      type: number
+                      example: 5
+                    users:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          certfied:
+                            type: string
+                            example: WORKSFORME
+                          comment:
+                            type: string
+                            example: ''
+                          comments:
+                            type: string
+                            example: ''
+                          consulted:
+                            type: string
+                            example: 'true'
+                          displayname:
+                            type: string
+                            example: Tabitha Bowers
+                          firstname:
+                            type: string
+                            example: Tabitha
+                          totalaccount:
+                            type: number
+                            example: 5
+                          updateuser:
+                            type: string
+                            example: dbailey
+                          username:
+                            type: string
+                            example: tbowers
+                      example:
+                        - certfied: WORKSFORME
+                          comment: ''
+                          comments: ''
+                          consulted: 'true'
+                          displayname: Tabitha Bowers
+                          firstname: Tabitha
+                          totalaccount: 5
+                          updateuser: dbailey
+                          username: tbowers
+                        - certfied: WORKSFORME
+                          comment: >-
+                            [02/26/19-(admin)] test comments for
+                            dbailey[02/26/19-(admin)] test comments for
+                            dbailey[02/26/19-(admin)] test comments for
+                            dbailey[02/26/19-(admin)] test comments for
+                            dbailey[02/26/19-(admin)] test comments for dbailey
+                          comments: ''
+                          consulted: 'true'
+                          displayname: Ariana Hinton
+                          firstname: Ariana
+                          totalaccount: 1
+                          updateuser: dbailey
+                          username: 00039016-9acb-495d-8912-7bc289d0af1b
+                        - certfied: WORKSFORME
+                          comment: '[02/26/19-(admin)] test comments for DEWHE0'
+                          comments: ''
+                          consulted: 'false'
+                          displayname: ''
+                          firstname: Mathew
+                          totalaccount: 2
+                          updateuser: dbailey
+                          username: '194422'
+                        - certfied: WORKSFORME
+                          comment: ''
+                          comments: ''
+                          consulted: 'false'
+                          displayname: ''
+                          firstname: Shania
+                          totalaccount: 2
+                          updateuser: dbailey
+                          username: '194445'
+                        - certfied: WORKSFORME
+                          comment: ''
+                          comments: ''
+                          consulted: 'false'
+                          displayname: ''
+                          firstname: Cody
+                          totalaccount: 1
+                          updateuser: dbailey
+                          username: '194446'
+                example:
+                  - certificationame: testLock2 - dbailey (Damien Bailey)
+                    certifier: dlogan
+                    certkey: '12258'
+                    progress: 100%
+                    status: Locked And Task Created
+                    usercount: 5
+                    users:
+                      - certfied: WORKSFORME
+                        comment: ''
+                        comments: ''
+                        consulted: 'true'
+                        displayname: Tabitha Bowers
+                        firstname: Tabitha
+                        totalaccount: 5
+                        updateuser: dbailey
+                        username: tbowers
+                      - certfied: WORKSFORME
+                        comment: >-
+                          [02/26/19-(admin)] test comments for
+                          dbailey[02/26/19-(admin)] test comments for
+                          dbailey[02/26/19-(admin)] test comments for
+                          dbailey[02/26/19-(admin)] test comments for
+                          dbailey[02/26/19-(admin)] test comments for dbailey
+                        comments: ''
+                        consulted: 'true'
+                        displayname: Ariana Hinton
+                        firstname: Ariana
+                        totalaccount: 1
+                        updateuser: dbailey
+                        username: 00039016-9acb-495d-8912-7bc289d0af1b
+                      - certfied: WORKSFORME
+                        comment: '[02/26/19-(admin)] test comments for DEWHE0'
+                        comments: ''
+                        consulted: 'false'
+                        displayname: ''
+                        firstname: Mathew
+                        totalaccount: 2
+                        updateuser: dbailey
+                        username: '194422'
+                      - certfied: WORKSFORME
+                        comment: ''
+                        comments: ''
+                        consulted: 'false'
+                        displayname: ''
+                        firstname: Shania
+                        totalaccount: 2
+                        updateuser: dbailey
+                        username: '194445'
+                      - certfied: WORKSFORME
+                        comment: ''
+                        comments: ''
+                        consulted: 'false'
+                        displayname: ''
+                        firstname: Cody
+                        totalaccount: 1
+                        updateuser: dbailey
+                        username: '194446'
+              campaignId:
+                type: string
+                example: '232'
+              complete:
+                type: string
+                example: 'Yes'
+              count:
+                type: number
+                example: 1
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: successful
+          examples:
+            Fetch Campaign Details:
+              value:
+                Total Preview Certification:
+                  - testLock2 - dbailey (Damien Bailey)
+                campaignDetails:
+                  - certificationame: testLock2 - dbailey (Damien Bailey)
+                    certifier: dlogan
+                    certkey: '12258'
+                    progress: 100%
+                    status: Locked And Task Created
+                    usercount: 5
+                    users:
+                      - certfied: WORKSFORME
+                        comment: ''
+                        comments: ''
+                        consulted: 'true'
+                        displayname: Tabitha Bowers
+                        firstname: Tabitha
+                        totalaccount: 5
+                        updateuser: dbailey
+                        username: tbowers
+                      - certfied: WORKSFORME
+                        comment: >-
+                          [02/26/19-(admin)] test comments for
+                          dbailey[02/26/19-(admin)] test comments for
+                          dbailey[02/26/19-(admin)] test comments for
+                          dbailey[02/26/19-(admin)] test comments for
+                          dbailey[02/26/19-(admin)] test comments for dbailey
+                        comments: ''
+                        consulted: 'true'
+                        displayname: Ariana Hinton
+                        firstname: Ariana
+                        totalaccount: 1
+                        updateuser: dbailey
+                        username: 00039016-9acb-495d-8912-7bc289d0af1b
+                      - certfied: WORKSFORME
+                        comment: '[02/26/19-(admin)] test comments for DEWHE0'
+                        comments: ''
+                        consulted: 'false'
+                        displayname: ''
+                        firstname: Mathew
+                        totalaccount: 2
+                        updateuser: dbailey
+                        username: '194422'
+                      - certfied: WORKSFORME
+                        comment: ''
+                        comments: ''
+                        consulted: 'false'
+                        displayname: ''
+                        firstname: Shania
+                        totalaccount: 2
+                        updateuser: dbailey
+                        username: '194445'
+                      - certfied: WORKSFORME
+                        comment: ''
+                        comments: ''
+                        consulted: 'false'
+                        displayname: ''
+                        firstname: Cody
+                        totalaccount: 1
+                        updateuser: dbailey
+                        username: '194446'
+                campaignId: '232'
+                complete: 'Yes'
+                count: 1
+                errorCode: '0'
+                msg: successful

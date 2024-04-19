@@ -1,0 +1,97 @@
+servers:
+  - url: 'https://{tenant}.saviyntcloud.com/ECM'
+    variables:
+      tenant:
+        description: tenant
+        default: example
+post:
+  operationId: refreshAuthorizationToken
+  tags:
+    - Authentication
+  summary: Refresh Authorization Token
+  description: >-
+    Saviynt Enterprise Identity Cloud (EIC) supports OAuth2.0 . OAuth 2.0 is the
+    industry-standard protocol for authorization. OAuth 2.0 focuses on client
+    developer simplicity while providing specific authorization flows for web
+    applications. For more information refer link below.
+
+    **Note**_**:**_ If
+    grails.plugin.springsecurity.rest.refreshtoken.storage.jwt.expiration is set
+    to some value in Config.groovy, refresh token will expire based on this
+    config in api/login api. This will generate a new refresh token if another
+    config - grails.plugin.springsecurity.rest.refreshtoken.new is set to true
+    in Config.groovy. For blank or null, it will return the same Refresh token
+    as passed in oauth/access_token api
+
+    [OAuth 2.0 documentation](https://oauth.net/2/)
+  security: []
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            grant_type:
+              type: string
+              example: refresh_token
+            refresh_token:
+              type: string
+              example: '************'
+        examples:
+          Refresh Authorization Token:
+            value:
+              grant_type: refresh_token
+              refresh_token: '************'
+  responses:
+    '200':
+      description: Refresh Token
+      headers:
+        Cache-Control:
+          schema:
+            type: string
+            example: no-store
+        Date:
+          schema:
+            type: string
+            example: 'Mon, 20 Aug 2018 17:49:19 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              access_token:
+                type: string
+                example: newaccesstoken
+              expires_in:
+                type: number
+                example: 1800
+              refresh_token:
+                type: string
+                example: ''
+              roles:
+                type: array
+                items:
+                  type: string
+                  example: ROLE_ADMIN
+                example:
+                  - ROLE_ADMIN
+              token_type:
+                type: string
+                example: Bearer
+              username:
+                type: string
+                example: admin
+          examples:
+            Refresh Token:
+              value:
+                access_token: newaccesstoken
+                expires_in: 1800
+                refresh_token: ''
+                roles:
+                  - ROLE_ADMIN
+                token_type: Bearer
+                username: admin

@@ -1,0 +1,94 @@
+post:
+  tags:
+    - Campaigns
+  summary: Lock Campaign
+  description: >-
+    This API is used to lock campaign after validating whether campaign is
+    completed or not.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `campaignId`, `verifier`
+
+    Optional params:
+
+    `certkey`, `lockComments`
+  operationId: lockCampaign
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            campaignId:
+              type: string
+              example: '227'
+        examples:
+          Lock Campaign:
+            value:
+              campaignId: '227'
+  responses:
+    '200':
+      description: Lock Campaign
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 05 Dec 2018 20:49:27 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=7958f5b1-8e92-4d46-abaf-fa3ae84a1ee6; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              Total Incomplete certification:
+                type: array
+                items: {}
+                example: []
+              Total locked certification:
+                type: array
+                items:
+                  type: string
+                  example: testLock1 - smarquez (Shania Marquez)
+                example:
+                  - testLock1 - smarquez (Shania Marquez)
+                  - testLock1 - crichards (Cody Richards)
+              errorCode:
+                type: string
+                example: '0'
+              lockedcertkey:
+                type: array
+                items:
+                  type: number
+                  example: 12255
+                example:
+                  - 12255
+                  - 12256
+              msg:
+                type: string
+                example: Success
+          examples:
+            Lock Campaign:
+              value:
+                Total Incomplete certification: []
+                Total locked certification:
+                  - testLock1 - smarquez (Shania Marquez)
+                  - testLock1 - crichards (Cody Richards)
+                errorCode: '0'
+                lockedcertkey:
+                  - 12255
+                  - 12256
+                msg: Success

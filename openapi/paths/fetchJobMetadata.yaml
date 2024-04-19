@@ -1,0 +1,91 @@
+post:
+  tags:
+    - Job Management
+  summary: Fetch Job Metadata
+  description: "This API call return job metadata for the last run of a job in SSM.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n\r\n`jobname`\r\n\r\nOptional params:\r\n\r\n`triggername`\r\n\r\n`jobgroup`\r\n\r\n***Note***: The structure of the result param in response can change based upon the Job History saved in SSM"
+  operationId: fetchJobMetadata
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            jobname:
+              type: string
+              example: TestConnectionsJob
+            jobstartdate:
+              type: string
+              example: '2020-01-17 07:57:34'
+            triggername:
+              type: string
+              example: testconn
+        examples:
+          Fetch Job Metadata:
+            value:
+              jobname: TestConnectionsJob
+              jobstartdate: '2020-01-17 07:57:34'
+              triggername: testconn
+  responses:
+    '200':
+      description: Fetch Job Metadata
+      headers:
+        Content-Length:
+          schema:
+            type: string
+            example: '0'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 12 Feb 2020 23:10:32 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        WWW-Authenticate:
+          schema:
+            type: string
+            example: Bearer
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: number
+                example: 0
+              msg:
+                type: string
+                example: Success
+              result:
+                type: object
+                properties:
+                  TestConnectionsJob:
+                    type: object
+                    properties:
+                      EndTime:
+                        type: string
+                        example: 'Fri Jan 17 07:54:57 UTC 2020'
+                      JobCompleted:
+                        type: string
+                        example: Completed
+                      Result:
+                        type: string
+                        example: >-
+                          <br>DBTest000 : Connection Failed<br>Dbdb2 : Unknown
+                          database 'cisco'
+                      StartTime:
+                        type: string
+                        example: 'Fri Jan 17 07:54:36 UTC 2020'
+          examples:
+            Fetch Job Metadata:
+              value:
+                errorCode: 0
+                msg: Success
+                result:
+                  TestConnectionsJob:
+                    EndTime: 'Fri Jan 17 07:54:57 UTC 2020'
+                    JobCompleted: Completed
+                    Result: >-
+                      <br>DBTest000 : Connection Failed<br>Dbdb2 : Unknown
+                      database 'cisco'
+                    StartTime: 'Fri Jan 17 07:54:36 UTC 2020'

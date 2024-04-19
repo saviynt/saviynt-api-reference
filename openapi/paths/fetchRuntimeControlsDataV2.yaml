@@ -1,0 +1,260 @@
+post:
+  tags:
+    - Analytics
+  summary: Fetch Runtime Controls Data V2
+  description: "This API is used to fetch runtime analytics data from ES.\n\nThe `Authorization` must have `Bearer` followed by `Token`.\n\nMandatory params: \n`analyticsid` ***OR*** `analyticsname`((if both are passed then analyticsid will be considered),\n`attributes` - runtime control params. \nSample : For this query - SELECT u.username, u.firstname, u.lastname, u.email, u.manager AS 'USERCONTEXT',u.statuskey FROM users u WHERE u.statuskey is not null and u.statuskey not in (${statuskey}) and u.MANAGER is not null;\n\"attributes\":{\n\t\"statuskey\": \"0\"\n}\n\nOptional params:\n`max`,\n`offset`,\n`requestor`"
+  operationId: fetchRuntimeControlsDataV2
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            analyticsid:
+              type: string
+              example: '121601'
+            analyticsname:
+              type: string
+              example: Direct Reports Runtime1
+            attributes:
+              type: object
+              properties:
+                statuskey:
+                  type: string
+                  example: '0'
+            max:
+              type: string
+              example: '10'
+            offset:
+              type: string
+              example: '15'
+            requestor:
+              type: string
+              example: admin
+        examples:
+          Fetch Runtime Controls Data V2:
+            value:
+              analyticsid: '121601'
+              analyticsname: Direct Reports Runtime1
+              attributes:
+                statuskey: '0'
+              max: '10'
+              offset: '15'
+              requestor: admin
+  responses:
+    '200':
+      description: Fetch Runtime Controls Data V2
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 17 Jun 2021 22:51:50 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=c4c6e980-1b35-43d6-b41f-6cdf07ac4a8c; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              displaycount:
+                type: number
+                example: 10
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: success
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    USERCONTEXT:
+                      type: string
+                      example: '3'
+                    email:
+                      type: string
+                      example: example@saviynt.com
+                    firstname:
+                      type: string
+                      example: amelia
+                    lastname:
+                      type: string
+                      example: caputo
+                    statuskey:
+                      type: string
+                      example: '1'
+                    username:
+                      type: string
+                      example: '1000045'
+                example:
+                  - USERCONTEXT: '3'
+                    email: example@saviynt.com
+                    firstname: amelia
+                    lastname: caputo
+                    statuskey: '1'
+                    username: '1000045'
+                  - USERCONTEXT: '3'
+                    email: example@saviynt.com
+                    firstname: angelo
+                    lastname: ferentz
+                    statuskey: '1'
+                    username: '1000046'
+                  - USERCONTEXT: '4'
+                    email: example@saviynt.com
+                    firstname: Gerard
+                    lastname: Meranville
+                    statuskey: '1'
+                    username: '1000047'
+                  - USERCONTEXT: '320156'
+                    email: example@saviynt.com
+                    firstname: Daniele
+                    lastname: Marc
+                    statuskey: '1'
+                    username: '1000060'
+                  - USERCONTEXT: '317299'
+                    email: example@saviynt.com
+                    firstname: Jocelyne
+                    lastname: Capelle
+                    statuskey: '1'
+                    username: '1000092'
+                  - USERCONTEXT: '3'
+                    email: example@saviynt.com
+                    firstname: Don
+                    lastname: Goodliffe
+                    statuskey: '1'
+                    username: '1000129'
+                  - USERCONTEXT: '320156'
+                    email: example@saviynt.com
+                    firstname: Dimitri
+                    lastname: Dautel
+                    statuskey: '1'
+                    username: '1000132'
+                  - USERCONTEXT: '317203'
+                    email: example@saviynt.com
+                    firstname: Valerie
+                    lastname: Lavaud
+                    statuskey: '1'
+                    username: '1000137'
+                  - USERCONTEXT: '317342'
+                    email: example@saviynt.com
+                    firstname: Cecile
+                    lastname: Talmon
+                    statuskey: '1'
+                    username: '1000170'
+                  - USERCONTEXT: '1'
+                    email: example@saviynt.com
+                    firstname: Helene
+                    lastname: Diot
+                    statuskey: '1'
+                    username: '1000246'
+              totalcount:
+                type: number
+                example: 28433
+          examples:
+            Fetch Runtime Controls Data V2:
+              value:
+                displaycount: 10
+                errorcode: '0'
+                msg: success
+                results:
+                  - USERCONTEXT: '3'
+                    email: example@saviynt.com
+                    firstname: amelia
+                    lastname: caputo
+                    statuskey: '1'
+                    username: '1000045'
+                  - USERCONTEXT: '3'
+                    email: example@saviynt.com
+                    firstname: angelo
+                    lastname: ferentz
+                    statuskey: '1'
+                    username: '1000046'
+                  - USERCONTEXT: '4'
+                    email: example@saviynt.com
+                    firstname: Gerard
+                    lastname: Meranville
+                    statuskey: '1'
+                    username: '1000047'
+                  - USERCONTEXT: '320156'
+                    email: example@saviynt.com
+                    firstname: Daniele
+                    lastname: Marc
+                    statuskey: '1'
+                    username: '1000060'
+                  - USERCONTEXT: '317299'
+                    email: example@saviynt.com
+                    firstname: Jocelyne
+                    lastname: Capelle
+                    statuskey: '1'
+                    username: '1000092'
+                  - USERCONTEXT: '3'
+                    email: example@saviynt.com
+                    firstname: Don
+                    lastname: Goodliffe
+                    statuskey: '1'
+                    username: '1000129'
+                  - USERCONTEXT: '320156'
+                    email: example@saviynt.com
+                    firstname: Dimitri
+                    lastname: Dautel
+                    statuskey: '1'
+                    username: '1000132'
+                  - USERCONTEXT: '317203'
+                    email: example@saviynt.com
+                    firstname: Valerie
+                    lastname: Lavaud
+                    statuskey: '1'
+                    username: '1000137'
+                  - USERCONTEXT: '317342'
+                    email: example@saviynt.com
+                    firstname: Cecile
+                    lastname: Talmon
+                    statuskey: '1'
+                    username: '1000170'
+                  - USERCONTEXT: '1'
+                    email: example@saviynt.com
+                    firstname: Helene
+                    lastname: Diot
+                    statuskey: '1'
+                    username: '1000246'
+                totalcount: 28433

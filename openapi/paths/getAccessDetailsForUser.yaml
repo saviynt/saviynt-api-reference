@@ -1,0 +1,830 @@
+post:
+  tags:
+    - Access
+  summary: Get Access Details For User
+  description: "This API call can be used to get the user details, account details, and details of all the entitlements the user has access to. \r\n\r\nThis API will return only the entitlement attributes which are not null or not empty.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`username`\r\n\r\nOptional params:\r\n`endpoint`, `max`, `offset`, `entitlementtype`\r\n\r\n***Note*** - This API supports GET HTTP method along with POST."
+  operationId: getAccessDetailsForUser
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            endpoint:
+              type: string
+              example: System1
+            username:
+              type: string
+              example: johndoe
+  responses:
+    '200':
+      description: Get Access Details For User
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 08 Aug 2018 00:13:55 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=78a59564-c96d-4d24-9cc1-e05522d397dd; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              Accountdetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    createdon:
+                      type: string
+                      example: 07/26/2018
+                    customproperty1:
+                      type: string
+                      example: cp1
+                    customproperty10:
+                      type: string
+                      example: cp10
+                    customproperty2:
+                      type: string
+                      example: cp2
+                    customproperty20:
+                      type: string
+                      example: cp20
+                    customproperty30:
+                      type: string
+                      example: cp30
+                    description:
+                      type: string
+                      example: desc
+                    endpoint:
+                      type: string
+                      example: System1
+                    name:
+                      type: string
+                      example: janedoe
+                    status:
+                      type: string
+                      example: '1'
+                example:
+                  - createdon: 07/26/2018
+                    customproperty1: cp1
+                    customproperty10: cp10
+                    customproperty2: cp2
+                    customproperty20: cp20
+                    customproperty30: cp30
+                    description: desc
+                    endpoint: System1
+                    name: janedoe
+                    status: '1'
+              Entitlementdetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    access:
+                      type: string
+                      example: Select
+                    confidentiality:
+                      type: string
+                      example: '0'
+                    customproperty1:
+                      type: string
+                      example: test
+                    customproperty20:
+                      type: string
+                      example: cp20
+                    customproperty3:
+                      type: string
+                      example: cp3
+                    customproperty8:
+                      type: string
+                      example: cp8
+                    description:
+                      type: string
+                      example: ''
+                    displayname:
+                      type: string
+                      example: Display Name One
+                    endpoint:
+                      type: string
+                      example: System1
+                    entitlementOwner:
+                      example:
+                        - jamessmith
+                        - peterpan
+                      anyOf:
+                        - type: array
+                          items:
+                            type: string
+                            example: jamessmith
+                          example:
+                            - jamessmith
+                            - peterpan
+                        - type: string
+                          example: ''
+                        - type: string
+                          example: ''
+                        - type: string
+                          example: ''
+                        - type: string
+                          example: ''
+                    entitlementType:
+                      type: string
+                      example: Access
+                    entitlement_glossary:
+                      type: string
+                      example: ''
+                    entitlement_value:
+                      type: string
+                      example: Entitlement1
+                    module:
+                      type: string
+                      example: Select
+                    priviliged:
+                      type: string
+                      example: '0'
+                    requestForm:
+                      type: string
+                      example: Request Form Table
+                    risk:
+                      type: string
+                      example: '0'
+                    soxcritical:
+                      type: string
+                      example: '0'
+                    status:
+                      type: string
+                      example: '1'
+                    syscritical:
+                      type: string
+                      example: '0'
+                    updatedate:
+                      type: string
+                      example: 04/08/2017
+                    updateuser:
+                      type: string
+                      example: '1'
+                example:
+                  - access: Select
+                    confidentiality: '0'
+                    customproperty1: test
+                    description: ''
+                    displayname: Display Name One
+                    endpoint: System1
+                    entitlementOwner:
+                      - jamessmith
+                      - peterpan
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement1
+                    module: Select
+                    priviliged: '0'
+                    requestForm: Request Form Table
+                    risk: '0'
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/08/2017
+                    updateuser: '1'
+                  - access: Select
+                    confidentiality: '0'
+                    customproperty1: test
+                    description: ''
+                    displayname: Display Name One
+                    endpoint: System1
+                    entitlementOwner:
+                      - jamessmith
+                      - peterpan
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement2
+                    module: Select
+                    priviliged: '0'
+                    requestForm: Request Form Table
+                    risk: '0'
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/08/2017
+                    updateuser: '1'
+                  - access: Select
+                    confidentiality: '0'
+                    customproperty1: test
+                    description: ''
+                    displayname: Display Name One
+                    endpoint: System1
+                    entitlementOwner:
+                      - jamessmith
+                      - peterpan
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement3
+                    module: Select
+                    priviliged: '0'
+                    requestForm: Request Form Table
+                    risk: '0'
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/08/2017
+                    updateuser: '1'
+                  - customproperty1: test
+                    description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner:
+                      - jamessmith
+                      - janedoe
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement4
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                  - customproperty1: ap1
+                    customproperty20: cp20
+                    customproperty3: cp3
+                    customproperty8: cp8
+                    description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement5
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/27/2018
+                    updateuser: '191327'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement6
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: >-
+                      Entitlement Name for testing the codec issue within user
+                      manager attestation
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement7
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+              PrivilegeDetails:
+                type: array
+                items: {}
+                example: []
+              UserDetails:
+                type: object
+                properties:
+                  Company Name:
+                    type: string
+                    example: Information Technology International
+                  Create Date:
+                    type: string
+                    example: '03/28/2018T07:00:00+0000'
+                  customproperty1:
+                    type: string
+                    example: IP
+                  Department Name:
+                    type: string
+                    example: IAM
+                  Job Function:
+                    type: string
+                    example: A dummy name for a Skill Pool Group
+                  Last Name:
+                    type: string
+                    example: Doe
+                  Orgunit ID:
+                    type: string
+                    example: CO
+                  User Name:
+                    type: string
+                    example: johndoe
+                  accountExpired:
+                    type: string
+                    example: 'false'
+                  accountLocked:
+                    type: string
+                    example: 'false'
+                  city:
+                    type: string
+                    example: Atlanta
+                  comments:
+                    type: string
+                    example: test
+                  country:
+                    type: string
+                    example: US
+                  createdBy:
+                    type: string
+                    example: admin
+                  customproperty10:
+                    type: string
+                    example: ''
+                  customproperty11:
+                    type: string
+                    example: ''
+                  customproperty12:
+                    type: string
+                    example: zzzTHIRD
+                  customproperty13:
+                    type: string
+                    example: ABCDE
+                  customproperty14:
+                    type: string
+                    example: '20160803'
+                  customproperty15:
+                    type: string
+                    example: Data change
+                  customproperty16:
+                    type: string
+                    example: '2016-08-03 00:00:00'
+                  customproperty17:
+                    type: string
+                    example: ''
+                  customproperty18:
+                    type: string
+                    example: Allowed
+                  customproperty19:
+                    type: string
+                    example: '1827'
+                  customproperty2:
+                    type: string
+                    example: ''
+                  customproperty20:
+                    type: string
+                    example: INFORMATION TECHNOLOGY INTERNATIONAL B.V.
+                  customproperty21:
+                    type: string
+                    example: ''
+                  customproperty22:
+                    type: string
+                    example: ''
+                  customproperty23:
+                    type: string
+                    example: ''
+                  customproperty24:
+                    type: string
+                    example: ''
+                  customproperty25:
+                    type: string
+                    example: ''
+                  customproperty26:
+                    type: string
+                    example: ''
+                  customproperty27:
+                    type: string
+                    example: ''
+                  customproperty28:
+                    type: string
+                    example: ''
+                  customproperty29:
+                    type: string
+                    example: ''
+                  customproperty3:
+                    type: string
+                    example: Activated
+                  customproperty30:
+                    type: string
+                    example: '2016-09-15 00:30:56'
+                  customproperty31:
+                    type: string
+                    example: ''
+                  customproperty32:
+                    type: string
+                    example: ''
+                  customproperty33:
+                    type: string
+                    example: ''
+                  customproperty34:
+                    type: string
+                    example: ''
+                  customproperty35:
+                    type: string
+                    example: ''
+                  customproperty36:
+                    type: string
+                    example: ''
+                  customproperty37:
+                    type: string
+                    example: ''
+                  customproperty38:
+                    type: string
+                    example: ''
+                  customproperty39:
+                    type: string
+                    example: ''
+                  customproperty4:
+                    type: string
+                    example: SITI
+                  customproperty40:
+                    type: string
+                    example: '1'
+                  customproperty5:
+                    type: string
+                    example: C
+                  customproperty6:
+                    type: string
+                    example: John Doe
+                  customproperty7:
+                    type: string
+                    example: J.Doe
+                  customproperty8:
+                    type: string
+                    example: mm
+                  customproperty9:
+                    type: string
+                    example: ''
+                  departmentNumber:
+                    type: string
+                    example: '565'
+                  displayname:
+                    type: string
+                    example: 'Doe, John'
+                  doNotDisturbDelegate:
+                    type: string
+                    example: jackwoods
+                  email:
+                    type: string
+                    example: jdoe@saviynt.com
+                  employeeType:
+                    type: string
+                    example: Contractor
+                  employeeclass:
+                    type: string
+                    example: C
+                  employeeid:
+                    type: string
+                    example: ''
+                  enabled:
+                    type: string
+                    example: 'true'
+                  encryptedSecurityAnswers:
+                    type: string
+                    example: >-
+                      0Ti6Bg7+E6QEKEd+x4GNhjWpG3KQ0jCbDzxhupvqPrTsrFM8vmoV/eq70xasjbuX7/amIxOXFHDVpPyHhDXA2AFHjnrHqung/1lBsLLr6tw=
+                  enddate:
+                    type: string
+                    example: '01/28/2019T08:00:00+0000'
+                  failedTries:
+                    type: string
+                    example: '0'
+                  firstname:
+                    type: string
+                    example: John
+                  jobCode:
+                    type: string
+                    example: zzzzzzzz
+                  jobcodedesc:
+                    type: string
+                    example: zzzzzzzz
+                  lastsyncdate:
+                    type: string
+                    example: '02/28/2018T08:00:00+0000'
+                  location:
+                    type: string
+                    example: SF-OFC
+                  locationdesc:
+                    type: string
+                    example: 5 Longfellow St.Deer Park
+                  locationnumber:
+                    type: string
+                    example: SF-OFC
+                  manager:
+                    type: string
+                    example: janedoe
+                  middlename:
+                    type: string
+                    example: w
+                  owner:
+                    type: string
+                    example: janedoe
+                  owneronTerminate:
+                    type: string
+                    example: '4'
+                  passwordExpired:
+                    type: string
+                    example: 'false'
+                  preferedFirstName:
+                    type: string
+                    example: John
+                  secondaryManager:
+                    type: string
+                    example: jamessmith
+                  startdate:
+                    type: string
+                    example: '01/28/2018T08:00:00+0000'
+                  statuskey:
+                    type: string
+                    example: '1'
+                  street:
+                    type: string
+                    example: s
+                  systemUserName:
+                    type: string
+                    example: jdoe
+                  termDate:
+                    type: string
+                    example: '04/28/2018T07:00:00+0000'
+                  title:
+                    type: string
+                    example: Analyst
+                  updatedate:
+                    type: string
+                    example: '08/02/2018T04:08:16+0000'
+                  updateuser:
+                    type: string
+                    example: admin
+                  vendorManager:
+                    type: string
+                    example: awsadmin
+              entitlementsCount:
+                type: number
+                example: 8
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+              totalEntitlementCount:
+                type: number
+                example: 8
+          examples:
+            Get Access Details For User:
+              value:
+                Accountdetails:
+                  - createdon: 07/26/2018
+                    customproperty1: cp1
+                    customproperty10: cp10
+                    customproperty2: cp2
+                    customproperty20: cp20
+                    customproperty30: cp30
+                    description: desc
+                    endpoint: System1
+                    name: janedoe
+                    status: '1'
+                Entitlementdetails:
+                  - access: Select
+                    confidentiality: '0'
+                    customproperty1: test
+                    description: ''
+                    displayname: Display Name One
+                    endpoint: System1
+                    entitlementOwner:
+                      - jamessmith
+                      - peterpan
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement1
+                    module: Select
+                    priviliged: '0'
+                    requestForm: Request Form Table
+                    risk: '0'
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/08/2017
+                    updateuser: '1'
+                  - access: Select
+                    confidentiality: '0'
+                    customproperty1: test
+                    description: ''
+                    displayname: Display Name One
+                    endpoint: System1
+                    entitlementOwner:
+                      - jamessmith
+                      - peterpan
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement2
+                    module: Select
+                    priviliged: '0'
+                    requestForm: Request Form Table
+                    risk: '0'
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/08/2017
+                    updateuser: '1'
+                  - access: Select
+                    confidentiality: '0'
+                    customproperty1: test
+                    description: ''
+                    displayname: Display Name One
+                    endpoint: System1
+                    entitlementOwner:
+                      - jamessmith
+                      - peterpan
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement3
+                    module: Select
+                    priviliged: '0'
+                    requestForm: Request Form Table
+                    risk: '0'
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/08/2017
+                    updateuser: '1'
+                  - customproperty1: test
+                    description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner:
+                      - jamessmith
+                      - janedoe
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement4
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                  - customproperty1: ap1
+                    customproperty20: cp20
+                    customproperty3: cp3
+                    customproperty8: cp8
+                    description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement5
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 04/27/2018
+                    updateuser: '191327'
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement6
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: >-
+                      Entitlement Name for testing the codec issue within user
+                      manager attestation
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                  - description: ''
+                    displayname: ''
+                    endpoint: System1
+                    entitlementOwner: ''
+                    entitlementType: Access
+                    entitlement_glossary: ''
+                    entitlement_value: Entitlement7
+                    requestForm: Request Form Table
+                    soxcritical: '0'
+                    status: '1'
+                    syscritical: '0'
+                    updatedate: 02/22/2017
+                PrivilegeDetails: []
+                UserDetails:
+                  Company Name: Information Technology International
+                  Create Date: '03/28/2018T07:00:00+0000'
+                  customproperty1: IP
+                  Department Name: IAM
+                  Job Function: A dummy name for a Skill Pool Group
+                  Last Name: Doe
+                  Orgunit ID: CO
+                  User Name: johndoe
+                  accountExpired: 'false'
+                  accountLocked: 'false'
+                  city: Atlanta
+                  comments: test
+                  country: US
+                  createdBy: admin
+                  customproperty10: ''
+                  customproperty11: ''
+                  customproperty12: zzzTHIRD
+                  customproperty13: ABCDE
+                  customproperty14: '20160803'
+                  customproperty15: Data change
+                  customproperty16: '2016-08-03 00:00:00'
+                  customproperty17: ''
+                  customproperty18: Allowed
+                  customproperty19: '1827'
+                  customproperty2: ''
+                  customproperty20: INFORMATION TECHNOLOGY INTERNATIONAL B.V.
+                  customproperty21: ''
+                  customproperty22: ''
+                  customproperty23: ''
+                  customproperty24: ''
+                  customproperty25: ''
+                  customproperty26: ''
+                  customproperty27: ''
+                  customproperty28: ''
+                  customproperty29: ''
+                  customproperty3: Activated
+                  customproperty30: '2016-09-15 00:30:56'
+                  customproperty31: ''
+                  customproperty32: ''
+                  customproperty33: ''
+                  customproperty34: ''
+                  customproperty35: ''
+                  customproperty36: ''
+                  customproperty37: ''
+                  customproperty38: ''
+                  customproperty39: ''
+                  customproperty4: SITI
+                  customproperty40: '1'
+                  customproperty5: C
+                  customproperty6: John Doe
+                  customproperty7: J.Doe
+                  customproperty8: mm
+                  customproperty9: ''
+                  departmentNumber: '565'
+                  displayname: 'Doe, John'
+                  doNotDisturbDelegate: jackwoods
+                  email: jdoe@saviynt.com
+                  employeeType: Contractor
+                  employeeclass: C
+                  employeeid: ''
+                  enabled: 'true'
+                  encryptedSecurityAnswers: >-
+                    0Ti6Bg7+E6QEKEd+x4GNhjWpG3KQ0jCbDzxhupvqPrTsrFM8vmoV/eq70xasjbuX7/amIxOXFHDVpPyHhDXA2AFHjnrHqung/1lBsLLr6tw=
+                  enddate: '01/28/2019T08:00:00+0000'
+                  failedTries: '0'
+                  firstname: John
+                  jobCode: zzzzzzzz
+                  jobcodedesc: zzzzzzzz
+                  lastsyncdate: '02/28/2018T08:00:00+0000'
+                  location: SF-OFC
+                  locationdesc: 5 Longfellow St.Deer Park
+                  locationnumber: SF-OFC
+                  manager: janedoe
+                  middlename: w
+                  owner: janedoe
+                  owneronTerminate: '4'
+                  passwordExpired: 'false'
+                  preferedFirstName: John
+                  secondaryManager: jamessmith
+                  startdate: '01/28/2018T08:00:00+0000'
+                  statuskey: '1'
+                  street: s
+                  systemUserName: jdoe
+                  termDate: '04/28/2018T07:00:00+0000'
+                  title: Analyst
+                  updatedate: '08/02/2018T04:08:16+0000'
+                  updateuser: admin
+                  vendorManager: awsadmin
+                entitlementsCount: 8
+                errorCode: '0'
+                msg: Successful
+                totalEntitlementCount: 8

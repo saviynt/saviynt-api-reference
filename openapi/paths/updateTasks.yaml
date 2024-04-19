@@ -1,0 +1,158 @@
+post:
+  tags:
+    - Tasks
+  summary: Update Tasks
+  description: >-
+    It can update certain params of a task as well as complete a task.
+
+    The `Authorization` must have `Bearer` followed by `Token`. 
+
+    Mandatory params:  `taskKeyToUpdate`
+
+    Optional params:  `updatetype` (if this is set to "completetask" then refer
+    completetask api and pass appropriate params as well),
+
+    `comments`,  
+
+    `provisioningComments`, 
+
+    `provisioningMetadata`,  
+
+    `password`, 
+
+    `status`,  
+
+    `ticketId`,
+
+    `taskownerusergroup`/`taskowneruser`,  
+
+    `updateuser` - username of user who is updating the task, 
+
+    `completeassociatedtasks` - true / false,
+
+    `emailto`,  
+
+    `notify` - to pick up data from the task, supported values -
+    "notify":["USER","requestor","MANAGER"], 
+
+    `from`,  
+
+    `subject`, 
+
+    `emailbody`
+  operationId: updateTasks
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            taskKeyToUpdate:
+              type: array
+              items:
+                type: object
+                properties:
+                  provisioningMetadata:
+                    type: string
+                    example: test1
+                  taskid:
+                    type: string
+                    example: '26937'
+                  taskowneruser:
+                    type: string
+                    example: lkrause
+                  taskownerusergroup:
+                    type: string
+                    example: usrgrpname
+                  updatetype:
+                    type: string
+                    example: completetask
+              example:
+                - provisioningMetadata: test1
+                  taskid: '26937'
+                  taskownerusergroup: usrgrpname
+                  updatetype: completetask
+                - provisioningMetadata: test2
+                  taskid: '26936'
+                  taskowneruser: lkrause
+            updateuser:
+              type: string
+              example: acook
+        examples:
+          Update Tasks:
+            value:
+              taskKeyToUpdate:
+                - provisioningMetadata: test1
+                  taskid: '26937'
+                  taskownerusergroup: usrgrpname
+                  updatetype: completetask
+                - provisioningMetadata: test2
+                  taskid: '26936'
+                  taskowneruser: lkrause
+              updateuser: acook
+  responses:
+    '200':
+      description: Update Tasks
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Tue, 07 Aug 2018 21:18:48 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=4d096faf-91b6-4c63-87af-014c2aa174a0; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              '26936':
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: '1'
+                  msg:
+                    type: string
+                    example: Task id not found
+              '26937':
+                type: object
+                properties:
+                  completedtasks:
+                    type: array
+                    items:
+                      type: number
+                      example: 2070
+                    example:
+                      - 2070
+                  errorCode:
+                    type: string
+                    example: '0'
+                  failedtasks:
+                    type: array
+                    items: {}
+                    example: []
+                  msg:
+                    type: string
+                    example: Update successful. completetask Success
+                  result:
+                    type: string
+                    example: ' <TaskUpdate>Taskid2070=true</TaskUpdate> '
+          examples:
+            Update Tasks:
+              value:
+                '26936':
+                  errorCode: '1'
+                  msg: Task id not found
+                '26937':
+                  completedtasks:
+                    - 2070
+                  errorCode: '0'
+                  failedtasks: []
+                  msg: Update successful. completetask Success
+                  result: ' <TaskUpdate>Taskid2070=true</TaskUpdate> '

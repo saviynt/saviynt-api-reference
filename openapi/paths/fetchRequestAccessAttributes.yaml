@@ -1,0 +1,141 @@
+post:
+  tags:
+    - Access Request
+  summary: Fetch Request Access Attributes
+  description: >-
+    This method returns approval history details for a given
+    "RequestAccessKey"(provided in `requestaccesskey` parameter)
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params: `requestaccesskey`
+  operationId: fetchRequestAccessAttributes
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            requestaccesskey:
+              type: string
+              example: '10'
+  responses:
+    '200':
+      description: Fetch Request Access Attributes
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Mon, 06 Aug 2018 23:59:14 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=e407de8e-587e-473b-9429-44a7b579cd01; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: successful
+              result:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    ACCOUNTS_COLUMN:
+                      type: string
+                      example: ''
+                    ATTRIBUTEGROUP:
+                      type: string
+                      example: ''
+                    ATTRIBUTELABLE:
+                      type: string
+                      example: ''
+                    ATTRIBUTE_NAME:
+                      type: string
+                      example: ACCOUNTNAME
+                    ATTRIBUTE_OLDVALUE:
+                      type: string
+                      example: ''
+                    ATTRIBUTE_VALUE:
+                      type: string
+                      example: glogan
+                    DESCRIPTION:
+                      type: string
+                      example: ''
+                example:
+                  - ACCOUNTS_COLUMN: ''
+                    ATTRIBUTEGROUP: ''
+                    ATTRIBUTELABLE: ''
+                    ATTRIBUTE_NAME: ACCOUNTNAME
+                    ATTRIBUTE_OLDVALUE: ''
+                    ATTRIBUTE_VALUE: glogan
+                    DESCRIPTION: ''
+                  - ACCOUNTS_COLUMN: ''
+                    ATTRIBUTEGROUP: ''
+                    ATTRIBUTELABLE: ''
+                    ATTRIBUTE_NAME: ENDPOINT
+                    ATTRIBUTE_OLDVALUE: ''
+                    ATTRIBUTE_VALUE: '19'
+                    DESCRIPTION: ''
+                  - ACCOUNTS_COLUMN: customproperty11
+                    ATTRIBUTEGROUP: ''
+                    ATTRIBUTELABLE: Company Affiliation
+                    ATTRIBUTE_NAME: companyAffiliation
+                    ATTRIBUTE_OLDVALUE: ''
+                    ATTRIBUTE_VALUE: ''
+                    DESCRIPTION: ''
+                  - ACCOUNTS_COLUMN: customproperty12
+                    ATTRIBUTEGROUP: ''
+                    ATTRIBUTELABLE: Tool
+                    ATTRIBUTE_NAME: tool
+                    ATTRIBUTE_OLDVALUE: ''
+                    ATTRIBUTE_VALUE: ''
+                    DESCRIPTION: ''
+              size:
+                type: number
+                example: 4
+          examples:
+            Fetch Request Access Attributes:
+              value:
+                errorCode: '0'
+                msg: successful
+                result:
+                  - ACCOUNTS_COLUMN: ''
+                    ATTRIBUTEGROUP: ''
+                    ATTRIBUTELABLE: ''
+                    ATTRIBUTE_NAME: ACCOUNTNAME
+                    ATTRIBUTE_OLDVALUE: ''
+                    ATTRIBUTE_VALUE: glogan
+                    DESCRIPTION: ''
+                  - ACCOUNTS_COLUMN: ''
+                    ATTRIBUTEGROUP: ''
+                    ATTRIBUTELABLE: ''
+                    ATTRIBUTE_NAME: ENDPOINT
+                    ATTRIBUTE_OLDVALUE: ''
+                    ATTRIBUTE_VALUE: '19'
+                    DESCRIPTION: ''
+                  - ACCOUNTS_COLUMN: customproperty11
+                    ATTRIBUTEGROUP: ''
+                    ATTRIBUTELABLE: Company Affiliation
+                    ATTRIBUTE_NAME: companyAffiliation
+                    ATTRIBUTE_OLDVALUE: ''
+                    ATTRIBUTE_VALUE: ''
+                    DESCRIPTION: ''
+                  - ACCOUNTS_COLUMN: customproperty12
+                    ATTRIBUTEGROUP: ''
+                    ATTRIBUTELABLE: Tool
+                    ATTRIBUTE_NAME: tool
+                    ATTRIBUTE_OLDVALUE: ''
+                    ATTRIBUTE_VALUE: ''
+                    DESCRIPTION: ''
+                size: 4

@@ -1,1 +1,3 @@
-.redocly.lint-ignore.yaml
+# Dir for bundles
+dist
+node_modules

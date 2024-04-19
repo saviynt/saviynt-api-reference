@@ -1,0 +1,53 @@
+post:
+  tags:
+    - User Groups
+  summary: Add/Remove User From UserGroup
+  description: "This API is used to add or remove user from a usergroup in SSM\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nMandatory params: \r\n\r\n`username` - User which needs to be added/ removed,\r\n\r\n`user_groupname` - Group name to be added/removed,\r\n\t\r\n`actionType` (0/1) - 0:Add and 1:Remove"
+  operationId: addRemoveUserFromUsergroup
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            actionType:
+              type: string
+              example: '0'
+            user_groupname:
+              type: string
+              example: TEST USER GROUP
+            username:
+              type: string
+              example: bharell
+  responses:
+    '200':
+      description: Add/Remove User From UserGroup
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Tue, 11 Sep 2018 01:24:07 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=a3914d7a-7ab2-4354-9de2-4fb0258322f9; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: saved successfully
+          examples:
+            Add/Remove User From UserGroup:
+              value:
+                errorCode: '0'
+                message: saved successfully

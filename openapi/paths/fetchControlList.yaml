@@ -1,0 +1,116 @@
+post:
+  tags:
+    - Analytics
+  summary: Fetch List of Analytics
+  description: >-
+    This operation fetches a list of Analytic Controls by `Category` or
+    `Application` ("EndpointName").  Optional params: `application`, `category`,
+    `max`, `offset` The `Authorization` must have `Bearer` followed by `Token`.
+  operationId: fetchListOfAnalytics
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            application:
+              type: string
+              example: System1
+            category:
+              type: string
+              example: ''
+        examples:
+          Fetch List of Analytics:
+            value:
+              application: System1
+              category: ''
+  responses:
+    '200':
+      description: Fetch Control List
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 02 Aug 2018 20:55:52 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=afec35e6-c751-41ba-9a31-835c8d692589; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              controls:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    analyticsId:
+                      type: number
+                      example: 45
+                    analyticsName:
+                      type: string
+                      example: Test 1
+                    application:
+                      type: string
+                      example: System1
+                    category:
+                      type: string
+                      example: Certification
+                    conflictCount:
+                      type: number
+                      example: 14
+                    controlid:
+                      type: number
+                      nullable: true
+                      example: null
+                    description:
+                      type: string
+                      example: ''
+                    lastRun:
+                      type: string
+                      example: '05-01-2017 21:10:03'
+                    recommendations:
+                      type: string
+                      example: ''
+                    risk:
+                      type: string
+                      example: High
+                example:
+                  - analyticsId: 45
+                    analyticsName: Test 1
+                    application: System1
+                    category: Certification
+                    conflictCount: 14
+                    controlid: null
+                    description: ''
+                    lastRun: '05-01-2017 21:10:03'
+                    recommendations: ''
+                    risk: High
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Fetch Control List:
+              value:
+                controls:
+                  - analyticsId: 45
+                    analyticsName: Test 1
+                    application: System1
+                    category: Certification
+                    conflictCount: 14
+                    controlid: null
+                    description: ''
+                    lastRun: '05-01-2017 21:10:03'
+                    recommendations: ''
+                    risk: High
+                errorCode: '0'
+                msg: Success

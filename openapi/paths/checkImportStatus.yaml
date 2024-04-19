@@ -1,0 +1,46 @@
+post:
+  tags:
+    - Common Utilities
+  summary: Check Import Status
+  description: |-
+    This API is used to check the status of data import job. 
+    Note: that at a time, only one import job can be run.
+    The `Authorization` must have `Bearer` followed by `Token`
+    No params
+  operationId: checkImportStatus
+  responses:
+    '200':
+      description: Check Import Status
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 02 Aug 2018 20:48:32 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=5f2b0046-3db1-4549-ab13-b6737acab8aa; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              errorMessage:
+                type: string
+                example: ''
+              importStatus:
+                type: string
+                example: COMPLETED
+          examples:
+            Check Import Status:
+              value:
+                errorCode: '0'
+                errorMessage: ''
+                importStatus: COMPLETED

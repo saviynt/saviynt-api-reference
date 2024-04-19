@@ -1,0 +1,181 @@
+post:
+  tags:
+    - User Delegation
+  summary: Fetch Existing Delegates List
+  description: >-
+    This API is used to retrieve the list of existing delegates and their
+    details. If any optional parameter is not specified then only active
+    delegates are displayed.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `userName` - this is the parentusername
+
+    Optional params:
+
+    `max`, `offset`,
+
+    `status` - values can be ACTIVE / INACTIVE
+  operationId: fetchExistingDelegatesList
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            max:
+              type: string
+              example: '2'
+            status:
+              type: string
+              example: ACTIVE
+            userName:
+              type: string
+              example: U013053
+        examples:
+          Fetch Existing Delegates List:
+            value:
+              max: '2'
+              status: ACTIVE
+              userName: U013053
+  responses:
+    '200':
+      description: Fetch Existing Delegates List
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 01 Jul 2020 22:42:41 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=bb12b0ba-7fc5-48e8-ac65-4e6537207af7; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              delegateCount:
+                type: number
+                example: 1
+              delegateList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    delegateFirstName:
+                      type: string
+                      example: Daniel
+                    delegateLastName:
+                      type: string
+                      example: Schibler
+                    delegatekey:
+                      type: string
+                      example: '1'
+                    delegateusername:
+                      type: string
+                      example: U011556
+                    description:
+                      type: string
+                      example: ''
+                    enddate:
+                      type: string
+                      example: 08/18/2020
+                    name:
+                      type: string
+                      example: delegatetest
+                    parentFirstName:
+                      type: string
+                      example: Maureen
+                    parentLastName:
+                      type: string
+                      example: Knauber
+                    parentusername:
+                      type: string
+                      example: U013053
+                    startdate:
+                      type: string
+                      example: 07/14/2020
+                    status:
+                      type: string
+                      example: ACTIVE
+                example:
+                  - delegateFirstName: Daniel
+                    delegateLastName: Schibler
+                    delegatekey: '1'
+                    delegateusername: U011556
+                    description: ''
+                    enddate: 08/18/2020
+                    name: delegatetest
+                    parentFirstName: Maureen
+                    parentLastName: Knauber
+                    parentusername: U013053
+                    startdate: 07/14/2020
+                    status: ACTIVE
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: successful
+              totalCount:
+                type: string
+                example: '1'
+          examples:
+            Fetch Existing Delegates List:
+              value:
+                delegateCount: 1
+                delegateList:
+                  - delegateFirstName: Daniel
+                    delegateLastName: Schibler
+                    delegatekey: '1'
+                    delegateusername: U011556
+                    description: ''
+                    enddate: 08/18/2020
+                    name: delegatetest
+                    parentFirstName: Maureen
+                    parentLastName: Knauber
+                    parentusername: U013053
+                    startdate: 07/14/2020
+                    status: ACTIVE
+                errorCode: '0'
+                msg: successful
+                totalCount: '1'

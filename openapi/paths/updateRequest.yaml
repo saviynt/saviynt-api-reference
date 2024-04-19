@@ -1,0 +1,186 @@
+post:
+  tags:
+    - Access Request
+  summary: Add Approver to existing Request
+  description: >-
+    This API can be used to add approver to existing request in `SSM`.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `requestkey` - comma seprated requestkeys
+
+    `requestor` - user who is updating the request
+
+    Optional params:
+
+    `updateapprover` - username of the new approver 
+
+    `originalassignee` - username of old approver
+
+    `removeoriginalassignee` - true/false(default), if false then the original
+    assignee will remain one of the approvers, If `originalassignee` is not
+    passed then `requestor` will be considered as original assignee.
+
+    `comments`,
+
+    `allowreassign` - true/false (default is false)
+  operationId: addApproverToExistingRequest
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            comments:
+              type: string
+              example: test multiple requestkey
+            dynamicattributes:
+              type: array
+              items:
+                type: object
+                properties:
+                  attribute:
+                    type: string
+                    example: Organization
+                  value:
+                    type: string
+                    example: test str
+              example:
+                - attribute: Organization
+                  value: test str
+            entitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  action:
+                    type: string
+                    example: add
+                  comments:
+                    type: string
+                    example: test api 1
+                  entitlementtype:
+                    type: string
+                    example: Security-Groups
+                  entitlementvalue:
+                    type: string
+                    example: Absence Administrator (Absence_Administrator)
+              example:
+                - action: add
+                  comments: test api 1
+                  entitlementtype: Security-Groups
+                  entitlementvalue: Absence Administrator (Absence_Administrator)
+                - action: add
+                  comments: test api 2
+                  entitlementtype: Security-Groups
+                  entitlementvalue: >-
+                    Absence Calculations Administrator
+                    (Absence_Calculations_Administrator)
+            requestkey:
+              type: string
+              example: '58'
+            requestor:
+              type: string
+              example: lmcneil
+            updateapprover:
+              type: string
+              example: approvername
+        examples:
+          Add Approver to existing Request:
+            value:
+              requestkey: '3363'
+              requestor: dbailey
+              updateapprover: johndoea
+          Add Comments to existing Request:
+            value:
+              addcomments: 'true'
+              comments: test add comment multi123
+              requestkey: '4134,4129'
+              requestor: admin
+              updateapprover: U125555
+          Add Dynamic Attributes and Entitlements to existing Request:
+            value:
+              comments: test multiple requestkey
+              dynamicattributes:
+                - attribute: Organization
+                  value: test str
+              entitlements:
+                - action: add
+                  comments: test api 1
+                  entitlementtype: Security-Groups
+                  entitlementvalue: Absence Administrator (Absence_Administrator)
+                - action: add
+                  comments: test api 2
+                  entitlementtype: Security-Groups
+                  entitlementvalue: >-
+                    Absence Calculations Administrator
+                    (Absence_Calculations_Administrator)
+              requestkey: '58'
+              requestor: lmcneil
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+            requestkey:
+              type: string
+              example: '3364'
+  responses:
+    '200':
+      description: >-
+        updateRequest / Add Comments to existing Request / Add Dynamic
+        Attributes and Entitlements to existing Request / updateRequest
+        Attachment
+      headers:
+        Content-Length:
+          schema:
+            type: string
+            example: '0'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 24 Apr 2019 23:53:56 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        WWW-Authenticate:
+          schema:
+            type: string
+            example: Bearer error="invalid_token"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+              requestkey:
+                type: string
+                example: '86'
+          examples:
+            Add Comments to existing Request:
+              value:
+                errorCode: '0'
+                msg: success
+            Add Dynamic Attributes and Entitlements to existing Request:
+              value:
+                errorCode: '0'
+                msg: success
+                requestkey: '86'
+            updateRequest:
+              value:
+                errorCode: '0'
+                msg: Success
+            updateRequest Attachment:
+              value:
+                errorCode: '0'
+                msg: Success

@@ -1,0 +1,248 @@
+post:
+  tags:
+    - User Manager Campaigns
+  summary: Reassign Certification at Account and Entitlement Level Copy
+  description: >-
+    This API reassigns accounts, roles, or entitlements to a different user or
+    certifier. The associated users for accounts, roles, or entitlements that
+    are being reassigned, must be certified in Step 1.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `updateuser` (can be Admin/Campaign Owner/Certifier/Delegate)
+
+    `campaignid`- Campaign ID or the primary key of the campaign table.
+
+    `certkey`- Certification key or the primary key of the certification table.
+
+    `accounts`- List of accounts. (You must provide either
+    accounts/entitlements/roles)
+
+    `entitlements`- List of child entitlements. (You must provide either
+    accounts/entitlements/roles)
+
+    `roles` - List of roles. (You must provide either
+    accounts/entitlements/roles)
+
+    `newassignee`- New certifier or user to whom the certification will be
+    assigned.
+
+    `bulkupdate` (can be Y/N)
+
+    `bulkvalidation` (can be Y/N)
+
+    `bulkConsultAssociatedData` (can be Y/N) This option enables you to specify
+    whether to reassign all accounts, entitlements and roles related to the
+    specified account/entitlement/role.
+
+    Optional params:
+
+    `campaignname` - Name of the campaign.
+
+    `certificationname` - Name of the certification.
+
+    `reassignComments`- Comments for reassigning the certification.
+  operationId: reassignCertificationAtAccountAndEntitlementLevelCopy
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            bulkupdate:
+              type: string
+              example: 'y'
+            bulkvalidation:
+              type: string
+              example: 'y'
+            campaignid:
+              type: string
+              example: '10'
+            certkey:
+              type: string
+              example: '15'
+            comments:
+              type: string
+              example: reassigning from API
+            entitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  entattkey:
+                    type: string
+                    example: '146'
+              example:
+                - entattkey: '146'
+            newassignee:
+              type: string
+              example: amackenzie
+            updateuser:
+              type: string
+              example: smorgan
+        examples:
+          Reassign Certification at Account and Entitlement Level Copy:
+            value:
+              bulkupdate: 'y'
+              bulkvalidation: 'y'
+              campaignid: '10'
+              certkey: '15'
+              comments: reassigning from API
+              entitlements:
+                - entattkey: '146'
+              newassignee: amackenzie
+              updateuser: smorgan
+  responses:
+    '200':
+      description: Reassign Certification at Account and Entitlement Level
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Fri, 17 Jul 2020 23:27:52 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=5e661d6e-77c3-43a1-ab94-79f5e87beb79; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              accounts:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accattkey:
+                      type: string
+                      example: '35799'
+                    userattkey:
+                      type: string
+                      example: '25700'
+                example:
+                  - accattkey: '35799'
+                    userattkey: '25700'
+              bulkConsultAssociatedData:
+                type: string
+                example: 'Y'
+              bulkUpdate:
+                type: string
+                example: 'Y'
+              bulkValidation:
+                type: string
+                example: 'Y'
+              campaignid:
+                type: string
+                example: '405'
+              campaignname:
+                type: string
+                example: um_5.5_bnym_Reconfigure
+              certificationname:
+                type: string
+                example: um_5.5_bnym_Reconfigure - UserManger' (UserManger UserManger)
+              certkey:
+                type: string
+                example: '3471'
+              entitlements:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accattkey:
+                      type: string
+                      example: '35800'
+                    entattkey:
+                      type: string
+                      example: '67650'
+                    userattkey:
+                      type: string
+                      example: '25700'
+                example:
+                  - accattkey: '35800'
+                    entattkey: '67650'
+                    userattkey: '25700'
+              newassignee:
+                type: string
+                example: UM8'
+              reassignComments:
+                type: string
+                example: Tim's Reassign Comment
+              roles:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    roleattkey:
+                      type: string
+                      example: '1818'
+                    userattkey:
+                      type: string
+                      example: '25701'
+                example:
+                  - roleattkey: '1818'
+                    userattkey: '25701'
+              updateuser:
+                type: string
+                example: UserManger'
+          examples:
+            Reassign Certification at Account and Entitlement Level:
+              value:
+                accounts:
+                  - accattkey: '35799'
+                    userattkey: '25700'
+                bulkConsultAssociatedData: 'Y'
+                bulkUpdate: 'Y'
+                bulkValidation: 'Y'
+                campaignid: '405'
+                campaignname: um_5.5_bnym_Reconfigure
+                certificationname: um_5.5_bnym_Reconfigure - UserManger' (UserManger UserManger)
+                certkey: '3471'
+                entitlements:
+                  - accattkey: '35800'
+                    entattkey: '67650'
+                    userattkey: '25700'
+                newassignee: UM8'
+                reassignComments: Tim's Reassign Comment
+                roles:
+                  - roleattkey: '1818'
+                    userattkey: '25701'
+                updateuser: UserManger'

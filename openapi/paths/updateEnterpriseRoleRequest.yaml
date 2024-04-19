@@ -1,0 +1,199 @@
+post:
+  tags:
+    - Role Request
+  summary: Update Role Request
+  description: >-
+    This API call can be used to update the enterprise role that was already
+    created in the Saviynt Security Manager.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `roletype` Use the roletype as "ENTERPRISE" to Update Enterprise Role
+    Request. (supported roletypes are - ENABLER/ TRANSACTIONAL/ FIREFIGHTER/
+    ENTERPRISE/ APPLICATION),
+
+    `role_name`
+
+    Optional params:
+
+    `customproperty<1 to 60>`,   `endpointname`,
+
+    `entitlements` -
+
+    1. `entitlement_value` 2. `entitlementType` 3. `endpoint` 4. `updateType` -
+    ADD/REMOVE
+
+
+    `owner` -
+
+    1. `ownerName` 2. `updateType` - ADD/REMOVE 3. `rank`<1 to 27>
+
+
+    `defaulttimeframe`,   `description`,   `displayname`,   `glossary`,  
+    `risk`,   `level`,   `soxcritical`,   `syscritical`,   `priviliged`,  
+    `confidentiality`,   `requestable`,   `showDynamicAttrs,   checksod:`Set
+    this parameter to evaluate Segregation of Duties (SOD) violations. By
+    default, the parameter is set to false.
+
+    _**Note**_ : If config for auto approve is _**ON**_ then request will not be
+    created
+  operationId: updateRoleRequest
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            customproperty36:
+              type: string
+              example: cp36modified
+            endpointname:
+              type: string
+              example: Workday
+            entitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  endpoint:
+                    type: string
+                    example: Oracle
+                  entitlementType:
+                    type: string
+                    example: OEBS-Responsibility
+                  entitlement_value:
+                    type: string
+                    example: FIXED_ASSET_INQUIRY_TECH_IN
+                  updateType:
+                    type: string
+                    example: ADD
+              example:
+                - endpoint: Oracle
+                  entitlementType: OEBS-Responsibility
+                  entitlement_value: FIXED_ASSET_INQUIRY_TECH_IN
+                  updateType: ADD
+                - endpoint: Oracle
+                  entitlementType: OEBS-Responsibility
+                  entitlement_value: FIXED_ASSET_INQUIRY_SOFT_IN
+                  updateType: ADD
+            owner:
+              type: array
+              items:
+                type: object
+                properties:
+                  ownerName:
+                    type: string
+                    example: G000526
+                  updateType:
+                    type: string
+                    example: REMOVE
+              example:
+                - ownerName: G000526
+                  updateType: REMOVE
+                - ownerName: U003961
+                  updateType: ADD
+            requestor:
+              type: string
+              example: admin
+            role_name:
+              type: string
+              example: TestRoleEnt123
+            roletype:
+              type: string
+              example: ENTERPRISE
+        examples:
+          Update Role Request:
+            value:
+              customproperty36: cp36modified
+              endpointname: Workday
+              entitlements:
+                - endpoint: Oracle
+                  entitlementType: OEBS-Responsibility
+                  entitlement_value: FIXED_ASSET_INQUIRY_TECH_IN
+                  updateType: ADD
+                - endpoint: Oracle
+                  entitlementType: OEBS-Responsibility
+                  entitlement_value: FIXED_ASSET_INQUIRY_SOFT_IN
+                  updateType: ADD
+              owner:
+                - ownerName: G000526
+                  updateType: REMOVE
+                - ownerName: U003961
+                  updateType: ADD
+              requestor: admin
+              role_name: TestRoleEnt123
+              roletype: ENTERPRISE
+  responses:
+    '200':
+      description: Update Role Request
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Tue, 22 Jun 2021 21:02:44 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=4e8655c6-92aa-4398-a444-70b14298be21; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: ' Role TestRoleEnt123 Sent For Approval and requestid is 3820057'
+              requestid:
+                type: string
+                example: '3820057'
+              requestkey:
+                type: string
+                example: '4136'
+          examples:
+            Update Role Request:
+              value:
+                errorCode: '0'
+                message: ' Role TestRoleEnt123 Sent For Approval and requestid is 3820057'
+                requestid: '3820057'
+                requestkey: '4136'

@@ -1,0 +1,134 @@
+post:
+  tags:
+    - Campaigns
+  summary: Reassign Certification
+  description: >-
+    This API is used to reassign certification to a different user or certifier.
+    The user making this update must be an administrator, a campaign owner or
+    its delegates.
+
+    Note: This is applicable only for User Manager, Entitlement Owner, and
+    Application Owner campaigns.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `updateuser` (can be Admin/Campaign Owner/Delegates)
+
+    `campaignid`- Campaign ID or the primary key of the campaign table.
+
+    `certkey`- Certification key or the primary key of the certification table.
+
+    `newassignee`- New certifier or user to whom the certification will be
+    assigned.
+
+    Optional params:
+
+    `reassignComments`- Comments for reassigning the certification.
+  operationId: reassignCertification
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            certifierUsername:
+              type: string
+              example: lmcneil
+            max:
+              type: string
+              example: '2'
+            offset:
+              type: string
+              example: '0'
+            refreshProgress:
+              type: string
+              example: 'Y'
+            status:
+              type: string
+              example: 'new,fullyexecuted,inprogress'
+        examples:
+          Reassign Certification:
+            value:
+              certifierUsername: lmcneil
+              max: '2'
+              offset: '0'
+              refreshProgress: 'Y'
+              status: 'new,fullyexecuted,inprogress'
+  responses:
+    '200':
+      description: Reassign Certification
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Tue, 21 Jul 2020 05:13:34 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=8a56ec8d-a73d-4fd4-b58d-7cb6d0034075; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              campaignid:
+                type: string
+                example: '405'
+              certkey:
+                type: string
+                example: '3468'
+              newassignee:
+                type: string
+                example: SAOwner2'
+              reassignComments:
+                type: string
+                example: Tim's Reassign Comment
+              updateuser:
+                type: string
+                example: CampOwner'
+          examples:
+            Reassign Certification:
+              value:
+                campaignid: '405'
+                certkey: '3468'
+                newassignee: SAOwner2'
+                reassignComments: Tim's Reassign Comment
+                updateuser: CampOwner'

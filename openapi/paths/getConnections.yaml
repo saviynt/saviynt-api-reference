@@ -1,0 +1,97 @@
+post:
+  tags:
+    - Connections
+  summary: Get List of Connections
+  description: "This API returns list of Connections in SSM. \r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nOptional params:\r\n`max`,`offset`,\r\n`connectiontype`,\r\n`connectionname`"
+  operationId: getListOfConnections
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            connectionname:
+              type: string
+              example: AD Test
+            connectiontype:
+              type: string
+              example: AD
+  responses:
+    '200':
+      description: Get Connections
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 08 Aug 2018 00:27:49 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=ea1c1da4-ed84-4efb-821d-bb31d05a0efb; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ConnectionList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    CONNECTIONDESCRIPTION:
+                      type: string
+                      example: ''
+                    CONNECTIONNAME:
+                      type: string
+                      example: AD Test
+                    CONNECTIONTYPE:
+                      type: string
+                      example: AD
+                    CREATEDBY:
+                      type: string
+                      example: admin(     ADMIN)
+                    CREATEDON:
+                      type: string
+                      example: '2017-03-23T00:48:28Z'
+                    STATUS:
+                      type: number
+                      example: 1
+                    UPDATEDBY:
+                      type: string
+                      example: admin(ADMIN   ADMIN)
+                    UPDATEDON:
+                      type: string
+                      example: '2017-08-18T04:18:19Z'
+                example:
+                  - CONNECTIONDESCRIPTION: ''
+                    CONNECTIONNAME: AD Test
+                    CONNECTIONTYPE: AD
+                    CREATEDBY: admin(     ADMIN)
+                    CREATEDON: '2017-03-23T00:48:28Z'
+                    STATUS: 1
+                    UPDATEDBY: admin(ADMIN   ADMIN)
+                    UPDATEDON: '2017-08-18T04:18:19Z'
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Successful
+          examples:
+            Get Connections:
+              value:
+                ConnectionList:
+                  - CONNECTIONDESCRIPTION: ''
+                    CONNECTIONNAME: AD Test
+                    CONNECTIONTYPE: AD
+                    CREATEDBY: admin(     ADMIN)
+                    CREATEDON: '2017-03-23T00:48:28Z'
+                    STATUS: 1
+                    UPDATEDBY: admin(ADMIN   ADMIN)
+                    UPDATEDON: '2017-08-18T04:18:19Z'
+                errorCode: '0'
+                msg: Successful

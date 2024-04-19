@@ -1,0 +1,179 @@
+post:
+  tags:
+    - Role Request
+  summary: Create Role Request
+  description: >-
+    This API call can be used for creating a new role and assigning an owner to
+    the role. The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params: `roletype` - Use the roletype as "ENTERPRISE" to Create
+    Enterprise Role Request. (supported roletypes - ENABLER/ TRANSACTIONAL/
+    FIREFIGHTER/ ENTERPRISE/ APPLICATION), `role_name`,   `requestor`,  
+    `owner`   1\. `ownerName`   2\. `rank`<1 to 27>, Optional params:  
+    `customproperty<1 to 60>`,   `endpointname`,   `defaulttimeframe`,  
+    `description`,   `displayname`,   `glossary`,   `risk`,   `level`,  
+    `soxcritical`,   `syscritical`,   `priviliged`,   `confidentiality`,  
+    `requestable`,   `showDynamicAttrs,   checksod:`Set this parameter to
+    evaluate Segregation of Duties (SOD) violations. By default, the parameter
+    is set to false.
+  operationId: createRoleRequest
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            confidentiality:
+              type: string
+              example: critical
+            customproperty10:
+              type: string
+              example: test api
+            defaulttimeframe:
+              type: string
+              example: '343'
+            description:
+              type: string
+              example: jdfkd
+            displayname:
+              type: string
+              example: dist name
+            endpointname:
+              type: string
+              example: Workday
+            glossary:
+              type: string
+              example: glossary
+            level:
+              type: string
+              example: '1231'
+            owner:
+              type: string
+              example: awsadmin
+            priviliged:
+              type: string
+              example: critical
+            requestable:
+              type: string
+              example: 'false'
+            requestor:
+              type: string
+              example: admin
+            risk:
+              type: string
+              example: high
+            role_name:
+              type: string
+              example: createEntRoleAPI101
+            roletype:
+              type: string
+              example: ENTERPRISE
+            showDynamicAttrs:
+              type: string
+              example: 'false'
+            soxcritical:
+              type: string
+              example: high
+            syscritical:
+              type: string
+              example: high
+        examples:
+          Create Role Request:
+            value:
+              confidentiality: critical
+              customproperty10: test api
+              defaulttimeframe: '343'
+              description: jdfkd
+              displayname: dist name
+              endpointname: Workday
+              glossary: glossary
+              level: '1231'
+              owner: awsadmin
+              priviliged: critical
+              requestable: 'false'
+              requestor: admin
+              risk: high
+              role_name: createEntRoleAPI101
+              roletype: ENTERPRISE
+              showDynamicAttrs: 'false'
+              soxcritical: high
+              syscritical: high
+  responses:
+    '200':
+      description: Create Role Request / Create Role Request with Role Properties
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Wed, 23 Jun 2021 00:23:50 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=4e000aa2-f7a0-47be-8ac7-098ffe8800d6; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: Role TestRoleEnt123 Sent For Approval and requestid is 3820001
+              requestid:
+                type: string
+                example: '3820001'
+              requestkey:
+                type: string
+                example: '4135'
+          examples:
+            Create Role Request:
+              value:
+                errorCode: '0'
+                message: Role TestRoleEnt123 Sent For Approval and requestid is 3820001
+                requestid: '3820001'
+                requestkey: '4135'
+            Create Role Request with Role Properties:
+              value:
+                errorCode: '0'
+                message: >-
+                  Role createEntRoleAPI101 Sent For Approval and requestid is
+                  3820417
+                requestid: '3820417'
+                requestkey: '4142'

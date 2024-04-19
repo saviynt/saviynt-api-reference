@@ -1,0 +1,142 @@
+put:
+  tags:
+    - Entitlement Types
+  summary: Update Entitlement Type
+  description: "This API updates Entitlement Type in SSM.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nMandatory params:\r\n\t`entitlementname`,\r\n\t`endpointname`,\r\n\t\r\nOptional params:\r\n\t`entitlementdescription`,\r\n\t`workflow`,\r\n\t`customproperty<N>`,\r\n\t`availableQueryServiceAccount`,\r\n\t`selectedQueryServiceAccount`, \r\n\t`arsRequestableEntitlementQuery`, \r\n\t`arsSelectedEntitlementQuery` , \r\n\t`createTaskAction` - it can be one value or list of values. The values can be [\"noAction\",\"removeTaskForExistingEntitlements\", \"enableRollback\"],\r\n\t`requestDatesConfJson` , \r\n\t`startDateInRevokeRequest` , \r\n\t`startEndDateInRequest` ,\r\n\t`allowRemoveAllEntitlementInRequest` , \r\n\t`orderindex` , \r\n\t`requiredinrequest` ,\r\n\t`hiearchyrequired` , \r\n\t`requestoption`\r\n\t\r\n\t\r\n`requestoption` param values can be - \r\nSHOW_BUT_NOTREUESTABLESINGLE/ \r\nSHOW_BUT_NOTREUESTABLEMULTIPLE/ \r\nNONE/ \r\nSINGLE/ \r\nMULTIPLE/ \r\nTABLE/ \r\nFREEFORMTEXT/ \r\nTABLENOREMOVE/ \r\nRADIOBUTN/ \r\nCHECKBOXN/ \r\nREADONLYTABLE/ \r\nNONE_BUT_CREATETASK"
+  operationId: updateEntitlementType
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            allowRemoveAllEntitlementInRequest:
+              type: string
+              example: 'false'
+            arsRequestableEntitlementQuery:
+              type: string
+              example: ev.status=1 and ev.customproperty1='TRUE'
+            arsSelectedEntitlementQuery:
+              type: string
+              example: testsel
+            availableQueryServiceAccount:
+              type: string
+              example: test qry
+            createTaskAction:
+              type: array
+              items:
+                type: string
+                example: noAction
+              example:
+                - noAction
+                - removeTaskForExistingEntitlements
+                - bhav
+                - enableRollback
+            createTaskAction1:
+              type: string
+              example: removeTaskForExistingEntitlements
+            customproperty1:
+              type: string
+              example: cp1
+            customproperty9:
+              type: string
+              example: cp9
+            endpointname:
+              type: string
+              example: AD Test
+            entitlementdescription:
+              type: string
+              example: entitlementdescription
+            entitlementname:
+              type: string
+              example: testEnt81
+            hiearchyrequired:
+              type: string
+              example: 'false'
+            orderindex:
+              type: string
+              example: '2'
+            requestDatesConfJson:
+              type: string
+              example: test date
+            requestoption:
+              type: string
+              example: TABLENOREMOVE
+            requiredinrequest:
+              type: string
+              example: 'false'
+            selectedQueryServiceAccount:
+              type: string
+              example: service acc qry
+            startDateInRevokeRequest:
+              type: string
+              example: 'false'
+            startEndDateInRequest:
+              type: string
+              example: 'false'
+            workflow:
+              type: string
+              example: SampleManagerApproval
+        examples:
+          Update Entitlement Type:
+            value:
+              allowRemoveAllEntitlementInRequest: 'false'
+              arsRequestableEntitlementQuery: ev.status=1 and ev.customproperty1='TRUE'
+              arsSelectedEntitlementQuery: testsel
+              availableQueryServiceAccount: test qry
+              createTaskAction:
+                - noAction
+                - removeTaskForExistingEntitlements
+                - bhav
+                - enableRollback
+              createTaskAction1: removeTaskForExistingEntitlements
+              customproperty1: cp1
+              customproperty9: cp9
+              endpointname: AD Test
+              entitlementdescription: entitlementdescription
+              entitlementname: testEnt81
+              hiearchyrequired: 'false'
+              orderindex: '2'
+              requestDatesConfJson: test date
+              requestoption: TABLENOREMOVE
+              requiredinrequest: 'false'
+              selectedQueryServiceAccount: service acc qry
+              startDateInRevokeRequest: 'false'
+              startEndDateInRequest: 'false'
+              workflow: SampleManagerApproval
+  responses:
+    '200':
+      description: Update Entitlement Type
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Thu, 18 Oct 2018 23:58:33 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=be1dce8e-3b83-4471-8867-6b40a7544cfc; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Update Entitlement Type:
+              value:
+                errorCode: '0'
+                msg: Success

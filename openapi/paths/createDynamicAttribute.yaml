@@ -1,0 +1,228 @@
+post:
+  tags:
+    - Dynamic Attributes
+  summary: Create Dynamic Attribute
+  description: >-
+    This API creates dynamic attributes in EIC.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `securitysystem`
+
+    `endpoint`
+
+    `updateuser`
+
+    `dynamicattributes` - `attributename`, `requesttype`(ACCOUNT/PROPOSED
+    ENTITLEMENT OWNER/ENTITLEMENT OWNER ATTESTATION/ROLE/SERVICE ACCOUNT)
+
+    Optional params:
+
+    `dynamicattributes` - other dynamic attribute parameters:
+
+    - `attributetype`: Specify the attribute type based on which you want to
+    filter and display the dynamic attributes.The various types of attribute
+    types are: Single select from Sql Query, ENUM, Password, Boolean
+    (True,False), String, Check Box, Date, and so on. - `attributename`: Specify
+    the dynamic attribute name to be used for filtering out and calling the
+    respective attribute to be displayed. - `Attribute Group`: Attribute Group
+    provides you an option to group or categorize and display the dynamic
+    attributes in the Access Requests request form. - `Order Index`: Specify the
+    sequence where you want to display the dynamic attributes. You can specify
+    values such as 0,1, 2, 3 and so on. Order index with lower values is
+    displayed first and those with higher values are displayed later. -
+    `attributelable`: Specify the name of the attribute, which you want to
+    display in the Access Requests request form. You can apply the following
+    font styling to the label:
+        - `##SavBoldStart##Attribute_Name##SavBoldEnd##`
+        - `##SavUnderlineStart##Attribute_Name##SavItalicEnd##`
+        - `##SavUnderlineStart##Attribute_Name##UnderlineEnd##`
+        - `##SavAnchorStart####SavUrlStart##https://exampleorg.com##SavUrlEnd####SavUrlTextStart##URL_Text##SavUrlTextEnd####SavAnchorEnd##`
+  operationId: createDynamicAttribute
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            dynamicattributes:
+              type: array
+              items:
+                type: object
+                properties:
+                  Parentattribute:
+                    type: string
+                    example: ''
+                  accountscolumn:
+                    type: string
+                    example: ''
+                  actionstring:
+                    type: string
+                    example: ''
+                  actiontoperformwhenparentattributechanges:
+                    type: string
+                    example: ''
+                  attributegroup:
+                    type: string
+                    example: ''
+                  attributelable:
+                    type: string
+                    example: ''
+                  attributename:
+                    type: string
+                    example: air5
+                  attributetype:
+                    type: string
+                    example: BOOLEAN
+                  attributevalue:
+                    type: string
+                    example: ''
+                  defaultvalue:
+                    type: string
+                    example: ''
+                  descriptionascsv:
+                    type: string
+                    example: ''
+                  editable:
+                    type: string
+                    example: 'true'
+                  hideoncreate:
+                    type: string
+                    example: 'false'
+                  hideonupdate:
+                    type: string
+                    example: 'false'
+                  orderindex:
+                    type: string
+                    example: ''
+                  regex:
+                    type: string
+                    example: ''
+                  requesttype:
+                    type: string
+                    example: SERVICE ACCOUNT
+                  required:
+                    type: string
+                    example: 'false'
+                  showonchild:
+                    type: string
+                    example: 'false'
+              example:
+                - Parentattribute: ''
+                  accountscolumn: ''
+                  actionstring: ''
+                  actiontoperformwhenparentattributechanges: ''
+                  attributegroup: ''
+                  attributelable: ''
+                  attributename: air5
+                  attributetype: BOOLEAN
+                  attributevalue: ''
+                  defaultvalue: ''
+                  descriptionascsv: ''
+                  editable: 'true'
+                  hideoncreate: 'false'
+                  hideonupdate: 'false'
+                  orderindex: ''
+                  regex: ''
+                  requesttype: SERVICE ACCOUNT
+                  required: 'false'
+                  showonchild: 'false'
+            endpoint:
+              type: string
+              example: System1
+            securitysystem:
+              type: string
+              example: System1
+            username:
+              type: string
+              example: admin
+        examples:
+          Create Dynamic Attribute:
+            value:
+              dynamicattributes:
+                - Parentattribute: ''
+                  accountscolumn: ''
+                  actionstring: ''
+                  actiontoperformwhenparentattributechanges: ''
+                  attributegroup: ''
+                  attributelable: ''
+                  attributename: air5
+                  attributetype: BOOLEAN
+                  attributevalue: ''
+                  defaultvalue: ''
+                  descriptionascsv: ''
+                  editable: 'true'
+                  hideoncreate: 'false'
+                  hideonupdate: 'false'
+                  orderindex: ''
+                  regex: ''
+                  requesttype: SERVICE ACCOUNT
+                  required: 'false'
+                  showonchild: 'false'
+              endpoint: System1
+              securitysystem: System1
+              username: admin
+  responses:
+    '200':
+      description: Create Dynamic Attribute
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: 'http://localhost'
+        Cache-Control:
+          schema:
+            type: string
+            example: 'post-check=0, pre-check=0'
+        Date:
+          schema:
+            type: string
+            example: 'Mon, 05 Aug 2019 23:01:56 GMT'
+        Expires:
+          schema:
+            type: string
+            example: 'Sun, 7 May 1995 12:00:00 GMT'
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=4181ffdf-3cb5-4d06-b138-86eda5746db2; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorcode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Create Dynamic Attribute:
+              value:
+                errorcode: '0'
+                msg: Success
+  security:
+    - bearerAuth: []

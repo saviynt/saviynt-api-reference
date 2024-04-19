@@ -1,0 +1,87 @@
+post:
+  tags:
+    - Password Management
+  summary: Fetch User Security Questions
+  description: >-
+    This API can be used to fetch the security questions selected by user during
+    registration
+
+    Mandatory params: 
+
+    `username` OR `propertytosearch`- Any user property like email, manager,
+    username, firstname, lastname, preferedFirstName, customproperty
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+  operationId: fetchUserSecurityQuestions
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+              example: john.doe@saviynt.com
+            propertytosearch:
+              type: string
+              example: email
+        examples:
+          Fetch User Security Questions:
+            value:
+              email: john.doe@saviynt.com
+              propertytosearch: email
+  responses:
+    '200':
+      description: >-
+        Fetch User Security Questions Example2 / Fetch User Security Questions
+        Example1
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Fri, 14 Sep 2018 18:01:31 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=aca86828-df27-4607-a7a9-812cafd09992; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              questions:
+                type: array
+                items:
+                  type: string
+                  example: What is your favorite food?
+                example:
+                  - What is your favorite food?
+                  - What is your pet's name?
+                  - What is your mother's maiden name?
+                  - What is your favorite color?
+          examples:
+            Fetch User Security Questions Example1:
+              value:
+                errorCode: '0'
+                questions:
+                  - What is your first Pet's name?
+                  - What is your favorite food?
+            Fetch User Security Questions Example2:
+              value:
+                errorCode: '0'
+                questions:
+                  - What is your favorite food?
+                  - What is your pet's name?
+                  - What is your mother's maiden name?
+                  - What is your favorite color?

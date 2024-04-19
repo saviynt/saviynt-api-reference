@@ -1,0 +1,64 @@
+post:
+  tags:
+    - User Groups
+  summary: Delete UserGroup
+  description: |-
+    This API delete usergroup in SSM.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params:
+    `username`,
+    `usergroup`
+  operationId: deleteUsergroup
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            usergroup:
+              type: string
+              example: testApi2
+            username:
+              type: string
+              example: smarquez
+        examples:
+          Delete UserGroup:
+            value:
+              usergroup: testApi2
+              username: smarquez
+  responses:
+    '200':
+      description: Delete UserGroup
+      headers:
+        Date:
+          schema:
+            type: string
+            example: 'Sat, 29 Dec 2018 01:43:15 GMT'
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=4df14cd0-0217-4b9e-8908-99c221e39ede; Path=/
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Delete UserGroup:
+              value:
+                errorCode: '0'
+                msg: Success
