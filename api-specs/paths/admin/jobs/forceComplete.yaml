@@ -1,6 +1,6 @@
 post:
   tags:
-    - Common Utilities
+    - Job Management
   summary: Force Complete
   description: |-
     This API is used to terminate data import job.

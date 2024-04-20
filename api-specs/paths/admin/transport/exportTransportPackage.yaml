@@ -5,7 +5,7 @@ post:
   description: >-
     This API creates a compressed file containing objects specified for T2P
     migration.
-
+ 
     The `Authorization` must have `Bearer` followed by `Token`. 
 
     Mandatory params: 
