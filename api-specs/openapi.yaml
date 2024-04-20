@@ -28,19 +28,19 @@ security:
   - bearerAuth: []
 paths:
   /api/login:
-    $ref: paths/api_login.yaml
+    $ref: paths/auth/api_login.yaml
   /oauth/access_token:
-    $ref: paths/oauth_access_token.yaml
+    $ref: paths/auth/oauth_access_token.yaml
   /createUser:
-    $ref: paths/createUser.yaml
+    $ref: paths/users/createUser.yaml
   /updateUser:
-    $ref: paths/updateUser.yaml
+    $ref: paths/users/updateUser.yaml
   /uploadUserRequest:
     $ref: paths/uploadUserRequest.yaml
   /getUser:
-    $ref: paths/getUser.yaml
+    $ref: paths/users/getUser.yaml
   /user:
-    $ref: paths/user.yaml
+    $ref: paths/users/user.yaml
   /addremoveuserfromrole:
     $ref: paths/addremoveuserfromrole.yaml
   /getAccessDetailsForUser:
