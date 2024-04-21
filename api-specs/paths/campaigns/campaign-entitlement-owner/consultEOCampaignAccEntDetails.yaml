@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-entitlement-owner
+    - campaigns-entitlement-owner
   summary: Consult EntitlementOwner Step 2 for Campaign
   description: >-
     This API consults Entitltment Owner for Campaign at Account and Access

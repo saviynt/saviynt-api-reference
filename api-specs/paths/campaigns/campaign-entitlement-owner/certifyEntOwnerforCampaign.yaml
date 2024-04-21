@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-entitlement-owner
+    - campaigns-entitlement-owner
   summary: Certify Entitlement Owner for Campaign
   description: >-
     This API will do entitlement  verification for a particular campaign.

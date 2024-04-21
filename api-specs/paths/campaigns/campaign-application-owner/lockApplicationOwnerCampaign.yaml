@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-application-owner
+    - campaigns-application-owner
   summary: Lock Campaign
   description: >-
     This API is used to lock campaign after validating whether Application Owner

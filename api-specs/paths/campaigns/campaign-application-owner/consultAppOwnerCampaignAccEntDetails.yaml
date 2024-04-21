@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-application-owner
+    - campaigns-application-owner
   summary: Consult AppOwner Account Entitlement Details
   description: >-
     This API consults Application Owner for Campaign at Account and Access

@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-user-manager
+    - campaigns-user-manager
   summary: Consult Campaign Account Entitlement Details
   description: >-
     This API consults User Manager for Campaign at Account and Access

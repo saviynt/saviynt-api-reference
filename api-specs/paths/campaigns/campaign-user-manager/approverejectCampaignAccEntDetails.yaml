@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-user-manager
+    - campaigns-user-manager
   summary: Approve Reject Campaign Account Entitlement Details
   description: >-
     This API is used to certify/revoke the user's access (account, entitlement)

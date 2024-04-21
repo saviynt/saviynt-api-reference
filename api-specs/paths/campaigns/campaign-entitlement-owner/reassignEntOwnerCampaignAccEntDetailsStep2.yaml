@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-entitlement-owner
+    - campaigns-entitlement-owner
   summary: Reassign Certification at Account Level
   description: >-
     This API reassigns accounts or child entitlements to a different user or

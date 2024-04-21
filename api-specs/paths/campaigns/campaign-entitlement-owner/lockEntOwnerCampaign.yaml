@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-entitlement-owner
+    - campaigns-entitlement-owner
   summary: Lock Campaign
   description: >-
     This API is used to lock campaign after validating whether Entitlement Owner

@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-user-manager
+    - campaigns-user-manager
   summary: Reassign Certification at Account and Entitlement Level Copy
   description: >-
     This API reassigns accounts, roles, or entitlements to a different user or

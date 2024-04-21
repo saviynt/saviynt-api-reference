@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-entitlement-owner
+    - campaigns-entitlement-owner
   summary: Reassign Entitlement Owner for Campaign
   description: >-
     This API reassigns Entitlement Owner for Campaign in SSM.

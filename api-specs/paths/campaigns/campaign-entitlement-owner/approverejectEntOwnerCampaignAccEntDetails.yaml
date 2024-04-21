@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-entitlement-owner
+    - campaigns-entitlement-owner
   summary: Approve Reject Account Entitlement Details
   description: >-
     This API is used to certify/revoke the user's access (account, entitlement).

@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-application-owner
+    - campaigns-application-owner
   summary: Fetch Account Entitlement Details
   description: >-
     This API returns user details, account-entitlement details of a particular

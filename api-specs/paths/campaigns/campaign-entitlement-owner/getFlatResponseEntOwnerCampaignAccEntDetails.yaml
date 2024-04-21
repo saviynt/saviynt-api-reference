@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-entitlement-owner
+    - campaigns-entitlement-owner
   summary: Fetch Flat Response Entitlement Owner Campaign Details
   description: >-
     This API return flat details of a particular Entitlement Owner campaign in
