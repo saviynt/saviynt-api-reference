@@ -8072,7 +8072,7 @@ get:
     - bearerAuth: []
 put:
   tags:
-    - Provisioning Policies
+    - policies
   summary: Update Technical Rules
   description: >-
     Starting with Release v23.11, you can use the REST API to update the
@@ -8351,7 +8351,7 @@ put:
                 msg: Rule Updated Successfully
 post:
   tags:
-    - Provisioning Policies
+    - policies
   summary: Create Technical Rules
   description: >-
     Starting with Release v23.11, you can use this REST API to effortlessly
@@ -8617,7 +8617,7 @@ post:
     - bearerAuth: []
 delete:
   tags:
-    - Provisioning Policies
+    - policies
   summary: Delete Technical Rules
   description: >-
     Starting with Release v23.11, you can use the REST API to delete an inactive

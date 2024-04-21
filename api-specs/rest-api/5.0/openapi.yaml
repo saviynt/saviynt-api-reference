@@ -501,12 +501,36 @@ tags:
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
+  - name: request-history
+    x-displayName: Request History
+    description: APIs for managing Request History
+    externalDocs:
+      description: Product Documentation
+      url: https://docs.saviyntcloud.com/
   - name: request-approval
     x-displayName: Request Approval
     description: APIs for managing Request Approval
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
+  - name: request-user
+    x-displayName: Request User
+    description: APIs for managing User Request
+    externalDocs:
+      description: Product Documentation
+      url: https://docs.saviyntcloud.com/
+  - name: request-role
+    x-displayName: Request Role
+    description: APIs for managing Role Request
+    externalDocs:
+      description: Product Documentation
+      url: https://docs.saviyntcloud.com/
+  - name: request-organization
+    x-displayName: Request Organization
+    description: APIs for managing Organization Requests
+    externalDocs:
+      description: Product Documentation
+      url: https://docs.saviyntcloud.com/ 
   - name: arstasks
     x-displayName: Tasks
     description: APIs for managing Tasks
