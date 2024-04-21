@@ -118,6 +118,9 @@ post:
                     employee:
                       type: string
                       example: acook
+                    action:
+                      type: string
+                      example: acook
                     errorCode:
                       type: string
                       example: '0'
@@ -125,6 +128,12 @@ post:
                       type: string
                       example: '227'
                     msg:
+                      type: string
+                      example: success
+                    campaignId:
+                      type: string
+                      example: success
+                    verifier:
                       type: string
                       example: success
                 example:

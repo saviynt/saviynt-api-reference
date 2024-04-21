@@ -133,10 +133,14 @@ get:
                       type: string
                       example: AWS
                     entdescription:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                       example: null
                     entdisplayname:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                       example: null
                     entitlementType:
                       type: string

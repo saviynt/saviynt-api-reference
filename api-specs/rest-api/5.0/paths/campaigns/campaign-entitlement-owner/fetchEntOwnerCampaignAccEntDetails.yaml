@@ -408,7 +408,7 @@ post:
                             accountname: admin
                             certaccountkey: 192406
                             certfied: NORESPONSE
-                            comment: null
+                            comment: ''
                             consulted: 'no'
                             endpoint: SaviyntLinuxServer
                             lastCertifiedCampaignName: ''
@@ -421,7 +421,7 @@ post:
                             accountname: U037787
                             certaccountkey: 192407
                             certfied: NORESPONSE
-                            comment: null
+                            comment: ''
                             consulted: 'no'
                             endpoint: SaviyntLinuxServer
                             lastCertifiedCampaignName: ''
@@ -433,7 +433,7 @@ post:
                         accounttotalcount: 10
                         certentvalkey: 1530363
                         certfied: APPROVED
-                        comment: null
+                        comment: ''
                         consulted: 'no'
                         entitlement2displaycount: 0
                         entitlement2totalcount: 0

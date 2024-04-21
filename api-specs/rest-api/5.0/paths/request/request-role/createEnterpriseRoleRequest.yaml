@@ -3,18 +3,35 @@ post:
     - request-role
   summary: Create Role Request
   description: >-
-    This API call can be used for creating a new role and assigning an owner to
-    the role. The `Authorization` must have `Bearer` followed by `Token`.
-    Mandatory params: `roletype` - Use the roletype as "ENTERPRISE" to Create
-    Enterprise Role Request. (supported roletypes - ENABLER/ TRANSACTIONAL/
-    FIREFIGHTER/ ENTERPRISE/ APPLICATION), `role_name`,   `requestor`,  
-    `owner`   1\. `ownerName`   2\. `rank`<1 to 27>, Optional params:  
-    `customproperty<1 to 60>`,   `endpointname`,   `defaulttimeframe`,  
-    `description`,   `displayname`,   `glossary`,   `risk`,   `level`,  
-    `soxcritical`,   `syscritical`,   `priviliged`,   `confidentiality`,  
-    `requestable`,   `showDynamicAttrs,   checksod:`Set this parameter to
-    evaluate Segregation of Duties (SOD) violations. By default, the parameter
-    is set to false.
+    This API call can be used for creating a new role and assigning an owner
+    to the role.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params:
+    `roletype` - Use the roletype as "ENTERPRISE" to Create Enterprise Role
+    Request. (supported roletypes - ENABLER/ TRANSACTIONAL/ FIREFIGHTER/
+    ENTERPRISE/ APPLICATION),
+    `role_name`,  
+    `requestor`,  
+    `owner`  
+    1. `ownerName`  
+    2. `rank`<1 to 27>,
+    Optional params:  
+    `customproperty<1 to 60>`,  
+    `endpointname`,  
+    `defaulttimeframe`,  
+    `description`,  
+    `displayname`,  
+    `glossary`,  
+    `risk`,  
+    `level`,  
+    `soxcritical`,  
+    `syscritical`,  
+    `priviliged`,  
+    `confidentiality`,  
+    `requestable`,  
+    `showDynamicAttrs,   checksod:`Set this parameter to evaluate
+    Segregation of Duties (SOD) violations. By default, the parameter is set
+    to false.
   operationId: createRoleRequest
   requestBody:
     content:

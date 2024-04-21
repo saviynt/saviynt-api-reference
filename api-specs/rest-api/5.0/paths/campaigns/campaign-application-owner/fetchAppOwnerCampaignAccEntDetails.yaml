@@ -125,11 +125,17 @@ post:
                             type: number
                             example: 227493
                           certified:
-                            type: string
+                            type:
+                              - string
+                              - 'null'
                           comments:
-                            type: string
+                            type:
+                              - string
+                              - 'null'
                           displayname:
-                            type: string
+                            type:
+                              - string
+                              - 'null'
                           endpoint:
                             type: string
                             example: Banking Application
@@ -144,11 +150,17 @@ post:
                             type: string
                             example: Ohjae
                           lastCertifiedCampaignName:
-                            type: string
+                            type:
+                              - string
+                              - 'null'
                           lastCertifiedUser:
-                            type: number
+                            type:
+                              - number
+                              - 'null'
                           securitySystem:
-                            type: string
+                            type:
+                              - string
+                              - 'null'
                             example: Banking Application
                           systemUserName:
                             type: string

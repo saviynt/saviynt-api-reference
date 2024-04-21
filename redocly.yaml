@@ -12,7 +12,6 @@ rules:
     assertions:
       defined: true
       minLength: 30
-
 theme:
   openapi:
     generateCodeSamples:

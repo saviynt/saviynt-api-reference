@@ -123,37 +123,61 @@ post:
                       type: number
                       example: 0
                     Ent_entitlement_value:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                       example: audio
                     Ent_risk:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                     Ent_status:
                       type: number
                       example: 1
                     User_lastCertifiedCampaignName:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                     User_lastCertifiedDate:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                     User_lastCertifiedUser:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                     User_systemUserName:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                       example: admin
                     User_username:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                       example: admin
                     accComment:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                     accHistory:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                     accStatus:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                       example: '1'
                     accountCertfied:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                       example: NORESPONSE
                     accountCount:
-                      type: number
+                      type:
+                        - number
+                        - 'null'
                       example: 10
                     accountname:
                       type: string
@@ -162,7 +186,9 @@ post:
                       type: number
                       example: 192406
                     certentval2key:
-                      type: number
+                      type:
+                        - number
+                        - 'null'
                       example: null
                     certentvalkey:
                       type: number
@@ -177,33 +203,53 @@ post:
                       type: string
                       example: SaviyntLinuxServer
                     ent2History:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                     ent2Status:
-                      type: number
+                      type:
+                        - number
+                        - 'null'
                       example: null
                     ent2certified:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                     ent2comments:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                     ent2name:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                       example: null
                     entCertfied:
                       type: string
                       example: APPROVED
                     entComment:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
                       example: null
                     entStatus:
-                      type: number
+                      type:
+                        - number
+                        - 'null'
                       example: 1
                     entcriticality:
-                      type: number
+                      type:
+                        - number
+                        - 'null'
                       example: 0
                     entitlement2count:
-                      type: number
+                      type:
+                        - number
+                        - 'null'
                     entitlementcount:
-                      type: number
+                      type:
+                        - number
+                        - 'null'
                       example: 1
                     enttype:
                       type: string
@@ -215,7 +261,9 @@ post:
                       type: string
                       example: In progress
                     userStatus:
-                      type: number
+                      type:
+                        - number
+                        - 'null'
                 example:
                   - Ent_SOX_CRITICAL: 0
                     Ent_SYS_CRITICAL: 0

@@ -107,6 +107,89 @@ post:
                     username:
                       type: string
                       example: johndoe
+                    accountExpired:
+                      type: string
+                    accountLocked: 
+                      type: string
+                      example: 'false'
+                    city: 
+                      type: string
+                      example: San Francisco
+                    companyname: 
+                      type: string
+                      example: Global Modern Services, Inc. (USA)
+                    costcenter: 
+                      type: string
+                      example: GMS USA
+                    country: 
+                      type: string
+                      example: USA
+                    createdate: 
+                      type: string
+                      example: 06/08/2020T10:35:46+0000
+                    customer: 
+                      type: string
+                      example: testorg
+                    customproperty1: 
+                      type: string
+                      example: 3aa5550b7fe348b98d7b5741afc65534
+                    displayname: 
+                      type: string
+                      example: Logan McNeil
+                    email: 
+                      type: string
+                      example: test@gmail.com
+                    employeeType: 
+                      type: string
+                      example: Regular
+                    employeeid: 
+                      type: string
+                      example: '21001'
+                    enabled: 
+                      type: string
+                      example: 'true'
+                    encryptedSecurityAnswers:
+                      type: string
+                      example:  lhCSZZbYyxHaRZN6L9s4IPXAIwx86J87GEXwt5wIutPnEGkywv4W9UImm9u+qlk67bTNecLwHBClApo9olYBEceyC+h4gcLrjWwLOLlJ3Wc=
+                    failedTries: 
+                      type: string
+                      example: '0'
+                    lastPasswordUpdateDate: 
+                      type: string
+                      example: 07/23/2020T18:25:58+0000
+                    lastname: 
+                      type: string
+                      example: McNeil
+                    location: 
+                      type: string
+                      example: San Francisco
+                    passwordExpired: 
+                      type: string
+                      example: 'false'
+                    phonenumber:
+                      type: string
+                      example: 415789-8904
+                    preferedFirstName:
+                      type: string
+                      example: Logan
+                    savUpdateDate: 
+                      type: string
+                      example: 06/08/2020T10:36:03+0000
+                    systemUserName: 
+                      type: string
+                      example: lmcneil
+                    title: 
+                      type: string
+                      example: Chief Human Resources Officer
+                    updatedate:
+                      type: string
+                      example: 07/23/2020T18:25:58+0000
+                    updateuser:
+                      type: string
+                      example: admin
+                    userSource:
+                      type: string
+                      example: '127'
                 example:
                   - firstname: John
                     statuskey: '1'
