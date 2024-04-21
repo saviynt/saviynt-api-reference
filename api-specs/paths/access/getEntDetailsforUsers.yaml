@@ -134,11 +134,9 @@ get:
                       example: AWS
                     entdescription:
                       type: string
-                      nullable: true
                       example: null
                     entdisplayname:
                       type: string
-                      nullable: true
                       example: null
                     entitlementType:
                       type: string

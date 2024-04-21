@@ -39,12 +39,8 @@ post:
                 example: test comments
               ProvisioningComments:
                 type: string
-                nullable: true
-                example: null
               ProvisioningMetadata:
                 type: string
-                nullable: true
-                example: null
               Status:
                 type: string
                 example: Complete

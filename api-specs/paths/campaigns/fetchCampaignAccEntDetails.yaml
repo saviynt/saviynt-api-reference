@@ -141,14 +141,12 @@ post:
                                   example: 190880
                                 certfied:
                                   type: string
-                                  nullable: true
                                   example: null
                                 certified:
                                   type: string
                                   example: Active
                                 comments:
                                   type: string
-                                  nullable: true
                                   example: null
                                 consulted:
                                   type: string
@@ -175,12 +173,9 @@ post:
                                         example: 1
                                       entcertified:
                                         type: string
-                                        nullable: true
                                         example: null
                                       entcomments:
                                         type: string
-                                        nullable: true
-                                        example: null
                                       entcriticality:
                                         type: number
                                         example: 0

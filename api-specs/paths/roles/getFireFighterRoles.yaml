@@ -35,301 +35,229 @@ post:
                   example: com.saviynt.ecm.identitywarehouse.domain.Roles
                 confidentiality:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty1:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty10:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty11:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty12:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty13:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty14:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty15:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty16:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty17:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty18:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty19:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty2:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty20:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty21:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty22:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty23:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty24:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty25:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty26:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty27:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty28:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty29:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty3:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty30:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty31:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty32:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty33:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty34:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty35:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty36:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty37:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty38:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty39:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty4:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty40:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty41:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty42:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty43:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty44:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty45:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty46:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty47:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty48:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty49:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty5:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty50:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty51:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty52:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty53:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty54:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty55:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty56:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty57:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty58:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty59:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty6:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty60:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty7:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty8:
                   type: string
-                  nullable: true
-                  example: null
+
                 customproperty9:
                   type: string
-                  nullable: true
-                  example: null
+
                 defaultTimeFrameHrs:
                   type: number
-                  nullable: true
                   example: 8
                 description:
                   type: string
-                  nullable: true
                   example: desc
                 displayname:
                   type: string
-                  nullable: true
-                  example: null
+
                 endpointkey:
                   type: number
-                  nullable: true
-                  example: null
+
                 flagexportedtoOIA:
                   type: boolean
                   example: false
                 glossary:
                   type: string
-                  nullable: true
-                  example: null
+
                 id:
                   type: number
                   example: 125
                 level:
                   type: string
-                  nullable: true
-                  example: null
+
                 maxTimeFrameHrs:
                   type: string
-                  nullable: true
-                  example: null
+
                 mininginstance:
                   type: string
-                  nullable: true
-                  example: null
+
                 parentroles:
                   type: string
-                  nullable: true
-                  example: null
+
                 priviliged:
                   type: number
-                  nullable: true
-                  example: null
+
                 requestable:
                   type: boolean
                   example: true
                 risk:
                   type: string
-                  nullable: true
-                  example: null
+
                 role_name:
                   type: string
                   example: Data Administrator
@@ -354,8 +282,7 @@ post:
                   example: 3
                 showDynamicAttrs:
                   type: boolean
-                  nullable: true
-                  example: null
+
                 sodflag:
                   type: boolean
                   example: false
@@ -370,15 +297,13 @@ post:
                   example: 0
                 systemid:
                   type: number
-                  nullable: true
-                  example: null
+
                 updatedate:
                   type: string
                   example: '2017-03-24T20:16:11Z'
                 updateuser:
                   type: number
-                  nullable: true
-                  example: null
+
             example:
               - class: com.saviynt.ecm.identitywarehouse.domain.Roles
                 confidentiality: null

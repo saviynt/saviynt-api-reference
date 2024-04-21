@@ -46,8 +46,6 @@ post:
                   properties:
                     actionString:
                       type: string
-                      nullable: true
-                      example: null
                     attribute:
                       type: string
                       example: Read
@@ -62,19 +60,13 @@ post:
                       example: ''
                     attributegroup:
                       type: string
-                      nullable: true
-                      example: null
                     childaction:
                       type: string
-                      nullable: true
-                      example: null
                     defaultvalue:
                       type: string
                       example: 'true'
                     descriptionascsv:
                       type: string
-                      nullable: true
-                      example: null
                     editable:
                       type: boolean
                       example: true
@@ -89,8 +81,6 @@ post:
                           example: Access
                     entitlements_column:
                       type: number
-                      nullable: true
-                      example: null
                     hideoncreate:
                       type: boolean
                       example: false
@@ -99,19 +89,13 @@ post:
                       example: false
                     label:
                       type: string
-                      nullable: true
-                      example: Read
                     orderindex:
                       type: string
                       example: '0'
                     parentattribute:
                       type: string
-                      nullable: true
-                      example: null
                     regex:
                       type: string
-                      nullable: true
-                      example: null
                     requestablerequired:
                       type: boolean
                       example: false
@@ -120,8 +104,6 @@ post:
                       example: true
                     sqlquery:
                       type: string
-                      nullable: true
-                      example: null
                     updatedate:
                       type: string
                       example: 09/11/2018 02:18:49

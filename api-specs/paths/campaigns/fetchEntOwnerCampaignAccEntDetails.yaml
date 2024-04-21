@@ -186,7 +186,6 @@ post:
                                   example: NORESPONSE
                                 comment:
                                   type: string
-                                  nullable: true
                                   example: null
                                 consulted:
                                   type: string
@@ -250,7 +249,6 @@ post:
                             example: APPROVED
                           comment:
                             type: string
-                            nullable: true
                             example: null
                           consulted:
                             type: string

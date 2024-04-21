@@ -118,7 +118,5 @@ post:
                 example: String
               orderIndex:
                 type: number
-                nullable: true
-                example: null
   security:
     - bearerAuth: []

@@ -67,7 +67,6 @@ post:
                       example: 14
                     controlid:
                       type: number
-                      nullable: true
                       example: null
                     description:
                       type: string

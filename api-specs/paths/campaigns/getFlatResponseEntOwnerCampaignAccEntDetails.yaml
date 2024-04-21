@@ -127,39 +127,25 @@ post:
                       example: audio
                     Ent_risk:
                       type: string
-                      nullable: true
-                      example: null
                     Ent_status:
                       type: number
                       example: 1
                     User_lastCertifiedCampaignName:
                       type: string
-                      nullable: true
-                      example: null
                     User_lastCertifiedDate:
                       type: string
-                      nullable: true
-                      example: null
                     User_lastCertifiedUser:
                       type: string
-                      nullable: true
-                      example: null
                     User_systemUserName:
                       type: string
-                      nullable: true
                       example: admin
                     User_username:
                       type: string
-                      nullable: true
                       example: admin
                     accComment:
                       type: string
-                      nullable: true
-                      example: null
                     accHistory:
                       type: string
-                      nullable: true
-                      example: null
                     accStatus:
                       type: string
                       example: '1'
@@ -177,7 +163,6 @@ post:
                       example: 192406
                     certentval2key:
                       type: number
-                      nullable: true
                       example: null
                     certentvalkey:
                       type: number
@@ -193,30 +178,21 @@ post:
                       example: SaviyntLinuxServer
                     ent2History:
                       type: string
-                      nullable: true
-                      example: null
                     ent2Status:
                       type: number
-                      nullable: true
                       example: null
                     ent2certified:
                       type: string
-                      nullable: true
-                      example: null
                     ent2comments:
                       type: string
-                      nullable: true
-                      example: null
                     ent2name:
                       type: string
-                      nullable: true
                       example: null
                     entCertfied:
                       type: string
                       example: APPROVED
                     entComment:
                       type: string
-                      nullable: true
                       example: null
                     entStatus:
                       type: number
@@ -226,8 +202,6 @@ post:
                       example: 0
                     entitlement2count:
                       type: number
-                      nullable: true
-                      example: null
                     entitlementcount:
                       type: number
                       example: 1
@@ -242,8 +216,6 @@ post:
                       example: In progress
                     userStatus:
                       type: number
-                      nullable: true
-                      example: 1
                 example:
                   - Ent_SOX_CRITICAL: 0
                     Ent_SYS_CRITICAL: 0

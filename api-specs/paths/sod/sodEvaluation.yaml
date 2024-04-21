@@ -675,8 +675,6 @@ post:
                             - 4351755###890###4359855###4359855###Accountant
                         MC:
                           type: string
-                          nullable: true
-                          example: null
                         RISKS:
                           type: number
                           example: 1762

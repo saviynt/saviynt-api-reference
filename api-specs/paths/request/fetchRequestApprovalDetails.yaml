@@ -171,8 +171,6 @@ post:
                                 example: REJECTED
                               approvaltype:
                                 type: string
-                                nullable: true
-                                example: null
                               assignee:
                                 type: array
                                 items:
@@ -240,8 +238,6 @@ post:
                                 example: ProjectManager
                               roleDescription:
                                 type: string
-                                nullable: true
-                                example: null
                               roleDisplayName:
                                 type: string
                                 example: ProjectManager
@@ -256,8 +252,6 @@ post:
                                 example: '0'
                               taskid:
                                 type: number
-                                nullable: true
-                                example: null
                               taskkey:
                                 type: number
                                 example: 1069
@@ -381,8 +375,6 @@ post:
                                 example: REJECTED
                               approvaltype:
                                 type: string
-                                nullable: true
-                                example: null
                               assignee:
                                 type: array
                                 items:
@@ -450,8 +442,6 @@ post:
                                 example: ProjectManager
                               roleDescription:
                                 type: string
-                                nullable: true
-                                example: null
                               roleDisplayName:
                                 type: string
                                 example: ProjectManager
@@ -466,8 +456,6 @@ post:
                                 example: '0'
                               taskid:
                                 type: number
-                                nullable: true
-                                example: null
                               taskkey:
                                 type: number
                                 example: 1069

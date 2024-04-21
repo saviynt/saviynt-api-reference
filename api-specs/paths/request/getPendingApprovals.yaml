@@ -172,8 +172,6 @@ post:
                                     sdfsdf</span>
                                 entTypeDescription:
                                   type: string
-                                  nullable: true
-                                  example: null
                                 entTypeDisplayName:
                                   type: string
                                   example: Access
@@ -344,8 +342,6 @@ post:
                                     sdfsdf</span>
                                 entTypeDescription:
                                   type: string
-                                  nullable: true
-                                  example: null
                                 entTypeDisplayName:
                                   type: string
                                   example: Access

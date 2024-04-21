@@ -2,7 +2,7 @@ post:
   tags:
     - Job Management
   summary: createTrigger
-  description: createTrigger
+  description: This API creates a trigger for a job
   operationId: createtrigger
   requestBody:
     content:

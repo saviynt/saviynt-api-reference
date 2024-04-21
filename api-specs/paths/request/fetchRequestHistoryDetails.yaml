@@ -230,8 +230,6 @@ post:
                         endpointname: ''
                   comments:
                     type: string
-                    nullable: true
-                    example: null
                   dynamicattributes:
                     type: array
                     items: {}

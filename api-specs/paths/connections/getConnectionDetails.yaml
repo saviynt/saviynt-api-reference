@@ -77,8 +77,6 @@ post:
                     example: ''
                   CHANGEPASSJSON:
                     type: string
-                    nullable: true
-                    example: null
                   COMBINEDCREATEREQUEST:
                     type: string
                     example: ''

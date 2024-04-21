@@ -112,7 +112,6 @@ post:
                       example: String
                     orderIndex:
                       type: number
-                      nullable: true
                       example: null
                 example:
                   - attributeDefaultValue: '''Enter Account ID here'''

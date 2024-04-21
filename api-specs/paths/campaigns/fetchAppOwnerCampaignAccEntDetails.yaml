@@ -126,16 +126,10 @@ post:
                             example: 227493
                           certified:
                             type: string
-                            nullable: true
-                            example: null
                           comments:
                             type: string
-                            nullable: true
-                            example: null
                           displayname:
                             type: string
-                            nullable: true
-                            example: null
                           endpoint:
                             type: string
                             example: Banking Application
@@ -151,12 +145,8 @@ post:
                             example: Ohjae
                           lastCertifiedCampaignName:
                             type: string
-                            nullable: true
-                            example: null
                           lastCertifiedUser:
                             type: number
-                            nullable: true
-                            example: null
                           securitySystem:
                             type: string
                             example: Banking Application
