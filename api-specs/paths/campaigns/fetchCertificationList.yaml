@@ -1,6 +1,6 @@
 post:
   tags:
-    - Campaigns
+    - campaigns
   summary: Fetch Certification List
   description: >-
     This API returns list of all the certifications for a certifier.

@@ -1,6 +1,6 @@
 post:
   tags:
-    - Roles
+    - roles
   summary: Get FireFighter Role Details
   description: |-
     This method returns a `List` of active "FireFighter" roles in SSM. 

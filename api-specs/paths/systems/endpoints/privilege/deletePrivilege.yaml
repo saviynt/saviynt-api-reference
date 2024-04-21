@@ -1,6 +1,6 @@
 put:
   tags:
-    - Privileges
+    - privileges
   summary: Delete Privilege
   description: |-
     https://yourdomain.saviyntcloud.com/ECM/v5/deletePrivilege  

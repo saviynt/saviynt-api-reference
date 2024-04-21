@@ -1,6 +1,6 @@
 delete:
   tags:
-    - Dynamic Attributes
+    - dynamic-attributes
   summary: Delete Dynamic Attribute
   description: |-
     This API deletes dynamic attributes in SSM.

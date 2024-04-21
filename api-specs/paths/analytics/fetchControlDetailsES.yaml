@@ -1,6 +1,6 @@
 post:
   tags:
-    - Analytics
+    - analytics
   summary: Fetch Control Details ES
   description: >-
     This API performs the action specified under the

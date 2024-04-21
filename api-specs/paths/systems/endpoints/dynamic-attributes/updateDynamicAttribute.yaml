@@ -1,6 +1,6 @@
 put:
   tags:
-    - Dynamic Attributes
+    - dynamic-attributes
   summary: Update Dynamic Attribute
   description: >-
     This API updates dynamic attributes in SSM.

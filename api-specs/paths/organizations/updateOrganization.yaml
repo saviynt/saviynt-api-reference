@@ -1,6 +1,6 @@
 put:
   tags:
-    - Organization
+    - organizations
   summary: Update Organization
   description: >-
     This API updates an organization in SSM.

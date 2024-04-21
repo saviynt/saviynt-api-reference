@@ -1,6 +1,6 @@
 post:
   tags:
-    - Transport
+    - transport
   summary: Export Package
   description: >-
     This API creates a compressed file containing objects specified for T2P

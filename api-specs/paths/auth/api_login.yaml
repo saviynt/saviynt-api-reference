@@ -7,7 +7,7 @@ servers:
 post:
   security: []
   tags:
-    - Authentication
+    - auth
   summary: Get Authorization Token
   description: >-
     The `Bearer Authentication scheme` is dedicated to the authentication using

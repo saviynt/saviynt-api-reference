@@ -1,6 +1,6 @@
 post:
   tags:
-    - Connections
+    - connections
   summary: Get List of Connections
   description: "This API returns list of Connections in SSM. \r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nOptional params:\r\n`max`,`offset`,\r\n`connectiontype`,\r\n`connectionname`"
   operationId: getListOfConnections

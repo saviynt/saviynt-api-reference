@@ -1,6 +1,6 @@
 post:
   tags:
-    - Organization
+    - organizations
   summary: Create Organization
   description: >-
     This API creates an organization in SSM.

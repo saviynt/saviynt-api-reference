@@ -1,6 +1,6 @@
 get:
   tags:
-    - Analytics
+    - analytics
   summary: Fetch List of Analytics ES
   description: >-
     This method fetches a list of Analytic Controls in Elastic and support the

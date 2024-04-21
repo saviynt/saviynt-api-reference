@@ -1,6 +1,6 @@
 post:
   tags:
-    - Roles
+    - roles
   summary: Add Role
   description: |-
     This API adds role to user.

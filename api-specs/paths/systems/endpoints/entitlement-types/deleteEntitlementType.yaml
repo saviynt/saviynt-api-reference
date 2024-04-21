@@ -1,6 +1,6 @@
 delete:
   tags:
-    - Entitlement Types
+    - entitlement-types
   summary: Delete Entitlement Types
   description: >-
     This API deletes entitlement types in SSM.

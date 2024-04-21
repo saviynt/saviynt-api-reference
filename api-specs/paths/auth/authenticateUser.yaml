@@ -1,6 +1,6 @@
 post:
   tags:
-    - Authentication
+    - auth
   summary: Authenticate User
   description: |-
     This API call can be used to authenticate the user in SSM

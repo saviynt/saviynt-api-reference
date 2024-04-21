@@ -1,6 +1,6 @@
 post:
   tags:
-    - Analytics
+    - analytics
   summary: Run Analytics Controls
   description: |-
     This API is used to run analytics job.

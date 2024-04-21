@@ -7,7 +7,7 @@ servers:
 post:
   operationId: refreshAuthorizationToken
   tags:
-    - Authentication
+    - auth
   summary: Refresh Authorization Token
   description: >-
     Saviynt Enterprise Identity Cloud (EIC) supports OAuth2.0 . OAuth 2.0 is the

@@ -1,0 +1,297 @@
+post:
+  tags:
+    - request-organization
+  summary: Create Organization Request
+  description: "This API call can be used to create new organization requests.\r\nThe Create Organization request is shown in Request History.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`organizationname`\r\n\r\nOptional params:\r\n\r\n`comments`, `organizationname`, `username`, `description`, `primarycontact`, `comments`, `customproperty(1..28)`, `organizationtype`(data security/grouping/request rules/company), `parentorganization`(organization name), `startdate`(MM-dd-yyyy format), `enddate`(MM-dd-yyyy format),\r\n\r\n\r\n`endpoints` - \r\n\r\n1. `endpointname`\r\n2. `cp(1..5)`\r\n\r\n`roles` - \r\n1. `rolename`\r\n\r\n`rules` - \r\n1. `name`\r\n2. `type`\r\n\r\n`entitlements` -\r\n1. `entitlementvalue`\r\n2. `entitlementtype`\r\n3. `endpoint`\r\n\r\n`owners` -\r\n1. `owner`\r\n2. `rank`\r\n3. `policy`(can be SUPERADMIN/ADMIN/BULKADMIN/READONLY)\r\n\r\n`attributes` -\r\n1. `attributegroupname`\r\n2. `attributes`\r\n3. `value`\r\n4. `attributevalues`\r\n\r\n`dynamicattrsvalidation`(can be true/false, default : true) - If true, dynamic attributes will be validated based on the conditions defined."
+  operationId: createOrganizationRequest
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            attributes:
+              type: array
+              items:
+                type: object
+                properties:
+                  attributegroupname:
+                    type: string
+                    example: dfdf
+                  attributes:
+                    type: string
+                    example: street,pincode
+                  attributevalues:
+                    type: object
+                    properties:
+                      pincode:
+                        type: string
+                        example: '123456'
+                      street:
+                        type: string
+                        example: treee
+                  value:
+                    type: string
+                    example: group val
+              example:
+                - attributegroupname: dfdf
+                  attributes: street,pincode
+                  attributevalues:
+                    pincode: '123456'
+                    street: treee
+                  value: group val
+            comments:
+              type: string
+              example: comment
+            customproperty10:
+              type: string
+              example: cp10
+            customproperty5:
+              type: string
+              example: cp5
+            description:
+              type: string
+              example: desc
+            enddate:
+              type: string
+              example: 12-31-2020
+            endpoints:
+              type: array
+              items:
+                type: object
+                properties:
+                  cp1:
+                    type: string
+                    example: cp1
+                  cp2:
+                    type: string
+                    example: cp2
+                  cp3:
+                    type: string
+                    example: cp3
+                  cp4:
+                    type: string
+                    example: cp4
+                  cp5:
+                    type: string
+                    example: cp5
+                  endpointname:
+                    type: string
+                    example: Office365
+              example:
+                - cp1: cp1
+                  cp2: cp2
+                  cp3: cp3
+                  cp4: cp4
+                  cp5: cp5
+                  endpointname: Office365
+                - endpointname: Salesforce
+            entitlements:
+              type: array
+              items:
+                type: object
+                properties:
+                  endpoint:
+                    type: string
+                    example: Office365
+                  entitlementtype:
+                    type: string
+                    example: O365-ADGroup
+                  entitlementvalue:
+                    type: string
+                    example: AzureADSP
+              example:
+                - endpoint: Office365
+                  entitlementtype: O365-ADGroup
+                  entitlementvalue: AzureADSP
+                - endpoint: Office365
+                  entitlementtype: O365-ADGroup
+                  entitlementvalue: DepartmentDynamicGroup
+            organizationname:
+              type: string
+              example: TestOrg1
+            organizationtype:
+              type: string
+              example: request rules
+            owners:
+              type: array
+              items:
+                type: object
+                properties:
+                  owner:
+                    type: string
+                    example: admin
+                  rank:
+                    type: number
+                    example: 2
+              example:
+                - owner: admin
+                  rank: 2
+                - owner: awsadmin
+                  rank: 2
+            parentorganization:
+              type: string
+              example: Globex
+            primarycontact:
+              type: string
+              example: awsadmin
+            roles:
+              type: array
+              items:
+                type: object
+                properties:
+                  rolename:
+                    type: string
+                    example: ADT_AdmitSuperv_MCL
+              example:
+                - rolename: ADT_AdmitSuperv_MCL
+                - rolename: ADT_AdmitSuperv_MVH
+            rules:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: TestJobNA
+                  type:
+                    type: string
+                    example: REQUEST
+              example:
+                - name: TestJobNA
+                  type: REQUEST
+            startdate:
+              type: string
+              example: 09-21-2020
+            username:
+              type: string
+              example: awsadmin
+            users:
+              type: array
+              items:
+                type: object
+                properties:
+                  username:
+                    type: string
+                    example: '1000003'
+              example:
+                - username: '1000003'
+                - username: '1000005'
+        examples:
+          Create Organization Request:
+            value:
+              attributes:
+                - attributegroupname: dfdf
+                  attributes: street,pincode
+                  attributevalues:
+                    pincode: '123456'
+                    street: treee
+                  value: group val
+              comments: comment
+              customproperty10: cp10
+              customproperty5: cp5
+              description: desc
+              enddate: 12-31-2020
+              endpoints:
+                - cp1: cp1
+                  cp2: cp2
+                  cp3: cp3
+                  cp4: cp4
+                  cp5: cp5
+                  endpointname: Office365
+                - endpointname: Salesforce
+              entitlements:
+                - endpoint: Office365
+                  entitlementtype: O365-ADGroup
+                  entitlementvalue: AzureADSP
+                - endpoint: Office365
+                  entitlementtype: O365-ADGroup
+                  entitlementvalue: DepartmentDynamicGroup
+              organizationname: TestOrg1
+              organizationtype: request rules
+              owners:
+                - owner: admin
+                  rank: 2
+                - owner: awsadmin
+                  rank: 2
+              parentorganization: Globex
+              primarycontact: awsadmin
+              roles:
+                - rolename: ADT_AdmitSuperv_MCL
+                - rolename: ADT_AdmitSuperv_MVH
+              rules:
+                - name: TestJobNA
+                  type: REQUEST
+              startdate: 09-21-2020
+              username: awsadmin
+              users:
+                - username: '1000003'
+                - username: '1000005'
+  responses:
+    '202':
+      description: Create Organization Request
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Wed, 30 Dec 2020 01:24:05 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=2e50304d-88ee-406e-a9dc-db97315cfe66; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Organization Create Request Successfully Created;
+              requestId:
+                type: string
+                example: '3121470'
+          examples:
+            Create Organization Request:
+              value:
+                errorCode: '0'
+                msg: Organization Create Request Successfully Created;
+                requestId: '3121470'

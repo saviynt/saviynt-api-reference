@@ -1,6 +1,6 @@
 get:
   tags:
-    - Dynamic Attributes
+    - dynamic-attributes
   summary: Fetch Dynamic Attributes
   description: >-
     This API fetches the dynamic attributes in SSM.

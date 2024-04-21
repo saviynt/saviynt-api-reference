@@ -1,6 +1,6 @@
 post:
   tags:
-    - Job Management
+    - jobs
   summary: Create and Update Trigger
   description: >-
     This API call can be used to create and update a trigger for a particular

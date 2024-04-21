@@ -1,0 +1,458 @@
+post:
+  tags:
+    - request-history
+  summary: Fetch Request History Details
+  description: "This API call can be used to fetch the request history details of a request.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`requestkey`\r\n\r\nOptional params:\r\n`taskmetadatalength` - Modifies the character limit of provisioning comments and provisioning metadata upto maximum of 10000.\r\n`hideblankapprovername` - If true, prevents printing the firstname/lastname if null in the \"State\" field(Default : false)\r\n \r\n***Note*** - Provisioning comments in the response will be limited to 200 characters. Provisioning metadata in the response will be limited to 400 characters."
+  operationId: fetchRequestHistoryDetails
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            requestkey:
+              type: string
+              example: '387'
+  responses:
+    '200':
+      description: Fetch Request History Details
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Thu, 16 Sep 2021 19:51:20 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=1d2cc8f3-9877-4cd0-99e6-cb2b05841e87; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                example: 8
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: SUCCESS
+              requestHistoryDetails:
+                type: object
+                properties:
+                  Owner:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Access:
+                          type: string
+                          example: Account Operators
+                        Approve Date:
+                          type: string
+                          example: ''
+                        Assignee:
+                          type: string
+                          example: Saviynt AdminUser (admin)
+                        Business Justification:
+                          type: string
+                          example: >-
+                            Entitlement added as part of Modify
+                            Role-[ProjectManager] Request Auto Approved 
+                            CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                            null
+                        Endpoint:
+                          type: string
+                          example: Office365
+                        Entitlement Type:
+                          type: string
+                          example: AADGroup
+                        Entitlement value:
+                          type: string
+                          example: >-
+                            CN=Account
+                            Operators,CN=Builtin,DC=corpAD,DC=saviynt,DC=com
+                        Request Type:
+                          type: string
+                          example: Request for Access
+                        Start Date:
+                          type: string
+                          example: '2018-08-23 06:12:25'
+                        State:
+                          type: string
+                          example: Rejected (Saviynt AdminUser(admin))
+                        endpointname:
+                          type: string
+                          example: Office365
+                    example:
+                      - Access: Account Operators
+                        Approve Date: ''
+                        Assignee: Saviynt AdminUser (admin)
+                        Business Justification: >-
+                          Entitlement added as part of Modify
+                          Role-[ProjectManager] Request Auto Approved 
+                          CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                          null
+                        Endpoint: Office365
+                        Entitlement Type: AADGroup
+                        Entitlement value: >-
+                          CN=Account
+                          Operators,CN=Builtin,DC=corpAD,DC=saviynt,DC=com
+                        Request Type: Request for Access
+                        Start Date: '2018-08-23 06:12:25'
+                        State: Rejected (Saviynt AdminUser(admin))
+                        endpointname: Office365
+                      - Access: ProjectManager
+                        Approve Date: ''
+                        Assignee: Saviynt AdminUser (admin)
+                        Business Justification: >-
+                          Approval Request for Update Role Auto Approved 
+                          CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                          null
+                        Endpoint: ''
+                        Entitlement Type: ''
+                        Request Type: Update Role
+                        Start Date: '2018-08-23 06:12:26'
+                        State: Rejected (Saviynt AdminUser(admin))
+                        endpointname: ''
+                  Owners Manager:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Access:
+                          type: string
+                          example: Account Operators
+                        Approve Date:
+                          type: string
+                          example: '2018-08-23 06:12:25'
+                        Assignee:
+                          type: string
+                          example: aws Rachels (awsadmin)
+                        Business Justification:
+                          type: string
+                          example: >-
+                            Entitlement added as part of Modify
+                            Role-[ProjectManager] Request Auto Approved 
+                            CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                            null
+                        Endpoint:
+                          type: string
+                          example: Office365
+                        Entitlement Type:
+                          type: string
+                          example: AADGroup
+                        Entitlement value:
+                          type: string
+                          example: >-
+                            CN=Account
+                            Operators,CN=Builtin,DC=corpAD,DC=saviynt,DC=com
+                        Request Type:
+                          type: string
+                          example: Request for Access
+                        Start Date:
+                          type: string
+                          example: '2018-08-23 06:11:53'
+                        State:
+                          type: string
+                          example: Rejected (Saviynt AdminUser(admin))
+                        endpointname:
+                          type: string
+                          example: Office365
+                    example:
+                      - Access: Account Operators
+                        Approve Date: '2018-08-23 06:12:25'
+                        Assignee: aws Rachels (awsadmin)
+                        Business Justification: >-
+                          Entitlement added as part of Modify
+                          Role-[ProjectManager] Request Auto Approved 
+                          CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                          null
+                        Endpoint: Office365
+                        Entitlement Type: AADGroup
+                        Entitlement value: >-
+                          CN=Account
+                          Operators,CN=Builtin,DC=corpAD,DC=saviynt,DC=com
+                        Request Type: Request for Access
+                        Start Date: '2018-08-23 06:11:53'
+                        State: Rejected (Saviynt AdminUser(admin))
+                        endpointname: Office365
+                      - Access: ProjectManager
+                        Approve Date: '2018-08-23 06:12:26'
+                        Assignee: aws Rachels (awsadmin)
+                        Business Justification: >-
+                          Approval Request for Update Role Auto Approved 
+                          CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                          null
+                        Endpoint: ''
+                        Entitlement Type: ''
+                        Request Type: Update Role
+                        Start Date: '2018-08-23 06:11:53'
+                        State: Rejected (Saviynt AdminUser(admin))
+                        endpointname: ''
+                  comments:
+                    type: string
+                  dynamicattributes:
+                    type: array
+                    items: {}
+                    example: []
+                  requestAccessDetails:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Access:
+                          type: string
+                          example: Account Operators
+                        End Date:
+                          type: string
+                          example: ''
+                        Endpoint:
+                          type: string
+                          example: Office365
+                        Entitlement Type:
+                          type: string
+                          example: AADGroup
+                        Entitlement value:
+                          type: string
+                          example: >-
+                            CN=Account
+                            Operators,CN=Builtin,DC=corpAD,DC=saviynt,DC=com
+                        Request Type:
+                          type: string
+                          example: Request for Access
+                        Start Date:
+                          type: string
+                          example: '2018-08-23 06:11:53'
+                        comments:
+                          type: string
+                          example: >-
+                            Entitlement added as part of Modify
+                            Role-[ProjectManager] Request Auto Approved 
+                            CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                            null
+                        endpointname:
+                          type: string
+                          example: Office365
+                        parentrequestkey:
+                          type: string
+                          example: '724'
+                        request_accesskey:
+                          type: string
+                          example: '725'
+                        requestkey:
+                          type: string
+                          example: '387'
+                        status:
+                          type: string
+                          example: Task Created
+                    example:
+                      - Access: Account Operators
+                        End Date: ''
+                        Endpoint: Office365
+                        Entitlement Type: AADGroup
+                        Entitlement value: >-
+                          CN=Account
+                          Operators,CN=Builtin,DC=corpAD,DC=saviynt,DC=com
+                        Request Type: Request for Access
+                        Start Date: '2018-08-23 06:11:53'
+                        comments: >-
+                          Entitlement added as part of Modify
+                          Role-[ProjectManager] Request Auto Approved 
+                          CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                          null
+                        endpointname: Office365
+                        parentrequestkey: '724'
+                        request_accesskey: '725'
+                        requestkey: '387'
+                        status: Task Created
+                      - Access: ProjectManager
+                        End Date: '2018-09-02 06:11:53'
+                        Endpoint: ''
+                        Entitlement Type: ''
+                        Request Type: Update Role
+                        Start Date: '2018-08-23 06:11:53'
+                        comments: >-
+                          Approval Request for Update Role Auto Approved 
+                          CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                          null
+                        endpointname: ''
+                        parentrequestkey: ''
+                        request_accesskey: '724'
+                        requestkey: '387'
+                        status: Task Created
+                  requestId:
+                    type: string
+                    example: '710733'
+                  requestedfor:
+                    type: string
+                    example: admin
+                  requestor:
+                    type: string
+                    example: admin
+              tabList:
+                type: array
+                items:
+                  type: string
+                  example: comments
+                example:
+                  - comments
+                  - Owner
+                  - Owners Manager
+                  - dynamicattributes
+                  - requestor
+                  - requestedfor
+          examples:
+            Fetch Request History Details:
+              value:
+                count: 8
+                errorCode: '0'
+                msg: SUCCESS
+                requestHistoryDetails:
+                  Owner:
+                    - Access: Account Operators
+                      Approve Date: ''
+                      Assignee: Saviynt AdminUser (admin)
+                      Business Justification: >-
+                        Entitlement added as part of Modify
+                        Role-[ProjectManager] Request Auto Approved 
+                        CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                        null
+                      Endpoint: Office365
+                      Entitlement Type: AADGroup
+                      Entitlement value: >-
+                        CN=Account
+                        Operators,CN=Builtin,DC=corpAD,DC=saviynt,DC=com
+                      Request Type: Request for Access
+                      Start Date: '2018-08-23 06:12:25'
+                      State: Rejected (Saviynt AdminUser(admin))
+                      endpointname: Office365
+                    - Access: ProjectManager
+                      Approve Date: ''
+                      Assignee: Saviynt AdminUser (admin)
+                      Business Justification: >-
+                        Approval Request for Update Role Auto Approved 
+                        CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                        null
+                      Endpoint: ''
+                      Entitlement Type: ''
+                      Request Type: Update Role
+                      Start Date: '2018-08-23 06:12:26'
+                      State: Rejected (Saviynt AdminUser(admin))
+                      endpointname: ''
+                  Owners Manager:
+                    - Access: Account Operators
+                      Approve Date: '2018-08-23 06:12:25'
+                      Assignee: aws Rachels (awsadmin)
+                      Business Justification: >-
+                        Entitlement added as part of Modify
+                        Role-[ProjectManager] Request Auto Approved 
+                        CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                        null
+                      Endpoint: Office365
+                      Entitlement Type: AADGroup
+                      Entitlement value: >-
+                        CN=Account
+                        Operators,CN=Builtin,DC=corpAD,DC=saviynt,DC=com
+                      Request Type: Request for Access
+                      Start Date: '2018-08-23 06:11:53'
+                      State: Rejected (Saviynt AdminUser(admin))
+                      endpointname: Office365
+                    - Access: ProjectManager
+                      Approve Date: '2018-08-23 06:12:26'
+                      Assignee: aws Rachels (awsadmin)
+                      Business Justification: >-
+                        Approval Request for Update Role Auto Approved 
+                        CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                        null
+                      Endpoint: ''
+                      Entitlement Type: ''
+                      Request Type: Update Role
+                      Start Date: '2018-08-23 06:11:53'
+                      State: Rejected (Saviynt AdminUser(admin))
+                      endpointname: ''
+                  comments: null
+                  dynamicattributes: []
+                  requestAccessDetails:
+                    - Access: Account Operators
+                      End Date: ''
+                      Endpoint: Office365
+                      Entitlement Type: AADGroup
+                      Entitlement value: >-
+                        CN=Account
+                        Operators,CN=Builtin,DC=corpAD,DC=saviynt,DC=com
+                      Request Type: Request for Access
+                      Start Date: '2018-08-23 06:11:53'
+                      comments: >-
+                        Entitlement added as part of Modify
+                        Role-[ProjectManager] Request Auto Approved 
+                        CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                        null
+                      endpointname: Office365
+                      parentrequestkey: '724'
+                      request_accesskey: '725'
+                      requestkey: '387'
+                      status: Task Created
+                    - Access: ProjectManager
+                      End Date: '2018-09-02 06:11:53'
+                      Endpoint: ''
+                      Entitlement Type: ''
+                      Request Type: Update Role
+                      Start Date: '2018-08-23 06:11:53'
+                      comments: >-
+                        Approval Request for Update Role Auto Approved 
+                        CREATED_SNOW::::REQ0010161::::555cfda30f0363007c378f8ce1050e70::::625cfda30f0363007c378f8ce1050ea2::::
+                        null
+                      endpointname: ''
+                      parentrequestkey: ''
+                      request_accesskey: '724'
+                      requestkey: '387'
+                      status: Task Created
+                  requestId: '710733'
+                  requestedfor: admin
+                  requestor: admin
+                tabList:
+                  - comments
+                  - Owner
+                  - Owners Manager
+                  - dynamicattributes
+                  - requestor
+                  - requestedfor

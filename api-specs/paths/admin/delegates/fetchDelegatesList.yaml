@@ -1,6 +1,6 @@
 post:
   tags:
-    - User Delegation
+    - delegates
   summary: Fetch Existing Delegates List
   description: >-
     This API is used to retrieve the list of existing delegates and their

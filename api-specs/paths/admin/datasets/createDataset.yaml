@@ -1,6 +1,6 @@
 post:
   tags:
-    - Dataset
+    - datasets
   summary: createDataset
   description: |-
     This API is used to create a new dataset.

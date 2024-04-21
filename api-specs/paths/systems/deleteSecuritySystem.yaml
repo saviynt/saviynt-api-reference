@@ -1,6 +1,6 @@
 delete:
   tags:
-    - Security Systems
+    - systems
   summary: Delete Security System
   description: >-
     This API deletes Security System in SSM.

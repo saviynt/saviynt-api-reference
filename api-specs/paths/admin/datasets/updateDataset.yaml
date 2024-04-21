@@ -1,6 +1,6 @@
 post:
   tags:
-    - Dataset
+    - datasets
   summary: updateDataset
   description: |-
     This API is used to update the Dataset details.

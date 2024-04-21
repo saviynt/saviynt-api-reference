@@ -1,6 +1,6 @@
 post:
   tags:
-    - Endpoints
+    - endpoints
   summary: Get List of Endpoints
   description: >-
     This API returns list of Endpoints in EIC.

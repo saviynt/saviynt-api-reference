@@ -1,6 +1,6 @@
 post:
   tags:
-    - Campaigns
+    - campaigns
   summary: Discontinue Campaigns and Certifications
   description: |-
     This API discontinues certification and campaign.

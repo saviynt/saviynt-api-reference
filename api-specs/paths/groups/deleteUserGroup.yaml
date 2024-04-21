@@ -1,6 +1,6 @@
 post:
   tags:
-    - User Groups
+    - groups
   summary: Delete UserGroup
   description: |-
     This API delete usergroup in SSM.

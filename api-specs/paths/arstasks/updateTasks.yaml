@@ -1,6 +1,6 @@
 post:
   tags:
-    - Tasks
+    - arstasks
   summary: Update Tasks
   description: >-
     It can update certain params of a task as well as complete a task.

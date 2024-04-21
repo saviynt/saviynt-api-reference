@@ -1,6 +1,6 @@
 post:
   tags:
-    - Campaigns
+    - campaigns
   summary: Fetch Campaign List
   description: |-
     This API returns list of all campaign's pending to be certified.

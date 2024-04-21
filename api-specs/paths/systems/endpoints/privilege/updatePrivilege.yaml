@@ -1,6 +1,6 @@
 put:
   tags:
-    - Privileges
+    - privileges
   summary: Update Privilege
   description: >-
     This API updates an endpoint in EIC.   The Authorization must have a Bearer

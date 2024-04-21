@@ -1,6 +1,6 @@
 post:
   tags:
-    - Accounts
+    - accounts
   summary: Assign Account to User
   description: >-
     This method provisions an "Account" to a "User" in SSM.  The "Account"

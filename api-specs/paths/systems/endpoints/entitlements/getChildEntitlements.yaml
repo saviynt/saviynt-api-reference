@@ -1,6 +1,6 @@
 get:
   tags:
-    - Entitlements
+    - entitlements
   summary: Get Child Entitlements
   description: >-
     This API can be used to get the list of all child entitlements.

@@ -1,6 +1,6 @@
 post:
   tags:
-    - User Groups
+    - groups
   summary: Get List of UserGroups
   description: |-
     This API returns list of UserGroups in SSM.

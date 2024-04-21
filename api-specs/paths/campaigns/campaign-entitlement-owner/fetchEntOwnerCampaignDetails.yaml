@@ -1,0 +1,556 @@
+post:
+  tags:
+    - campaign-entitlement-owner
+  summary: Fetch Entitlement Owner Campaign Details
+  description: |-
+    This API return details of a particular Entitlement Owner campaign in SSM.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params:
+    `campaignId`
+    Optional params:
+    `max`
+    `offset`
+    `entitlementmax`
+    `entitlementoffset`
+    `certkey`
+    `verifier`
+  operationId: fetchEntitlementOwnerCampaignDetails
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            campaignId:
+              type: string
+              example: '10'
+        examples:
+          Fetch Entitlement Owner Campaign Details:
+            value:
+              campaignId: '10'
+  responses:
+    '200':
+      description: Fetch Entitlement Owner Campaign Details - SUCCESS
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Thu, 23 Jul 2020 15:42:02 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=94589b88-cb05-4e05-a11d-dc62e85bb238; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              campaignDetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    certificationame:
+                      type: string
+                      example: testent_test - lmcneil (Logan McNeil)
+                    certifier:
+                      type: string
+                      example: lmcneil
+                    certkey:
+                      type: string
+                      example: '6'
+                    entitlement:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          certfied:
+                            type: string
+                            example: APPROVED
+                          consulted:
+                            type: string
+                            example: 'no'
+                          endpoint:
+                            type: string
+                            example: Workday
+                          entitlement_value:
+                            type: string
+                            example: 1099 System (1099_System)
+                          totalaccount:
+                            type: number
+                            example: 0
+                          totalentitlement2:
+                            type: number
+                            example: 0
+                          updateuser:
+                            type: string
+                            example: admin
+                      example:
+                        - certfied: APPROVED
+                          consulted: 'no'
+                          endpoint: Workday
+                          entitlement_value: 1099 System (1099_System)
+                          totalaccount: 0
+                          totalentitlement2: 0
+                          updateuser: admin
+                    entitlementdisplaycount:
+                      type: number
+                      example: 1
+                    progress:
+                      type: string
+                      example: 100%
+                    status:
+                      type: string
+                      example: Completed
+                    totalentitlement:
+                      type: number
+                      example: 1
+                example:
+                  - certificationame: testent_test - lmcneil (Logan McNeil)
+                    certifier: lmcneil
+                    certkey: '6'
+                    entitlement:
+                      - certfied: APPROVED
+                        consulted: 'no'
+                        endpoint: Workday
+                        entitlement_value: 1099 System (1099_System)
+                        totalaccount: 0
+                        totalentitlement2: 0
+                        updateuser: admin
+                    entitlementdisplaycount: 1
+                    progress: 100%
+                    status: Completed
+                    totalentitlement: 1
+                  - certificationame: >-
+                      testent_test - kkrishnan (Kshama
+                      Krishnan)-Reassigned-2020-07-15-234436
+                    certifier: kkrishnan
+                    certkey: '7'
+                    entitlement:
+                      - certfied: APPROVED
+                        comment: >-
+                          [07/15/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/16/20-Steve Morgan(smorgan)]
+                          approveComment
+                        consulted: 'no'
+                        endpoint: Workday
+                        entitlement_value: Report Writer (Report_Writer)
+                        totalaccount: 0
+                        totalentitlement2: 0
+                        updateuser: smorgan
+                    entitlementdisplaycount: 1
+                    progress: 100%
+                    status: Completed
+                    totalentitlement: 1
+                  - certificationame: >-
+                      testent_test - mreddy (Mahesh
+                      Reddy)-Reassigned-2020-07-16-170550
+                    certifier: mreddy
+                    certkey: '8'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - rkumar (Rajiv
+                      Kumar)-Reassigned-2020-07-16-172607
+                    certifier: rkumar
+                    certkey: '9'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - abrennan (Abby
+                      Brennan)-Reassigned-2020-07-16-201654
+                    certifier: abrennan
+                    certkey: '11'
+                    entitlementdisplaycount: 0
+                    progress: 0%
+                    status: New
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - abhat (Arjun
+                      Bhat)-Reassigned-2020-07-16-202800
+                    certifier: abhat
+                    certkey: '12'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - abianchi (Angela
+                      Bianchi)-Reassigned-2020-07-16-203801
+                    certifier: abianchi
+                    certkey: '13'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - adubois (Alain
+                      DuBois)-Reassigned-2020-07-16-211255
+                    certifier: adubois
+                    certkey: '14'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - akapoor (Amit
+                      Kapoor)-Reassigned-2020-07-16-213238
+                    certifier: akapoor
+                    certkey: '15'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - amackenzie (Amanda
+                      Mackenzie)-Reassigned-2020-07-17-232752
+                    certifier: amackenzie
+                    certkey: '21'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - badams (Ben
+                      Adams)-Reassigned-2020-07-20-165843
+                    certifier: badams
+                    certkey: '24'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - bkaplan (Brian
+                      Kaplan)-Reassigned-2020-07-20-191707
+                    certifier: bkaplan
+                    certkey: '25'
+                    entitlement:
+                      - certfied: APPROVED
+                        comment: >-
+                          [07/16/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/16/20-adminfname
+                          adminlname(admin)]<br> reassigning from
+                          API[07/16/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/16/20-adminfname
+                          adminlname(admin)]<br> reassigning from
+                          API[07/16/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/16/20-Steve
+                          Morgan(smorgan)]<br> reassigning from
+                          API[07/16/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/17/20-Steve
+                          Morgan(smorgan)]<br> reassigning from
+                          API[07/20/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/20/20-Steve Morgan(smorgan)]
+                          approveComment[07/20/20-adminfname
+                          adminlname(admin)]<br> reassigning from
+                          API[07/20/20-Steve Morgan(smorgan)] approveComment
+                        consulted: 'no'
+                        endpoint: Workday
+                        entitlement_value: 1099 Analyst (1099_Analyst)
+                        totalaccount: 0
+                        totalentitlement2: 0
+                        updateuser: smorgan
+                    entitlementdisplaycount: 1
+                    progress: 100%
+                    status: Completed
+                    totalentitlement: 1
+              campaignId:
+                type: string
+                example: '10'
+              complete:
+                type: string
+                example: 'No'
+              displayCount:
+                type: number
+                example: 12
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: successful
+              totalCompleteCertification:
+                type: array
+                items:
+                  type: string
+                  example: testent_test - lmcneil (Logan McNeil)
+                example:
+                  - testent_test - lmcneil (Logan McNeil)
+                  - >-
+                    testent_test - kkrishnan (Kshama
+                    Krishnan)-Reassigned-2020-07-15-234436
+                  - >-
+                    testent_test - bkaplan (Brian
+                    Kaplan)-Reassigned-2020-07-20-191707
+              totalCount:
+                type: number
+                example: 12
+          examples:
+            Fetch Entitlement Owner Campaign Details - SUCCESS:
+              value:
+                campaignDetails:
+                  - certificationame: testent_test - lmcneil (Logan McNeil)
+                    certifier: lmcneil
+                    certkey: '6'
+                    entitlement:
+                      - certfied: APPROVED
+                        consulted: 'no'
+                        endpoint: Workday
+                        entitlement_value: 1099 System (1099_System)
+                        totalaccount: 0
+                        totalentitlement2: 0
+                        updateuser: admin
+                    entitlementdisplaycount: 1
+                    progress: 100%
+                    status: Completed
+                    totalentitlement: 1
+                  - certificationame: >-
+                      testent_test - kkrishnan (Kshama
+                      Krishnan)-Reassigned-2020-07-15-234436
+                    certifier: kkrishnan
+                    certkey: '7'
+                    entitlement:
+                      - certfied: APPROVED
+                        comment: >-
+                          [07/15/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/16/20-Steve Morgan(smorgan)]
+                          approveComment
+                        consulted: 'no'
+                        endpoint: Workday
+                        entitlement_value: Report Writer (Report_Writer)
+                        totalaccount: 0
+                        totalentitlement2: 0
+                        updateuser: smorgan
+                    entitlementdisplaycount: 1
+                    progress: 100%
+                    status: Completed
+                    totalentitlement: 1
+                  - certificationame: >-
+                      testent_test - mreddy (Mahesh
+                      Reddy)-Reassigned-2020-07-16-170550
+                    certifier: mreddy
+                    certkey: '8'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - rkumar (Rajiv
+                      Kumar)-Reassigned-2020-07-16-172607
+                    certifier: rkumar
+                    certkey: '9'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - abrennan (Abby
+                      Brennan)-Reassigned-2020-07-16-201654
+                    certifier: abrennan
+                    certkey: '11'
+                    entitlementdisplaycount: 0
+                    progress: 0%
+                    status: New
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - abhat (Arjun
+                      Bhat)-Reassigned-2020-07-16-202800
+                    certifier: abhat
+                    certkey: '12'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - abianchi (Angela
+                      Bianchi)-Reassigned-2020-07-16-203801
+                    certifier: abianchi
+                    certkey: '13'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - adubois (Alain
+                      DuBois)-Reassigned-2020-07-16-211255
+                    certifier: adubois
+                    certkey: '14'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - akapoor (Amit
+                      Kapoor)-Reassigned-2020-07-16-213238
+                    certifier: akapoor
+                    certkey: '15'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - amackenzie (Amanda
+                      Mackenzie)-Reassigned-2020-07-17-232752
+                    certifier: amackenzie
+                    certkey: '21'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - badams (Ben
+                      Adams)-Reassigned-2020-07-20-165843
+                    certifier: badams
+                    certkey: '24'
+                    entitlementdisplaycount: 0
+                    progress: 100%
+                    status: Fully Executed
+                    totalentitlement: 0
+                  - certificationame: >-
+                      testent_test - bkaplan (Brian
+                      Kaplan)-Reassigned-2020-07-20-191707
+                    certifier: bkaplan
+                    certkey: '25'
+                    entitlement:
+                      - certfied: APPROVED
+                        comment: >-
+                          [07/16/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/16/20-adminfname
+                          adminlname(admin)]<br> reassigning from
+                          API[07/16/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/16/20-adminfname
+                          adminlname(admin)]<br> reassigning from
+                          API[07/16/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/16/20-Steve
+                          Morgan(smorgan)]<br> reassigning from
+                          API[07/16/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/17/20-Steve
+                          Morgan(smorgan)]<br> reassigning from
+                          API[07/20/20-adminfname adminlname(admin)]<br>
+                          reassigning from API[07/20/20-Steve Morgan(smorgan)]
+                          approveComment[07/20/20-adminfname
+                          adminlname(admin)]<br> reassigning from
+                          API[07/20/20-Steve Morgan(smorgan)] approveComment
+                        consulted: 'no'
+                        endpoint: Workday
+                        entitlement_value: 1099 Analyst (1099_Analyst)
+                        totalaccount: 0
+                        totalentitlement2: 0
+                        updateuser: smorgan
+                    entitlementdisplaycount: 1
+                    progress: 100%
+                    status: Completed
+                    totalentitlement: 1
+                campaignId: '10'
+                complete: 'No'
+                displayCount: 12
+                errorCode: '0'
+                msg: successful
+                totalCompleteCertification:
+                  - testent_test - lmcneil (Logan McNeil)
+                  - >-
+                    testent_test - kkrishnan (Kshama
+                    Krishnan)-Reassigned-2020-07-15-234436
+                  - >-
+                    testent_test - bkaplan (Brian
+                    Kaplan)-Reassigned-2020-07-20-191707
+                totalCount: 12
+    '412':
+      description: Fetch Entitlement Owner Campaign Details - FAILURE
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 15 Jun 2020 22:34:38 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=8892aa42-facf-43a1-9cff-d4212b9a646d; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '1'
+              msg:
+                type: string
+                example: certification with certkey 12802 not found for camapignId 282
+          examples:
+            Fetch Entitlement Owner Campaign Details - FAILURE:
+              value:
+                errorCode: '1'
+                msg: certification with certkey 12802 not found for camapignId 282

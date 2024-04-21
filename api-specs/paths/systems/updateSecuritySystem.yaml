@@ -1,6 +1,6 @@
 put:
   tags:
-    - Security Systems
+    - systems
   summary: Update Security System
   description: >-
     This API updates Security system in SSM.

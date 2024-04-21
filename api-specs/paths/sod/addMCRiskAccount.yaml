@@ -1,6 +1,6 @@
 post:
   tags:
-    - Segregation of Duties
+    - sod
   summary: Add Mitigating Control Risk Account
   description: >-
     This API can be used to create a mitigating control association for a

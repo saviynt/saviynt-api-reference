@@ -1,6 +1,6 @@
 post:
   tags:
-    - Entitlements
+    - entitlements
   summary: Get Entitlements
   description: "This API can be used to get the list of all the entitlements.\r\n\r\nThis API call can be used to get the list and details of all the entitlements the user has access to. \r\n\r\nThis API will return only the entitlement attributes which are not null or not empty.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nOptional params:\r\n`username`,\r\n`entitlementtype`,\r\n`endpoint`,\r\n`requestedObject` -\"users\",\"userscount\",\r\n`max`,\r\n`offset`,\r\n`entitlementResponseFields`,\r\n`userResponseFields`,\r\n`userfiltercriteria`,\r\n`accountname`,\r\n`entownerwithrank` - if \"true\", returns the list of owners with owner rank for every entitlementValue,\r\n`returnentitlementmap`(true/false,default:false) - If true, entitlementmap details will be returned,\r\n`exactmatch` - Default is true. If given as false, it will search based on similar matches,\r\n\r\n`entitlementfiltercriteria`,\r\n\r\nOR \r\n\r\n`entQuery` - query to support only entitlement_values parameters. Sample - \"ent.description  = 'Desc' or ent.displayname like '%display%'\".\r\n\r\n***Note*** - Either pass param entitlementfiltercriteria (with or without exactmatch) OR entQuery. Both cannot be passed simultaneously."
   operationId: getEntitlements

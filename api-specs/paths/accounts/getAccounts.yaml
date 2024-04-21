@@ -1,6 +1,6 @@
 post:
   tags:
-    - Accounts
+    - accounts
   summary: Get Account Details
   description: >-
     This method returns a `List` of "Accounts" in SSM.

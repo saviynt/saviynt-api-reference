@@ -1,6 +1,6 @@
 post:
   tags:
-    - Analytics
+    - analytics
   summary: Fetch Analytics Details
   description: "This web service API is used to fetch the details of analytics controls.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n`controlId` - this is the ANALYTICSKEY\r\n\r\nOptional params:\r\n`max`, `offset`"
   operationId: fetchAnalyticsDetails

@@ -1,6 +1,6 @@
 post:
   tags:
-    - Password Management
+    - security
   summary: Validate User Security Answers
   description: >-
     This API is used to validate the security answers of user with answers

@@ -1,6 +1,6 @@
 post:
   tags:
-    - Common Utilities
+    - utils
   summary: Send Email
   description: "This API can be used send an email from SSM.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nNote: Configure SMTP in SSM before using this API. \r\n\r\nMandatory params: \r\n\r\n`to`,\r\n`from`,\r\n`subject`,\r\n`body`\r\n\r\nOptional params:\r\n\r\n`cc`,`bcc`"
   operationId: sendEmail

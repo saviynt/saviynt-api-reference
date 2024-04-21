@@ -1,6 +1,6 @@
 post:
   tags:
-    - Privileges
+    - privileges
   summary: Get List of Privileges for Entitlement Type
   description: "This API gives the list of privileges for an entitlement type.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`endpoint`\r\n\r\nOptional params:\r\n`max`, `offset`, `entitlementType`"
   operationId: getListOfPrivilegesForEntitlementType

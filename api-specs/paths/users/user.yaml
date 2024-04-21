@@ -1,6 +1,6 @@
 get:
   tags:
-    - Users
+    - users
   summary: Get List of Users
   description: "This API returns the user information from SSM. This API will return only the user attributes which are not null or blank.\r\n\r\nYou can search for a user based on any parameters given below and not only the username.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`q`\r\n\r\nOptional params:\r\n`offset`,\r\n`max`,\r\n`sort`,\r\n`order`,\r\n`countonly`,\r\n`fields`\r\n`showsecurityanswers` - \"0\"/\"1\" to display encrypted security answers for the user"
   operationId: getListOfUsers

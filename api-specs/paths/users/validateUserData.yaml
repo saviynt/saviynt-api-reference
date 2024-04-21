@@ -1,6 +1,6 @@
 post:
   tags:
-    - Users
+    - users
   summary: Validate User Data
   description: >-
     This API will validate the attribute values of an existing user.

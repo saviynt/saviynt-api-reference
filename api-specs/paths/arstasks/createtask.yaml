@@ -1,6 +1,6 @@
 post:
   tags:
-    - Tasks
+    - arstasks
   summary: Create Task - Remove Entitlement
   description: >-
     Starting with Release v23.9, you can use the createtask API to create remove

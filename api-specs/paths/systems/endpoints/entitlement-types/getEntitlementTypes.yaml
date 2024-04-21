@@ -1,6 +1,6 @@
 get:
   tags:
-    - Entitlement Types
+    - entitlement-types
   summary: Get List of Entitlement Types
   description: |-
     This API returns list of Entitlement Types in SSM.

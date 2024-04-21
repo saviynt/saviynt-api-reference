@@ -1,6 +1,6 @@
 post:
   tags:
-    - User Delegation
+    - delegates
   summary: Edit Delegate
   description: >-
     This method is used to edit a specific delegate. The input parameters of

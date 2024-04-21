@@ -1,6 +1,6 @@
 post:
   tags:
-    - Accounts
+    - accounts
   summary: Update Account
   description: >-
     This method updates a particular "account" record in Saviynt, based on the

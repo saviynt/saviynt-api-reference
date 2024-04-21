@@ -1,6 +1,6 @@
 get:
   tags:
-    - Sav Roles
+    - sav-roles
   summary: Get SavRoles
   description: "StartFragment\n\nThis API returns the SavRoles of an user in SSM.\n\nThe\_`Authorization`\_must have\_`Bearer`\_followed by\_`Token`.\n\nOptional params:\n\n`max`,`offset`,`username`\n\nEndFragment"
   operationId: getSavroles

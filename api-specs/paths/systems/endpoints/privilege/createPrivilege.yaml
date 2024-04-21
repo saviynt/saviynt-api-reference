@@ -1,6 +1,6 @@
 put:
   tags:
-    - Privileges
+    - privileges
   summary: Create Privilege
   description: >-
     This API updates an endpoint in EIC.

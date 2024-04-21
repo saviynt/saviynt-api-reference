@@ -1,6 +1,6 @@
 post:
   tags:
-    - Endpoints
+    - endpoints
   summary: Create Endpoint
   description: >-
     This API creates an endpoint in EIC.

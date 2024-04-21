@@ -1,6 +1,6 @@
 post:
   tags:
-    - Tasks
+    - arstasks
   summary: Discontinue All Pending Tasks
   description: "This API can be used to discontinue all pending tasks.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nOptional params: \r\n`updateuser`\r\n\r\n`commentsrequest`"
   operationId: discontinueAllPendingTasks

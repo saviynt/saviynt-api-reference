@@ -1,6 +1,6 @@
 post:
   tags:
-    - Segregation of Duties
+    - sod
   summary: Upload SOD Ruleset
   description: >-
     The **uploadSODRuleset** API uses the Ruleset upload file to import rulesets

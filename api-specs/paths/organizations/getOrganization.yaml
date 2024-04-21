@@ -1,6 +1,6 @@
 get:
   tags:
-    - Organization
+    - organizations
   summary: Get Organization
   description: >-
     This API returns a list of organizations in SSM.

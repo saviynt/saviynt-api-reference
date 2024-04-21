@@ -1,6 +1,6 @@
 post:
   tags:
-    - Connections
+    - connections
   summary: Get Connections Details
   description: "This API returns connection details in SSM. \r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nMandatory params:\r\n`connectiontype` or `connectionname`(if both are passed then connectionkey will be considered)"
   operationId: getConnectionsDetails

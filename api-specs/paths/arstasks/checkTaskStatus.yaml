@@ -1,6 +1,6 @@
 post:
   tags:
-    - Tasks
+    - arstasks
   summary: Check Task Status
   description: "This API can be used to check the task status. Response can return task status as “New/Complete/In Progress/Discontinued”.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n`taskid`"
   operationId: checkTaskStatus

@@ -1,7 +1,6 @@
 post:
   tags:
-    - Campaigns
-    - User Manager
+    - campaigns
   summary: Fetch Campaign Details
   description: >-
     This API return details of a particular campaign required for employee

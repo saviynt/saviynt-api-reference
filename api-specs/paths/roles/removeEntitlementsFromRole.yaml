@@ -1,6 +1,6 @@
 post:
   tags:
-    - Roles
+    - roles
   summary: Remove Entitlement From Role
   description: >-
     This API removes entitlement from role.

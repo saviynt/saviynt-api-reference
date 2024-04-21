@@ -1,6 +1,6 @@
 post:
   tags:
-    - Job Management
+    - jobs
   summary: Check Job Status
   description: "This API is used to fetch the status of any job other that Data Import Job.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n`jobgroup`,\r\n`jobname`"
   operationId: checkJobStatus

@@ -1,6 +1,6 @@
 post:
   tags:
-    - Organization
+    - organizations
   summary: Delete Organization
   description: |-
     This API deletes organization in SSM.

@@ -1,6 +1,6 @@
 post:
   tags:
-    - Dashboard
+    - dashboards
   summary: Retrieve Dashboard Tiles Data
   description: "This API call can be used to fetch details like number of open userrequests, number of attestations, number of delegates, and number of pending approvals for a specific user. \r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`userName`"
   operationId: retrieveDashboardTilesData

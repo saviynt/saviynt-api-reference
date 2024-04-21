@@ -1,6 +1,6 @@
 post:
   tags:
-    - Dynamic Attributes
+    - dynamic-attributes
   summary: Create Dynamic Attribute
   description: >-
     This API creates dynamic attributes in EIC.

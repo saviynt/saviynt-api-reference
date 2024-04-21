@@ -1,6 +1,6 @@
 post:
   tags:
-    - User Groups
+    - groups
   summary: Add/Remove User From UserGroup
   description: "This API is used to add or remove user from a usergroup in SSM\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`.\r\n\r\nMandatory params: \r\n\r\n`username` - User which needs to be added/ removed,\r\n\r\n`user_groupname` - Group name to be added/removed,\r\n\t\r\n`actionType` (0/1) - 0:Add and 1:Remove"
   operationId: addRemoveUserFromUsergroup

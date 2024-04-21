@@ -1,6 +1,6 @@
 post:
   tags:
-    - Common Utilities
+    - utils
   summary: Import Application Data
   description: "This API is used to run import data job for a specific application\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`\r\n\r\nMandatory params: \r\n\r\n`systemname`,\r\n`connectiontype`,\r\n`connectionName`\r\n\r\nOptional params:\r\n\r\n`fullorincremental` - full/incremental,\r\n`accountsoraccess` - accounts/access\r\n`CREATEUSERS`- Yes/No\r\n\r\nAdditional import parameters can also be passed - \r\n\r\nFor example, \r\n\r\n1. For SAP Import, provide the parameters - JCO_ASHOST, JCO_SYSNR, JCO_CLIENT, JCO_USER, PASSWORD\r\n2. For AWS Import, provide the parameters  - AWS_ACCESS_KEY,AWS_ACCESS_SECRET_PASSWORD,AWS_ACCOUNT_ID,CROSS_ACCOUNT_ROLE_ARN"
   operationId: importApplicationData

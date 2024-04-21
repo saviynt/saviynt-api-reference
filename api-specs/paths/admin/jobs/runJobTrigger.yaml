@@ -1,6 +1,6 @@
 post:
   tags:
-    - Job Management
+    - jobs
   summary: Run Job Trigger
   description: >-
     This API call can be used to run a job trigger in SSM.

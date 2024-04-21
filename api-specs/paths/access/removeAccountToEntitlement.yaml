@@ -1,6 +1,6 @@
 post:
   tags:
-    - Access
+    - access
   summary: Remove Entitlement from Account
   description: >-
     This method deprovisions one or more "Entitlements" from an "Account". The

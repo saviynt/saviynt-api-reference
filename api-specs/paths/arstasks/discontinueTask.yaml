@@ -1,6 +1,6 @@
 post:
   tags:
-    - Tasks
+    - arstasks
   summary: Discontinue Tasks
   description: |-
     This method discontinues open tasks in SSM.

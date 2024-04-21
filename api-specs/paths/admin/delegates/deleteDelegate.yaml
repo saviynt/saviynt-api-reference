@@ -1,6 +1,6 @@
 post:
   tags:
-    - User Delegation
+    - delegates
   summary: Delete Delegate
   description: |-
     This API is used to delete a specific delegate. 

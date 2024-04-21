@@ -1,0 +1,217 @@
+post:
+  tags:
+    - request-access
+  summary: Get List of Pending Requests for Approver
+  description: |-
+    This method returns a list of "Pending Requests" for approver in SSM
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Header params:
+    `SAVUSERNAME` - logged-in user
+    Optional params:
+    `requestkey`,
+    `assignee`,
+    `max`,
+    `offset`,
+    `requestid`,
+    `requestedfor`,
+    `requestedby`,
+    `firstname`,
+    `lastname`,
+    `sort` - requestsubmittedon/duedate/requestid/requestkey,
+    `order` - asc/desc,
+    `submitdatestart`,
+    `submitdateend`,
+    `duedatestart`,
+    `duedateend`,
+    `requestcomments`,
+    `requestorigin`,
+    `endpoint` - list of endpoints,
+    `securitysystem` - list of securitysystems,
+    `assigneeuserkey` - list of assignee userkeys,
+    `assigneeusername` - list of usernames,
+    `requesttype` - list of requesttypes,
+    `entitlementvaluekey` - list of entitlement value keys.
+    ***Note*** : Searchable dates in the format MM/dd/yyyy.  
+    Sample for list of items - ["value1","value2"]
+  operationId: getListOfPendingRequestsForApprover
+  parameters:
+    - name: savusername
+      in: header
+      schema:
+        type: string
+        example: admin
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            max:
+              type: string
+              example: '2'
+        examples:
+          Get List of Pending Requests for Approver:
+            value:
+              max: '2'
+  responses:
+    '200':
+      description: Get List of Pending Requests for Approver
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 05 Aug 2019 22:20:02 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=2de0e325-6a67-4357-bce8-65622c086b9a; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              approverejectall:
+                type: string
+                example: 'true'
+              displayCount:
+                type: number
+                example: 2
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    activityname:
+                      type: string
+                      example: 1st UG
+                    assignee:
+                      type: string
+                      example: >-
+                        Shania Marquez (smarquez), Cody Richards(crichards),
+                        (USASOQ), Brielle Harrell(bharrell)
+                    duedate:
+                      type: string
+                      example: '2017-10-26 00:10:59'
+                    endpoints:
+                      type: string
+                      example: ''
+                    requestdate:
+                      type: string
+                      example: '2017-10-12 00:10:59'
+                    requestee:
+                      type: string
+                      example: fn ln (admin)
+                    requestid:
+                      type: string
+                      example: '2890001'
+                    requestkey:
+                      type: number
+                      example: 2747
+                    requestor:
+                      type: string
+                      example: Tabitha Bowers (tbowers)
+                    requesttype:
+                      type: string
+                      example: Enterprise Role Request
+                    sod:
+                      type: string
+                      example: 'false'
+                example:
+                  - activityname: 1st UG
+                    assignee: >-
+                      Shania Marquez (smarquez), Cody Richards(crichards),
+                      (USASOQ), Brielle Harrell(bharrell)
+                    duedate: '2017-10-26 00:10:59'
+                    endpoints: ''
+                    requestdate: '2017-10-12 00:10:59'
+                    requestee: fn ln (admin)
+                    requestid: '2890001'
+                    requestkey: 2747
+                    requestor: Tabitha Bowers (tbowers)
+                    requesttype: Enterprise Role Request
+                    sod: 'false'
+                  - activityname: 1st UG
+                    assignee: Shania Marquez (smarquez), Cody Richards(crichards)
+                    duedate: '2017-11-06 21:50:50'
+                    endpoints: ''
+                    requestdate: '2017-10-23 21:50:50'
+                    requestee: fn ln (admin)
+                    requestid: '2980254'
+                    requestkey: 2787
+                    requestor: Tabitha Bowers (tbowers)
+                    requesttype: Enterprise Role Request
+                    sod: 'false'
+              total:
+                type: number
+                example: 586
+          examples:
+            Get List of Pending Requests for Approver:
+              value:
+                approverejectall: 'true'
+                displayCount: 2
+                errorCode: '0'
+                msg: Success
+                results:
+                  - activityname: 1st UG
+                    assignee: >-
+                      Shania Marquez (smarquez), Cody Richards(crichards),
+                      (USASOQ), Brielle Harrell(bharrell)
+                    duedate: '2017-10-26 00:10:59'
+                    endpoints: ''
+                    requestdate: '2017-10-12 00:10:59'
+                    requestee: fn ln (admin)
+                    requestid: '2890001'
+                    requestkey: 2747
+                    requestor: Tabitha Bowers (tbowers)
+                    requesttype: Enterprise Role Request
+                    sod: 'false'
+                  - activityname: 1st UG
+                    assignee: Shania Marquez (smarquez), Cody Richards(crichards)
+                    duedate: '2017-11-06 21:50:50'
+                    endpoints: ''
+                    requestdate: '2017-10-23 21:50:50'
+                    requestee: fn ln (admin)
+                    requestid: '2980254'
+                    requestkey: 2787
+                    requestor: Tabitha Bowers (tbowers)
+                    requesttype: Enterprise Role Request
+                    sod: 'false'
+                total: 586

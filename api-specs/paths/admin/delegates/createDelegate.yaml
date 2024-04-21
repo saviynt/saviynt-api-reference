@@ -1,6 +1,6 @@
 post:
   tags:
-    - User Delegation
+    - delegates
   summary: Create Delegate
   description: >-
     This method creates a new delegate for a parent User. The input parameters

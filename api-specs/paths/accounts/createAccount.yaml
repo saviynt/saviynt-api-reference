@@ -1,6 +1,6 @@
 post:
   tags:
-    - Accounts
+    - accounts
   summary: Create Account
   description: >-
     This method creates a new "account" for an "endpoint" in SSM. All the input

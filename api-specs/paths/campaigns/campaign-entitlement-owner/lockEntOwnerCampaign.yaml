@@ -1,0 +1,183 @@
+post:
+  tags:
+    - campaign-entitlement-owner
+  summary: Lock Campaign
+  description: >-
+    This API is used to lock campaign after validating whether Entitlement Owner
+    campaign is completed or not.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `campaignId`
+
+    `verifier`
+
+    Optional params:
+
+    `certkey`
+  operationId: lockCampaign1
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            campaignId:
+              type: string
+              example: '60'
+            certkey:
+              type: string
+              example: '7250'
+            verifier:
+              type: string
+              example: admin01
+        examples:
+          Lock Campaign:
+            value:
+              campaignId: '60'
+              certkey: '7250'
+              verifier: admin01
+  responses:
+    '200':
+      description: Lock Campaign - SUCCESS
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 15 Jun 2020 22:52:02 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=97722197-fb2c-41ff-bead-b4b6605a9176; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              lockedcertkey:
+                type: array
+                items:
+                  type: number
+                  example: 7250
+                example:
+                  - 7250
+              msg:
+                type: string
+                example: Success
+              totalIncompleteCertification:
+                type: array
+                items: {}
+                example: []
+              totalLockedCertification:
+                type: array
+                items:
+                  type: string
+                  example: EOCampaign1231_Reconfigure_Reconfigure - admin (admin admin)
+                example:
+                  - EOCampaign1231_Reconfigure_Reconfigure - admin (admin admin)
+          examples:
+            Lock Campaign - SUCCESS:
+              value:
+                errorCode: '0'
+                lockedcertkey:
+                  - 7250
+                msg: Success
+                totalIncompleteCertification: []
+                totalLockedCertification:
+                  - EOCampaign1231_Reconfigure_Reconfigure - admin (admin admin)
+    '412':
+      description: Lock Campaign - FAILURE
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Mon, 15 Jun 2020 23:02:23 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=b3b29e1a-1665-4bda-94b4-65fb77a0b5a9; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '1'
+              msg:
+                type: string
+                example: Active verifier with name admin01 not found
+          examples:
+            Lock Campaign - FAILURE:
+              value:
+                errorCode: '1'
+                msg: Active verifier with name admin01 not found

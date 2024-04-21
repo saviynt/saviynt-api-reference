@@ -1,0 +1,131 @@
+post:
+  tags:
+    - request-access
+  summary: Create Auto-approved Request
+  description: "This API call can be used to auto-approve requests for a particular endpoint and security system. These requests can be used to create, update, or delete types of entitlement requests.\r\nThe auto-approved request is shown in Request History.\r\n\r\nNote: There should be a workflow with grant access already created with ‘AUTOAPPROVAL’ name and the workflow should be added to externalconfig.properties file with below details:\r\nsav.autoapprovalwfname=AUTOAPPROVAL.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:\r\n`username`,\r\n`requestor`,\r\n`requestaccess` - [endpoint,securitysystem, requesttype, accountname]\r\n\r\nOptional params:\r\n`comments`,\r\n`requestaccess` - [entitlement (entitlement.ADD, entitlement.REMOVE), requestaccessattr]"
+  operationId: createAutoApprovedRequest
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            comments:
+              type: string
+              example: add comment
+            requestaccess:
+              type: array
+              items:
+                type: object
+                properties:
+                  accountname:
+                    type: string
+                    example: dbailey
+                  endpoint:
+                    type: string
+                    example: System1
+                  entitlement:
+                    type: object
+                    properties:
+                      ADD:
+                        type: array
+                        items:
+                          type: string
+                          example: entitlementtype2####entitlementvalue2
+                        example:
+                          - entitlementtype2####entitlementvalue2
+                      REMOVE:
+                        type: array
+                        items:
+                          type: string
+                          example: entitlementtype1####entitlementvalue1
+                        example:
+                          - entitlementtype1####entitlementvalue1
+                  requestaccessattr:
+                    type: array
+                    items:
+                      type: string
+                      example: DynamicAttr1####dynamicAttrValue1
+                    example:
+                      - DynamicAttr1####dynamicAttrValue1
+                      - DynamicAttr2####dynamicAttrValue2
+                  requesttype:
+                    type: string
+                    example: '2'
+                  securitysystem:
+                    type: string
+                    example: System1
+              example:
+                - accountname: dbailey
+                  endpoint: System1
+                  entitlement:
+                    ADD:
+                      - entitlementtype2####entitlementvalue2
+                    REMOVE:
+                      - entitlementtype1####entitlementvalue1
+                  requestaccessattr:
+                    - DynamicAttr1####dynamicAttrValue1
+                    - DynamicAttr2####dynamicAttrValue2
+                  requesttype: '2'
+                  securitysystem: System1
+            requestor:
+              type: string
+              example: admin
+            username:
+              type: string
+              example: dbailey
+        examples:
+          Create Auto-approved Request:
+            value:
+              comments: add comment
+              requestaccess:
+                - accountname: dbailey
+                  endpoint: System1
+                  entitlement:
+                    ADD:
+                      - entitlementtype2####entitlementvalue2
+                    REMOVE:
+                      - entitlementtype1####entitlementvalue1
+                  requestaccessattr:
+                    - DynamicAttr1####dynamicAttrValue1
+                    - DynamicAttr2####dynamicAttrValue2
+                  requesttype: '2'
+                  securitysystem: System1
+              requestor: admin
+              username: dbailey
+  responses:
+    '200':
+      description: Create Auto-approved Request
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Fri, 17 Aug 2018 19:25:44 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=6c10284a-9630-47f5-867e-4670bb62fe38; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              RequestId:
+                type: string
+                example: '10122'
+              errorCode:
+                type: string
+                example: '0'
+              message:
+                type: string
+                example: SUCCESS
+          examples:
+            Create Auto-approved Request:
+              value:
+                RequestId: '10122'
+                errorCode: '0'
+                message: SUCCESS

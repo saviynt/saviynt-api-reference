@@ -1,0 +1,200 @@
+post:
+  tags:
+    - request-access
+  summary: Validate Entitlement Request Data
+  description: >-
+    This API checks if a user is allowed to request for the entitlements given
+    in a list based on the existing access and entitlement map exclusion.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params: 
+
+    `username`,
+
+    `endpoint`,
+
+    `entitlementList` - List of entitlementtypes and entitlements that needs to
+    be checked.
+
+    Optional params:
+
+    `includeinflightrequests` - If `includeinflightrequests` is true, API will
+    also consider Entitlement requests in flight (requests that are submitted
+    but not yet approved/rejected).
+  operationId: validateEntitlementRequestData
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            endpoint:
+              type: string
+              example: System1
+            entitlementList:
+              type: array
+              items:
+                type: object
+                properties:
+                  entitlementtype:
+                    type: string
+                    example: Access
+                  entitlementvalue:
+                    type: string
+                    example: Analyst
+              example:
+                - entitlementtype: Access
+                  entitlementvalue: Analyst
+                - entitlementtype: Access
+                  entitlementvalue: Accountant
+                - entitlementtype: Access
+                  entitlementvalue: Absence Calculations Administrator
+                - entitlementtype: Access
+                  entitlementvalue: Absence Partner
+                - entitlementtype: Access
+                  entitlementvalue: 'AM: Admin'
+                - entitlementtype: Access
+                  entitlementvalue: Action Plan Owner Group111
+                - entitlementtype: Access111
+                  entitlementvalue: Action Plan Owner Group
+            includeinflightrequests:
+              type: string
+              example: 'true'
+            username:
+              type: string
+              example: '188836'
+        examples:
+          Validate Entitlement Request Data:
+            value:
+              endpoint: System1
+              entitlementList:
+                - entitlementtype: Access
+                  entitlementvalue: Analyst
+                - entitlementtype: Access
+                  entitlementvalue: Accountant
+                - entitlementtype: Access
+                  entitlementvalue: Absence Calculations Administrator
+                - entitlementtype: Access
+                  entitlementvalue: Absence Partner
+                - entitlementtype: Access
+                  entitlementvalue: 'AM: Admin'
+                - entitlementtype: Access
+                  entitlementvalue: Action Plan Owner Group111
+                - entitlementtype: Access111
+                  entitlementvalue: Action Plan Owner Group
+              includeinflightrequests: 'true'
+              username: '188836'
+  responses:
+    '200':
+      description: Validate Entitlement RequestData
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Mon, 10 Sep 2018 17:43:21 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=2e3ccada-bcfa-4ce5-a357-cdc7fa300c4b; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              endpoint:
+                type: string
+                example: System1
+              errorCode:
+                type: string
+                example: '1'
+              message:
+                type: string
+                example: Failure
+              username:
+                type: string
+                example: '188836'
+              validationResults:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    entitlementtype:
+                      type: string
+                      example: Access
+                    entitlementvalue:
+                      type: string
+                      example: Analyst
+                    failurereason:
+                      type: string
+                      example: Entitlement already assigned to User
+                    requestable:
+                      type: string
+                      example: '1'
+                example:
+                  - entitlementtype: Access
+                    entitlementvalue: Analyst
+                    requestable: '1'
+                  - entitlementtype: Access
+                    entitlementvalue: Accountant
+                    failurereason: Entitlement already assigned to User
+                    requestable: '0'
+                  - entitlementtype: Access
+                    entitlementvalue: Absence Calculations Administrator
+                    failurereason: Entitlement already requested
+                    requestable: '0'
+                  - entitlementtype: Access
+                    entitlementvalue: Absence Partner
+                    failurereason: Excluded Entitlement for an Entitlement already requested
+                    requestable: '0'
+                  - entitlementtype: Access
+                    entitlementvalue: 'AM: Admin'
+                    failurereason: Excluded Entitlement
+                    requestable: '0'
+                  - entitlementtype: Access
+                    entitlementvalue: Action Plan Owner Group111
+                    failurereason: Invalid Entitlement
+                    requestable: '0'
+                  - entitlementtype: Access111
+                    entitlementvalue: Action Plan Owner Group
+                    failurereason: Invalid Entitlement
+                    requestable: '0'
+          examples:
+            Validate Entitlement RequestData:
+              value:
+                endpoint: System1
+                errorCode: '1'
+                message: Failure
+                username: '188836'
+                validationResults:
+                  - entitlementtype: Access
+                    entitlementvalue: Analyst
+                    requestable: '1'
+                  - entitlementtype: Access
+                    entitlementvalue: Accountant
+                    failurereason: Entitlement already assigned to User
+                    requestable: '0'
+                  - entitlementtype: Access
+                    entitlementvalue: Absence Calculations Administrator
+                    failurereason: Entitlement already requested
+                    requestable: '0'
+                  - entitlementtype: Access
+                    entitlementvalue: Absence Partner
+                    failurereason: Excluded Entitlement for an Entitlement already requested
+                    requestable: '0'
+                  - entitlementtype: Access
+                    entitlementvalue: 'AM: Admin'
+                    failurereason: Excluded Entitlement
+                    requestable: '0'
+                  - entitlementtype: Access
+                    entitlementvalue: Action Plan Owner Group111
+                    failurereason: Invalid Entitlement
+                    requestable: '0'
+                  - entitlementtype: Access111
+                    entitlementvalue: Action Plan Owner Group
+                    failurereason: Invalid Entitlement
+                    requestable: '0'

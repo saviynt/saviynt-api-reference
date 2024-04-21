@@ -1,0 +1,138 @@
+put:
+  tags:
+    - request-user
+  summary: Update User Request
+  description: |-
+    This API call can be used for updating user request in the EIC.
+    The `Authorization` must have `Bearer` followed by `Token`.
+    Mandatory params:
+    `username` - user who has to be modified.
+    Optional params:
+    `updateuser` - Username who is updating the request,
+    `User's dynamic attribute` can be passed.  
+    Example: "firstname": "fn",  
+    "entity": \[  
+    "Atlanta"  
+    \]
+  operationId: updateUserRequest
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            designation:
+              type: string
+              example: desc
+            entity:
+              type: array
+              items:
+                type: string
+                example: Atlanta
+              example:
+                - Atlanta
+            firstname:
+              type: string
+              example: fn
+            lastname:
+              type: string
+              example: Nayal
+            manager:
+              type: string
+              example: gbana5
+            updateuser:
+              type: string
+              example: admin
+            username:
+              type: string
+              example: johndoe
+        examples:
+          Update User Request:
+            value:
+              designation: desc
+              entity:
+                - Atlanta
+              firstname: fn
+              lastname: Nayal
+              manager: gbana5
+              updateuser: admin
+              username: johndoe
+  responses:
+    '200':
+      description: Create User Request / Update User Request
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Tue, 20 Aug 2019 05:49:33 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=20da155c-412b-4ba8-b442-aa1fe977bcb0; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              errorcode:
+                type: string
+                example: '0'
+              jbpmid:
+                type: string
+                example: SampleManagerApproval.3100001
+              msg:
+                type: string
+                example: Successful
+              requestid:
+                type: string
+                example: '4960001'
+              requestkey:
+                type: string
+                example: '3746'
+          examples:
+            Create User Request:
+              value:
+                errorCode: '0'
+                jbpmid: SampleManagerApproval.3100001
+                msg: Successful
+            Update User Request:
+              value:
+                errorcode: '0'
+                msg: success
+                requestid: '4960001'
+                requestkey: '3746'

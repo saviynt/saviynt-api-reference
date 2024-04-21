@@ -1,6 +1,6 @@
 post:
   tags:
-    - Tasks
+    - arstasks
   summary: Complete Single Task
   description: >-
     This method closes a single open task in SSM - both in "New" and

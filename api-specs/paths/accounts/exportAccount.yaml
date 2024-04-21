@@ -1,6 +1,6 @@
 post:
   tags:
-    - Accounts
+    - accounts
   summary: Export Account
   description: >-
     This API call can be used to fetch all the existing accounts in a particular

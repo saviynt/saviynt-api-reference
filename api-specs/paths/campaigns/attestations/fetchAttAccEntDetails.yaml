@@ -1,0 +1,370 @@
+post:
+  tags:
+    - attestations
+  summary: Fetch Attestation Account Entitlement Details
+  description: "This API call can be used to get the details, status, and keys for accounts and entitlements within user manager attestation.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params:  \r\n`id` - attestation id"
+  operationId: fetchAttestationAccountEntitlementDetails
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '19'
+  responses:
+    '200':
+      description: Fetch Attestation Account Entitlement Details
+      headers:
+        Date:
+          schema:
+            type: string
+            example: Wed, 12 Sep 2018 06:23:22 GMT
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=ef915fbd-85f3-4a3b-8605-b4bf7867754e; Path=/
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              accentdetails:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    example: 19
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        accounts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              accountattkey:
+                                type: number
+                                example: 212330
+                              accountname:
+                                type: string
+                                example: '188837'
+                              certified:
+                                type: string
+                                example: 'No'
+                              comments:
+                                type: string
+                                example: Revoked on [08/10/17-null null(admin)] d<br>
+                              endpoint:
+                                type: string
+                                example: amigopod
+                              entitlements:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    entattkey:
+                                      type: number
+                                      example: 2951
+                                    entcertified:
+                                      type: string
+                                      example: 'No'
+                                    entcomments:
+                                      type: string
+                                      example: >-
+                                        Revoked on [08/10/17-null null(admin)]
+                                        d<br>
+                                    entcriticality:
+                                      type: string
+                                      example: None
+                                    entname:
+                                      type: string
+                                      example: Absence Partner
+                                    enttype:
+                                      type: string
+                                      example: Access
+                                example:
+                                  - entattkey: 2951
+                                    entcertified: 'No'
+                                    entcomments: >-
+                                      Revoked on [08/10/17-null null(admin)]
+                                      d<br>
+                                    entcriticality: None
+                                    entname: Absence Partner
+                                    enttype: Access
+                                  - entattkey: 2952
+                                    entcertified: 'No'
+                                    entcomments: >-
+                                      Revoked on [08/10/17-null null(admin)]
+                                      d<br>
+                                    entcriticality: None
+                                    entname: Accountant
+                                    enttype: Access
+                                  - entattkey: 4096
+                                    entcertified: 'No'
+                                    entcomments: >-
+                                      Revoked on [08/10/17-null null(admin)]
+                                      d<br>
+                                    entcriticality: None
+                                    entname: TestEnt1
+                                    enttype: Access
+                                  - entattkey: 4097
+                                    entcertified: 'No'
+                                    entcomments: >-
+                                      Revoked on [08/10/17-null null(admin)]
+                                      d<br>
+                                    entcriticality: None
+                                    entname: TestEnt2
+                                    enttype: Access
+                                  - entattkey: 4098
+                                    entcertified: 'No'
+                                    entcomments: >-
+                                      Revoked on [08/10/17-null null(admin)]
+                                      d<br>
+                                    entcriticality: None
+                                    entname: TestEnt3
+                                    enttype: Access
+                              entitlementscount:
+                                type: number
+                                example: 5
+                          example:
+                            - accountattkey: 212330
+                              accountname: '188837'
+                              certified: 'No'
+                              comments: Revoked on [08/10/17-null null(admin)] d<br>
+                              endpoint: amigopod
+                              entitlements:
+                                - entattkey: 2951
+                                  entcertified: 'No'
+                                  entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                  entcriticality: None
+                                  entname: Absence Partner
+                                  enttype: Access
+                                - entattkey: 2952
+                                  entcertified: 'No'
+                                  entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                  entcriticality: None
+                                  entname: Accountant
+                                  enttype: Access
+                                - entattkey: 4096
+                                  entcertified: 'No'
+                                  entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                  entcriticality: None
+                                  entname: TestEnt1
+                                  enttype: Access
+                                - entattkey: 4097
+                                  entcertified: 'No'
+                                  entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                  entcriticality: None
+                                  entname: TestEnt2
+                                  enttype: Access
+                                - entattkey: 4098
+                                  entcertified: 'No'
+                                  entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                  entcriticality: None
+                                  entname: TestEnt3
+                                  enttype: Access
+                              entitlementscount: 5
+                        accountscount:
+                          type: number
+                          example: 1
+                        employeeattuserkey:
+                          type: number
+                          example: 152371
+                        employeeusername:
+                          type: string
+                          example: '188837'
+                        firstname:
+                          type: string
+                          example: Mina
+                        lastname:
+                          type: string
+                          example: Naghavi
+                    example:
+                      - accounts:
+                          - accountattkey: 212330
+                            accountname: '188837'
+                            certified: 'No'
+                            comments: Revoked on [08/10/17-null null(admin)] d<br>
+                            endpoint: amigopod
+                            entitlements:
+                              - entattkey: 2951
+                                entcertified: 'No'
+                                entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                entcriticality: None
+                                entname: Absence Partner
+                                enttype: Access
+                              - entattkey: 2952
+                                entcertified: 'No'
+                                entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                entcriticality: None
+                                entname: Accountant
+                                enttype: Access
+                              - entattkey: 4096
+                                entcertified: 'No'
+                                entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                entcriticality: None
+                                entname: TestEnt1
+                                enttype: Access
+                              - entattkey: 4097
+                                entcertified: 'No'
+                                entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                entcriticality: None
+                                entname: TestEnt2
+                                enttype: Access
+                              - entattkey: 4098
+                                entcertified: 'No'
+                                entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                                entcriticality: None
+                                entname: TestEnt3
+                                enttype: Access
+                            entitlementscount: 5
+                        accountscount: 1
+                        employeeattuserkey: 152371
+                        employeeusername: '188837'
+                        firstname: Mina
+                        lastname: Naghavi
+                      - accounts:
+                          - accountattkey: 25
+                            accountname: CNLYA9
+                            certified: 'Yes'
+                            comments: Certified on [08/10/17-null null(admin)] <br>
+                            endpoint: Endpoint1
+                            entitlements:
+                              - entattkey: 3
+                                entcertified: 'Yes'
+                                entcomments: Certified on [08/10/17-null null(admin)] <br>
+                                entcriticality: None
+                                entname: ROLE_USERS
+                                enttype: Role
+                            entitlementscount: 1
+                          - accountattkey: 151893
+                            accountname: Liyan.Yang
+                            certified: No Response
+                            comments: ''
+                            endpoint: Global Product Catalogue
+                            entitlements:
+                              - entattkey: 168
+                                entcertified: No Response
+                                entcomments: ''
+                                entcriticality: None
+                                entname: Technical Viewer
+                                enttype: Roles
+                              - entattkey: 169
+                                entcertified: No Response
+                                entcomments: ''
+                                entcriticality: None
+                                entname: Support Viewer
+                                enttype: Roles
+                            entitlementscount: 2
+                        accountscount: 2
+                        employeeattuserkey: 25
+                        employeeusername: CNLYA9
+                        firstname: Liyan
+                        lastname: Yang
+                  userscount:
+                    type: number
+                    example: 2
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Success
+          examples:
+            Fetch Attestation Account Entitlement Details:
+              value:
+                accentdetails:
+                  id: 19
+                  users:
+                    - accounts:
+                        - accountattkey: 212330
+                          accountname: '188837'
+                          certified: 'No'
+                          comments: Revoked on [08/10/17-null null(admin)] d<br>
+                          endpoint: amigopod
+                          entitlements:
+                            - entattkey: 2951
+                              entcertified: 'No'
+                              entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                              entcriticality: None
+                              entname: Absence Partner
+                              enttype: Access
+                            - entattkey: 2952
+                              entcertified: 'No'
+                              entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                              entcriticality: None
+                              entname: Accountant
+                              enttype: Access
+                            - entattkey: 4096
+                              entcertified: 'No'
+                              entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                              entcriticality: None
+                              entname: TestEnt1
+                              enttype: Access
+                            - entattkey: 4097
+                              entcertified: 'No'
+                              entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                              entcriticality: None
+                              entname: TestEnt2
+                              enttype: Access
+                            - entattkey: 4098
+                              entcertified: 'No'
+                              entcomments: Revoked on [08/10/17-null null(admin)] d<br>
+                              entcriticality: None
+                              entname: TestEnt3
+                              enttype: Access
+                          entitlementscount: 5
+                      accountscount: 1
+                      employeeattuserkey: 152371
+                      employeeusername: '188837'
+                      firstname: Mina
+                      lastname: Naghavi
+                    - accounts:
+                        - accountattkey: 25
+                          accountname: CNLYA9
+                          certified: 'Yes'
+                          comments: Certified on [08/10/17-null null(admin)] <br>
+                          endpoint: Endpoint1
+                          entitlements:
+                            - entattkey: 3
+                              entcertified: 'Yes'
+                              entcomments: Certified on [08/10/17-null null(admin)] <br>
+                              entcriticality: None
+                              entname: ROLE_USERS
+                              enttype: Role
+                          entitlementscount: 1
+                        - accountattkey: 151893
+                          accountname: Liyan.Yang
+                          certified: No Response
+                          comments: ''
+                          endpoint: Global Product Catalogue
+                          entitlements:
+                            - entattkey: 168
+                              entcertified: No Response
+                              entcomments: ''
+                              entcriticality: None
+                              entname: Technical Viewer
+                              enttype: Roles
+                            - entattkey: 169
+                              entcertified: No Response
+                              entcomments: ''
+                              entcriticality: None
+                              entname: Support Viewer
+                              enttype: Roles
+                          entitlementscount: 2
+                      accountscount: 2
+                      employeeattuserkey: 25
+                      employeeusername: CNLYA9
+                      firstname: Liyan
+                      lastname: Yang
+                  userscount: 2
+                errorCode: '0'
+                msg: Success

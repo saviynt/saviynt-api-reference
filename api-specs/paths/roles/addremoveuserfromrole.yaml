@@ -1,6 +1,6 @@
 post:
   tags:
-    - Role Membership
+    - role-membership
   summary: Add/Remove User from SAV ROLE
   description: "This method grants/removes membership of a \"user\" to one or more roles in SSM.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n\r\n`username` - Username for the user to whom the roles are to be granted,\r\n\r\n`rolename` - comma separated values with names of roles that need to be granted,\r\n\r\n`operation` (0/1) - 0:Remove and 1:Add"
   operationId: addRemoveUserFromSavRole

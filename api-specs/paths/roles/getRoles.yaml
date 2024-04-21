@@ -1,6 +1,6 @@
 post:
   tags:
-    - Roles
+    - roles
   summary: Get Role Details for user
   description: >-
     This API can be used to get the list of all the roles.

@@ -1,6 +1,6 @@
 get:
   tags:
-    - Dataset
+    - datasets
   summary: getDatasetValues
   description: |-
     This API is used to get the DatasetValues.

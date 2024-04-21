@@ -1,6 +1,6 @@
 get:
   tags:
-    - User Delegation
+    - delegates
   summary: Get Delegate User List
   description: >-
     This API returns list of users that are allowed to be added as delegate for

@@ -1,6 +1,6 @@
 post:
   tags:
-    - Security Systems
+    - systems
   summary: Create Security System
   description: >-
     This API creates Security System in EIC.

@@ -1,6 +1,6 @@
 get:
   tags:
-    - Transport
+    - transport
   summary: Transport Status
   description: >-
     This API obtains the status of the transport request (import, export, or

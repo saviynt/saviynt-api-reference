@@ -1,6 +1,6 @@
 get:
   tags:
-    - Security Systems
+    - systems
   summary: Get List of Security Systems
   description: |-
     This API returns list of Security Systems in SSM.

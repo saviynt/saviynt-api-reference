@@ -1,6 +1,6 @@
 delete:
   tags:
-    - Connections
+    - connections
   summary: Delete Connections
   description: >-
     This API deletes Connections in SSM. The `Authorization` must have `Bearer`

@@ -1,6 +1,6 @@
 post:
   tags:
-    - Analytics
+    - analytics
   summary: Fetch Runtime Controls Data
   description: "This API is used to fetch runtime analytics data from SSM.\n\nThe `Authorization` must have `Bearer` followed by `Token`.\n\nMandatory params: \n`analyticsid` ***OR*** `analyticsname`,\n`attributes` - runtime control params. \nSample : For this query - select * from users where manager = ${manager} and username = ${username}\n\"attributes\":{\n\t\"manager\":\"4\",\n\t\"username\":\"johndoe\"\n}\n\nOptional params:\n`max`,\n`offset`,\n`loggedinuser`"
   operationId: fetchRuntimeControlsData

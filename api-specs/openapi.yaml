@@ -174,51 +174,51 @@ paths:
   /fetchControlDetailsES:
     $ref: paths/analytics/fetchControlDetailsES.yaml
   /createUserRequest:
-    $ref: paths/request/createUserRequest.yaml
+    $ref: paths/request/request-user/createUserRequest.yaml
   /uploadUserRequest:
-      $ref: paths//request/uploadUserRequest.yaml
+      $ref: paths//request/request-user/uploadUserRequest.yaml
   /updateUserRequest:
-    $ref: paths/request/updateUserRequest.yaml
+    $ref: paths/request/request-user/updateUserRequest.yaml
   /getrequestableusers:
-    $ref: paths/request/getrequestableusers.yaml
+    $ref: paths/request/request-user/getrequestableusers.yaml
   /createEnterpriseRoleRequest:
-    $ref: paths/request/createEnterpriseRoleRequest.yaml
+    $ref: paths/request/request-role/createEnterpriseRoleRequest.yaml
   /updateEnterpriseRoleRequest:
-    $ref: paths/request/updateEnterpriseRoleRequest.yaml
+    $ref: paths/request/request-role/updateEnterpriseRoleRequest.yaml
   /getUserRequestableEntitlements:
-    $ref: paths/request/getUserRequestableEntitlements.yaml
+    $ref: paths/request/request-access/getUserRequestableEntitlements.yaml
   /validateEntitlementRequestData:
-    $ref: paths/request/validateEntitlementRequestData.yaml
+    $ref: paths/request/request-access/validateEntitlementRequestData.yaml
   /createrequest:
-    $ref: paths/request/createrequest.yaml
+    $ref: paths/request/request-access/createrequest.yaml
   /createOrganizationRequest:
-    $ref: paths/request/createOrganizationRequest.yaml
+    $ref: paths/request/request-organization/createOrganizationRequest.yaml
   /updateOrganizationRequest:
-    $ref: paths/request/updateOrganizationRequest.yaml
+    $ref: paths/request/request-organization/updateOrganizationRequest.yaml
   /createautoapprovedrequest:
-    $ref: paths/request/createautoapprovedrequest.yaml
+    $ref: paths/request/request-access/createautoapprovedrequest.yaml
   /createbirthrightrequest:
-    $ref: paths/request/createbirthrightrequest.yaml
+    $ref: paths/request/request-access/createbirthrightrequest.yaml
   /updateRequest:
-    $ref: paths/request/updateRequest.yaml
+    $ref: paths/request/request-access/updateRequest.yaml
   /fetchRequestHistory:
-    $ref: paths/request/fetchRequestHistory.yaml
+    $ref: paths/request/request-history/fetchRequestHistory.yaml
   /fetchRequestHistoryDetails:
-    $ref: paths/request/fetchRequestHistoryDetails.yaml
+    $ref: paths/request/request-history/fetchRequestHistoryDetails.yaml
   /cancelPendingRequest:
-    $ref: paths/request/cancelPendingRequest.yaml
+    $ref: paths/request/request-access/cancelPendingRequest.yaml
   /getPendingRequests:
-    $ref: paths/request/getPendingRequests.yaml
+    $ref: paths/request/request-access/getPendingRequests.yaml
   /fetchRequestApprovalDetails:
-    $ref: paths/request/fetchRequestApprovalDetails.yaml
+    $ref: paths/request/request-access/fetchRequestApprovalDetails.yaml
   /fetchRequestAccessAttributes:
-      $ref: paths/request/fetchRequestAccessAttributes.yaml
+      $ref: paths/request/request-access/fetchRequestAccessAttributes.yaml
   /ApproveRejectDetailRequest:
-    $ref: paths/request/ApproveRejectDetailRequest.yaml
+    $ref: paths/request/request-approval/ApproveRejectDetailRequest.yaml
   /getPendingApprovals:
-    $ref: paths/request/getPendingApprovals.yaml
+    $ref: paths/request/request-approval/getPendingApprovals.yaml
   /approveRejectRequest:
-    $ref: paths/request/approveRejectRequest.yaml
+    $ref: paths/request/request-approval/approveRejectRequest.yaml
   /createtask:
     $ref: paths/arstasks/createtask.yaml
   /completetask:
@@ -244,67 +244,67 @@ paths:
   /deleteDelegate:
     $ref: paths/admin/delegates/deleteDelegate.yaml
   /fetchAttestationsList:
-    $ref: paths/campaigns/fetchAttestationsList.yaml
+    $ref: paths/campaigns/attestations/fetchAttestationsList.yaml
   /fetchAttestationDetails:
-    $ref: paths/campaigns/fetchAttestationDetails.yaml
+    $ref: paths/campaigns/attestations/fetchAttestationDetails.yaml
   /certifyUserManagerRequests:
-    $ref: paths/campaigns/certifyUserManagerRequests.yaml
+    $ref: paths/campaigns/attestations/certifyUserManagerRequests.yaml
   /fetchAttAccEntDetails:
-    $ref: paths/campaigns/fetchAttAccEntDetails.yaml
+    $ref: paths/campaigns/attestations/fetchAttAccEntDetails.yaml
   /approveRejectAttAccEntDetails:
-    $ref: paths/campaigns/approveRejectAttAccEntDetails.yaml
+    $ref: paths/campaigns/attestations/approveRejectAttAccEntDetails.yaml
   /lockAttestation:
-    $ref: paths/campaigns/lockAttestation.yaml
+    $ref: paths/campaigns/attestations/lockAttestation.yaml
   /fetchCampaignList:
     $ref: paths/campaigns/fetchCampaignList.yaml
   /fetchCampaignDetails:
     $ref: paths/campaigns/fetchCampaignDetails.yaml
   /certifyUserManagerforCampaign:
-    $ref: paths/campaigns/certifyUserManagerforCampaign.yaml
+    $ref: paths/campaigns/campaign-user-manager/certifyUserManagerforCampaign.yaml
   /fetchCampaignAccEntDetails:
-    $ref: paths/campaigns/fetchCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-user-manager/fetchCampaignAccEntDetails.yaml
   /approverejectCampaignAccEntDetails:
-    $ref: paths/campaigns/approverejectCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-user-manager/approverejectCampaignAccEntDetails.yaml
   /lockCampaign:
     $ref: paths/campaigns/lockCampaign.yaml
   /reassignUserManagerforCampaign:
-    $ref: paths/campaigns/reassignUserManagerforCampaign.yaml
+    $ref: paths/campaigns/campaign-user-manager/reassignUserManagerforCampaign.yaml
   /consultUserManagerforCampaign:
-    $ref: paths/campaigns/consultUserManagerforCampaign.yaml
+    $ref: paths/campaigns/campaign-user-manager/consultUserManagerforCampaign.yaml
   /consultCampaignAccEntDetails:
-    $ref: paths/campaigns/consultCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-user-manager/consultCampaignAccEntDetails.yaml
   /reAssignUserManagerStep2AccEntDetails:
-    $ref: paths/campaigns/reAssignUserManagerStep2AccEntDetails.yaml
+    $ref: paths/campaigns/campaign-user-manager/reAssignUserManagerStep2AccEntDetails.yaml
   /consultEOforCampaign:
-    $ref: paths/campaigns/consultEOforCampaign.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/consultEOforCampaign.yaml
   /consultEOCampaignAccEntDetails:
-    $ref: paths/campaigns/consultEOCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/consultEOCampaignAccEntDetails.yaml
   /fetchEntOwnerCampaignAccEntDetails:
-    $ref: paths/campaigns/fetchEntOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/fetchEntOwnerCampaignAccEntDetails.yaml
   /fetchEntOwnerCampaignDetails:
-    $ref: paths/campaigns/fetchEntOwnerCampaignDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/fetchEntOwnerCampaignDetails.yaml
   /getFlatResponseEntOwnerCampaignAccEntDetails:
-    $ref: paths/campaigns/getFlatResponseEntOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/getFlatResponseEntOwnerCampaignAccEntDetails.yaml
   /lockEntOwnerCampaign:
-    $ref: paths/campaigns/lockEntOwnerCampaign.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/lockEntOwnerCampaign.yaml
   /approverejectEntOwnerCampaignAccEntDetails:
-    $ref: paths/campaigns/approverejectEntOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/approverejectEntOwnerCampaignAccEntDetails.yaml
   /certifyEntOwnerforCampaign:
-    $ref: paths/campaigns/certifyEntOwnerforCampaign.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/certifyEntOwnerforCampaign.yaml
   /reassignEntOwnerCampaignAccEnt:
-    $ref: paths/campaigns/reassignEntOwnerCampaignAccEnt.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/reassignEntOwnerCampaignAccEnt.yaml
   /reassignEntOwnerCampaignAccEntDetailsStep2:
-    $ref: paths/campaigns/reassignEntOwnerCampaignAccEntDetailsStep2.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/reassignEntOwnerCampaignAccEntDetailsStep2.yaml
   /fetchAppOwnerCampaignAccEntDetails:
-    $ref: paths/campaigns/fetchAppOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-application-owner/fetchAppOwnerCampaignAccEntDetails.yaml
   /approverejectAppOwnerCampaignAccEntDetails:
-    $ref: paths/campaigns/approverejectAppOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-application-owner/approverejectAppOwnerCampaignAccEntDetails.yaml
   /lockApplicationOwnerCampaign:
-    $ref: paths/campaigns/lockApplicationOwnerCampaign.yaml
+    $ref: paths/campaigns/campaign-application-owner/lockApplicationOwnerCampaign.yaml
   /consultAppOwnerCampaignAccEntDetails:
-    $ref: paths/campaigns/consultAppOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-application-owner/consultAppOwnerCampaignAccEntDetails.yaml
   /reAssignAppOwnerCampaignAccEntDetails:
-    $ref: paths/campaigns/reAssignAppOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-application-owner/reAssignAppOwnerCampaignAccEntDetails.yaml
   /fetchCertificationList:
     $ref: paths/campaigns/fetchCertificationList.yaml
   /discontinueCampaign:
@@ -352,7 +352,7 @@ paths:
   /forceComplete:
     $ref: paths/admin/jobs/forceComplete.yaml
   /ECM/testConnection:
-    $ref: paths/admin/utils/ECM_testConnection.yaml
+    $ref: paths/connections/ECM_testConnection.yaml
   /importData:
     $ref: paths/admin/utils/importData.yaml
   /sendEmail:
@@ -387,7 +387,7 @@ x-ignoredHeaderParameters:
   - Server
   - X-Frame-Options
 tags:
-  - name: Authentication
+  - name: auth
     x-displayName: Authentication
     description: >-
       APIs for managing user login, logout, session management, and API token
@@ -395,13 +395,13 @@ tags:
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Users
+  - name: users
     x-displayName: Users
     description: APIs for creating, retrieving, updating, and deleting user
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Accounts
+  - name: accounts
     x-displayName: Accounts
     description: >-
       APIs for managing user accounts , including creating, retrieving,
@@ -409,7 +409,7 @@ tags:
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Access
+  - name: access
     x-displayName: Access
     description: >-
       APIs for managing user access, including adding and removing access on
@@ -417,176 +417,176 @@ tags:
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Entitlements
+  - name: entitlements
     x-displayName: Entitlements
     description: APIs for managing entitlements
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Privileges
+  - name: privileges
     x-displayName: Privileges
     description: APIs for managing Privileges
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Roles
+  - name: roles
     x-displayName: Roles
     description: APIs for managing Roles
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: User Groups
+  - name: groups
     x-displayName: User Groups
     description: APIs for managing User Groups
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Security Systems
+  - name: systems
     x-displayName: Security Systems
     description: APIs for managing Security Systems
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Endpoints
+  - name: endpoints
     x-displayName: Endpoints
     description: APIs for managing Endpoints
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Connections
+  - name: connections
     x-displayName: Connections
     description: APIs for managing Connections
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Entitlement Types
+  - name: entitlement-types
     x-displayName: Entitlement Types
     description: APIs for managing Entitlement Types
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Dynamic Attributes
+  - name: dynamic-attributes
     x-displayName: Dynamic Attributes
     description: APIs for managing Dynamic Attributes
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Organization
-    x-displayName: Organization
+  - name: organizations
+    x-displayName: Organizations
     description: APIs for managing Organization
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Analytics
+  - name: analytics
     x-displayName: Analytics
     description: APIs for managing Analytics
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Access Recommendations
+  - name: access-recommendations
     x-displayName: Access Recommendations
     description: APIs for managing Access Recommendations
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Dashboard
-    x-displayName: Dashboard
+  - name: dashboards
+    x-displayName: Dashboards
     description: APIs for managing Dashboard
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Access Request
-    x-displayName: Access Request
+  - name: request-access
+    x-displayName: Request Access
     description: APIs for managing Access Request
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Request Approval
+  - name: request-approval
     x-displayName: Request Approval
     description: APIs for managing Request Approval
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Tasks
+  - name: arstasks
     x-displayName: Tasks
     description: APIs for managing Tasks
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: User Delegation
+  - name: delegates
     x-displayName: User Delegation
     description: APIs for managing User Delegation
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Attestations
+  - name: attestations
     x-displayName: Attestations
     description: APIs for managing Attestations
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Campaigns
+  - name: campaigns
     x-displayName: Campaigns
     description: APIs for managing Campaigns
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: User Manager Campaigns
+  - name: campaigns-user-manager
     x-displayName: User Manager Campaigns
     description: APIs for managing User Manager Campaigns
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Entitlement Owner Campaigns
+  - name: campaigns-entitlement-owner
     x-displayName: Entitlement Owner Campaigns
     description: APIs for managing Entitlement Owner Campaigns
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Application Owner Campaigns
+  - name: campaigns-application-owner
     x-displayName: Application Owner Campaigns
     description: APIs for managing Application Owner Campaigns
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Segregation of Duties
+  - name: sod
     x-displayName: Segregation of Duties
     description: APIs for managing SODs
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Password Management
-    x-displayName: Password Management
+  - name: security
+    x-displayName: Security
     description: APIs for managing Password
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Common Utilities
+  - name: utils
     x-displayName: Common Utilities
     description: APIs for common Utilities
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Job Management
+  - name: jobs
     x-displayName: Job Management
     description: APIs for managing Job
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Transport
+  - name: transport
     x-displayName: Transport
     description: APIs for managing Transport
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Provisioning Policies
+  - name: policies
     x-displayName: Provisioning Policies
     description: APIs for managing
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
-  - name: Dataset
-    x-displayName: Dataset
+  - name: datasets
+    x-displayName: Datasets
     description: APIs for managing Dataset
     externalDocs:
       description: Product Documentation
@@ -594,54 +594,56 @@ tags:
 x-tagGroups:
   - name: Identity Repository
     tags:
-      - Users
-      - Authentication
-      - Accounts
-      - Access
-      - User Groups
-      - Organization
-  - name: Roles
+      - users
+      - auth
+      - accounts
+      - access
+      - groups
+      - organizations
+  - name: roles
     tags:
-      - Roles
-      - Role Membership
-  - name: Policies
+      - roles
+  - name: policies
     tags:
-      - Provisioning Policies
-      - Segregation of Duties
-      - Password Management
-  - name: Request
+      - policies
+  - name: sod
     tags:
-      - Access Request
-      - User Request
-      - Role Request
-      - Request History
-      - Request Approval
-      - Tasks
-  - name: Applications
+      - sod
+  - name: request
     tags:
-      - Security Systems
-      - Endpoints
-      - Connections
-      - Entitlement Types
-      - Entitlements
-      - Privileges
-      - Dynamic Attributes
-  - name: Campaigns
+      - request-access
+      - request-user
+      - request-role
+      - request-history
+      - request-approval
+      - tasks
+  - name: applications
     tags:
-      - Attestations
-      - Campaigns
-      - User Manager Campaigns
-      - Entitlement Owner Campaigns
-      - Application Owner Campaigns
-  - name: Analytics
+      - systems
+      - endpoints
+      - connections
+      - entitlement-types
+      - entitlements
+      - privileges
+      - dynamic-attributes
+  - name: campaigns
     tags:
-      - Analytics
-      - Dashboard
-      - Access Recommendations
-  - name: Administration
+      - attestations
+      - campaigns
+      - campaign-user-manager
+      - campaign-entitlement-owner
+      - campaign-application-owner
+  - name: analytics
     tags:
-      - User Delegation
-      - Job Management
-      - Transport
-      - Dataset
-      - Common Utilities
+      - analytics
+      - dashboard
+      - access-recommendations
+  - name: admin
+    tags:
+      - delegates
+      - jobs
+      - transport
+      - datasets
+      - utils
+      - security
+      - sav-roles

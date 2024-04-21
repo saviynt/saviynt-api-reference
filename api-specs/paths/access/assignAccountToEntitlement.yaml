@@ -1,6 +1,6 @@
 post:
   tags:
-    - Access
+    - access
   summary: Assign Entitlement to Account
   description: >-
     This method provisions one or more "Entitlements" to an "Account". The

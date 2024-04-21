@@ -1,6 +1,6 @@
 post:
   tags:
-    - Roles
+    - roles
   summary: Remove Role
   description: |-
     This API removes role from user.

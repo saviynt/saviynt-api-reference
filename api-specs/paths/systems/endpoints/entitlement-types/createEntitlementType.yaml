@@ -1,6 +1,6 @@
 post:
   tags:
-    - Entitlement Types
+    - entitlement-types
   summary: Create Entitlement Type
   description: |-
     This API creates Entitlement Type in SSM.

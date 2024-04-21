@@ -1,6 +1,6 @@
 put:
   tags:
-    - Endpoints
+    - endpoints
   summary: Update Endpoint
   description: >-
     This API updates an endpoint within the Saviynt EIC.

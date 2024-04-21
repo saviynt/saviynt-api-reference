@@ -1,6 +1,6 @@
 post:
   tags:
-    - Common Utilities
+    - utils
   summary: Upload New File
   description: >-
     This API call can be used to upload the file in a specific location based on

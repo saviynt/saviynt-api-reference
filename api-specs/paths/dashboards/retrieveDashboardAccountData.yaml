@@ -1,6 +1,6 @@
 post:
   tags:
-    - Dashboard
+    - dashboards
   summary: Retrieve Dashboard Account Data
   description: |-
     The `Authorization` must have `Bearer` followed by `Token`. 

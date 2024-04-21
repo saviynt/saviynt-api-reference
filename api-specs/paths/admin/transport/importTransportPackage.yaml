@@ -1,6 +1,6 @@
 post:
   tags:
-    - Transport
+    - transport
   summary: Import Package
   description: >-
     This API imports a compressed file containing objects specified for T2P

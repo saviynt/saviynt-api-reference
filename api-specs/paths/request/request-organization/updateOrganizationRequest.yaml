@@ -1,0 +1,237 @@
+put:
+  tags:
+    - request-organization
+  summary: Update Organization Request
+  description: >-
+    This API call can be used to create update organization requests. The Update
+    Organization request is shown in Request History.
+
+    The `Authorization` must have `Bearer` followed by `Token`. 
+
+    Mandatory params: `organizationname`
+
+    Optional params:
+
+    `comments`, `organizationname`, `username`, `description`, `primarycontact`,
+    `comments`, `customproperty(1..28)`, `organizationtype`(data
+    security/grouping/request rules/company), `parentorganization`(organization
+    name), `startdate`(MM-dd-yyyy format), `enddate`(MM-dd-yyyy format),
+
+    `endpoints` - 
+
+    1. `endpointname` 2. `cp(1..5)` 3. `updatetype`(add/update/remove)
+
+    `roles` -  1. `rolename` 2. `updatetype`(add/update/remove)
+
+    `rules` -  1. `name` 2. `type`
+
+    `entitlements` - 1. `entitlementvalue` 2. `entitlementtype` 3. `endpoint` 4.
+    `updatetype`(add/update/remove)
+
+    `owners` - 1. `owner` 2. `rank` 3. `updatetype`(add/update/remove) 4.
+    `policy`(can be SUPERADMIN/ADMIN/BULKADMIN/READONLY)
+
+    `attributes` - 1. `attributegroupname` 2. `attributes` 3. `value` 4.
+    `attributevalues` 5. `updatetype`(addgroup/deletegroup/updategroup)
+
+    `dynamicattrsvalidation`(can be true/false, default : true) - If true,
+    dynamic attributes will be validated based on the conditions defined.
+  operationId: updateOrganizationRequest
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            attributes:
+              type: array
+              items:
+                type: object
+                properties:
+                  attributes:
+                    type: string
+                    example: street,pincode
+                  attributevalues:
+                    type: object
+                    properties:
+                      pincode:
+                        type: string
+                        example: '123456'
+                      street:
+                        type: string
+                        example: treee
+                  groupname:
+                    type: string
+                    example: dfdf
+                  updatetype:
+                    type: string
+                    example: deletegroup
+                  value:
+                    type: string
+                    example: group val
+              example:
+                - attributes: street,pincode
+                  attributevalues:
+                    pincode: '123456'
+                    street: treee
+                  groupname: dfdf
+                  updatetype: deletegroup
+                  value: group val
+                - attributes: street,pincode
+                  attributevalues:
+                    pincode: '1234561'
+                    street: treee1
+                  groupname: dfdf1
+                  updatetype: addgroup
+                  value: group val1
+            comments:
+              type: string
+              example: comment
+            customproperty10:
+              type: string
+              example: cp10update
+            customproperty5:
+              type: string
+              example: cp5update
+            description:
+              type: string
+              example: desc
+            enddate:
+              type: string
+              example: 09-30-2020
+            endpoints:
+              type: array
+              items:
+                type: object
+                properties:
+                  endpointname:
+                    type: string
+                    example: AWS
+                  updatetype:
+                    type: string
+                    example: remove
+              example:
+                - endpointname: AWS
+                  updatetype: remove
+                - endpointname: CyberArk
+                  updatetype: add
+            organizationname:
+              type: string
+              example: Orgreq2291RE3
+            organizationtype:
+              type: string
+              example: request rules
+            parentorganization:
+              type: string
+              example: Hooli
+            primarycontact:
+              type: string
+              example: awsadmin
+            startdate:
+              type: string
+              example: 09-21-2020
+            username:
+              type: string
+              example: awsadmin
+        examples:
+          Update Organization Request:
+            value:
+              attributes:
+                - attributes: street,pincode
+                  attributevalues:
+                    pincode: '123456'
+                    street: treee
+                  groupname: dfdf
+                  updatetype: deletegroup
+                  value: group val
+                - attributes: street,pincode
+                  attributevalues:
+                    pincode: '1234561'
+                    street: treee1
+                  groupname: dfdf1
+                  updatetype: addgroup
+                  value: group val1
+              comments: comment
+              customproperty10: cp10update
+              customproperty5: cp5update
+              description: desc
+              enddate: 09-30-2020
+              endpoints:
+                - endpointname: AWS
+                  updatetype: remove
+                - endpointname: CyberArk
+                  updatetype: add
+              organizationname: Orgreq2291RE3
+              organizationtype: request rules
+              parentorganization: Hooli
+              primarycontact: awsadmin
+              startdate: 09-21-2020
+              username: awsadmin
+  responses:
+    '202':
+      description: Update Organization Request
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Wed, 30 Dec 2020 00:01:10 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Server:
+          schema:
+            type: string
+            example: Apache-Coyote/1.1
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=7549fdc2-5b63-4909-af5b-ca004151e186; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=31536000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: Organization Update Request Created;
+              requestId:
+                type: string
+                example: '3120673'
+          examples:
+            Update Organization Request:
+              value:
+                errorCode: '0'
+                msg: Organization Update Request Created;
+                requestId: '3120673'

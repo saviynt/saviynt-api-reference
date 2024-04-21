@@ -1,6 +1,6 @@
 post:
   tags:
-    - Access Recommendations
+    - access-recommendations
   summary: Get Access Recommendations
   description: >-
     This API provides the count and details of all the recommended entitlements

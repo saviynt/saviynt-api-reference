@@ -1,0 +1,243 @@
+post:
+  tags:
+    - campaign-entitlement-owner
+  summary: Certify Entitlement Owner for Campaign
+  description: >-
+    This API will do entitlement  verification for a particular campaign.
+
+    The `Authorization` must have `Bearer` followed by `Token`.
+
+    Mandatory params:
+
+    `verifications`
+
+    `camapignId`
+
+    `entitlement` 1. `entitlement` 2. `endpoint` 3. `action`
+
+    `verifier`
+
+    `certkey`
+
+    `action(if action param is not passed then entitlement lavel action param
+    will be considered)`
+
+    Optional params:
+
+    `comments`
+  operationId: certifyEntitlementOwnerForCampaign
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            verifications:
+              type: array
+              items:
+                type: object
+                properties:
+                  action:
+                    type: string
+                    example: decommissioned
+                  campaignId:
+                    type: string
+                    example: '313'
+                  certkey:
+                    type: string
+                    example: '12892'
+                  entitlement:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        action:
+                          type: string
+                          example: approved
+                        endpoint:
+                          type: string
+                          example: Oracle DRM
+                        entitlement:
+                          type: string
+                          example: Analytics User
+                    example:
+                      - action: approved
+                        endpoint: Oracle DRM
+                        entitlement: Analytics User
+                  verifier:
+                    type: string
+                    example: admin
+              example:
+                - action: decommissioned
+                  campaignId: '313'
+                  certkey: '12892'
+                  entitlement:
+                    - action: approved
+                      endpoint: Oracle DRM
+                      entitlement: Analytics User
+                  verifier: admin
+                - campaignId: '314'
+                  certkey: '12894'
+                  entitlement:
+                    - action: approved
+                      endpoint: Oracle DRM
+                      entitlement: Analytics User
+                  verifier: admin
+        examples:
+          Certify Entitlement Owner for Campaign:
+            value:
+              verifications:
+                - action: decommissioned
+                  campaignId: '313'
+                  certkey: '12892'
+                  entitlement:
+                    - action: approved
+                      endpoint: Oracle DRM
+                      entitlement: Analytics User
+                  verifier: admin
+                - campaignId: '314'
+                  certkey: '12894'
+                  entitlement:
+                    - action: approved
+                      endpoint: Oracle DRM
+                      entitlement: Analytics User
+                  verifier: admin
+  responses:
+    '200':
+      description: Certify Entitlement Owner for Campaign - SUCCESS
+      headers:
+        Access-Control-Allow-Credentials:
+          schema:
+            type: string
+            example: 'true'
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+            example: http://localhost
+        Cache-Control:
+          schema:
+            type: string
+            example: post-check=0, pre-check=0
+        Date:
+          schema:
+            type: string
+            example: Wed, 17 Jun 2020 00:41:09 GMT
+        Expires:
+          schema:
+            type: string
+            example: Sun, 7 May 1995 12:00:00 GMT
+        Referrer-Policy:
+          schema:
+            type: string
+            example: same-origin
+        Set-Cookie:
+          schema:
+            type: string
+            example: CCSRF-TOKEN=d4e2fef7-422c-49f2-9a0c-de1df0e88e1e; Path=/
+        Strict-Transport-Security:
+          schema:
+            type: string
+            example: max-age=7776000; includeSubdomains
+        X-Content-Type-Options:
+          schema:
+            type: string
+            example: nosniff
+        X-Frame-Options:
+          schema:
+            type: string
+            example: DENY
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                example: 2
+              errorCode:
+                type: string
+                example: '0'
+              msg:
+                type: string
+                example: success
+              verifications:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                      example: DECOMMISSIONED
+                    campaignId:
+                      type: string
+                      example: '313'
+                    certkey:
+                      type: number
+                      example: 12892
+                    entitlement:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          action:
+                            type: string
+                            example: approved
+                          endpoint:
+                            type: string
+                            example: Oracle DRM
+                          entitlement:
+                            type: string
+                            example: Analytics User
+                          msg:
+                            type: string
+                            example: Success
+                      example:
+                        - action: approved
+                          endpoint: Oracle DRM
+                          entitlement: Analytics User
+                          msg: Success
+                    verifier:
+                      type: string
+                      example: admin
+                example:
+                  - action: DECOMMISSIONED
+                    campaignId: '313'
+                    certkey: 12892
+                    entitlement:
+                      - action: approved
+                        endpoint: Oracle DRM
+                        entitlement: Analytics User
+                        msg: Success
+                    verifier: admin
+                  - campaignId: '314'
+                    certkey: 12894
+                    entitlement:
+                      - action: approved
+                        endpoint: Oracle DRM
+                        entitlement: Analytics User
+                        msg: Success
+                    verifier: admin
+          examples:
+            Certify Entitlement Owner for Campaign - SUCCESS:
+              value:
+                count: 2
+                errorCode: '0'
+                msg: success
+                verifications:
+                  - action: DECOMMISSIONED
+                    campaignId: '313'
+                    certkey: 12892
+                    entitlement:
+                      - action: approved
+                        endpoint: Oracle DRM
+                        entitlement: Analytics User
+                        msg: Success
+                    verifier: admin
+                  - campaignId: '314'
+                    certkey: 12894
+                    entitlement:
+                      - action: approved
+                        endpoint: Oracle DRM
+                        entitlement: Analytics User
+                        msg: Success
+                    verifier: admin

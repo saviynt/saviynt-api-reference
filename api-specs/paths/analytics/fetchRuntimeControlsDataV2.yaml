@@ -1,6 +1,6 @@
 post:
   tags:
-    - Analytics
+    - analytics
   summary: Fetch Runtime Controls Data V2
   description: "This API is used to fetch runtime analytics data from ES.\n\nThe `Authorization` must have `Bearer` followed by `Token`.\n\nMandatory params: \n`analyticsid` ***OR*** `analyticsname`((if both are passed then analyticsid will be considered),\n`attributes` - runtime control params. \nSample : For this query - SELECT u.username, u.firstname, u.lastname, u.email, u.manager AS 'USERCONTEXT',u.statuskey FROM users u WHERE u.statuskey is not null and u.statuskey not in (${statuskey}) and u.MANAGER is not null;\n\"attributes\":{\n\t\"statuskey\": \"0\"\n}\n\nOptional params:\n`max`,\n`offset`,\n`requestor`"
   operationId: fetchRuntimeControlsDataV2

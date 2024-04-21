@@ -1,6 +1,6 @@
 post:
   tags:
-    - Job Management
+    - jobs
   summary: Delete Trigger
   description: "This API call can be used to delete a trigger for a particular \"jobgroup\" in SSM.\r\n\r\nThe `Authorization` must have `Bearer` followed by `Token`. \r\n\r\nMandatory params: \r\n\r\n`jobname`\r\n\r\nOptional params:\r\n\r\n`triggername`\r\n\r\n`jobgroup`"
   operationId: deleteTrigger
