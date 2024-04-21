@@ -591,6 +591,18 @@ tags:
     externalDocs:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
+  - name: role-membership
+    x-displayName: Role Membership
+    description: APIs for managing role membership
+    externalDocs:
+      description: Product Documentation
+      url: https://docs.saviyntcloud.com/
+  - name: sav-roles
+    x-displayName: Sav Roles
+    description: APIs for managing Sav Roles
+    externalDocs:
+      description: Product Documentation
+      url: https://docs.saviyntcloud.com/
 x-tagGroups:
   - name: Identity Repository
     tags:
@@ -603,6 +615,7 @@ x-tagGroups:
   - name: roles
     tags:
       - roles
+      - role-membership
   - name: policies
     tags:
       - policies
