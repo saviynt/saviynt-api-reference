@@ -351,8 +351,8 @@ paths:
     $ref: paths/admin/jobs/checkImportStatus.yaml
   /forceComplete:
     $ref: paths/admin/jobs/forceComplete.yaml
-  /ECM/testConnection:
-    $ref: paths/connections/ECM_testConnection.yaml
+  /testConnection:
+    $ref: paths/connections/testConnection.yaml
   /importData:
     $ref: paths/admin/utils/importData.yaml
   /sendEmail:
