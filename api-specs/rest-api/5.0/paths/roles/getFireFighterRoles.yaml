@@ -34,230 +34,304 @@ post:
                   type: string
                   example: com.saviynt.ecm.identitywarehouse.domain.Roles
                 confidentiality:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty1:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty10:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty11:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty12:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty13:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty14:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty15:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty16:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty17:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty18:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty19:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty2:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty20:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty21:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty22:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty23:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty24:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty25:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty26:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty27:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty28:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty29:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty3:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty30:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty31:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty32:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty33:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty34:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty35:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty36:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty37:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty38:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty39:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty4:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty40:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty41:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty42:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty43:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty44:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty45:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty46:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty47:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty48:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty49:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty5:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty50:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty51:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty52:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty53:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty54:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty55:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty56:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty57:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty58:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty59:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty6:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty60:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty7:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty8:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 customproperty9:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 defaultTimeFrameHrs:
-                  type: number
+                  type: 
+                    - number
+                    - 'null'
                   example: 8
                 description:
-                  type: string
+                  type: 
+                    - string
+                    - 'null'                  
                   example: desc
                 displayname:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 endpointkey:
-                  type: number
-
+                  type: 
+                    - number
+                    - 'null'
                 flagexportedtoOIA:
                   type: boolean
                   example: false
                 glossary:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 id:
                   type: number
                   example: 125
                 level:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 maxTimeFrameHrs:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 mininginstance:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 parentroles:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 priviliged:
-                  type: number
-
+                  type: 
+                    - number
+                    - 'null'
                 requestable:
                   type: boolean
                   example: true
                 risk:
-                  type: string
-
+                  type: 
+                    - string
+                    - 'null'
                 role_name:
                   type: string
                   example: Data Administrator
@@ -281,8 +355,9 @@ post:
                   type: number
                   example: 3
                 showDynamicAttrs:
-                  type: boolean
-
+                  type: 
+                    - boolean
+                    - 'null'
                 sodflag:
                   type: boolean
                   example: false
@@ -296,14 +371,16 @@ post:
                   type: number
                   example: 0
                 systemid:
-                  type: number
-
+                  type: 
+                    - number
+                    - 'null'
                 updatedate:
                   type: string
                   example: '2017-03-24T20:16:11Z'
                 updateuser:
-                  type: number
-
+                  type: 
+                    - number
+                    - 'null'
             example:
               - class: com.saviynt.ecm.identitywarehouse.domain.Roles
                 confidentiality: null

@@ -94,6 +94,10 @@ get:
                 items:
                   type: object
                   properties:
+                    actionJson:
+                      type: string
+                      example: >-
+                        {"sendEmail":"false","saveToDBElastic":{"version":"v2","checked":"true"},"saveToFile":"false"}
                     allowedAction:
                       type: string
                       example: 1:Accept,2:Revoke,3:Further Review

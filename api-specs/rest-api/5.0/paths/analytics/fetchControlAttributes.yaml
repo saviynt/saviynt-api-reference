@@ -111,7 +111,9 @@ post:
                       type: string
                       example: String
                     orderIndex:
-                      type: number
+                      type: 
+                        - number
+                        - 'null'
                       example: null
                 example:
                   - attributeDefaultValue: '''Enter Account ID here'''
