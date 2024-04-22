@@ -7,7 +7,7 @@ post:
     EIC. The `Authorization` must have `Bearer` followed by `Token`. Optional
     params: `statuskey` - Values:1/0, 0 - Inactive, 1 - Active `User params` can
     be passed. Example: email, manager, username, firstname, lastname,
-    preferedFirstName, customproperty<1 to 40> `Roles`\- Specifies the rolename
+    preferedFirstName, customproperty<1 to 40> `Roles`- Specifies the rolename
     (#### separated) that will be assigned to the newly created user `requestor`
   operationId: createUserRequest
   requestBody:

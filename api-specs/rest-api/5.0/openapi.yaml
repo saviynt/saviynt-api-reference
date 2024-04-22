@@ -628,10 +628,12 @@ tags:
       description: Product Documentation
       url: https://docs.saviyntcloud.com/
 x-tagGroups:
+  - name: auth
+    tags:
+    - auth
   - name: Identity Repository
     tags:
       - users
-      - auth
       - accounts
       - access
       - groups
@@ -653,7 +655,6 @@ x-tagGroups:
       - request-role
       - request-history
       - request-approval
-      - tasks
   - name: applications
     tags:
       - systems
@@ -667,9 +668,9 @@ x-tagGroups:
     tags:
       - attestations
       - campaigns
-      - campaign-user-manager
-      - campaign-entitlement-owner
-      - campaign-application-owner
+      - campaigns-user-manager
+      - campaigns-entitlement-owner
+      - campaigns-application-owner
   - name: analytics
     tags:
       - analytics
@@ -684,3 +685,5 @@ x-tagGroups:
       - utils
       - security
       - sav-roles
+      - tasks
+
