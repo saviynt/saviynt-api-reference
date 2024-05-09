@@ -376,9 +376,7 @@ paths:
 components:
   securitySchemes:
     bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+      $ref: './components/securitySchemes/bearerAuth.yaml'
 x-ignoredHeaderParameters:
   - Accept
   - User-Agent
