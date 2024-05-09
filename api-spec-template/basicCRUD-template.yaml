@@ -1,0 +1,55 @@
+openapi: 3.1.0
+info:
+  title: Example API
+  version: 1.0.0
+paths:
+  /{resource}:
+    post:
+      summary: Create a new {resource}
+      operationId: create{Resource}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/{Resource}'
+      responses:
+        '201':
+          description: Resource created
+  /{resource}/{id}:
+    get:
+      summary: Get a {resource} by ID
+      operationId: get{Resource}ById
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/{Resource}'
+    put:
+      summary: Update a {resource}
+      operationId: update{Resource}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/{Resource}'
+      responses:
+        '200':
+          description: Resource updated
+    delete:
+      summary: Delete a {resource}
+      operationId: delete{Resource}
+      responses:
+        '204':
+          description: Resource deleted
+components:
+  schemas:
+    {Resource}:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for a {resource}

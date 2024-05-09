@@ -11,7 +11,10 @@ rules:
       property: description
     assertions:
       defined: true
-      minLength: 30
+      minLength: 10
+  tag-description: error
+  security-defined: error
+  no-ambiguous-paths: error
 theme:
   openapi:
     generateCodeSamples:

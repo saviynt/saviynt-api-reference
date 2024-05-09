@@ -20,21 +20,54 @@ Validates the definition.
 
 ## Contribution Guide
 
-Below is a sample contribution guide. The tools
-in the repository don't restrict you to any
-specific structure. Adjust the contribution guide
-to match your own structure. However, if you
-don't have a structure in mind, this is a
-good place to start.
-
-Update this contribution guide if you
-adjust the file/folder organization.
 
 The `.redocly.yaml` controls settings for various
 tools including the lint tool and the reference
 docs engine.  Open it to find examples and
 [read the docs](https://redoc.ly/docs/cli/configuration/)
 for more information.
+
+### Directory Structure
+
+Organize your API specifications into a structured directory to keep things organized, like so:
+
+```bash
+/api-specs/rest-api/5.0
+├── openapi.yaml          # Main OpenAPI specification file
+├── paths                 # Directory for path definitions
+│   └── users.yaml
+├── schemas               # Directory for schema definitions
+│   └── user.yaml
+└── components            # Directory for components like parameters, responses, etc.
+    ├── parameters.yaml
+    └── responses.yaml
+```
+
+
+#### Main OpenAPI Specification (openapi.yaml)
+
+This file references other files for paths, schemas, and components.
+
+```yaml
+openapi: 3.1.0
+info:
+  title: Example API
+  version: 1.0.0
+  description: API for managing resources.
+servers:
+  - url: https://{domain}/api/v1
+    description: Primary API server
+paths:
+  $ref: './paths/users.yaml'
+components:
+  schemas:
+    User:
+      $ref: './schemas/user.yaml'
+  parameters:
+    $ref: './components/parameters.yaml'
+  responses:
+    $ref: './components/responses.yaml'
+```
 
 
 ### Schemas
