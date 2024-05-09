@@ -1,0 +1,69 @@
+FunctionOwner:
+  required:
+    - type
+    - value
+    - rank
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      example: 12
+    type:
+      type: string
+      example: user
+    value:
+       type: string
+       example: johnDoe
+    rank:
+       type: integer
+       format: int64
+       example: 1
+Function:
+  required:
+    - functionName
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      example: 2131
+    functionName:
+      type: string
+      example: AP02 - Process Vendor Invoices and purchase
+    description:
+       type: string
+       example: Ability to perform AP02 - Process Vendor Invoices and purchase
+    functionOwner:
+       $ref: '#/components/schemas/FunctionOwner'
+    customProperty1:
+       type: string
+       example: "CP1"
+    customProperty2:
+       type: string
+       example: "CP2"
+    customProperty3:
+       type: string
+       example: "CP3"
+    customProperty4:
+       type: string
+       example: "CP4"
+    customProperty5:
+       type: string
+       example: "CP5"
+    exclusionQry:
+       type: string
+       example: "select from table"
+    functionType:
+       type: string
+       example: "SAP"
+    ruleset:
+       type: integer
+       format: int64
+       example: 12
+    status:
+          type: string
+          description: function status
+          enum:
+            - Active
+            - Inactive       

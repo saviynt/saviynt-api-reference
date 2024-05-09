@@ -1,0 +1,245 @@
+/risks/{riskId}:
+  put:
+    tags:
+      - risk
+    summary: Update an existing risk
+    description: Update an existing risk by Id
+    operationId: updateRisk
+    requestBody:
+      description: Update an existent risk in the SoD Ruleset
+      content:
+        application/json:
+          schema:
+            $ref: 'components/schemas/Risk'
+        application/xml:
+          schema:
+            $ref: '/components/schemas/Risk'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '/components/schemas/Risk'
+      required: true
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'          
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Risk'
+      '400':
+        description: Invalid ID supplied
+      '404':
+        description: Risk not found
+      '422':
+        description: Validation exception
+    security:
+      - sod_auth:
+          - write:risks
+          - read:risks
+  post:
+    tags:
+      - risk
+    summary: Add a new risk
+    description: Add a new risk
+    operationId: addRisk
+    requestBody:
+      description: Create a new risk
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Risk'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Risk'
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Risk'
+      required: true
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'          
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Risk'
+      '400':
+        description: Invalid input
+      '422':
+        description: Validation exception
+    security:
+      - sod_auth:
+          - write:risks
+          - read:risks
+/risk/findByStatus:
+  get:
+    tags:
+      - risk
+    summary: Finds risks by status
+    description: Multiple status values can be provided with comma separated strings
+    operationId: findRisksByStatus
+    parameters:
+      - name: status
+        in: query
+        description: Status values that need to be considered for filter
+        required: false
+        explode: true
+        schema:
+          type: string
+          default: Active
+          enum:
+            - Active
+            - Inactive
+    responses:
+      '200':
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Risk'          
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Risk'
+      '400':
+        description: Invalid status value
+    security:
+      - sod_auth:
+          - write:risks
+          - read:risks
+/risk/findByPriority:
+  get:
+    tags:
+      - risk
+    summary: Finds Risks by Priority
+    description: Multiple Priority can be provided with comma separated strings. Use High, Low, Critical for testing.
+    operationId: findRisksByPriority
+    parameters:
+      - name: Priority
+        in: query
+        description: Priority to filter by
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+    responses:
+      '200':
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Risk'          
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Risk'
+      '400':
+        description: Invalid Priority value
+    security:
+      - sod_auth:
+          - write:risks
+          - read:risks
+/risk/{riskId}:
+  get:
+    tags:
+      - risk
+    summary: Find risk by ID
+    description: Returns a single risk
+    operationId: getRiskById
+    parameters:
+      - name: riskId
+        in: path
+        description: ID of risk to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+    responses:
+      '200':
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'          
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Risk'
+      '400':
+        description: Invalid ID supplied
+      '404':
+        description: Pet not found
+    security:
+      - api_key: []
+      - sod_auth:
+          - write:risks
+          - read:risks
+  post:
+    tags:
+      - risk
+    summary: Updates a risk with form data
+    description: ''
+    operationId: updateRiskWithForm
+    parameters:
+      - name: riskId
+        in: path
+        description: ID of risk that needs to be updated
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: name
+        in: query
+        description: Name of risk that needs to be updated
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: Status of risk that needs to be updated
+        schema:
+          type: string
+    responses:
+      '400':
+        description: Invalid input
+    security:
+      - sod_auth:
+          - write:risks
+          - read:risks
+  delete:
+    tags:
+      - risk
+    summary: Deletes a risk
+    description: delete a risk
+    operationId: deleteRisk
+    parameters:
+      - name: api_key
+        in: header
+        description: ''
+        required: false
+        schema:
+          type: string
+      - name: riskId
+        in: path
+        description: Risk id to delete
+        required: true
+        schema:
+          type: integer
+          format: int64
+    responses:
+      '400':
+        description: Invalid Risk value
+    security:
+      - sod_auth:
+          - write:risks
+          - read:risks

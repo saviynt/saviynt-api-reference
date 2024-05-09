@@ -1,0 +1,86 @@
+Risk:
+  required:
+    - riskName
+    - ruleset
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      example: 2131
+    riskName:
+      type: string
+      example: Bill Customer conflicts with Post Payment
+    description:
+       type: string
+       example: The ability to setup customer bill and apply review payment
+    riskOwner:
+       $ref: '#/components/schemas/RiskOwner'
+    comments:
+       type: string
+       example: "Add comments here"
+    priority:
+       type: string
+       example: "high"
+    riskType:
+       type: string
+       example: "SOD"
+    ruleset:
+       type: integer
+       format: int64
+       example: 12
+    function1:
+      type: integer
+      format: int64
+      example: 21
+    function2:
+      type: integer
+      format: int64
+      example: 32
+    function3:
+      type: integer
+      format: int64
+      example: 43
+    function4:
+      type: integer
+      format: int64
+      example: 51
+    function5:
+      type: integer
+      format: int64
+      example: 63
+    businessProcess:
+      type: integer
+      format: int64
+      example: 71
+    analyticsConfig:
+          type: integer
+          format: int64
+          example: 345
+    status:
+          type: string
+          description: risk status
+          enum:
+            - Active
+            - Inactive
+RiskOwner:
+  required:
+    - type
+    - value
+    - rank
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      example: 12
+    type:
+      type: string
+      example: user
+    value:
+       type: string
+       example: johnDoe
+    rank:
+       type: integer
+       format: int64
+       example: 1
