@@ -1,0 +1,41 @@
+openapi: '3.1.0'
+info:
+  title: Saviynt Enterprise Identity Cloud API Reference
+  description: >-
+    This Collection provides the details of the supported methods for the
+    Saviynt Enterprise Identity Cloud (EIC)
+  version: 5.0.0
+  termsOfService: https://saviynt.com/terms/
+  contact:
+    name: API Support
+    url: https://www.saviynt.com/support
+    email: support@saviynt.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  x-logo:
+    url: https://saviynt.com/wp-content/uploads/2019/04/Saviynt_logo_Navy.svg
+externalDocs:
+  description: Documentation
+  url: https://docs.saviyntcloud.com/
+servers:
+  - url: https://{tenant}.saviyntcloud.com/ECM/api/v5
+    variables:
+      tenant:
+        description: tenant
+        default: example
+security:
+  - bearerAuth: []
+paths:
+  /sod/risks:
+    $ref: paths/sod/risks.yaml
+  /sod/risks/{riskId}:
+    $ref: paths/sod/risksById.yaml
+  /sod/functions/{functionId}:
+    $ref: paths/sod/functionsById.yaml
+  /sod/functions:
+    $ref: paths/sod/functions.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      $ref: './components/securitySchemes/bearerAuth.yaml'

@@ -27,353 +27,352 @@ servers:
 security:
   - bearerAuth: []
 paths:
-  $ref: paths/sod/risks.yaml
   /api/login:
-    $ref: paths/old/auth/api_login.yaml
+    $ref: paths/auth/api_login.yaml
   /oauth/access_token:
-    $ref: paths/old/auth/oauth_access_token.yaml
+    $ref: paths/auth/oauth_access_token.yaml
   /createUser:
-    $ref: paths/old/users/createUser.yaml
+    $ref: paths/users/createUser.yaml
   /updateUser:
-    $ref: paths/old/users/updateUser.yaml
+    $ref: paths/users/updateUser.yaml
   /getUser:
-    $ref: paths/old/users/getUser.yaml
+    $ref: paths/users/getUser.yaml
   /user:
-    $ref: paths/old/users/user.yaml
+    $ref: paths/users/user.yaml
   /addremoveuserfromrole:
-    $ref: paths/old/roles/addremoveuserfromrole.yaml
+    $ref: paths/roles/addremoveuserfromrole.yaml
   /getAccessDetailsForUser:
-    $ref: paths/old/access/getAccessDetailsForUser.yaml
+    $ref: paths/access/getAccessDetailsForUser.yaml
   /getEntDetailsforUsers:
-    $ref: paths/old/access/getEntDetailsforUsers.yaml
+    $ref: paths/access/getEntDetailsforUsers.yaml
   /getRoleDetailsforUsers:
-    $ref: paths/old/roles/getRoleDetailsforUsers.yaml
+    $ref: paths/roles/getRoleDetailsforUsers.yaml
   /authenticateUser:
-    $ref: paths/old/auth/authenticateUser.yaml
+    $ref: paths/auth/authenticateUser.yaml
   /validateUserData:
-    $ref: paths/old/users/validateUserData.yaml
+    $ref: paths/users/validateUserData.yaml
   /getSavRoles:
-    $ref: paths/old/admin/sav-roles/getSavRoles.yaml
+    $ref: paths/admin/sav-roles/getSavRoles.yaml
   /getAccounts:
-    $ref: paths/old/accounts/getAccounts.yaml
+    $ref: paths/accounts/getAccounts.yaml
   /exportAccount:
-    $ref: paths/old/accounts/exportAccount.yaml
+    $ref: paths/accounts/exportAccount.yaml
   /createAccount:
-    $ref: paths/old/accounts/createAccount.yaml
+    $ref: paths/accounts/createAccount.yaml
   /updateAccount:
-    $ref: paths/old/accounts/updateAccount.yaml
+    $ref: paths/accounts/updateAccount.yaml
   /assignAccountToUser:
-    $ref: paths/old/accounts/assignAccountToUser.yaml
+    $ref: paths/accounts/assignAccountToUser.yaml
   /assignAccountToEntitlement:
-    $ref: paths/old/access/assignAccountToEntitlement.yaml
+    $ref: paths/access/assignAccountToEntitlement.yaml
   /removeAccountToEntitlement:
-    $ref: paths/old/access/removeAccountToEntitlement.yaml
+    $ref: paths/access/removeAccountToEntitlement.yaml
   /createPrivilege:
-    $ref: paths/old/systems/endpoints/privilege/createPrivilege.yaml
+    $ref: paths/systems/endpoints/privilege/createPrivilege.yaml
   /updatePrivilege:
-    $ref: paths/old/systems/endpoints/privilege/updatePrivilege.yaml
+    $ref: paths/systems/endpoints/privilege/updatePrivilege.yaml
   /deletePrivilege:
-    $ref: paths/old/systems/endpoints/privilege/deletePrivilege.yaml
+    $ref: paths/systems/endpoints/privilege/deletePrivilege.yaml
   /getEntitlements:
-    $ref: paths/old/systems/endpoints/entitlements/getEntitlements.yaml
+    $ref: paths/systems/endpoints/entitlements/getEntitlements.yaml
   /getChildEntitlements:
-    $ref: paths/old/systems/endpoints/entitlements/getChildEntitlements.yaml
+    $ref: paths/systems/endpoints/entitlements/getChildEntitlements.yaml
   /createUpdateEntitlement:
-    $ref: paths/old/systems/endpoints/entitlements/createUpdateEntitlement.yaml
+    $ref: paths/systems/endpoints/entitlements/createUpdateEntitlement.yaml
   /getEntitlementValuesForEndpoint:
-    $ref: paths/old/systems/endpoints/entitlements/getEntitlementValuesForEndpoint.yaml
+    $ref: paths/systems/endpoints/entitlements/getEntitlementValuesForEndpoint.yaml
   /getListofPrivileges:
-    $ref: paths/old/systems/endpoints/privilege/getListofPrivileges.yaml
+    $ref: paths/systems/endpoints/privilege/getListofPrivileges.yaml
   /removeEntitlementsFromRole:
-    $ref: paths/old/roles/removeEntitlementsFromRole.yaml
+    $ref: paths/roles/removeEntitlementsFromRole.yaml
   /addrole:
-    $ref: paths/old/roles/addrole.yaml
+    $ref: paths/roles/addrole.yaml
   /getRoles:
-    $ref: paths/old/roles/getRoles.yaml
+    $ref: paths/roles/getRoles.yaml
   /getFireFighterRoles:
-    $ref: paths/old/roles/getFireFighterRoles.yaml
+    $ref: paths/roles/getFireFighterRoles.yaml
   /removerole:
-    $ref: paths/old/roles/removerole.yaml
+    $ref: paths/roles/removerole.yaml
   /createEndpoint:
-    $ref: paths/old/systems/endpoints/createEndpoint.yaml
+    $ref: paths/systems/endpoints/createEndpoint.yaml
   /updateEndpoint:
-    $ref: paths/old/systems/endpoints/updateEndpoint.yaml
+    $ref: paths/systems/endpoints/updateEndpoint.yaml
   /getEndpoints:
-    $ref: paths/old/systems/endpoints/getEndpoints.yaml
+    $ref: paths/systems/endpoints/getEndpoints.yaml
   /createEntitlementType:
-    $ref: paths/old/systems/endpoints/entitlement-types/createEntitlementType.yaml
+    $ref: paths/systems/endpoints/entitlement-types/createEntitlementType.yaml
   /updateEntitlementType:
-    $ref: paths/old/systems/endpoints/entitlement-types/updateEntitlementType.yaml
+    $ref: paths/systems/endpoints/entitlement-types/updateEntitlementType.yaml
   /getEntitlementTypes:
-    $ref: paths/old/systems/endpoints/entitlement-types/getEntitlementTypes.yaml
+    $ref: paths/systems/endpoints/entitlement-types/getEntitlementTypes.yaml
   /createDynamicAttribute:
-    $ref: paths/old/systems/endpoints/dynamic-attributes/createDynamicAttribute.yaml
+    $ref: paths/systems/endpoints/dynamic-attributes/createDynamicAttribute.yaml
   /updateDynamicAttribute:
-    $ref: paths/old/systems/endpoints/dynamic-attributes/updateDynamicAttribute.yaml
+    $ref: paths/systems/endpoints/dynamic-attributes/updateDynamicAttribute.yaml
   /fetchDynamicAttribute:
-    $ref: paths/old/systems/endpoints/dynamic-attributes/fetchDynamicAttribute.yaml
+    $ref: paths/systems/endpoints/dynamic-attributes/fetchDynamicAttribute.yaml
   /deleteDynamicAttribute:
-    $ref: paths/old/systems/endpoints/dynamic-attributes/deleteDynamicAttribute.yaml
+    $ref: paths/systems/endpoints/dynamic-attributes/deleteDynamicAttribute.yaml
   /deleteEntitlementType:
-    $ref: paths/old/systems/endpoints/entitlement-types/deleteEntitlementType.yaml
+    $ref: paths/systems/endpoints/entitlement-types/deleteEntitlementType.yaml
   /createSecuritySystem:
-    $ref: paths/old/systems/createSecuritySystem.yaml
+    $ref: paths/systems/createSecuritySystem.yaml
   /updateSecuritySystem:
-    $ref: paths/old/systems/updateSecuritySystem.yaml
+    $ref: paths/systems/updateSecuritySystem.yaml
   /getSecuritySystems:
-    $ref: paths/old/systems/getSecuritySystems.yaml
+    $ref: paths/systems/getSecuritySystems.yaml
   /deleteSecuritySystem:
-    $ref: paths/old/systems/deleteSecuritySystem.yaml
+    $ref: paths/systems/deleteSecuritySystem.yaml
   /createUpdateUserGroup:
-    $ref: paths/old/groups/createUpdateUserGroup.yaml
+    $ref: paths/groups/createUpdateUserGroup.yaml
   /addRemoveUserFromUserGroup:
-    $ref: paths/old/groups/addRemoveUserFromUserGroup.yaml
+    $ref: paths/groups/addRemoveUserFromUserGroup.yaml
   /deleteUserGroup:
-    $ref: paths/old/groups/deleteUserGroup.yaml
+    $ref: paths/groups/deleteUserGroup.yaml
   /fetchUserGroup:
-    $ref: paths/old/groups/fetchUserGroup.yaml
+    $ref: paths/groups/fetchUserGroup.yaml
   /createOrganization:
-    $ref: paths/old/organizations/createOrganization.yaml
+    $ref: paths/organizations/createOrganization.yaml
   /updateOrganization:
-    $ref: paths/old/organizations/updateOrganization.yaml
+    $ref: paths/organizations/updateOrganization.yaml
   /getOrganization:
-    $ref: paths/old/organizations/getOrganization.yaml
+    $ref: paths/organizations/getOrganization.yaml
   /deleteOrganization:
-    $ref: paths/old/organizations/deleteOrganization.yaml
+    $ref: paths/organizations/deleteOrganization.yaml
   /getConnections:
-    $ref: paths/old/connections/getConnections.yaml
+    $ref: paths/connections/getConnections.yaml
   /getConnectionDetails:
-    $ref: paths/old/connections/getConnectionDetails.yaml
+    $ref: paths/connections/getConnectionDetails.yaml
   /deleteConnection:
-    $ref: paths/old/connections/deleteConnection.yaml
+    $ref: paths/connections/deleteConnection.yaml
   /createDataset:
-    $ref: paths/old/admin/datasets/createDataset.yaml
+    $ref: paths/admin/datasets/createDataset.yaml
   /getDatasetValues:
-    $ref: paths/old/admin/datasets/getDatasetValues.yaml
+    $ref: paths/admin/datasets/getDatasetValues.yaml
   /updateDatasetValues:
-    $ref: paths/old/admin/datasets/updateDatasetValues.yaml
+    $ref: paths/admin/datasets/updateDatasetValues.yaml
   /deleteDataset:
-    $ref: paths/old/admin/datasets/deleteDataset.yaml
+    $ref: paths/admin/datasets/deleteDataset.yaml
   /uploadDatasetCSV:
-    $ref: paths/old/admin/datasets/uploadDatasetCSV.yaml
+    $ref: paths/admin/datasets/uploadDatasetCSV.yaml
   /updateDataset:
-    $ref: paths/old/admin/datasets/updateDataset.yaml
+    $ref: paths/admin/datasets/updateDataset.yaml
   /fetchControlList:
-    $ref: paths/old/analytics/fetchControlList.yaml
+    $ref: paths/analytics/fetchControlList.yaml
   /fetchControlDetails:
-    $ref: paths/old/analytics/fetchControlDetails.yaml
+    $ref: paths/analytics/fetchControlDetails.yaml
   /runAnalyticsControls:
-    $ref: paths/old/analytics/runAnalyticsControls.yaml
+    $ref: paths/analytics/runAnalyticsControls.yaml
   /fetchRuntimeControlsData:
-    $ref: paths/old/analytics/fetchRuntimeControlsData.yaml
+    $ref: paths/analytics/fetchRuntimeControlsData.yaml
   /fetchRuntimeControlsDataV2:
-    $ref: paths/old/analytics/fetchRuntimeControlsDataV2.yaml
+    $ref: paths/analytics/fetchRuntimeControlsDataV2.yaml
   /fetchControlListES:
-    $ref: paths/old/analytics/fetchControlListES.yaml
+    $ref: paths/analytics/fetchControlListES.yaml
   /fetchControlAttributes:
-    $ref: paths/old/analytics/fetchControlAttributes.yaml
+    $ref: paths/analytics/fetchControlAttributes.yaml
   /fetchControlDetailsES:
-    $ref: paths/old/analytics/fetchControlDetailsES.yaml
+    $ref: paths/analytics/fetchControlDetailsES.yaml
   /createUserRequest:
-    $ref: paths/old/request/request-user/createUserRequest.yaml
+    $ref: paths/request/request-user/createUserRequest.yaml
   /uploadUserRequest:
-      $ref: paths/old//request/request-user/uploadUserRequest.yaml
+      $ref: paths//request/request-user/uploadUserRequest.yaml
   /updateUserRequest:
-    $ref: paths/old/request/request-user/updateUserRequest.yaml
+    $ref: paths/request/request-user/updateUserRequest.yaml
   /getrequestableusers:
-    $ref: paths/old/request/request-user/getrequestableusers.yaml
+    $ref: paths/request/request-user/getrequestableusers.yaml
   /createEnterpriseRoleRequest:
-    $ref: paths/old/request/request-role/createEnterpriseRoleRequest.yaml
+    $ref: paths/request/request-role/createEnterpriseRoleRequest.yaml
   /updateEnterpriseRoleRequest:
-    $ref: paths/old/request/request-role/updateEnterpriseRoleRequest.yaml
+    $ref: paths/request/request-role/updateEnterpriseRoleRequest.yaml
   /getUserRequestableEntitlements:
-    $ref: paths/old/request/request-access/getUserRequestableEntitlements.yaml
+    $ref: paths/request/request-access/getUserRequestableEntitlements.yaml
   /validateEntitlementRequestData:
-    $ref: paths/old/request/request-access/validateEntitlementRequestData.yaml
+    $ref: paths/request/request-access/validateEntitlementRequestData.yaml
   /createrequest:
-    $ref: paths/old/request/request-access/createrequest.yaml
+    $ref: paths/request/request-access/createrequest.yaml
   /createOrganizationRequest:
-    $ref: paths/old/request/request-organization/createOrganizationRequest.yaml
+    $ref: paths/request/request-organization/createOrganizationRequest.yaml
   /updateOrganizationRequest:
-    $ref: paths/old/request/request-organization/updateOrganizationRequest.yaml
+    $ref: paths/request/request-organization/updateOrganizationRequest.yaml
   /createautoapprovedrequest:
-    $ref: paths/old/request/request-access/createautoapprovedrequest.yaml
+    $ref: paths/request/request-access/createautoapprovedrequest.yaml
   /createbirthrightrequest:
-    $ref: paths/old/request/request-access/createbirthrightrequest.yaml
+    $ref: paths/request/request-access/createbirthrightrequest.yaml
   /updateRequest:
-    $ref: paths/old/request/request-access/updateRequest.yaml
+    $ref: paths/request/request-access/updateRequest.yaml
   /fetchRequestHistory:
-    $ref: paths/old/request/request-history/fetchRequestHistory.yaml
+    $ref: paths/request/request-history/fetchRequestHistory.yaml
   /fetchRequestHistoryDetails:
-    $ref: paths/old/request/request-history/fetchRequestHistoryDetails.yaml
+    $ref: paths/request/request-history/fetchRequestHistoryDetails.yaml
   /cancelPendingRequest:
-    $ref: paths/old/request/request-access/cancelPendingRequest.yaml
+    $ref: paths/request/request-access/cancelPendingRequest.yaml
   /getPendingRequests:
-    $ref: paths/old/request/request-access/getPendingRequests.yaml
+    $ref: paths/request/request-access/getPendingRequests.yaml
   /fetchRequestApprovalDetails:
-    $ref: paths/old/request/request-access/fetchRequestApprovalDetails.yaml
+    $ref: paths/request/request-access/fetchRequestApprovalDetails.yaml
   /fetchRequestAccessAttributes:
-      $ref: paths/old/request/request-access/fetchRequestAccessAttributes.yaml
+      $ref: paths/request/request-access/fetchRequestAccessAttributes.yaml
   /ApproveRejectDetailRequest:
-    $ref: paths/old/request/request-approval/ApproveRejectDetailRequest.yaml
+    $ref: paths/request/request-approval/ApproveRejectDetailRequest.yaml
   /getPendingApprovals:
-    $ref: paths/old/request/request-approval/getPendingApprovals.yaml
+    $ref: paths/request/request-approval/getPendingApprovals.yaml
   /approveRejectRequest:
-    $ref: paths/old/request/request-approval/approveRejectRequest.yaml
+    $ref: paths/request/request-approval/approveRejectRequest.yaml
   /createtask:
-    $ref: paths/old/arstasks/createtask.yaml
+    $ref: paths/arstasks/createtask.yaml
   /completetask:
-    $ref: paths/old/arstasks/completetask.yaml
+    $ref: paths/arstasks/completetask.yaml
   /updateTasks:
-    $ref: paths/old/arstasks/updateTasks.yaml
+    $ref: paths/arstasks/updateTasks.yaml
   /discontinueTask:
-    $ref: paths/old/arstasks/discontinueTask.yaml
+    $ref: paths/arstasks/discontinueTask.yaml
   /discontinueAllPendingTask:
-    $ref: paths/old/arstasks/discontinueAllPendingTask.yaml
+    $ref: paths/arstasks/discontinueAllPendingTask.yaml
   /fetchTasks:
-    $ref: paths/old/arstasks/fetchTasks.yaml
+    $ref: paths/arstasks/fetchTasks.yaml
   /checkTaskStatus:
-    $ref: paths/old/arstasks/checkTaskStatus.yaml
+    $ref: paths/arstasks/checkTaskStatus.yaml
   /getDelegateUserList:
-    $ref: paths/old/admin/delegates/getDelegateUserList.yaml
+    $ref: paths/admin/delegates/getDelegateUserList.yaml
   /createDelegate:
-    $ref: paths/old/admin/delegates/createDelegate.yaml
+    $ref: paths/admin/delegates/createDelegate.yaml
   /fetchDelegatesList:
-    $ref: paths/old/admin/delegates/fetchDelegatesList.yaml
+    $ref: paths/admin/delegates/fetchDelegatesList.yaml
   /editDelegate:
-    $ref: paths/old/admin/delegates/editDelegate.yaml
+    $ref: paths/admin/delegates/editDelegate.yaml
   /deleteDelegate:
-    $ref: paths/old/admin/delegates/deleteDelegate.yaml
+    $ref: paths/admin/delegates/deleteDelegate.yaml
   /fetchAttestationsList:
-    $ref: paths/old/campaigns/attestations/fetchAttestationsList.yaml
+    $ref: paths/campaigns/attestations/fetchAttestationsList.yaml
   /fetchAttestationDetails:
-    $ref: paths/old/campaigns/attestations/fetchAttestationDetails.yaml
+    $ref: paths/campaigns/attestations/fetchAttestationDetails.yaml
   /certifyUserManagerRequests:
-    $ref: paths/old/campaigns/attestations/certifyUserManagerRequests.yaml
+    $ref: paths/campaigns/attestations/certifyUserManagerRequests.yaml
   /fetchAttAccEntDetails:
-    $ref: paths/old/campaigns/attestations/fetchAttAccEntDetails.yaml
+    $ref: paths/campaigns/attestations/fetchAttAccEntDetails.yaml
   /approveRejectAttAccEntDetails:
-    $ref: paths/old/campaigns/attestations/approveRejectAttAccEntDetails.yaml
+    $ref: paths/campaigns/attestations/approveRejectAttAccEntDetails.yaml
   /lockAttestation:
-    $ref: paths/old/campaigns/attestations/lockAttestation.yaml
+    $ref: paths/campaigns/attestations/lockAttestation.yaml
   /fetchCampaignList:
-    $ref: paths/old/campaigns/fetchCampaignList.yaml
+    $ref: paths/campaigns/fetchCampaignList.yaml
   /fetchCampaignDetails:
-    $ref: paths/old/campaigns/fetchCampaignDetails.yaml
+    $ref: paths/campaigns/fetchCampaignDetails.yaml
   /certifyUserManagerforCampaign:
-    $ref: paths/old/campaigns/campaign-user-manager/certifyUserManagerforCampaign.yaml
+    $ref: paths/campaigns/campaign-user-manager/certifyUserManagerforCampaign.yaml
   /fetchCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-user-manager/fetchCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-user-manager/fetchCampaignAccEntDetails.yaml
   /approverejectCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-user-manager/approverejectCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-user-manager/approverejectCampaignAccEntDetails.yaml
   /lockCampaign:
-    $ref: paths/old/campaigns/lockCampaign.yaml
+    $ref: paths/campaigns/lockCampaign.yaml
   /reassignUserManagerforCampaign:
-    $ref: paths/old/campaigns/campaign-user-manager/reassignUserManagerforCampaign.yaml
+    $ref: paths/campaigns/campaign-user-manager/reassignUserManagerforCampaign.yaml
   /consultUserManagerforCampaign:
-    $ref: paths/old/campaigns/campaign-user-manager/consultUserManagerforCampaign.yaml
+    $ref: paths/campaigns/campaign-user-manager/consultUserManagerforCampaign.yaml
   /consultCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-user-manager/consultCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-user-manager/consultCampaignAccEntDetails.yaml
   /reAssignUserManagerStep2AccEntDetails:
-    $ref: paths/old/campaigns/campaign-user-manager/reAssignUserManagerStep2AccEntDetails.yaml
+    $ref: paths/campaigns/campaign-user-manager/reAssignUserManagerStep2AccEntDetails.yaml
   /consultEOforCampaign:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/consultEOforCampaign.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/consultEOforCampaign.yaml
   /consultEOCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/consultEOCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/consultEOCampaignAccEntDetails.yaml
   /fetchEntOwnerCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/fetchEntOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/fetchEntOwnerCampaignAccEntDetails.yaml
   /fetchEntOwnerCampaignDetails:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/fetchEntOwnerCampaignDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/fetchEntOwnerCampaignDetails.yaml
   /getFlatResponseEntOwnerCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/getFlatResponseEntOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/getFlatResponseEntOwnerCampaignAccEntDetails.yaml
   /lockEntOwnerCampaign:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/lockEntOwnerCampaign.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/lockEntOwnerCampaign.yaml
   /approverejectEntOwnerCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/approverejectEntOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/approverejectEntOwnerCampaignAccEntDetails.yaml
   /certifyEntOwnerforCampaign:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/certifyEntOwnerforCampaign.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/certifyEntOwnerforCampaign.yaml
   /reassignEntOwnerCampaignAccEnt:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/reassignEntOwnerCampaignAccEnt.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/reassignEntOwnerCampaignAccEnt.yaml
   /reassignEntOwnerCampaignAccEntDetailsStep2:
-    $ref: paths/old/campaigns/campaign-entitlement-owner/reassignEntOwnerCampaignAccEntDetailsStep2.yaml
+    $ref: paths/campaigns/campaign-entitlement-owner/reassignEntOwnerCampaignAccEntDetailsStep2.yaml
   /fetchAppOwnerCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-application-owner/fetchAppOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-application-owner/fetchAppOwnerCampaignAccEntDetails.yaml
   /approverejectAppOwnerCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-application-owner/approverejectAppOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-application-owner/approverejectAppOwnerCampaignAccEntDetails.yaml
   /lockApplicationOwnerCampaign:
-    $ref: paths/old/campaigns/campaign-application-owner/lockApplicationOwnerCampaign.yaml
+    $ref: paths/campaigns/campaign-application-owner/lockApplicationOwnerCampaign.yaml
   /consultAppOwnerCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-application-owner/consultAppOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-application-owner/consultAppOwnerCampaignAccEntDetails.yaml
   /reAssignAppOwnerCampaignAccEntDetails:
-    $ref: paths/old/campaigns/campaign-application-owner/reAssignAppOwnerCampaignAccEntDetails.yaml
+    $ref: paths/campaigns/campaign-application-owner/reAssignAppOwnerCampaignAccEntDetails.yaml
   /fetchCertificationList:
-    $ref: paths/old/campaigns/fetchCertificationList.yaml
+    $ref: paths/campaigns/fetchCertificationList.yaml
   /discontinueCampaign:
-    $ref: paths/old/campaigns/discontinueCampaign.yaml
+    $ref: paths/campaigns/discontinueCampaign.yaml
   /reAssignCertification:
-    $ref: paths/old/campaigns/reAssignCertification.yaml
+    $ref: paths/campaigns/reAssignCertification.yaml
   /sapSODEvaluation:
-    $ref: paths/old/sod/sapSODEvaluation.yaml
+    $ref: paths/sod/sapSODEvaluation.yaml
   /sodEvaluation:
-    $ref: paths/old/sod/sodEvaluation.yaml
+    $ref: paths/sod/sodEvaluation.yaml
   /addMCRiskAccount:
-    $ref: paths/old/sod/addMCRiskAccount.yaml
+    $ref: paths/sod/addMCRiskAccount.yaml
   /uploadSODRuleset:
-    $ref: paths/old/sod/uploadSODRuleset.yaml
+    $ref: paths/sod/uploadSODRuleset.yaml
   /getSavSecurityQuestions:
-    $ref: paths/old/admin/security/getSavSecurityQuestions.yaml
+    $ref: paths/admin/security/getSavSecurityQuestions.yaml
   /fetchSavUserQuestions:
-    $ref: paths/old/admin/security/fetchSavUserQuestions.yaml
+    $ref: paths/admin/security/fetchSavUserQuestions.yaml
   /validateSecurityAnswers:
-    $ref: paths/old/admin/security/validateSecurityAnswers.yaml
+    $ref: paths/admin/security/validateSecurityAnswers.yaml
   /createSavSecurityQuestions:
-    $ref: paths/old/admin/security/createSavSecurityQuestions.yaml
+    $ref: paths/admin/security/createSavSecurityQuestions.yaml
   /createSavPasswordPolicy:
-    $ref: paths/old/admin/security/createSavPasswordPolicy.yaml
+    $ref: paths/admin/security/createSavPasswordPolicy.yaml
   /changePassword:
-    $ref: paths/old/users/changePassword.yaml
+    $ref: paths/users/changePassword.yaml
   /createUpdateTrigger:
-    $ref: paths/old/admin/jobs/createUpdateTrigger.yaml
+    $ref: paths/admin/jobs/createUpdateTrigger.yaml
   /checkJobStatus:
-    $ref: paths/old/admin/jobs/checkJobStatus.yaml
+    $ref: paths/admin/jobs/checkJobStatus.yaml
   /deleteTrigger:
-    $ref: paths/old/admin/jobs/deleteTrigger.yaml
+    $ref: paths/admin/jobs/deleteTrigger.yaml
   /runJobTrigger:
-    $ref: paths/old/admin/jobs/runJobTrigger.yaml
+    $ref: paths/admin/jobs/runJobTrigger.yaml
   /fetchJobMetadata:
-    $ref: paths/old/admin/jobs/fetchJobMetadata.yaml
+    $ref: paths/admin/jobs/fetchJobMetadata.yaml
   /createTriggers:
-    $ref: paths/old/admin/jobs/createTriggers.yaml
+    $ref: paths/admin/jobs/createTriggers.yaml
   /resumePauseJobs:
-    $ref: paths/old/admin/jobs/resumePauseJobs.yaml
+    $ref: paths/admin/jobs/resumePauseJobs.yaml
   /uploadSchemaFile:
-    $ref: paths/old/admin/utils/uploadSchemaFile.yaml
+    $ref: paths/admin/utils/uploadSchemaFile.yaml
   /checkImportStatus:
-    $ref: paths/old/admin/jobs/checkImportStatus.yaml
+    $ref: paths/admin/jobs/checkImportStatus.yaml
   /forceComplete:
-    $ref: paths/old/admin/jobs/forceComplete.yaml
+    $ref: paths/admin/jobs/forceComplete.yaml
   /testConnection:
-    $ref: paths/old/connections/testConnection.yaml
+    $ref: paths/connections/testConnection.yaml
   /importData:
-    $ref: paths/old/admin/utils/importData.yaml
+    $ref: paths/admin/utils/importData.yaml
   /sendEmail:
-    $ref: paths/old/admin/utils/sendEmail.yaml
+    $ref: paths/admin/utils/sendEmail.yaml
   /mobileDashboard:
-    $ref: paths/old/dashboards/mobileDashboard.yaml
+    $ref: paths/dashboards/mobileDashboard.yaml
   /retrieveDashboardAccountData:
-    $ref: paths/old/dashboards/retrieveDashboardAccountData.yaml
+    $ref: paths/dashboards/retrieveDashboardAccountData.yaml
   /retrieveDashboardData:
-    $ref: paths/old/dashboards/retrieveDashboardData.yaml
+    $ref: paths/dashboards/retrieveDashboardData.yaml
   /getAccessRecommendations:
-    $ref: paths/old/analytics/getAccessRecommendations.yaml
+    $ref: paths/analytics/getAccessRecommendations.yaml
   /exportTransportPackage:
-    $ref: paths/old/admin/transport/exportTransportPackage.yaml
+    $ref: paths/admin/transport/exportTransportPackage.yaml
   /importTransportPackage:
-    $ref: paths/old/admin/transport/importTransportPackage.yaml
+    $ref: paths/admin/transport/importTransportPackage.yaml
   /transportPackageStatus:
-    $ref: paths/old/admin/transport/transportPackageStatus.yaml
+    $ref: paths/admin/transport/transportPackageStatus.yaml
   /rules/technical:
-    $ref: paths/old/policies/rules_technical.yaml
+    $ref: paths/policies/rules_technical.yaml
 components:
   securitySchemes:
     bearerAuth:

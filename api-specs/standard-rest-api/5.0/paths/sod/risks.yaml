@@ -1,0 +1,53 @@
+post:
+  tags:
+    - risk
+  summary: Add a new risk
+  description: Add a new risk
+  operationId: createRisk
+  requestBody:
+    description: Create a new risk
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/Risk.yaml#/Risk'
+    required: true
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/Risk.yaml#/Risk'
+    '400':
+      description: Invalid input
+    '422':
+      description: Validation exception
+get:
+  tags:
+    - risk
+  summary: Finds risks by status
+  description: Multiple status values can be provided with comma separated strings
+  operationId: findRisksByStatus
+  parameters:
+    - name: status
+      in: query
+      description: Status values that need to be considered for filter
+      required: false
+      explode: true
+      schema:
+        type: string
+        default: Active
+        enum:
+          - Active
+          - Inactive
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../components/schemas/Risk.yaml#/Risk'
+    '400':
+      description: Invalid status value

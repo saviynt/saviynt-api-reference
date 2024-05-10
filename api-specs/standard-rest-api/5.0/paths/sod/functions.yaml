@@ -1,0 +1,62 @@
+post:
+  tags:
+    - functions
+  summary: Add a new function
+  description: Add a new function
+  operationId: createFunction
+  requestBody:
+    description: Create a new function
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/Function.yaml#/Function'
+    required: true
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/Function.yaml#/Function'          
+        application/xml:
+          schema:
+            $ref: '../../components/schemas/Function.yaml#/Function'
+    '400':
+      description: Invalid input
+    '422':
+      description: Validation exception
+get:
+  tags:
+    - functions
+  summary: Finds functions by status
+  description: Multiple status values can be provided with comma separated strings
+  operationId: findFunctionsByStatus
+  parameters:
+    - name: status
+      in: query
+      description: Status values that need to be considered for filter
+      required: false
+      explode: true
+      schema:
+        type: string
+        default: Active
+        enum:
+          - Active
+          - Inactive
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../components/schemas/Function.yaml#/Function'          
+        application/xml:
+          schema:
+            type: array
+            items:
+              $ref: '../../components/schemas/Function.yaml#/Function'
+    '400':
+      description: Invalid status value
+      

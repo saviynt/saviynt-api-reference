@@ -1,0 +1,90 @@
+get:
+  tags:
+    - functions
+  summary: Find function by ID
+  description: Returns a single function
+  operationId: getFunctionById
+  parameters:
+    - name: functionId
+      in: path
+      description: ID of function to return
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/Function.yaml#/Function'          
+        application/xml:
+          schema:
+            $ref: '../../components/schemas/Function.yaml#/Function'
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Pet not found
+put:
+  tags:
+    - functions
+  summary: Update an existing function
+  description: Update an existing function by Id
+  operationId: updateFunction
+  parameters:
+    - name: functionId
+      in: path
+      description: function id to delete
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    description: Update an existent function in the SoD Ruleset
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/Function.yaml#/Function'
+    required: true
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/Function.yaml#/Function'          
+        application/xml:
+          schema:
+            $ref: '../../components/schemas/Function.yaml#/Function'
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: function not found
+    '422':
+      description: Validation exception    
+delete:
+  tags:
+    - function
+  summary: Deletes a function
+  description: delete a function
+  operationId: deleteFunction
+  parameters:
+    - name: functionId
+      in: path
+      description: function id to delete
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            items:
+              $ref: '../../components/schemas/Function.yaml#/Function'
+    '400':
+      description: Invalid function value

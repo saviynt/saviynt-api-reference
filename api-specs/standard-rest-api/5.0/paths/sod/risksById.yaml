@@ -1,0 +1,90 @@
+put:
+  tags:
+    - risk
+  summary: Update an existing risk
+  description: Update an existing risk by Id
+  operationId: updateRisk
+  parameters:
+    - name: riskId
+      in: path
+      description: ID of risk to return
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    description: Update an existent risk in the SoD Ruleset
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/Risk.yaml#/Risk'
+    required: true
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/Risk.yaml#/Risk'
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Risk not found
+    '422':
+      description: Validation exception
+get:
+  tags:
+    - risk
+  summary: Find risk by ID
+  description: Returns a single risk
+  operationId: getRiskById
+  parameters:
+    - name: riskId
+      in: path
+      description: ID of risk to return
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/Risk.yaml#/Risk'
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Pet not found
+delete:
+  tags:
+    - risk
+  summary: Deletes a risk
+  description: delete a risk
+  operationId: deleteRisk
+  parameters:
+    - name: api_key
+      in: header
+      description: ''
+      required: false
+      schema:
+        type: string
+    - name: riskId
+      in: path
+      description: Risk id to delete
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            items:
+              $ref: '../../components/schemas/Risk.yaml#/Risk'
+    '400':
+      description: Invalid Risk value
