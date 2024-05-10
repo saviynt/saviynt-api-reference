@@ -1,61 +1,16 @@
-/risks/{riskId}:
-  put:
-    tags:
-      - risk
-    summary: Update an existing risk
-    description: Update an existing risk by Id
-    operationId: updateRisk
-    requestBody:
-      description: Update an existent risk in the SoD Ruleset
-      content:
-        application/json:
-          schema:
-            $ref: 'components/schemas/Risk'
-        application/xml:
-          schema:
-            $ref: '/components/schemas/Risk'
-        application/x-www-form-urlencoded:
-          schema:
-            $ref: '/components/schemas/Risk'
-      required: true
-    responses:
-      '200':
-        description: Successful operation
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Risk'          
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Risk'
-      '400':
-        description: Invalid ID supplied
-      '404':
-        description: Risk not found
-      '422':
-        description: Validation exception
-    security:
-      - sod_auth:
-          - write:risks
-          - read:risks
+/sod/risks:
   post:
     tags:
       - risk
     summary: Add a new risk
     description: Add a new risk
-    operationId: addRisk
+    operationId: createRisk
     requestBody:
       description: Create a new risk
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Risk'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/Risk'
-        application/x-www-form-urlencoded:
-          schema:
-            $ref: '#/components/schemas/Risk'
+            $ref: '../../components/schemas/Risk.yaml#/Risk'
       required: true
     responses:
       '200':
@@ -63,19 +18,11 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Risk'          
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Risk'
+              $ref: '../../components/schemas/Risk.yaml#/Risk'
       '400':
         description: Invalid input
       '422':
         description: Validation exception
-    security:
-      - sod_auth:
-          - write:risks
-          - read:risks
-/risk/findByStatus:
   get:
     tags:
       - risk
@@ -102,56 +49,44 @@
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Risk'          
-          application/xml:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Risk'
+                $ref: '../../components/schemas/Risk.yaml#/Risk'
       '400':
         description: Invalid status value
-    security:
-      - sod_auth:
-          - write:risks
-          - read:risks
-/risk/findByPriority:
-  get:
+/sod/risks/{riskId}:
+  put:
     tags:
       - risk
-    summary: Finds Risks by Priority
-    description: Multiple Priority can be provided with comma separated strings. Use High, Low, Critical for testing.
-    operationId: findRisksByPriority
+    summary: Update an existing risk
+    description: Update an existing risk by Id
+    operationId: updateRisk
     parameters:
-      - name: Priority
-        in: query
-        description: Priority to filter by
-        required: false
-        explode: true
+      - name: riskId
+        in: path
+        description: ID of risk to return
+        required: true
         schema:
-          type: array
-          items:
-            type: string
+          type: integer
+          format: int64
+    requestBody:
+      description: Update an existent risk in the SoD Ruleset
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/Risk.yaml#/Risk'
+      required: true
     responses:
       '200':
-        description: successful operation
+        description: Successful operation
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Risk'          
-          application/xml:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Risk'
+              $ref: '../../components/schemas/Risk.yaml#/Risk'
       '400':
-        description: Invalid Priority value
-    security:
-      - sod_auth:
-          - write:risks
-          - read:risks
-/risk/{riskId}:
+        description: Invalid ID supplied
+      '404':
+        description: Risk not found
+      '422':
+        description: Validation exception
   get:
     tags:
       - risk
@@ -172,50 +107,11 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Risk'          
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Risk'
+              $ref: '../../components/schemas/Risk.yaml#/Risk'
       '400':
         description: Invalid ID supplied
       '404':
         description: Pet not found
-    security:
-      - api_key: []
-      - sod_auth:
-          - write:risks
-          - read:risks
-  post:
-    tags:
-      - risk
-    summary: Updates a risk with form data
-    description: ''
-    operationId: updateRiskWithForm
-    parameters:
-      - name: riskId
-        in: path
-        description: ID of risk that needs to be updated
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: name
-        in: query
-        description: Name of risk that needs to be updated
-        schema:
-          type: string
-      - name: status
-        in: query
-        description: Status of risk that needs to be updated
-        schema:
-          type: string
-    responses:
-      '400':
-        description: Invalid input
-    security:
-      - sod_auth:
-          - write:risks
-          - read:risks
   delete:
     tags:
       - risk
@@ -239,7 +135,3 @@
     responses:
       '400':
         description: Invalid Risk value
-    security:
-      - sod_auth:
-          - write:risks
-          - read:risks

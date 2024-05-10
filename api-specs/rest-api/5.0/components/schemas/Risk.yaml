@@ -15,7 +15,7 @@ Risk:
        type: string
        example: The ability to setup customer bill and apply review payment
     riskOwner:
-       $ref: '#/components/schemas/RiskOwner'
+       $ref: '#/RiskOwner'
     comments:
        type: string
        example: "Add comments here"

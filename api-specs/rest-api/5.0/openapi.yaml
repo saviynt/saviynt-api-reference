@@ -19,7 +19,7 @@ externalDocs:
   description: Documentation
   url: https://docs.saviyntcloud.com/
 servers:
-  - url: https://{tenant}.saviyntcloud.com/ECM/api/v5/
+  - url: https://{tenant}.saviyntcloud.com/ECM/api/v5
     variables:
       tenant:
         description: tenant
@@ -28,7 +28,6 @@ security:
   - bearerAuth: []
 paths:
   $ref: paths/sod/risks.yaml
-  $ref: paths/sod/functions.yaml
   /api/login:
     $ref: paths/old/auth/api_login.yaml
   /oauth/access_token:

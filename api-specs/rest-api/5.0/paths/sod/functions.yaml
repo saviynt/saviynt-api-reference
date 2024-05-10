@@ -1,46 +1,7 @@
-/function:
-  put:
-    tags:
-      - function
-    summary: Update an existing function
-    description: Update an existing function by Id
-    operationId: updateFunction
-    requestBody:
-      description: Update an existent function in the SoD Ruleset
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Function'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/Function'
-        application/x-www-form-urlencoded:
-          schema:
-            $ref: '#/components/schemas/Function'
-      required: true
-    responses:
-      '200':
-        description: Successful operation
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Function'          
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Function'
-      '400':
-        description: Invalid ID supplied
-      '404':
-        description: function not found
-      '422':
-        description: Validation exception
-    security:
-      - sod_auth:
-          - write:functions
-          - read:functions
+/sod/functions:
   post:
     tags:
-      - function
+      - functions
     summary: Add a new function
     description: Add a new function
     operationId: addFunction
@@ -48,12 +9,6 @@
       description: Create a new function
       content:
         application/json:
-          schema:
-            $ref: '#/components/schemas/Function'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/Function'
-        application/x-www-form-urlencoded:
           schema:
             $ref: '#/components/schemas/Function'
       required: true
@@ -71,14 +26,9 @@
         description: Invalid input
       '422':
         description: Validation exception
-    security:
-      - sod_auth:
-          - write:functions
-          - read:functions
-/function/findByStatus:
   get:
     tags:
-      - function
+      - functions
     summary: Finds functions by status
     description: Multiple status values can be provided with comma separated strings
     operationId: findFunctionsByStatus
@@ -114,47 +64,10 @@
       - sod_auth:
           - write:functions
           - read:functions
-/function/findByPriority:
+/sod/functions/{functionId}:
   get:
     tags:
-      - function
-    summary: Finds functions by Priority
-    description: Multiple Priority can be provided with comma separated strings. Use High, Low, Critical for testing.
-    operationId: findFunctionsByPriority
-    parameters:
-      - name: Priority
-        in: query
-        description: Priority to filter by
-        required: false
-        explode: true
-        schema:
-          type: array
-          items:
-            type: string
-    responses:
-      '200':
-        description: successful operation
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Function'          
-          application/xml:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Function'
-      '400':
-        description: Invalid Priority value
-    security:
-      - sod_auth:
-          - write:functions
-          - read:functions
-/function/{functionId}:
-  get:
-    tags:
-      - function
+      - functions
     summary: Find function by ID
     description: Returns a single function
     operationId: getFunctionById
@@ -172,50 +85,51 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Function'          
+              $ref: '../../components/schemas/Function.yaml#/Function'          
           application/xml:
             schema:
-              $ref: '#/components/schemas/Function'
+              $ref: '../../components/schemas/Function.yaml#/Function'
       '400':
         description: Invalid ID supplied
       '404':
         description: Pet not found
-    security:
-      - api_key: []
-      - sod_auth:
-          - write:functions
-          - read:functions
-  post:
+  put:
     tags:
-      - function
-    summary: Updates a function with form data
-    description: ''
-    operationId: updateFunctionWithForm
+      - functions
+    summary: Update an existing function
+    description: Update an existing function by Id
+    operationId: updateFunction
     parameters:
       - name: functionId
         in: path
-        description: ID of function that needs to be updated
+        description: function id to delete
         required: true
         schema:
           type: integer
           format: int64
-      - name: name
-        in: query
-        description: Name of function that needs to be updated
-        schema:
-          type: string
-      - name: status
-        in: query
-        description: Status of function that needs to be updated
-        schema:
-          type: string
+    requestBody:
+      description: Update an existent function in the SoD Ruleset
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/Function.yaml#/Function'
+      required: true
     responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              $ref: '../../components/schemas/Function.yaml#/Function'          
+          application/xml:
+            schema:
+              $ref: '../../components/schemas/Function.yaml#/Function'
       '400':
-        description: Invalid input
-    security:
-      - sod_auth:
-          - write:functions
-          - read:functions
+        description: Invalid ID supplied
+      '404':
+        description: function not found
+      '422':
+        description: Validation exception    
   delete:
     tags:
       - function
@@ -223,12 +137,6 @@
     description: delete a function
     operationId: deleteFunction
     parameters:
-      - name: api_key
-        in: header
-        description: ''
-        required: false
-        schema:
-          type: string
       - name: functionId
         in: path
         description: function id to delete
@@ -239,7 +147,3 @@
     responses:
       '400':
         description: Invalid function value
-    security:
-      - sod_auth:
-          - write:functions
-          - read:functions
