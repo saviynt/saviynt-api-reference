@@ -24,7 +24,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3  # Updated to use the latest version
         with:
-          node-version: '16'  # Using Node.js 16, adapt as needed based on Node.js release schedule
+          node-version: '20'  # Using Node.js 16, adapt as needed based on Node.js release schedule
 
       - name: Install Redocly CLI
         run: npm install -g @redocly/cli
