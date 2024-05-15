@@ -7,12 +7,14 @@ on:
       - feature
     paths:
       - 'api-specs/**'
+      - 'redocly.yaml'
   pull_request:
     branches:
       - main
       - develop
     paths:
       - 'api-specs/**'
+      - 'redocly.yaml'
 
 jobs:
   lint-api:

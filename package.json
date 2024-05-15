@@ -2,7 +2,8 @@
   "name": "saviynt-enterprise-identity-cloud-api-reference",
   "version": "1.0.0",
   "dependencies": {
-    "@redocly/openapi-cli": "^1.0.0-beta.95"
+    "@redocly/openapi-cli": "^1.0.0-beta.95",
+    "openapi-diff": "^0.23.7"
   },
   "private": true,
   "scripts": {
