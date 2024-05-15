@@ -20,12 +20,16 @@ apis:
       security-defined: error
       no-ambiguous-paths: error
       operation-2xx-response: error
+      operation-tag-defined: error
+      path-not-included-query: error
   standard-rest-api@5.0:
     root: './api-specs/standard-rest-api/5.0/openapi.yaml'
     extends:
       - recommended     
     rules:
       # A sample custom rule. Read more about rules: https://redocly.com/docs/cli/rules/
+      # metadata rules
+      no-empty-servers: error
       rule/operation-description:
         subject: 
           type: Operation
@@ -34,18 +38,30 @@ apis:
           defined: true
           minLength: 10
       tag-description: error
+      operation-tag-defined: error
+      no-example-value-and-externalValue: error
+
+      #security rules
       security-defined: error
+
+      # path rules
       no-ambiguous-paths: error
-      operation-2xx-response: error
       paths-kebab-case: error
+      no-http-verbs-in-paths: error
+      path-not-included-query: error
+
+      # response rules
+      operation-2xx-response: error
+      operation-4xx-response: error
+
+      # parameter rules
       boolean-parameter-prefixes:
         severity: error
         prefixes: ["can", "is", "has"]
-      component-name-unique: error
-      no-empty-servers: error
       no-enum-type-mismatch: error
-      no-example-value-and-externalValue: error
-      no-http-verbs-in-paths: error
+
+      # component rules
+      component-name-unique: error
   ecf-api@1.0:
     root: './api-specs/ecf-api/1.0/openapi.yaml'
     extends:
@@ -59,10 +75,12 @@ apis:
         assertions:
           defined: true
           minLength: 10
+      operation-tag-defined: error
       tag-description: error
       security-defined: error
       no-ambiguous-paths: error
       operation-2xx-response: error
+      operation-4xx-response: error
       paths-kebab-case: error
       boolean-parameter-prefixes:
         severity: error
@@ -72,6 +90,7 @@ apis:
       no-enum-type-mismatch: error
       no-example-value-and-externalValue: error
       no-http-verbs-in-paths: error
+      path-not-included-query: error
 theme:
   openapi:
     generateCodeSamples:

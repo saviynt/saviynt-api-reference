@@ -1,0 +1,41 @@
+name: Redocly API Lint
+
+on:
+  push:
+    branches:
+      - main
+      - feature
+    paths:
+      - 'api-specs/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'api-specs/**'
+
+jobs:
+  lint-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Updated to use the latest version
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3  # Updated to use the latest version
+        with:
+          node-version: '16'  # Using Node.js 16, adapt as needed based on Node.js release schedule
+
+      - name: Install Redocly CLI
+        run: npm install -g @redocly/cli
+
+      - name: Lint REST API 5.0
+        run: redocly lint rest-api@5.0
+
+      - name: Lint Standard REST API 5.0
+        run: redocly lint standard-rest-api@5.0
+      
+      - name: Lint Standard REST API 5.0
+        run: redocly lint ecf-api@5.0
+
+
