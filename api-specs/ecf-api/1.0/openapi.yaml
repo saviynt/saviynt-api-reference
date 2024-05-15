@@ -15,11 +15,17 @@ security:
   - bearerAuth: []  # Bearer Token Authentication
 tags:
   - name: User Import
+    description: APIs for importing user 
   - name: Account Import
+    description: APIs for importing accounts
   - name: Access and Access Membership Import
+    description: APIs for access details
   - name: User Provisioning
+    description: APIs for provisioning users
   - name: Account Provisioning
+    description: APIs for provisioning accounts
   - name: Access Provisioning
+    description: APIs for provisioning access
 paths:
   /users:
     post:
