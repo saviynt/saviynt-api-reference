@@ -38,6 +38,6 @@ jobs:
         run: redocly lint standard-rest-api@5.0
       
       - name: Lint Standard REST API 5.0
-        run: redocly lint ecf-api@5.0
+        run: redocly lint ecf-api@1.0
 
 
