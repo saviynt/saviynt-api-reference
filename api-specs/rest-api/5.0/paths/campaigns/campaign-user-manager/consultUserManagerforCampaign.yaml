@@ -1,6 +1,6 @@
 post:
   tags:
-    - campaign-user-manager
+    - campaigns-user-manager
   summary: Consult UserManager Step 1 for Campaign
   description: >-
     This API consults UserManager for Campaign at Employment Verification Stage

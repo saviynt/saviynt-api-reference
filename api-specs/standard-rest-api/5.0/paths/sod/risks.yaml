@@ -1,6 +1,6 @@
 post:
   tags:
-    - risk
+    - risks
   summary: Add a new risk
   description: Add a new risk
   operationId: createRisk
@@ -24,7 +24,7 @@ post:
       description: Validation exception
 get:
   tags:
-    - risk
+    - risks
   summary: Finds risks by status
   description: Multiple status values can be provided with comma separated strings
   operationId: findRisksByStatus

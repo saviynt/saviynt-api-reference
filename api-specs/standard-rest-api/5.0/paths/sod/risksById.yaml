@@ -1,6 +1,6 @@
 put:
   tags:
-    - risk
+    - risks
   summary: Update an existing risk
   description: Update an existing risk by Id
   operationId: updateRisk
@@ -34,7 +34,7 @@ put:
       description: Validation exception
 get:
   tags:
-    - risk
+    - risks
   summary: Find risk by ID
   description: Returns a single risk
   operationId: getRiskById
@@ -59,7 +59,7 @@ get:
       description: Pet not found
 delete:
   tags:
-    - risk
+    - risks
   summary: Deletes a risk
   description: delete a risk
   operationId: deleteRisk

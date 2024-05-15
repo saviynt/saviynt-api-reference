@@ -26,6 +26,11 @@ servers:
         default: example
 security:
   - bearerAuth: []
+tags: 
+  - name: functions 
+    description: 'sod functions'
+  - name: risks
+    description: 'sod risks'
 paths:
   /sod/risks:
     $ref: paths/sod/risks.yaml

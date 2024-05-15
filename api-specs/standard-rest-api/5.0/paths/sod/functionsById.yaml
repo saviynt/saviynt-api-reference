@@ -65,7 +65,7 @@ put:
       description: Validation exception    
 delete:
   tags:
-    - function
+    - functions
   summary: Deletes a function
   description: delete a function
   operationId: deleteFunction
