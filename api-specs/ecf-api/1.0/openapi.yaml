@@ -30,6 +30,7 @@ paths:
   /users:
     post:
       operationId: post-users
+      description: 'This API returns the list of users'
       tags :
         - User Import
       summary: This API returns the list of users
