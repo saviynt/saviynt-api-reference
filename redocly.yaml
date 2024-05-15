@@ -38,6 +38,40 @@ apis:
       no-ambiguous-paths: error
       operation-2xx-response: error
       paths-kebab-case: error
+      boolean-parameter-prefixes:
+        severity: error
+        prefixes: ["can", "is", "has"]
+      component-name-unique: error
+      no-empty-servers: error
+      no-enum-type-mismatch: error
+      no-example-value-and-externalValue: error
+      no-http-verbs-in-paths: error
+  ecf-api@1.0:
+    root: './api-specs/ecf-api/1.0/openapi.yaml'
+    extends:
+      - recommended     
+    rules:
+      # A sample custom rule. Read more about rules: https://redocly.com/docs/cli/rules/
+      rule/operation-description:
+        subject: 
+          type: Operation
+          property: description
+        assertions:
+          defined: true
+          minLength: 10
+      tag-description: error
+      security-defined: error
+      no-ambiguous-paths: error
+      operation-2xx-response: error
+      paths-kebab-case: error
+      boolean-parameter-prefixes:
+        severity: error
+        prefixes: ["can", "is", "has"]
+      component-name-unique: error
+      no-empty-servers: error
+      no-enum-type-mismatch: error
+      no-example-value-and-externalValue: error
+      no-http-verbs-in-paths: error
 theme:
   openapi:
     generateCodeSamples:
