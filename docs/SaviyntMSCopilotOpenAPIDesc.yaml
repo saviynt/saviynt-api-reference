@@ -9,7 +9,7 @@ paths:
   '/ECM/api/v5/getAccessDetailsForUser':
     get:
       summary: Get Access Details for Users
-      description: Retrieve account and entitlement details for specified usersand endpoint.
+      description: Retrieve account and entitlement details for specified users and endpoint.
       operationId: getAccessDetailsforUsers
       parameters:
         - name: username
