@@ -359,91 +359,208 @@ components:
     GetOrganizationResponse:
       type: object
       properties:
-        msg:
-          type: string
-          example: "Successful"
-        displayCount:
+        displaycount:
           type: integer
           example: 1
-        accessDetails:
+        msg:
+          type: string
+          example: Success
+        totalcount:
+          type: integer
+          example: 1
+        organizations:
           type: array
           items:
             type: object
             properties:
-              userstatus:
-                type: integer
-                example: 1
-              entitlement_valuekey:
-                type: integer
-                example: 194098
-              entdisplayname:
+              entitlements:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    customproperty1:
+                      type: string
+                      example: "268435457"
+                    entitlementtypekey:
+                      type: string
+                      example: memberOf
+                    systemname:
+                      type: string
+                      example: Active Directory
+                    description:
+                      type: string
+                      example: ""
+                    entitlementvalue:
+                      type: string
+                      example: CN=awsdevelopers,OU=AWS,DC=corpAD,DC=saviynt,DC=com
+                    entitlement_glossary:
+                      type: string
+                      example: ""
+              endpoints:
+                type: array
+                items:
+                  type: object
+              savUpdateDate:
                 type: string
-                nullable: true
-                example: null
-              accountdisplayname:
+                example: "2021-12-08 10:18:46"
+              customproperty1:
                 type: string
-                example: "245947"
-              endpointDisplayname:
+                example: "1"
+              lastcertificationdate:
                 type: string
-                example: "AWS"
-              endpointkey:
-                type: integer
-                example: 1
-              systemname:
+                example: "2022-04-15 13:39:38"
+              roles:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    rolename:
+                      type: string
+                      example: Operations Analyst
+                    displayname:
+                      type: string
+                      example: Operations Analyst
+                    description:
+                      type: string
+                      example: Gives access for sales operations for Globex employees
+                    roletype:
+                      type: integer
+                      example: 4
+                    status:
+                      type: integer
+                      example: 1
+              primaryvendorcontact:
                 type: string
-                example: "AWS"
-              accountkey:
-                type: integer
-                example: 3684
-              entitlementType:
+                example: johngregory
+              createdate:
                 type: string
-                example: "AWSPolicy"
-              entitlementTypeRequestForm:
+                example: "2022-04-15 13:39:38"
+              description:
                 type: string
-                example: "Request Form Table"
-              userkey:
-                type: integer
-                example: 2511
-              entdescription:
+                example: IT Vendor for Business Consultant Resources
+              rules:
+                type: array
+                items:
+                  type: object
+              createuser:
                 type: string
-                nullable: true
-                example: null
-              entitlementTypekey:
-                type: integer
-                example: 59
-              entitlementTypeDisplayname:
+                example: ggradi
+              startdate:
                 type: string
-                example: "AWSPolicy"
-              accountname:
+                example: "2021-12-08 00:00:00"
+              eventsource:
                 type: string
-                example: "245947"
-              accountstatus:
+                example: "11"
+              savCreateDate:
                 type: string
-                example: "Manually Suspended"
-              endpointname:
+                example: "2021-12-08 10:18:46"
+              users:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    firstname:
+                      type: string
+                      example: Peter
+                    manager:
+                      type: string
+                      example: rgaddam
+                    city:
+                      type: string
+                      example: El Segundo
+                    lastname:
+                      type: string
+                      example: Miller
+                    companyname:
+                      type: string
+                      example: ""
+                    departmentname:
+                      type: string
+                      example: ""
+                    departmentNumber:
+                      type: string
+                      example: ""
+                    jobcode:
+                      type: string
+                      example: ""
+                    jobcodedesc:
+                      type: string
+                      example: ""
+                    costcenter:
+                      type: string
+                      example: "41021"
+                    email:
+                      type: string
+                      example: petermiller@saviyntlive.com
+                    username:
+                      type: string
+                      example: petermiller
+                    status:
+                      type: string
+                      example: Active
+              score:
                 type: string
-                example: "AWS"
-              entitlement_value:
+                example: "0"
+              updatedate:
                 type: string
-                example: "arn:aws:iam::661222050851:policy/CrossPolicy2"
-              entstatus:
-                type: integer
-                example: 1
-              securitysystemkey:
-                type: integer
-                example: 1
-              securitysystemdisplayname:
+                example: "2023-01-06 20:03:59"
+              organizationowners:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    firstname:
+                      type: string
+                      example: Daniel
+                    comments:
+                      type: string
+                      example: ""
+                    enddate:
+                      type: string
+                      example: ""
+                    city:
+                      type: string
+                      example: El Segundo
+                    rank:
+                      type: integer
+                      example: 1
+                    email:
+                      type: string
+                      example: dsmith@saviyntlive.onmicrosoft.com
+                    userkey:
+                      type: integer
+                      example: 1
+                    username:
+                      type: string
+                      example: admin
+                    lastname:
+                      type: string
+                      example: Inactive
+                    policy:
+                      type: integer
+                      example: 1
+              organizationname:
                 type: string
-                example: "AWS"
-              username:
+                example: Acme
+              risk:
                 type: string
-                example: "245947"
-        errorCode:
-          type: string
-          example: "0"
-        totalCount:
-          type: integer
-          example: 1
+                example: "0"
+              attributes:
+                type: array
+                items:
+                  type: object
+              organizationkey:
+                type: string
+                example: "1"
+              status:
+                type: string
+                example: Active
+              updateuser:
+                type: string
+                example: msherman
+      errorCode:
+        type: string
+        example: "0"
     UserListResponse:
       type: object
       properties:
