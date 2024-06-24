@@ -63,7 +63,7 @@ paths:
   /ECM/api/v5/getOrganization:
     get:
       summary: Get Organization Details
-      description: Get details for organization based on the provided criteria like organization name
+      description: Get organizaion details based on the provided criteria like organization name
       requestBody:
         required: false
         content:
