@@ -9,7 +9,11 @@ paths:
   '/ECM/api/v5/getAccessDetailsForUser':
     get:
       summary: Get Access Details for Users
-      description: Retrieve account and entitlement details for specified users and endpoint.
+      description: |
+        Retrieve account and entitlement details for specified users and endpoint.
+        #ExamplePrompt Get access details for the user from Saviynt
+        #ExamplePrompt List this user's access details
+        #ExamplePrompt Tell me about the access details for this user
       operationId: getAccessDetailsforUsers
       parameters:
         - name: username
@@ -41,7 +45,12 @@ paths:
     get:
       operationId: getUser
       summary: Retrieve user details based on query parameters
-      description: Retrieve user details based on the provided query parameters such as firstname, lastname, username, jobcode, accountExpired, statuskey, departmentname, etc. Multiple values for a single search criteria can be passed as comma separated values (e.g., Username:john,frank,sam). Customproperty1 refers to the user risk score.
+      description: |
+        Retrieve user details based on the provided query parameters such as firstname, lastname, username, jobcode, accountExpired, statuskey, departmentname, etc. Multiple values for a single search criteria can be passed as comma separated values (e.g., Username:john,frank,sam). Customproperty1 refers to the user risk score.
+        #ExamplePrompt Get the user profile details for this user from Saviynt
+        #ExamplePrompt Get the user details for this user. Pass FirstName and LastName in the search criteria.
+        #ExamplePrompt Tell me about this user's profile details
+        #ExamplePrompt Get the risk associated with this user from Saviynt
       parameters:
         - name: q
           in: query
@@ -63,7 +72,11 @@ paths:
   /ECM/api/v5/getOrganization:
     get:
       summary: Get Organization Details
-      description: Get organizaion details based on the organization name. Pass in the organization name to the filter criteria organizationname.
+      description: |
+        Get organizaion details based on the organization name. Pass in the organization name to the filter criteria organizationname.
+        #ExamplePrompt Get details for this organization
+        #ExamplePrompt Get a list of organizations that have not been certified for the last six months from Saviynt
+        #ExamplePrompt Get details for the organization based on organization name
       requestBody:
         required: false
         content:
@@ -91,7 +104,9 @@ paths:
   /ECMv6/api/userms/savroles/{roleName}/users:
     get:
       summary: Get Users by Sav Role
-      description: Retrieve a list of users with the specified Sav role
+      description: |
+        Retrieve a list of users with the specified Sav role
+        #ExamplePrompt List users who have access to this Sav Role
       parameters:
         - name: roleName
           in: path
@@ -126,7 +141,10 @@ paths:
   /ECM/api/v5/getChildEntitlements:
     get:
       summary: Get dependent Entitlements
-      description: Retrieve dependent entitlements for a specified entitlement and endpoint.
+      description: |
+       Retrieve dependent entitlements for a specified entitlement and endpoint.
+       #ExamplePrompt Get dependent entitlements for this entitlement from Saviynt
+       #ExamplePrompt List the dependent entitlements for this entitlement if exists
       requestBody:
         required: true
         content:
